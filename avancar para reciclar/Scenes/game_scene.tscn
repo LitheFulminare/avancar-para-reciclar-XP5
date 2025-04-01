@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyaj5f0egghh"]
+
+[sub_resource type="Gradient" id="Gradient_oqyrl"]
+colors = PackedColorArray(0, 0.540786, 0.199362, 1, 2.88785e-07, 0.478676, 0.298847, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x87qo"]
+gradient = SubResource("Gradient_oqyrl")
+
+[node name="Game scene" type="Node2D"]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="BG sprite" type="Sprite2D" parent="Background"]
+position = Vector2(576, 324)
+scale = Vector2(18, 10.125)
+texture = SubResource("GradientTexture2D_x87qo")
