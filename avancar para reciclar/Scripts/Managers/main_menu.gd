@@ -4,6 +4,7 @@ extends Node2D
 @onready var player1 = $Players/Player1
 @onready var player2 = $Players/Player2
 @onready var player3 = $Players/Player3
+@onready var player_array: Array = [player1, player2, player3]
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Confirm"):
@@ -20,6 +21,4 @@ func _input(event: InputEvent) -> void:
 			print("player 3 rolled: " + str(player3.dice_roll))
 		
 		else:
-			var player_array: Array = [player1, player2, player3]
-			player_array.sort()
 			print(player_array[0].dice_roll, player_array[1].dice_roll, player_array[2].dice_roll)
