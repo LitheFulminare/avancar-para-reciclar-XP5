@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# test this later: apparently this stops showing files with no content changes
+# https://docs.godotengine.org/en/stable/tutorials/best_practices/version_control_systems.html
+#git config --global core.autocrlf input
