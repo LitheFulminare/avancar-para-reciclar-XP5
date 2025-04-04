@@ -9,6 +9,6 @@ var max_round: int = 20; # maybe give the player the option to ajust this?
 
 var rng = RandomNumberGenerator.new()
 
-func roll_dice(from: int, to: int):
+func roll_dice(from: int, to: int) -> int:
 	rng.randomize()
-	rng.randi_range(from, to)
+	return rng.randi_range(from, to)
