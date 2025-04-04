@@ -29,11 +29,6 @@ func next_turn():
 	else:
 		GameManager.turn += 1
 		
-	var dice_number: int = roll_dice()
+	var dice_number: int = GameManager.roll_dice(1, 6)
 	print("Current turn: " + str(GameManager.turn))
 	print("Dice rolled, player got a " + str(dice_number))
-		
-# maybe dedicate a node to handle this?
-func roll_dice() -> int:
-	# also put screen effects here
-	return GameManager.rng.randi_range(1, 6)
