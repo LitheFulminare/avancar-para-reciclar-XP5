@@ -5,7 +5,6 @@ extends Node
 func _ready() -> void:
 	# this wont be on _ready() forever
 	# a button click on the menu will call this function
-	GameManager.rng.randomize()
 	start_game()
 
 func _input(event: InputEvent) -> void:
@@ -18,15 +17,15 @@ func start_game():
 	next_turn()
 
 func next_turn():
-	if GameManager.turn == GameManager.player_count:
+	
+	if GameManager.turn == GameManager.player_count: # when the last player finished their turn
 		GameManager.current_round += 1
 		GameManager.turn = 1
 		print("Round ended")
 		print("")
 		print("Now starting round: " + str(GameManager.current_round))
-		#print("Current turn: " + str(GameManager.turn))
 		
-	else:
+	else: # when there still players left to play on the round
 		GameManager.turn += 1
 		
 	var dice_number: int = GameManager.roll_dice(1, 6)
