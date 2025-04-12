@@ -2,8 +2,14 @@
 
 extends Node
 
-enum round_states {start_round, first_dice_roll, second_dice_roll, move, end_round}
-var current_round_state: round_states = round_states.first_dice_roll
+enum round_states { start_round, 
+					start_turn, 
+					first_dice_roll, 
+					second_dice_roll, 
+					move, end_turn, 
+					end_round }
+
+var current_round_state: round_states = round_states.start_round
 
 func _ready() -> void:
 	# this wont be on _ready() forever
@@ -24,18 +30,25 @@ func next_turn():
 # gets the current round state and decides what to do
 # note:  I could change tje current round and call action again to be recursive, 
 # but all action would happen at once, which is not what I want.
-func action():
+func action():	
 	match current_round_state:
 		round_states.start_round:
 			print("Current round: " + str(GameManager.current_round))
-			
+			current_round_state = round_states.start_turn
+		
+		round_states.start_turn:
+			print("called again")
 		
 		round_states.first_dice_roll: 
 			return
+			
 		round_states.second_dice_roll: 
 			return
 		
 		round_states.move: 
+			return
+			
+		round_states.end_turn:
 			return
 			
 		round_states.end_round:
