@@ -2,6 +2,9 @@
 
 extends Node
 
+enum round_states {first_dice_roll, second_dice_roll, move}
+var current_round_state: round_states = round_states.first_dice_roll
+
 func _ready() -> void:
 	# this wont be on _ready() forever
 	# a button click on the menu will call this function
@@ -17,8 +20,10 @@ func start_game():
 	next_turn()
 
 func next_turn():
-	
 	if GameManager.turn == GameManager.player_count: # when the last player finished their turn
+		
+		current_round_state = round_states.move
+		
 		GameManager.current_round += 1
 		GameManager.turn = 1
 		print("Round ended")
@@ -31,3 +36,10 @@ func next_turn():
 	var dice_number: int = GameManager.roll_dice(1, 6)
 	print("Current turn: " + str(GameManager.turn))
 	print("Dice rolled, player got a " + str(dice_number))
+
+# gets the current round state and decides what to do
+func action():
+	match current_round_state:
+		round_states.first_dice_roll: return
+		round_states.second_dice_roll: return
+		round_states.move: return
