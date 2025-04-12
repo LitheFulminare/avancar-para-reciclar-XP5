@@ -2,7 +2,7 @@
 
 extends Node
 
-enum round_states {first_dice_roll, second_dice_roll, move}
+enum round_states {start_round, first_dice_roll, second_dice_roll, move, end_round}
 var current_round_state: round_states = round_states.first_dice_roll
 
 func _ready() -> void:
@@ -16,34 +16,27 @@ func _input(event: InputEvent) -> void:
 
 # called at the start of the game
 func start_game():
-	print("Now starting round: " + str(GameManager.current_round))
 	next_turn()
 
 func next_turn():
-	if GameManager.turn == GameManager.player_count: # when the last player finished their turn
-		current_round_state = round_states.first_dice_roll
-		action()
-		
-	else: # when there still players left to play on the round
-		GameManager.turn += 1
-		
-	current_round_state = round_states.move
-	
 	action()
 
 # gets the current round state and decides what to do
+# note:  I could change tje current round and call action again to be recursive, 
+# but all action would happen at once, which is not what I want.
 func action():
 	match current_round_state:
-		round_states.first_dice_roll: 
-			GameManager.current_round += 1
-			GameManager.turn = 1
-			print("Round ended")
-			print("")
-			print("Now starting round: " + str(GameManager.current_round))
+		round_states.start_round:
+			print("Current round: " + str(GameManager.current_round))
 			
-		#round_states.second_dice_roll: return
+		
+		round_states.first_dice_roll: 
+			return
+		round_states.second_dice_roll: 
+			return
 		
 		round_states.move: 
-			var dice_number: int = GameManager.roll_dice(1, 6)
-			print("Current turn: " + str(GameManager.turn))
-			print("Dice rolled, player got a " + str(dice_number))
+			return
+			
+		round_states.end_round:
+			return
