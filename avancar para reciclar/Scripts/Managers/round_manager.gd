@@ -11,6 +11,13 @@ enum round_states { start_round,
 
 var current_round_state: round_states = round_states.start_round
 
+var turn: int = 0 # goes from 1 to 2 or 3 depending on the player count
+var current_round: int = 1
+
+var first_dice_result: int = 0
+var second_dice_result: int = 0
+var total_dice_result: int = 0
+
 func _ready() -> void:
 	# this wont be on _ready() forever
 	# a button click on the menu will call this function
@@ -28,28 +35,47 @@ func next_turn():
 	action()
 
 # gets the current round state and decides what to do
-# note:  I could change tje current round and call action again to be recursive, 
+# note:  I could change the current round and call action again to be recursive, 
 # but all action would happen at once, which is not what I want.
-func action():	
+func action():
 	match current_round_state:
 		round_states.start_round:
-			print("Current round: " + str(GameManager.current_round))
+			print("Starting round: " + str(current_round))
+			turn = 0
 			current_round_state = round_states.start_turn
 		
 		round_states.start_turn:
-			print("called again")
+			turn += 1
+			print("Starting turn " + str(turn))
+			current_round_state = round_states.first_dice_roll
 		
 		round_states.first_dice_roll: 
-			return
+			first_dice_result = GameManager.roll_dice(1, 6)
+			print("First dice roll: " + str(first_dice_result))
+			current_round_state = round_states.second_dice_roll
 			
 		round_states.second_dice_roll: 
-			return
+			second_dice_result = GameManager.roll_dice(1, 6)
+			total_dice_result = first_dice_result + second_dice_result
+			print("Second dice roll: " + str(second_dice_result))
+			current_round_state = round_states.move
 		
 		round_states.move: 
-			return
+			print("Moving " + str(total_dice_result) + " spaces")
+			current_round_state = round_states.end_turn
 			
 		round_states.end_turn:
-			return
+			if turn == GameManager.player_count:
+				# maybe I could change the state (like I'm doing already) and calling aciont() again
+				# then it automatically triggers the end of the round
+				print("Last turn ended. Press again to finish the round")
+				current_round_state = round_states.end_round
+			else:
+				print("Turn ended")
+				print("")
+				current_round_state = round_states.start_turn
 			
 		round_states.end_round:
-			return
+			print("Round ended")
+			print("")
+			current_round_state = round_states.start_round
