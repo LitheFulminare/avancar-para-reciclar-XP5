@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyaj5f0egghh"]
+[gd_scene load_steps=3 format=3 uid="uid://dyaj5f0egghh"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_x87qo"]
-
-[sub_resource type="Gradient" id="Gradient_oqyrl"]
-colors = PackedColorArray(0, 0.540786, 0.199362, 1, 2.88785e-07, 0.478676, 0.298847, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_x87qo"]
-gradient = SubResource("Gradient_oqyrl")
+[ext_resource type="Texture2D" uid="uid://dnlh52pyr57r1" path="res://Assets/Sprites/Map/Mapa_Avacar_para_reciclar_1.png" id="2_c53t7"]
 
 [node name="Game scene" type="Node2D"]
 
@@ -17,5 +12,5 @@ script = ExtResource("1_x87qo")
 
 [node name="BG sprite" type="Sprite2D" parent="Background"]
 position = Vector2(576, 324)
-scale = Vector2(18, 10.125)
-texture = SubResource("GradientTexture2D_x87qo")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_c53t7")
