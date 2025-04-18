@@ -38,3 +38,120 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Square 1" parent="Squares" instance=ExtResource("4_7r8ec")]
 position = Vector2(246, 155)
+
+[node name="Square 2" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(333, 154)
+
+[node name="Square 3" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(408, 153)
+
+[node name="Square 4" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(488, 153)
+
+[node name="Square 5" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(563, 153)
+
+[node name="Square 6" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(644, 155)
+
+[node name="Square 7" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(728, 153)
+
+[node name="Square 8" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(807, 155)
+
+[node name="Square 9" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(881, 154)
+
+[node name="Square 10" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(946, 153)
+
+[node name="Square 11" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1016, 155)
+
+[node name="Square 12" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1020, 236)
+
+[node name="Square 13" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1018, 311)
+
+[node name="Square 14" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1021, 379)
+
+[node name="Square 15" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1019, 444)
+
+[node name="Square 16" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1018, 509)
+
+[node name="Square 17" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1020, 584)
+
+[node name="Square 18" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(945, 583)
+
+[node name="Square 19" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(882, 585)
+
+[node name="Square 20" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(804, 587)
+
+[node name="Square 21" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(734, 588)
+
+[node name="Square 22" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(663, 588)
+
+[node name="Square 23" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(588, 589)
+
+[node name="Square 24" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(517, 588)
+
+[node name="Square 25" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(442, 587)
+
+[node name="Square 26" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(365, 588)
+
+[node name="Square 27" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(294, 589)
+
+[node name="Square 28" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(226, 588)
+
+[node name="Square 29" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(152, 589)
+
+[node name="Square 30" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(146, 504)
+
+[node name="Square 31" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(147, 423)
+
+[node name="Square 32" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(141, 335)
+
+[node name="Square 33" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(217, 333)
+
+[node name="Square 34" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(293, 333)
+
+[node name="Square 35" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(364, 337)
+
+[node name="Square 36" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(441, 336)
+
+[node name="Square 37" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(512, 335)
+
+[node name="Square 38" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(588, 334)
+
+[node name="Square 39" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(664, 336)
+
+[node name="Square 40" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(743, 337)

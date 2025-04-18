@@ -18,6 +18,14 @@ var first_dice_result: int = 0
 var second_dice_result: int = 0
 var total_dice_result: int = 0
 
+var active_player
+
+@onready var player1 = $"../Players/Player 1"
+@onready var player2 = $"../Players/Player 2"
+@onready var player3 = $"../Players/Player 3"
+
+@onready var player_array : Array[Node2D] = [player1, player2, player3]
+
 func _ready() -> void:
 	# this wont be on _ready() forever
 	# a button click on the menu will call this function
@@ -46,6 +54,7 @@ func action():
 		
 		round_states.start_turn:
 			turn += 1
+			active_player = player_array[turn - 1]
 			print("Starting turn " + str(turn))
 			current_round_state = round_states.first_dice_roll
 		
