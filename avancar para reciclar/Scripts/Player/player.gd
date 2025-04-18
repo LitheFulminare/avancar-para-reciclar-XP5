@@ -5,6 +5,8 @@ signal move(target_position: Vector2)
 @export var dice_roll: int = 0
 @export var total_cards: int = 0
 
+# doesn't get changed internally
+# round_manager changes right before moving the player
 var current_square : int = 0
 
 func _on_move(target_position: Vector2) -> void:

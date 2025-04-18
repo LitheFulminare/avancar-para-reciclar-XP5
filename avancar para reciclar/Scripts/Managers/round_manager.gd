@@ -24,7 +24,7 @@ var active_player : Node2D
 @onready var player2 = $"../Players/Player 2"
 @onready var player3 = $"../Players/Player 3"
 
-@onready var player_array : Array[Node2D] = [player1, player2, player3]
+@onready var player_array : Array[Node] = $"../Players".get_children()
 @onready var square_array : Array[Node] = $"../Squares".get_children()
 
 func _ready() -> void:
@@ -68,12 +68,12 @@ func action():
 			second_dice_result = GameManager.roll_dice(1, 6)
 			total_dice_result = first_dice_result + second_dice_result
 			print("Second dice roll: " + str(second_dice_result))
+			# if there is a special item that makes the player roll another dice I could 
+			# add another state here
 			current_round_state = round_states.move
 		
 		round_states.move: 
-			active_player.current_square += total_dice_result
-			active_player.emit_signal("move", square_array[active_player.current_square-1].global_position)
-			#active_player.emit_signal("move", total_dice_result)
+			move()
 			current_round_state = round_states.end_turn
 			
 		round_states.end_turn:
@@ -92,3 +92,8 @@ func action():
 			print("")
 			current_round += 1
 			current_round_state = round_states.start_round
+
+func move():
+	active_player.current_square += total_dice_result
+	#active_player.emit_signal("move", total_dice_result)
+	active_player.emit_signal("move", square_array[active_player.current_square-1].global_position)
