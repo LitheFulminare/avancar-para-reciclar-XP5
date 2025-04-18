@@ -70,7 +70,8 @@ func action():
 			current_round_state = round_states.move
 		
 		round_states.move: 
-			active_player.emit_signal("move", total_dice_result)
+			active_player.emit_signal("move", $"../Squares/Square 1".global_position)
+			#active_player.emit_signal("move", total_dice_result)
 			current_round_state = round_states.end_turn
 			
 		round_states.end_turn:
