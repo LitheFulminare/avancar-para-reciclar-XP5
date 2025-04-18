@@ -25,6 +25,7 @@ var active_player : Node2D
 @onready var player3 = $"../Players/Player 3"
 
 @onready var player_array : Array[Node2D] = [player1, player2, player3]
+@onready var square_array : Array[Node] = $"../Squares".get_children()
 
 func _ready() -> void:
 	# this wont be on _ready() forever
@@ -70,7 +71,8 @@ func action():
 			current_round_state = round_states.move
 		
 		round_states.move: 
-			active_player.emit_signal("move", $"../Squares/Square 1".global_position)
+			active_player.current_square += total_dice_result
+			active_player.emit_signal("move", square_array[active_player.current_square-1].global_position)
 			#active_player.emit_signal("move", total_dice_result)
 			current_round_state = round_states.end_turn
 			
