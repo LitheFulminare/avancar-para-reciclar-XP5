@@ -18,7 +18,7 @@ var first_dice_result: int = 0
 var second_dice_result: int = 0
 var total_dice_result: int = 0
 
-var active_player
+var active_player : Node2D
 
 @onready var player1 = $"../Players/Player 1"
 @onready var player2 = $"../Players/Player 2"
@@ -54,7 +54,8 @@ func action():
 		
 		round_states.start_turn:
 			turn += 1
-			active_player = player_array[turn - 1]
+			active_player = player_array[turn-1]
+			print(active_player.name)
 			print("Starting turn " + str(turn))
 			current_round_state = round_states.first_dice_roll
 		
@@ -87,4 +88,5 @@ func action():
 		round_states.end_round:
 			print("Round ended")
 			print("")
+			current_round += 1
 			current_round_state = round_states.start_round
