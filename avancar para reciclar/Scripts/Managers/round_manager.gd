@@ -55,8 +55,7 @@ func action():
 		round_states.start_turn:
 			turn += 1
 			active_player = player_array[turn-1]
-			print(active_player.name)
-			print("Starting turn " + str(turn))
+			print(active_player.name + "'s turn")
 			current_round_state = round_states.first_dice_roll
 		
 		round_states.first_dice_roll: 
@@ -71,7 +70,7 @@ func action():
 			current_round_state = round_states.move
 		
 		round_states.move: 
-			print("Moving " + str(total_dice_result) + " spaces")
+			active_player.emit_signal("move", total_dice_result)
 			current_round_state = round_states.end_turn
 			
 		round_states.end_turn:
