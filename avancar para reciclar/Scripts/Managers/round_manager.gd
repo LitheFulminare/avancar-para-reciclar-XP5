@@ -65,12 +65,12 @@ func action() -> void:
 			current_round_state = round_states.first_dice_roll
 		
 		round_states.first_dice_roll: 
-			first_dice_result = 21#GameManager.roll_dice(1, 6)
+			first_dice_result = GameManager.roll_dice(1, 6)
 			print("First dice roll: " + str(first_dice_result))
 			current_round_state = round_states.second_dice_roll
 			
 		round_states.second_dice_roll: 
-			second_dice_result = 20# GameManager.roll_dice(1, 6)
+			second_dice_result = GameManager.roll_dice(1, 6)
 			total_dice_result = first_dice_result + second_dice_result
 			print("Second dice roll: " + str(second_dice_result))
 			# if there is a special item that makes the player roll another dice I could 
