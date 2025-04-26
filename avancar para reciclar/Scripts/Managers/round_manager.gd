@@ -19,6 +19,10 @@ var first_dice_result: int = 0
 var second_dice_result: int = 0
 var total_dice_result: int = 0
 
+# for when the player's dice roll exceeds the board's number of squares
+# saves what they're supposed to move after going back to the start square
+var remaining_distance : int = 0
+
 var active_player : Node2D
 
 @onready var player1 = $"../Players/Player 1"
@@ -38,16 +42,16 @@ func _input(event: InputEvent) -> void:
 		next_turn();
 
 # called at the start of the game
-func start_game():
+func start_game() -> void:
 	next_turn()
 
-func next_turn():
+func next_turn() -> void:
 	action()
 
 # gets the current round state and decides what to do
 # note:  I could change the current round and call action again to be recursive, 
 # but all action would happen at once, which is not what I want.
-func action():
+func action() -> void:
 	match current_round_state:
 		round_states.start_round:
 			print("Starting round: " + str(current_round))
@@ -94,10 +98,15 @@ func action():
 			current_round += 1
 			current_round_state = round_states.start_round
 
-func move():
+func move() -> void:
+	# when the player's dice roll exceeds the board's size
 	if active_player.current_square + total_dice_result > square_array.size():
 		print("player passed through the start")
+		active_player.current_square = square_array.size()
+		
+	# when the player's dice roll doesn't exceed the board's size
+	else:
+		active_player.current_square += total_dice_result
 	
-	active_player.current_square += total_dice_result
 	#active_player.emit_signal("move", total_dice_result)
 	active_player.emit_signal("move", square_array[active_player.current_square-1].global_position)
