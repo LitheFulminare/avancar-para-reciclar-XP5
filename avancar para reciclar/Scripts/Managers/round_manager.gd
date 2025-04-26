@@ -101,12 +101,16 @@ func action() -> void:
 func move() -> void:
 	# when the player's dice roll exceeds the board's size
 	if active_player.current_square + total_dice_result > square_array.size():
-		print("player passed through the start")
+		print("Player passed through the start")
+		
+		# makes the player move to end of the board and calculates what's left
+		var squares_moved : int = square_array.size() - active_player.current_square
+		remaining_distance = total_dice_result - squares_moved
 		active_player.current_square = square_array.size()
+		print("Remaining distance: " + str(remaining_distance))
 		
 	# when the player's dice roll doesn't exceed the board's size
 	else:
 		active_player.current_square += total_dice_result
 	
-	#active_player.emit_signal("move", total_dice_result)
 	active_player.emit_signal("move", square_array[active_player.current_square-1].global_position)
