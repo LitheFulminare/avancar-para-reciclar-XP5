@@ -65,12 +65,12 @@ func action() -> void:
 			current_round_state = round_states.first_dice_roll
 		
 		round_states.first_dice_roll: 
-			first_dice_result = GameManager.roll_dice(1, 6)
+			first_dice_result = 21#GameManager.roll_dice(1, 6)
 			print("First dice roll: " + str(first_dice_result))
 			current_round_state = round_states.second_dice_roll
 			
 		round_states.second_dice_roll: 
-			second_dice_result = GameManager.roll_dice(1, 6)
+			second_dice_result = 20# GameManager.roll_dice(1, 6)
 			total_dice_result = first_dice_result + second_dice_result
 			print("Second dice roll: " + str(second_dice_result))
 			# if there is a special item that makes the player roll another dice I could 
@@ -99,11 +99,16 @@ func action() -> void:
 			current_round_state = round_states.start_round
 
 func move() -> void:
-	active_player.stopped_moving.connect(player_stopped_moving)
+	# when the player passed through the start and there are squares left to walk
+	if remaining_distance != 0:
+		total_dice_result = remaining_distance
+		remaining_distance = 0
+		active_player.current_square = total_dice_result
 	
 	# when the player's dice roll exceeds the board's size
-	if active_player.current_square + total_dice_result > square_array.size():
+	elif active_player.current_square + total_dice_result > square_array.size():
 		print("Player passed through the start")
+		active_player.stopped_moving.connect(player_stopped_moving)
 		
 		# makes the player move to end of the board and calculates what's left
 		var squares_moved : int = square_array.size() - active_player.current_square
@@ -121,3 +126,5 @@ func move() -> void:
 # emits a signal after the tween ends, signal is connected on this class' move() func
 func player_stopped_moving() -> void:
 	print("Player stopped moving")
+	if remaining_distance != 0:
+		move()
