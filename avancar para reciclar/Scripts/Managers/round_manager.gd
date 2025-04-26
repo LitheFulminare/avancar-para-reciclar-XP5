@@ -99,6 +99,8 @@ func action() -> void:
 			current_round_state = round_states.start_round
 
 func move() -> void:
+	active_player.stopped_moving.connect(player_stopped_moving)
+	
 	# when the player's dice roll exceeds the board's size
 	if active_player.current_square + total_dice_result > square_array.size():
 		print("Player passed through the start")
@@ -114,3 +116,8 @@ func move() -> void:
 		active_player.current_square += total_dice_result
 	
 	active_player.emit_signal("move", square_array[active_player.current_square-1].global_position)
+
+# called by move() on the player's script
+# emits a signal after the tween ends, signal is connected on this class' move() func
+func player_stopped_moving() -> void:
+	print("Player stopped moving")
