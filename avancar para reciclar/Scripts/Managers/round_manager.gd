@@ -6,7 +6,8 @@ enum round_states { start_round,
 					start_turn, 
 					first_dice_roll, 
 					second_dice_roll, 
-					move, end_turn, 
+					move, 
+					end_turn, 
 					end_round }
 
 var current_round_state: round_states = round_states.start_round
@@ -94,6 +95,9 @@ func action():
 			current_round_state = round_states.start_round
 
 func move():
+	if active_player.current_square + total_dice_result > square_array.size():
+		print("player passed through the start")
+	
 	active_player.current_square += total_dice_result
 	#active_player.emit_signal("move", total_dice_result)
 	active_player.emit_signal("move", square_array[active_player.current_square-1].global_position)
