@@ -1,5 +1,4 @@
 extends Node
-class_name Player
 
 signal move(target_position: Vector2)
 signal stopped_moving
@@ -12,8 +11,8 @@ signal stopped_moving
 var current_square : int = 0
 
 func _on_move(target_position: Vector2) -> void:
-	print("moving to " + str(target_position))
-	var tween = create_tween()
-	tween.tween_property(self, "position", target_position, 1)
-	await tween.finished
-	stopped_moving.emit()
+		print("moving to " + str(target_position))
+		var tween = create_tween()
+		tween.tween_property(self, "position", target_position, 1)
+		await tween.finished
+		stopped_moving.emit()
