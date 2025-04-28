@@ -99,9 +99,10 @@ func action() -> void:
 			current_round_state = round_states.start_round
 
 func move() -> void:
-	# when the player passed through the start and there are squares left to walk
-	active_player.stopped_moving.connect(player_stopped_moving) 
+	if !active_player.stopped_moving.is_connected(player_stopped_moving):
+		active_player.stopped_moving.connect(player_stopped_moving) 
 	
+	# when the player passed through the start and there are squares left to walk	
 	if remaining_distance != 0:
 		total_dice_result = remaining_distance
 		remaining_distance = 0
