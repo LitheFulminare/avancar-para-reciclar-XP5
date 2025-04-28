@@ -4,7 +4,7 @@ extends Node
 # unsure if it's going to be exposed to the editor to asign manually or
 # make an array, preload everything and randomize 1 (I think this option is better)
 #@export var texts: QuestionCardTexts
-var texts: QuestionCardTexts
+var texts: QuestionCardTexts = preload("res://Resources/Cards/Question Cards/question 1.tres")
 
 var question: String
 var right_answer: String
@@ -16,3 +16,9 @@ func _ready() -> void:
 	right_answer = texts.right_answer
 	wrong_answer_1 = texts.wrong_answer_1
 	wrong_answer_2 = texts.wrong_answer_2
+	
+	print("")
+	print(question)
+	print(right_answer)
+	print(wrong_answer_1)
+	print(wrong_answer_2)

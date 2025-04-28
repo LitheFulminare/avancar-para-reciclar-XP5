@@ -23,14 +23,14 @@ var total_dice_result: int = 0
 # saves what they're supposed to move after going back to the start square
 var remaining_distance : int = 0
 
-var active_player : Player
+var active_player: Player
 
-@onready var player1 : Player = $"../Players/Player 1"
-@onready var player2 : Player = $"../Players/Player 2"
-@onready var player3 : Player = $"../Players/Player 3"
+@onready var player1: Player = $"../Players/Player 1"
+@onready var player2: Player = $"../Players/Player 2"
+@onready var player3: Player = $"../Players/Player 3"
 
-@onready var player_array : Array[Node] = $"../Players".get_children()
-@onready var square_array : Array[Node] = $"../Squares".get_children()
+@onready var player_array: Array[Node] = $"../Players".get_children()
+@onready var square_array: Array[Node] = $"../Squares".get_children()
 
 func _ready() -> void:
 	# this wont be on _ready() forever
@@ -100,6 +100,8 @@ func action() -> void:
 
 func move() -> void:
 	# when the player passed through the start and there are squares left to walk
+	active_player.stopped_moving.connect(player_stopped_moving) 
+	
 	if remaining_distance != 0:
 		total_dice_result = remaining_distance
 		remaining_distance = 0
@@ -108,7 +110,6 @@ func move() -> void:
 	# when the player's dice roll exceeds the board's size
 	elif active_player.current_square + total_dice_result > square_array.size():
 		print("Player passed through the start")
-		active_player.stopped_moving.connect(player_stopped_moving)
 		
 		# makes the player move to end of the board and calculates what's left
 		var squares_moved : int = square_array.size() - active_player.current_square
@@ -128,3 +129,13 @@ func player_stopped_moving() -> void:
 	print("Player stopped moving")
 	if remaining_distance != 0:
 		move()
+	else:
+		square_action()
+
+# this is kinda how actions will be handled but it's gonna be completely rewritten later
+# so it doesn't just spawn cards
+func square_action() -> void:
+	var card_scene = preload("res://Scenes/Cards/Question card.tscn")
+	var card: QuestionCard = card_scene.instantiate()
+	get_tree().root.add_child(card)
+	return

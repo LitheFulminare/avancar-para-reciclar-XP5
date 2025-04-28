@@ -6,6 +6,6 @@
 script = ExtResource("1_5awpx")
 question = "pergunta"
 right_answer = "resposta certa"
-wrong_answer_1 = "resposta"
-wrong_answer_2 = "resposta"
+wrong_answer_1 = "resposta errada 1"
+wrong_answer_2 = "resposta errada 2"
 metadata/_custom_type_script = "uid://spwobx81lsvr"
