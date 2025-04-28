@@ -155,3 +155,6 @@ position = Vector2(664, 336)
 
 [node name="Square 40" parent="Squares" instance=ExtResource("4_7r8ec")]
 position = Vector2(743, 337)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
