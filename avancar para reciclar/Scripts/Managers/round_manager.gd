@@ -139,3 +139,7 @@ func square_action() -> void:
 	var card: QuestionCard = card_scene.instantiate()
 	get_tree().root.add_child(card)
 	return
+
+func add_trash(target_player: int, trash_type: TrashCard.trash_types) -> void:
+	print(target_player)
+	print(trash_type)
