@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://d1s0oye1ae8v1"]
 
-[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/question card texts.gd" id="1_5awpx"]
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/Question cards/question card texts.gd" id="1_5awpx"]
 
 [resource]
 script = ExtResource("1_5awpx")
-question = "pergunta"
-right_answer = "resposta certa"
-wrong_answer_1 = "resposta errada 1"
-wrong_answer_2 = "resposta errada 2"
+question = "QUal a cor da grama?"
+right_answer = "verde"
+wrong_answer_1 = "azul"
+wrong_answer_2 = "roxo"
 metadata/_custom_type_script = "uid://spwobx81lsvr"

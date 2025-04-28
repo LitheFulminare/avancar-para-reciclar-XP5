@@ -1,5 +1,5 @@
-extends Resource
 class_name QuestionCardTexts
+extends Resource
 
 # maybe this could reference a txt or json file
 @export var question: String
