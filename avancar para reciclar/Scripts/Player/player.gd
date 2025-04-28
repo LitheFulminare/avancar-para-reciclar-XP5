@@ -7,6 +7,8 @@ signal stopped_moving
 @export var dice_roll: int = 0
 @export var total_cards: int = 0
 
+var trash_cards = Array([],TYPE_OBJECT, "TrashCard", null)
+
 # doesn't get changed internally
 # round_manager changes right before moving the player
 var current_square : int = 0
