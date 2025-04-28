@@ -4,7 +4,7 @@ extends Node
 # unsure if it's going to be exposed to the editor to asign manually or
 # make an array, preload everything and randomize 1 (I think this option is better)
 #@export var texts: QuestionCardTexts
-var texts: QuestionCardTexts = preload("res://Resources/Cards/Question Cards/test card.tres")
+var texts: QuestionCardTexts
 
 var question: String
 var right_answer: String

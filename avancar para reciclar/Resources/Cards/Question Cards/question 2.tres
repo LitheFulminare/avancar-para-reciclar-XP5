@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://d5pnot35eobk"]
+
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/question card texts.gd" id="1_mrtyo"]
+
+[resource]
+script = ExtResource("1_mrtyo")
+question = "pergunta carta 2"
+right_answer = "resposta certa carta 2"
+wrong_answer_1 = "resposta carta 2"
+wrong_answer_2 = "resposta carta 2"
+metadata/_custom_type_script = "uid://spwobx81lsvr"
