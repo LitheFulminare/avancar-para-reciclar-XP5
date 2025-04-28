@@ -23,11 +23,11 @@ var total_dice_result: int = 0
 # saves what they're supposed to move after going back to the start square
 var remaining_distance : int = 0
 
-var active_player : Node2D
+var active_player : Player
 
-@onready var player1 = $"../Players/Player 1"
-@onready var player2 = $"../Players/Player 2"
-@onready var player3 = $"../Players/Player 3"
+@onready var player1 : Player = $"../Players/Player 1"
+@onready var player2 : Player = $"../Players/Player 2"
+@onready var player3 : Player = $"../Players/Player 3"
 
 @onready var player_array : Array[Node] = $"../Players".get_children()
 @onready var square_array : Array[Node] = $"../Squares".get_children()
@@ -120,7 +120,7 @@ func move() -> void:
 	else:
 		active_player.current_square += total_dice_result
 	
-	active_player.emit_signal("move", square_array[active_player.current_square-1].global_position)
+	active_player.move.emit(square_array[active_player.current_square-1].global_position)
 
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func
