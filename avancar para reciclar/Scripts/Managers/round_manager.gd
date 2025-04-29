@@ -158,7 +158,7 @@ func square_action() -> void:
 	get_tree().root.add_child(card)
 	
 	# gives the active_player a random trash card
-	add_trash(turn, metal_card_stats)
+	add_trash(turn, get_random_trash_type())
 
 func add_trash(target_player: int, trash_type: TrashCardStats) -> void:
 	# instantiates the trash card and assign the correct type
@@ -169,3 +169,6 @@ func add_trash(target_player: int, trash_type: TrashCardStats) -> void:
 	# gives the card to the target player
 	var player: Player = player_array[target_player-1]
 	player.trash_cards.append(spawned_trash_card)
+
+func get_random_trash_type() -> TrashCardStats:
+	return trash_card_types.pick_random()
