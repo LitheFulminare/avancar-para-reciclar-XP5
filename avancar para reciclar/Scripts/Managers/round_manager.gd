@@ -31,6 +31,9 @@ const organic_card_res_path: String = "res://Resources/Cards/Trash cards/organic
 const paper_card_res_path: String = "res://Resources/Cards/Trash cards/paper.tres"
 const plastic_card_res_path: String = "res://Resources/Cards/Trash cards/plastic.tres"
 
+const trash_card_path: String = "res://Scenes/Cards/Trash card.tscn"
+var trash_card: = preload(trash_card_path)
+
 var trash_cards: Array[TrashCardStats] = [ preload(glass_card_res_path),
  										preload(metal_card_res_path),
 										preload(organic_card_res_path),
@@ -157,4 +160,6 @@ func square_action() -> void:
 	add_trash(turn-1, TrashCard.trash_types.metal)
 
 func add_trash(target_player: int, trash_type: TrashCard.trash_types) -> void:
-	active_player.trash_cards.append(trash_type)
+	var spawned_trash_card = trash_card.instantiate()
+	get_tree().root.add_child(spawned_trash_card)
+	active_player.trash_cards.append(spawned_trash_card)
