@@ -25,6 +25,19 @@ var remaining_distance : int = 0
 
 var active_player: Player
 
+const glass_card_res_path: String = "res://Resources/Cards/Trash cards/glass.tres"
+const metal_card_res_path: String = "res://Resources/Cards/Trash cards/metal.tres"
+const organic_card_res_path: String = "res://Resources/Cards/Trash cards/organic.tres"
+const paper_card_res_path: String = "res://Resources/Cards/Trash cards/paper.tres"
+const plastic_card_res_path: String = "res://Resources/Cards/Trash cards/plastic.tres"
+
+var trash_cards: Array[TrashCardStats] = [ preload(glass_card_res_path),
+ 										preload(metal_card_res_path),
+										preload(organic_card_res_path),
+										preload(paper_card_res_path),
+										preload(plastic_card_res_path)
+										]
+
 @onready var player1: Player = $"../Players/Player 1"
 @onready var player2: Player = $"../Players/Player 2"
 @onready var player3: Player = $"../Players/Player 3"

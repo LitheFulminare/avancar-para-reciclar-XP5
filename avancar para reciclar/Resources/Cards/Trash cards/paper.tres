@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="TrashCardStats" load_steps=2 format=3 uid="uid://d3xfykvqi73k3"]
 
-[ext_resource type="Script" uid="uid://by2iqqsceahle" path="res://Scripts/Cards/Trash cards/trash card stats.gd" id="1_3wxdh"]
+[ext_resource type="Script" uid="uid://by2iqqsceahle" path="res://Scripts/Cards/Trash cards/trash card stats.gd" id="1_h1st2"]
 
 [resource]
-script = ExtResource("1_3wxdh")
-value = 0
+script = ExtResource("1_h1st2")
+value = 1
 metadata/_custom_type_script = "uid://by2iqqsceahle"

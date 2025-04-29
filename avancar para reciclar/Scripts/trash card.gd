@@ -7,3 +7,5 @@ enum trash_types { paper,
 				   glass,
 				   organic
 				}
+				
+var stats: TrashCardStats
