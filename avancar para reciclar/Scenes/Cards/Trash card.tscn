@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsh8ww0xyywca"]
 
-[ext_resource type="Script" uid="uid://b8a4w8u1mgflh" path="res://Scripts/trash card.gd" id="1_kd3w2"]
+[ext_resource type="Script" uid="uid://b8a4w8u1mgflh" path="res://Scripts/Cards/Trash cards/trash card.gd" id="1_kd3w2"]
 
 [node name="TrashCard" type="Node2D"]
 script = ExtResource("1_kd3w2")

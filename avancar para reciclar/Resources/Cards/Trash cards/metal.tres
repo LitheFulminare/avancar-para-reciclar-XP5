@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TrashCardStats" load_steps=2 format=3 uid="uid://ccequ02qijxmo"]
 
-[ext_resource type="Script" uid="uid://by2iqqsceahle" path="res://Scripts/Cards/Trash cards/trash card stats.gd" id="1_hwn0h"]
+[ext_resource type="Script" uid="uid://by2iqqsceahle" path="res://Scripts/Cards/Trash cards/trash cards resource.gd" id="1_hwn0h"]
 
 [resource]
 script = ExtResource("1_hwn0h")

@@ -2,13 +2,27 @@
 
 extends Node
 
-enum round_states { start_round, 
-					start_turn, 
-					first_dice_roll, 
-					second_dice_roll, 
-					move, 
-					end_turn, 
-					end_round }
+enum round_states 
+{ 
+	start_round, 
+	start_turn, 
+	first_dice_roll, 
+	second_dice_roll, 
+	move, 
+	end_turn, 
+	end_round 
+}
+
+# this is here cuz there will be a lot of squares and resources, so every one of them
+# having this enum stored doesn't make sense
+enum square_type
+{
+	action_card,
+	collect_trash,
+	discard_trash,
+	garbage_truck,
+	quiz_card
+}
 
 var current_round_state: round_states = round_states.start_round
 
@@ -158,16 +172,16 @@ func square_action() -> void:
 	get_tree().root.add_child(card)
 	
 	# gives the active_player a random trash card
-	add_trash(turn, get_random_trash_type())
+	add_trash(turn-1, get_random_trash_type())
 
-func add_trash(target_player: int, trash_type: TrashCardStats) -> void:
+func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	# instantiates the trash card and assign the correct type
 	var spawned_trash_card: TrashCard = trash_card.instantiate()
 	get_tree().root.add_child(spawned_trash_card)
 	spawned_trash_card.stats = trash_type
 	
 	# gives the card to the target player
-	var player: Player = player_array[target_player-1]
+	var player: Player = player_array[target_player_index]
 	player.trash_cards.append(spawned_trash_card)
 
 func get_random_trash_type() -> TrashCardStats:
