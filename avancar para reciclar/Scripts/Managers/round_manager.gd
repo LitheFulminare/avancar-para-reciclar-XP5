@@ -160,6 +160,7 @@ func square_action() -> void:
 	add_trash(turn-1, TrashCard.trash_types.metal)
 
 func add_trash(target_player: int, trash_type: TrashCard.trash_types) -> void:
-	var spawned_trash_card = trash_card.instantiate()
+	var spawned_trash_card: TrashCard = trash_card.instantiate() as TrashCard
+	spawned_trash_card.stats = preload(glass_card_res_path)
 	get_tree().root.add_child(spawned_trash_card)
 	active_player.trash_cards.append(spawned_trash_card)
