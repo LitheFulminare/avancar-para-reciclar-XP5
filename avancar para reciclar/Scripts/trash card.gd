@@ -1,11 +1,7 @@
 class_name TrashCard
 extends Node
 
-enum trash_types { paper,
-				   plastic,
-				   metal,
-				   glass,
-				   organic
-				}
-				
 var stats: TrashCardStats
+
+# then do stuff like
+# Sprite2D.image = stats.sprite

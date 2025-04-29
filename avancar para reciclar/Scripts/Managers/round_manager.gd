@@ -25,21 +25,14 @@ var remaining_distance : int = 0
 
 var active_player: Player
 
-const glass_card_res_path: String = "res://Resources/Cards/Trash cards/glass.tres"
-const metal_card_res_path: String = "res://Resources/Cards/Trash cards/metal.tres"
-const organic_card_res_path: String = "res://Resources/Cards/Trash cards/organic.tres"
-const paper_card_res_path: String = "res://Resources/Cards/Trash cards/paper.tres"
-const plastic_card_res_path: String = "res://Resources/Cards/Trash cards/plastic.tres"
+const glass_card_stats = preload("res://Resources/Cards/Trash cards/glass.tres")
+const metal_card_stats = preload("res://Resources/Cards/Trash cards/metal.tres")
+const organic_card_stats = preload("res://Resources/Cards/Trash cards/organic.tres")
+const paper_card_stats = preload("res://Resources/Cards/Trash cards/paper.tres")
+const plastic_card_stats = preload("res://Resources/Cards/Trash cards/plastic.tres")
 
-const trash_card_path: String = "res://Scenes/Cards/Trash card.tscn"
-var trash_card: = preload(trash_card_path)
-
-var trash_cards: Array[TrashCardStats] = [ preload(glass_card_res_path),
- 										preload(metal_card_res_path),
-										preload(organic_card_res_path),
-										preload(paper_card_res_path),
-										preload(plastic_card_res_path)
-										]
+#const trash_card_path: String = "res://Scenes/Cards/Trash card.tscn"
+#var trash_card = preload(trash_card_path)
 
 @onready var player1: Player = $"../Players/Player 1"
 @onready var player2: Player = $"../Players/Player 2"
@@ -157,10 +150,23 @@ func square_action() -> void:
 	get_tree().root.add_child(card)
 	
 	# gives the active_player a random trash card
-	add_trash(turn-1, TrashCard.trash_types.metal)
+	add_trash(turn-1, TrashCardStats.types.metal)
 
-func add_trash(target_player: int, trash_type: TrashCard.trash_types) -> void:
-	var spawned_trash_card: TrashCard = trash_card.instantiate() as TrashCard
-	spawned_trash_card.stats = preload(glass_card_res_path)
+func add_trash(target_player: int, trash_type: TrashCardStats.types) -> void:
+	var trash_card = preload("res://Scenes/Cards/Trash card.tscn")
+	var spawned_trash_card: TrashCard = trash_card.instantiate()
 	get_tree().root.add_child(spawned_trash_card)
+	match trash_type:
+		TrashCardStats.types.glass:
+			spawned_trash_card.stats = glass_card_stats
+		TrashCardStats.types.metal:
+			spawned_trash_card.stats = metal_card_stats
+		TrashCardStats.types.organic:
+			spawned_trash_card.stats = organic_card_stats
+		TrashCardStats.types.paper:
+			spawned_trash_card.stats = paper_card_stats
+		TrashCardStats.types.plastic:
+			spawned_trash_card.stats = plastic_card_stats
+	
+	
 	active_player.trash_cards.append(spawned_trash_card)
