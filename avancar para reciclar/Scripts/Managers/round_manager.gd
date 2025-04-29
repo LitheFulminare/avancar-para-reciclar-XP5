@@ -139,8 +139,9 @@ func square_action() -> void:
 	var card_scene = preload("res://Scenes/Cards/Question card.tscn")
 	var card: QuestionCard = card_scene.instantiate()
 	get_tree().root.add_child(card)
-	return
+	
+	# gives the active_player a random trash card
+	add_trash(turn-1, TrashCard.trash_types.metal)
 
 func add_trash(target_player: int, trash_type: TrashCard.trash_types) -> void:
-	print(target_player)
-	print(trash_type)
+	active_player.trash_cards.append(trash_type)
