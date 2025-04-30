@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SquareStats" load_steps=2 format=3 uid="uid://d1411atrrck5y"]
+
+[ext_resource type="Script" uid="uid://djo0ibe5y6lo3" path="res://Scripts/Map elements/square resource.gd" id="1_vnt68"]
+
+[resource]
+script = ExtResource("1_vnt68")
+type = 3
+metadata/_custom_type_script = "uid://djo0ibe5y6lo3"
