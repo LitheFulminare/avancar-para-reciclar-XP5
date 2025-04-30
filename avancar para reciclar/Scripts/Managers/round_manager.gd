@@ -1,5 +1,6 @@
 # handles core game loop
 
+class_name RoundManager
 extends Node
 
 enum round_states 
@@ -17,7 +18,7 @@ enum round_states
 # having this enum stored doesn't make sense
 enum square_type
 {
-	action_card,
+	luck_card,
 	collect_trash,
 	discard_trash,
 	garbage_truck,
