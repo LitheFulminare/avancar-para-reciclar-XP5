@@ -2,7 +2,7 @@ extends Node
 class_name Player
 
 signal move(target_position: Vector2)
-signal stopped_moving
+signal stopped_moving # connected to player_stopped_moving() on the RoundManager
 
 @export var dice_roll: int = 0
 @export var total_cards: int = 0
@@ -18,4 +18,4 @@ func _on_move(target_position: Vector2) -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "position", target_position, 1)
 	await tween.finished
-	stopped_moving.emit()
+	stopped_moving.emit() # connected to player_stopped_moving() on the RoundManager

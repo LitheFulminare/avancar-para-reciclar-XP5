@@ -115,7 +115,7 @@ func action() -> void:
 			
 		round_states.end_turn:
 			if turn == GameManager.player_count:
-				# maybe I could change the state (like I'm doing already) and calling aciont() again
+				# maybe I could change the state (like I'm doing already) and calling action() again
 				# then it automatically triggers the end of the round
 				print("Last turn ended. Press again to finish the round")
 				current_round_state = round_states.end_round
@@ -131,6 +131,7 @@ func action() -> void:
 			current_round_state = round_states.start_round
 
 func move() -> void:
+	# prevents the signal being connected twice to a function
 	if !active_player.stopped_moving.is_connected(player_stopped_moving):
 		active_player.stopped_moving.connect(player_stopped_moving) 
 	

@@ -4,6 +4,9 @@ extends Node2D
 var stats: SquareStats
 
 func action() -> void:
+	# gets what type of square is this and calls the corresponding function
+	## maybe these functions could be in a subresource assigned to the resources,
+	## but i'm too lazy for that
 	match stats.type:
 		RoundManager.square_type.luck_card:
 			luck_card()
