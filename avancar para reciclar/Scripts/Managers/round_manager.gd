@@ -51,7 +51,8 @@ var trash_card: PackedScene = preload(trash_card_path)
 @onready var player3: Player = $"../Players/Player 3"
 
 @onready var player_array: Array[Node] = $"../Players".get_children()
-@onready var square_array: Array[Node] = $"../Squares".get_children()
+@onready var square_array: Array[Square] = get_squares()
+#@onready var square_array: Array[Node] = $"../Squares".get_children()
 
 func _ready() -> void:
 	# this wont be on _ready() forever
@@ -145,6 +146,7 @@ func move() -> void:
 		active_player.current_square += total_dice_result
 	
 	active_player.move.emit(square_array[active_player.current_square-1].global_position)
+	# now no square has a resource/type, so calling this func will throw an error
 	#square_array[active_player.current_square-1].action()
 
 # called by move() on the player's script
@@ -178,3 +180,11 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
+
+func get_squares() -> Array[Square]:
+	var node_array: Array[Node] = $"../Squares".get_children()
+	var square_array: Array[Square] = []
+	for node in square_array:
+		if node is Square:
+			square_array.append(square_array)
+	return square_array
