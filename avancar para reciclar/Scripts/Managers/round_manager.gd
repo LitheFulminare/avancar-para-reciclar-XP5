@@ -52,7 +52,6 @@ var trash_card: PackedScene = preload(trash_card_path)
 
 @onready var player_array: Array[Node] = $"../Players".get_children()
 @onready var square_array: Array[Square] = get_squares()
-#@onready var square_array: Array[Node] = $"../Squares".get_children()
 
 func _ready() -> void:
 	# this wont be on _ready() forever
@@ -181,10 +180,16 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
 
+# returns array of the squares
+# get_children() only returns an array of node so you have to come up with your own solution
 func get_squares() -> Array[Square]:
 	var node_array: Array[Node] = $"../Squares".get_children()
 	var square_array: Array[Square] = []
 	for node in node_array:
 		if node is Square:
 			square_array.append(node)
+		else: 
+			printerr("Found a node on 'Squares' that is a member of a class other than 'Square'")
+			get_tree().paused = true
+			
 	return square_array
