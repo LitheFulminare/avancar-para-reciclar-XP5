@@ -184,7 +184,7 @@ func get_random_trash_type() -> TrashCardStats:
 func get_squares() -> Array[Square]:
 	var node_array: Array[Node] = $"../Squares".get_children()
 	var square_array: Array[Square] = []
-	for node in square_array:
+	for node in node_array:
 		if node is Square:
-			square_array.append(square_array)
+			square_array.append(node)
 	return square_array
