@@ -14,17 +14,6 @@ enum round_states
 	end_round 
 }
 
-# this is here cuz there will be a lot of squares and resources, so every one of them
-# having this enum stored doesn't make sense
-enum square_type
-{
-	luck_card,
-	collect_trash,
-	discard_trash,
-	garbage_truck,
-	quiz_card
-}
-
 var current_round_state: round_states = round_states.start_round
 
 var turn: int = 0 # goes from 1 to 2 or 3 depending on the player count
@@ -156,6 +145,7 @@ func move() -> void:
 		active_player.current_square += total_dice_result
 	
 	active_player.move.emit(square_array[active_player.current_square-1].global_position)
+	#square_array[active_player.current_square-1].action()
 
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func

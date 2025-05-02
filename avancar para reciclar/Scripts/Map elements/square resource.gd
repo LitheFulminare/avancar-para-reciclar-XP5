@@ -2,4 +2,4 @@ class_name SquareStats
 extends Resource
 
 @export var sprite: Image
-@export var type: RoundManager.square_type
+@export var type: SquareManager.square_type
