@@ -30,10 +30,10 @@ func action(type: square_type):
 			quiz_card()
 		
 func luck_card() -> void:
-	round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
+	return
 
 func collect_trash() -> void:
-	return
+	round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
 	
 func discard_trash() -> void:
 	return
