@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d12io1c2of5s4"
-valid=false
+path="res://.godot/imported/Question card facing down.png-a10dc8ca1657f83942a28d97ac8a9073.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Assets/Sprites/Cards/Question cards/Question card facing down.png"
+dest_files=["res://.godot/imported/Question card facing down.png-a10dc8ca1657f83942a28d97ac8a9073.ctex"]
 
 [params]
 
