@@ -12,6 +12,8 @@ enum square_type
 	quiz_card
 }
 
+@export var round_manager: RoundManager
+
 # gets called by a square and makes its action
 ## maybe this functions could be their own subresource and the square type res has that subres
 static func action(type: square_type):
@@ -29,6 +31,7 @@ static func action(type: square_type):
 		
 static func luck_card() -> void:
 	return
+	#round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
 
 static func collect_trash() -> void:
 	return
