@@ -14,9 +14,9 @@ enum square_type
 
 @export var round_manager: RoundManager
 
-# gets called by a square and makes its action
+# the square the player landed calls this method on nodes that are part of the "Round Manager" group
 ## maybe this functions could be their own subresource and the square type res has that subres
-static func action(type: square_type):
+func action(type: square_type):
 	match type:
 		square_type.luck_card:
 			luck_card()
@@ -29,19 +29,18 @@ static func action(type: square_type):
 		square_type.quiz_card:
 			quiz_card()
 		
-static func luck_card() -> void:
-	return
-	#round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
+func luck_card() -> void:
+	round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
 
-static func collect_trash() -> void:
+func collect_trash() -> void:
 	return
 	
-static func discard_trash() -> void:
+func discard_trash() -> void:
 	return
 	
-static func garbage_truck() -> void:
+func garbage_truck() -> void:
 	return
 	
-static func quiz_card() -> void:
+func quiz_card() -> void:
 	return
 	

@@ -11,7 +11,7 @@
 [node name="Round Manager" type="Node" parent="."]
 script = ExtResource("1_x87qo")
 
-[node name="Square Manager" type="Node" parent="." node_paths=PackedStringArray("round_manager")]
+[node name="Square Manager" type="Node" parent="." node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
 script = ExtResource("2_83mwp")
 round_manager = NodePath("../Round Manager")
 
