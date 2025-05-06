@@ -146,8 +146,7 @@ func move() -> void:
 	
 	active_player.move.emit(square_array[active_player.current_square-1].global_position)
 	
-	# now no square has a resource/type, so calling this func will throw an error
-	#square_array[active_player.current_square-1].action()
+	
 
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func
@@ -156,17 +155,20 @@ func player_stopped_moving() -> void:
 	if remaining_distance != 0:
 		move()
 	else:
-		square_action()
+		# now no square has a resource/type, so calling this func will throw an error
+		#square_array[active_player.current_square-1].action()
+		
+		return
 
 # this is NOT how actions are gonna be handled anymore, 
 # this is only still here in case I need to remember something
-func square_action() -> void:
-	var card_scene = preload("res://Scenes/Cards/Question card.tscn")
-	var card: QuestionCard = card_scene.instantiate()
-	get_tree().root.add_child(card)
-	
-	# gives the active_player a random trash card
-	add_trash(turn-1, get_random_trash_type())
+#func square_action() -> void:
+	#var card_scene = preload("res://Scenes/Cards/Question card.tscn")
+	#var card: QuestionCard = card_scene.instantiate()
+	#get_tree().root.add_child(card)
+	#
+	## gives the active_player a random trash card
+	#add_trash(turn-1, get_random_trash_type())
 
 func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	# instantiates the trash card and assign the correct type
