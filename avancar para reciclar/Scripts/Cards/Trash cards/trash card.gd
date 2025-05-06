@@ -2,6 +2,7 @@ class_name TrashCard
 extends Node
 
 var stats: TrashCardStats
+@export var sprite: Sprite2D
 
-# then do stuff like
-# Sprite2D.image = stats.sprite
+func _ready() -> void:
+	sprite.image = stats.sprite

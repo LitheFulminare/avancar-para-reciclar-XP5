@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyaj5f0egghh"]
+[gd_scene load_steps=8 format=3 uid="uid://dyaj5f0egghh"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_x87qo"]
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="2_83mwp"]
 [ext_resource type="Texture2D" uid="uid://dnlh52pyr57r1" path="res://Assets/Sprites/Map/Mapa_Avacar_para_reciclar_1.png" id="2_c53t7"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="3_ihfs7"]
+[ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="3_u63k7"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="4_7r8ec"]
 [ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="6_m6pt0"]
 
@@ -15,6 +16,9 @@ script = ExtResource("1_x87qo")
 [node name="Square Manager" type="Node" parent="." node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
 script = ExtResource("2_83mwp")
 round_manager = NodePath("../Round Manager")
+
+[node name="Question Card Res Manager" type="Node" parent="."]
+script = ExtResource("3_u63k7")
 
 [node name="Background" type="Node" parent="."]
 

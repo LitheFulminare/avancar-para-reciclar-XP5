@@ -35,6 +35,8 @@ const organic_card_stats: TrashCardStats = preload("res://Resources/Cards/Trash 
 const paper_card_stats: TrashCardStats = preload("res://Resources/Cards/Trash cards/paper.tres")
 const plastic_card_stats: TrashCardStats = preload("res://Resources/Cards/Trash cards/plastic.tres")
 
+const question_card_scene: PackedScene = preload("res://Scenes/Cards/Question card.tscn")
+
 var trash_card_types: Array[TrashCardStats] = [
 	glass_card_stats,
 	organic_card_stats,
@@ -155,6 +157,7 @@ func player_stopped_moving() -> void:
 	if remaining_distance != 0:
 		move()
 	else:
+		draw_question_card()
 		# now no square has a resource/type, so calling this func will throw an error
 		#square_array[active_player.current_square-1].action()
 		
@@ -182,6 +185,11 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
+
+func draw_question_card() -> void:
+	var question_card: QuestionCard = question_card_scene.instantiate()
+	get_tree().root.add_child(question_card)
+	#question_card.texts = 
 
 # returns array of the squares
 # get_children() only returns an array of node so you have to come up with your own solution
