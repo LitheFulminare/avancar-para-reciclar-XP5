@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyaj5f0egghh"]
+[gd_scene load_steps=7 format=3 uid="uid://dyaj5f0egghh"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_x87qo"]
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="2_83mwp"]
 [ext_resource type="Texture2D" uid="uid://dnlh52pyr57r1" path="res://Assets/Sprites/Map/Mapa_Avacar_para_reciclar_1.png" id="2_c53t7"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="3_ihfs7"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="4_7r8ec"]
+[ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="6_m6pt0"]
 
 [node name="Game scene" type="Node2D"]
 
@@ -43,6 +44,7 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Square 1" parent="Squares" instance=ExtResource("4_7r8ec")]
 position = Vector2(246, 155)
+stats = ExtResource("6_m6pt0")
 
 [node name="Square 2" parent="Squares" instance=ExtResource("4_7r8ec")]
 position = Vector2(333, 154)
