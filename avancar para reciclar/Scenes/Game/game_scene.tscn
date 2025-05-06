@@ -10,8 +10,9 @@
 
 [node name="Game scene" type="Node2D"]
 
-[node name="Round Manager" type="Node" parent="."]
+[node name="Round Manager" type="Node" parent="." node_paths=PackedStringArray("question_card_res_manager")]
 script = ExtResource("1_x87qo")
+question_card_res_manager = NodePath("../Question Card Res Manager")
 
 [node name="Square Manager" type="Node" parent="." node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
 script = ExtResource("2_83mwp")

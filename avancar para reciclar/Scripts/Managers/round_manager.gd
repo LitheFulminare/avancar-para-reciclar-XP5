@@ -14,6 +14,8 @@ enum round_states
 	end_round 
 }
 
+@export var question_card_res_manager: QuestionCardResourceManager
+
 var current_round_state: round_states = round_states.start_round
 
 var turn: int = 0 # goes from 1 to 2 or 3 depending on the player count
@@ -189,7 +191,7 @@ func get_random_trash_type() -> TrashCardStats:
 func draw_question_card() -> void:
 	var question_card: QuestionCard = question_card_scene.instantiate()
 	get_tree().root.add_child(question_card)
-	#question_card.texts = 
+	question_card.texts = question_card_res_manager.get_random_question_res()
 
 # returns array of the squares
 # get_children() only returns an array of node so you have to come up with your own solution
