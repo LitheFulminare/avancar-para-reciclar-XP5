@@ -145,6 +145,7 @@ func move() -> void:
 		active_player.current_square += total_dice_result
 	
 	active_player.move.emit(square_array[active_player.current_square-1].global_position)
+	
 	# now no square has a resource/type, so calling this func will throw an error
 	#square_array[active_player.current_square-1].action()
 
@@ -157,8 +158,8 @@ func player_stopped_moving() -> void:
 	else:
 		square_action()
 
-# this is kinda how actions will be handled but it's gonna be completely rewritten later
-# so it doesn't just spawn cards
+# this is NOT how actions are gonna be handled anymore, 
+# this is only still here in case I need to remember something
 func square_action() -> void:
 	var card_scene = preload("res://Scenes/Cards/Question card.tscn")
 	var card: QuestionCard = card_scene.instantiate()
