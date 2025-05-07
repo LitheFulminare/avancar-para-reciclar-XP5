@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://chykjqi524s2r"]
+[gd_scene load_steps=3 format=3 uid="uid://chykjqi524s2r"]
 
 [ext_resource type="Texture2D" uid="uid://c36jllb542e4c" path="res://Assets/Sprites/Map/mapa placeholder 2.png" id="1_114w1"]
+[ext_resource type="Script" uid="uid://cove0us1segek" path="res://Scripts/Map elements/camera drag and zoom.gd" id="2_y42xc"]
 
 [node name="MapTest" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.20561, 1.21869)
 texture = ExtResource("1_114w1")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 652
+editor_draw_limits = true
+script = ExtResource("2_y42xc")
