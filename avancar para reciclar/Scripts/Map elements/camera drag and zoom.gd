@@ -33,3 +33,7 @@ func move_with_keyboard(delta: float) -> void:
 		movement_direction.x += 1
 		
 	global_position += movement_direction.normalized() * pan_speed * delta
+	
+	# now due to parallax the camera appears to move faster the more it's zoomed in
+	# this prevents that, but it's up to personal preference
+	#global_position += movement_direction.normalized() * pan_speed * delta * 1/zoom.x
