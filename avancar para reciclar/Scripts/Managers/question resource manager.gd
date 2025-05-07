@@ -17,12 +17,17 @@ func _ready() -> void:
 
 func get_random_question_res() -> QuestionCardTexts:
 	if unpicked_question_cards.size() == 0:
+		print("No unpicked questions left. Regenerating the array")
 		unpicked_question_cards = question_card_texts.duplicate()
 	
 	randomize()
 	var random_index = randi_range(0, unpicked_question_cards.size() - 1)
 	
+	print("Random index is: " + str(random_index))
+	
 	var picked_question: QuestionCardTexts = unpicked_question_cards[random_index]
 	unpicked_question_cards.remove_at(random_index)
+	
+	print("Picked question: " + str(picked_question.question))
 	
 	return picked_question
