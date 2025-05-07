@@ -25,8 +25,8 @@ script = ExtResource("3_u63k7")
 [node name="Background" type="Node" parent="."]
 
 [node name="BG sprite" type="Sprite2D" parent="Background"]
-position = Vector2(576, 328)
-scale = Vector2(0.6, 0.607407)
+position = Vector2(576, 326)
+scale = Vector2(0.6, 0.603704)
 texture = ExtResource("2_c53t7")
 
 [node name="Players" type="Node" parent="."]
@@ -169,6 +169,12 @@ position = Vector2(664, 336)
 [node name="Square 40" parent="Squares" instance=ExtResource("4_7r8ec")]
 position = Vector2(743, 337)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("map_background")]
 position = Vector2(576, 328)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 652
+editor_draw_limits = true
 script = ExtResource("8_wsift")
+map_background = NodePath("../Background/BG sprite")
