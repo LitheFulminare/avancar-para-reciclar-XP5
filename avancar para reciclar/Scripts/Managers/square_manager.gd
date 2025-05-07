@@ -27,7 +27,7 @@ func action(type: square_type):
 		square_type.garbage_truck:
 			garbage_truck()
 		square_type.quiz_card:
-			quiz_card()
+			round_manager.draw_question_card()
 		
 func luck_card() -> void:
 	return
@@ -40,7 +40,3 @@ func discard_trash() -> void:
 	
 func garbage_truck() -> void:
 	return
-	
-func quiz_card() -> void:
-	return
-	

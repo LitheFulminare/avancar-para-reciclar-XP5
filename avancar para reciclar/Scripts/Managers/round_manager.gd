@@ -58,8 +58,6 @@ var trash_card: PackedScene = preload(trash_card_path)
 @onready var square_array: Array[Square] = get_squares()
 
 func _ready() -> void:
-	# this wont be on _ready() forever
-	# a button click on the menu will call this function
 	start_game()
 
 func _input(event: InputEvent) -> void:
@@ -159,11 +157,10 @@ func player_stopped_moving() -> void:
 	if remaining_distance != 0:
 		move()
 	else:
-		draw_question_card()
 		# now no square has a resource/type, so calling this func will throw an error
 		#square_array[active_player.current_square-1].action()
-		
-		return
+		draw_question_card()
+		# this func wont be called all rounds, only when the player lands on quiz squares
 
 # this is NOT how actions are gonna be handled anymore, 
 # this is only still here in case I need to remember something
@@ -175,6 +172,7 @@ func player_stopped_moving() -> void:
 	## gives the active_player a random trash card
 	#add_trash(turn-1, get_random_trash_type())
 
+# gives the specified player a trash card
 func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	# instantiates the trash card and assign the correct type
 	var spawned_trash_card: TrashCard = trash_card.instantiate()
@@ -188,6 +186,9 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
 
+# spawns a question card and randomizes its text
+# gets called by action() on the SquareManager
+## not complete, will have some more visual stuff going on
 func draw_question_card() -> void:
 	var question_card: QuestionCard = question_card_scene.instantiate()
 	get_tree().root.add_child(question_card)
