@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://4wusbevputnd"]
+[gd_scene load_steps=3 format=3 uid="uid://4wusbevputnd"]
 
 [ext_resource type="Script" uid="uid://d3bknv5t61f0k" path="res://Scripts/Cards/Question cards/question card.gd" id="1_7iqeb"]
+[ext_resource type="Texture2D" uid="uid://di4gx44nhwgq7" path="res://Assets/Sprites/Cards/Question cards/Question card facing up.png" id="2_2gg23"]
 
-[node name="Question Card" type="Node2D"]
+[node name="Question Card" type="Node2D" node_paths=PackedStringArray("question_text_label")]
 script = ExtResource("1_7iqeb")
+question_text_label = NodePath("Question text")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2gg23")
+
+[node name="Question text" type="Label" parent="."]
+offset_left = -269.0
+offset_top = -453.0
+offset_right = 219.0
+offset_bottom = -12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Test Text"
