@@ -1,6 +1,7 @@
 extends Camera2D
 
 var zoom_target: Vector2
+@export var pan_speed: float = 300
 
 func _ready() -> void:
 	zoom_target = zoom
@@ -20,11 +21,15 @@ func zoom_with_mouse(delta: float) -> void:
 	zoom = zoom.slerp(zoom_target, 12 * delta)
 
 func move_with_keyboard(delta: float) -> void:
+	var movement_direction: Vector2 = Vector2.ZERO
+	
 	if Input.is_action_pressed("Move camera up"):
-		global_position.y -= 200 * delta
+		movement_direction.y -= 1
 	if Input.is_action_pressed("Move camera down"):
-		global_position.y += 200 * delta
+		movement_direction.y += 1
 	if Input.is_action_pressed("Move camera left"):
-		global_position.x -= 200 * delta
+		movement_direction.x -= 1
 	if Input.is_action_pressed("Move camera right"):
-		global_position.x += 200 * delta
+		movement_direction.x += 1
+		
+	global_position += movement_direction.normalized() * pan_speed * delta
