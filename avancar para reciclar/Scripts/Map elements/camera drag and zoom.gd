@@ -30,17 +30,21 @@ func zoom_with_mouse(delta: float) -> void:
 func move_with_keyboard(delta: float) -> void:
 	var movement_direction: Vector2 = Vector2.ZERO
 	
+	# used to ensure the camera is not going beyond the limits
+	# Godot actually limits the rendering area, not the camera's position, so this is necessary
+	var half_screen: Vector2 = get_viewport_rect().size * 0.5 * 1/zoom
+	
 	if Input.is_action_pressed("Move camera up"):
-		if position.y > limit_top:
+		if position.y > limit_top + half_screen.y:
 			movement_direction.y -= 1
 	if Input.is_action_pressed("Move camera down"):
-		if position.y < limit_bottom:
+		if position.y < limit_bottom - half_screen.y:
 			movement_direction.y += 1
 	if Input.is_action_pressed("Move camera left"):
-		if position.x > limit_left:
+		if position.x > limit_left + half_screen.x:
 			movement_direction.x -= 1
 	if Input.is_action_pressed("Move camera right"):
-		if position.x < limit_right:
+		if position.x < limit_right - half_screen.x:
 			movement_direction.x += 1
 		
 	global_position += movement_direction.normalized() * pan_speed * delta
