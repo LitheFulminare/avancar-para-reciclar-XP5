@@ -164,8 +164,7 @@ func player_stopped_moving() -> void:
 		move()
 	else:
 		await get_tree().create_timer(1).timeout
-		main_camera.remove_zoom()
-		main_camera.go_to_starting_position()
+		main_camera.remove_zoom(true)
 		# now no square has a resource/type, so calling this func will throw an error
 		#square_array[active_player.current_square-1].action()
 		
