@@ -6,7 +6,7 @@ var is_zoom_on_cooldown: bool = false
 var zoom_target: Vector2
 var starting_position: Vector2
 
-var max_zoom: float = 2.85
+var max_zoom: float = 2.5
 
 @export var pan_speed: float = 300
 @export var map_background: Sprite2D
@@ -17,11 +17,11 @@ func _ready() -> void:
 	starting_position = global_position
 
 func _process(delta: float) -> void:
-	zoom_with_mouse(delta)
+	zoom_in_and_out(delta)
 	move_with_keyboard(delta)
 	
 	
-func zoom_with_mouse(delta: float) -> void:
+func zoom_in_and_out(delta: float) -> void:
 	if Input.is_action_pressed("Camera zoom in") && !is_zoom_on_cooldown:
 		zoom_cooldown_timer.start()
 		is_zoom_on_cooldown = true
