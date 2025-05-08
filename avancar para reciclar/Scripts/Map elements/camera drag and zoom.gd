@@ -1,9 +1,12 @@
 extends Camera2D
 
+var is_zoom_on_cooldown: bool = false	
+
 var zoom_target: Vector2
 @export var pan_speed: float = 300
 
 @export var map_background: Sprite2D
+@export var zoom_cooldown: Timer
 
 func _ready() -> void:
 	zoom_target = zoom
@@ -14,18 +17,24 @@ func _process(delta: float) -> void:
 	
 	
 func zoom_with_mouse(delta: float) -> void:
-	if Input.is_action_just_pressed("Camera zoom in"):
+	if Input.is_action_pressed("Camera zoom in") && !is_zoom_on_cooldown:
+		zoom_cooldown.start()
+		is_zoom_on_cooldown = true
 		zoom_target *= 1.1
 		
-	if Input.is_action_just_pressed("Camera zoom out"):
+	if Input.is_action_pressed("Camera zoom out") && !is_zoom_on_cooldown:
+		zoom_cooldown.start()
+		is_zoom_on_cooldown = true
 		zoom_target *= 0.9
 		
-	zoom = zoom.slerp(zoom_target, 12 * delta)
+	zoom = zoom.slerp(zoom_target, 8 * delta)
 	
-	if zoom_target.x < 1:
-		zoom_target.x = 1
-	if zoom_target.y < 1:
-		zoom_target.y = 1
+	if zoom.x < 1:
+		zoom_target = Vector2(1,1)
+		zoom = Vector2(1,1)
+	elif zoom.x > 2.85:
+		zoom_target = Vector2(2.85, 2.85)
+		zoom_target = Vector2(2.85, 2.85)
 
 func move_with_keyboard(delta: float) -> void:
 	var movement_direction: Vector2 = Vector2.ZERO
@@ -52,3 +61,7 @@ func move_with_keyboard(delta: float) -> void:
 	# now due to parallax the camera appears to move faster the more it's zoomed in
 	# this prevents that, but it's up to personal preference
 	#global_position += movement_direction.normalized() * pan_speed * delta * (1/zoom.x)
+
+
+func _on_zoom_cooldown_timeout() -> void:
+	is_zoom_on_cooldown = false

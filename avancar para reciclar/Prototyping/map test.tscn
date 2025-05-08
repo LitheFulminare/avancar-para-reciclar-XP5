@@ -10,7 +10,7 @@ scale = Vector2(1.20561, 1.21869)
 texture = ExtResource("1_114w1")
 centered = false
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Scrolling Camera" type="Camera2D" parent="." node_paths=PackedStringArray("zoom_cooldown")]
 position = Vector2(576, 328)
 limit_left = 0
 limit_top = 0
@@ -18,3 +18,9 @@ limit_right = 1152
 limit_bottom = 652
 editor_draw_limits = true
 script = ExtResource("2_y42xc")
+zoom_cooldown = NodePath("Zoom cooldown")
+
+[node name="Zoom cooldown" type="Timer" parent="Scrolling Camera"]
+wait_time = 0.2
+
+[connection signal="timeout" from="Scrolling Camera/Zoom cooldown" to="Scrolling Camera" method="_on_zoom_cooldown_timeout"]
