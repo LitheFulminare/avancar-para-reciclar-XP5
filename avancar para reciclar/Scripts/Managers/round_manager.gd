@@ -60,6 +60,10 @@ var trash_card: PackedScene = preload(trash_card_path)
 
 func _ready() -> void:
 	start_game()
+	
+func _process(delta: float) -> void:
+	if active_player != null:
+		main_camera.global_position = active_player.global_position
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Confirm"):
@@ -86,9 +90,7 @@ func action() -> void:
 			turn += 1
 			active_player = player_array[turn-1]
 			print(active_player.name + "'s turn")
-			if active_player != null:
-				print("Active player location: " + str(active_player.global_position))
-				main_camera.zoom_to_location(active_player.global_position)
+			main_camera.zoom_to_location(active_player.global_position)
 			current_round_state = round_states.first_dice_roll
 		
 		round_states.first_dice_roll: 
