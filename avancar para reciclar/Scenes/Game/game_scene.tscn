@@ -7,9 +7,11 @@
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="3_u63k7"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="4_7r8ec"]
 [ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="6_m6pt0"]
-[ext_resource type="Script" uid="uid://cove0us1segek" path="res://Scripts/Map elements/camera drag and zoom.gd" id="8_wsift"]
+[ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="8_wsift"]
 
 [node name="Game scene" type="Node2D"]
+metadata/_edit_vertical_guides_ = [1153.0]
+metadata/_edit_horizontal_guides_ = [648.0]
 
 [node name="Round Manager" type="Node" parent="." node_paths=PackedStringArray("question_card_res_manager")]
 script = ExtResource("1_x87qo")
@@ -169,12 +171,9 @@ position = Vector2(664, 336)
 [node name="Square 40" parent="Squares" instance=ExtResource("4_7r8ec")]
 position = Vector2(743, 337)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("map_background")]
-position = Vector2(576, 328)
+[node name="Scrolling Camera" parent="." instance=ExtResource("8_wsift")]
+position = Vector2(576, 324)
 limit_left = 0
 limit_top = 0
 limit_right = 1152
-limit_bottom = 652
-editor_draw_limits = true
-script = ExtResource("8_wsift")
-map_background = NodePath("../Background/BG sprite")
+limit_bottom = 648

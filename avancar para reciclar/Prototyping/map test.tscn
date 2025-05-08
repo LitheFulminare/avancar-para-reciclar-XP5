@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://chykjqi524s2r"]
 
 [ext_resource type="Texture2D" uid="uid://c36jllb542e4c" path="res://Assets/Sprites/Map/mapa placeholder 2.png" id="1_114w1"]
-[ext_resource type="Script" uid="uid://cove0us1segek" path="res://Scripts/Map elements/camera drag and zoom.gd" id="2_y42xc"]
+[ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="2_y42xc"]
 
 [node name="MapTest" type="Node2D"]
 
@@ -10,17 +10,5 @@ scale = Vector2(1.20561, 1.21869)
 texture = ExtResource("1_114w1")
 centered = false
 
-[node name="Scrolling Camera" type="Camera2D" parent="." node_paths=PackedStringArray("zoom_cooldown")]
+[node name="Scrolling Camera" parent="." instance=ExtResource("2_y42xc")]
 position = Vector2(576, 328)
-limit_left = 0
-limit_top = 0
-limit_right = 1152
-limit_bottom = 652
-editor_draw_limits = true
-script = ExtResource("2_y42xc")
-zoom_cooldown = NodePath("Zoom cooldown")
-
-[node name="Zoom cooldown" type="Timer" parent="Scrolling Camera"]
-wait_time = 0.2
-
-[connection signal="timeout" from="Scrolling Camera/Zoom cooldown" to="Scrolling Camera" method="_on_zoom_cooldown_timeout"]

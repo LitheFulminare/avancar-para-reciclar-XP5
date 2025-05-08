@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2bk0jwfl75h8"]
+
+[ext_resource type="Script" uid="uid://cove0us1segek" path="res://Scripts/Map elements/camera drag and zoom.gd" id="1_d5wxl"]
+
+[node name="Scrolling Camera" type="Camera2D" node_paths=PackedStringArray("zoom_cooldown")]
+editor_draw_limits = true
+script = ExtResource("1_d5wxl")
+zoom_cooldown = NodePath("Zoom cooldown")
+
+[node name="Zoom cooldown" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="Zoom cooldown" to="." method="_on_zoom_cooldown_timeout"]
