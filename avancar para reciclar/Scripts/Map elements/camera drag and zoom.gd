@@ -42,6 +42,7 @@ func zoom_in_and_out(delta: float) -> void:
 		zoom = Vector2(1,1)
 		if go_to_starting_pos_after_ZO:
 			go_to_starting_position()
+			go_to_starting_pos_after_ZO = false
 		
 	elif zoom.x > max_zoom:
 		zoom_target = Vector2(max_zoom, max_zoom)
