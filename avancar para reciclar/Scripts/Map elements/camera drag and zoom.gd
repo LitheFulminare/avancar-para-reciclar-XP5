@@ -1,3 +1,4 @@
+class_name ScrollingCamera
 extends Camera2D
 
 var is_zoom_on_cooldown: bool = false	
@@ -65,3 +66,10 @@ func move_with_keyboard(delta: float) -> void:
 
 func _on_zoom_cooldown_timeout() -> void:
 	is_zoom_on_cooldown = false
+	
+func remove_zoom() -> void:
+	zoom_target = Vector2.ZERO
+
+func zoom_to_location(location: Vector2, zoom_value: float = 2.85):
+	zoom_target = Vector2(zoom_value, zoom_value)
+	global_position = location

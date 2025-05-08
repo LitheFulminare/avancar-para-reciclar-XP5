@@ -15,6 +15,7 @@ enum round_states
 }
 
 @export var question_card_res_manager: QuestionCardResourceManager
+@export var main_camera: ScrollingCamera
 
 var current_round_state: round_states = round_states.start_round
 
@@ -85,6 +86,9 @@ func action() -> void:
 			turn += 1
 			active_player = player_array[turn-1]
 			print(active_player.name + "'s turn")
+			if active_player != null:
+				print("Active player location: " + str(active_player.global_position))
+				main_camera.zoom_to_location(active_player.global_position)
 			current_round_state = round_states.first_dice_roll
 		
 		round_states.first_dice_roll: 
@@ -157,9 +161,11 @@ func player_stopped_moving() -> void:
 	if remaining_distance != 0:
 		move()
 	else:
+		main_camera.remove_zoom()
 		# now no square has a resource/type, so calling this func will throw an error
 		#square_array[active_player.current_square-1].action()
-		draw_question_card()
+		
+		#draw_question_card()
 		# this func wont be called all rounds, only when the player lands on quiz squares
 
 # this is NOT how actions are gonna be handled anymore, 
