@@ -37,6 +37,7 @@ func zoom_in_and_out(delta: float) -> void:
 		
 	zoom = zoom.slerp(zoom_target, zoom_smoothing * delta)
 	
+	# basically clamps the zoom
 	if zoom.x < 1:
 		zoom_target = Vector2(1,1)
 		zoom = Vector2(1,1)
@@ -47,8 +48,8 @@ func zoom_in_and_out(delta: float) -> void:
 		
 	elif zoom.x > max_zoom:
 		zoom_target = Vector2(max_zoom, max_zoom)
-		zoom_target = Vector2(max_zoom, max_zoom)
 
+# moves the camera with WASD and arrows
 func move_with_keyboard(delta: float) -> void:
 	var movement_direction: Vector2 = Vector2.ZERO
 	
@@ -79,8 +80,11 @@ func move_with_keyboard(delta: float) -> void:
 func _on_zoom_cooldown_timer_timeout() -> void:
 	is_zoom_on_cooldown = false
 	
+# sets zoom to 0 and checks if the position should be reseted as well
 func remove_zoom(go_to_starting_location: bool = false) -> void:
 	zoom_target = Vector2.ZERO
+	
+	# the smoothing weight is decrease so it takes longer to zoom ou (it looks better)
 	zoom_smoothing = base_zoom_smoothing * zoom.x / 3.5
 	go_to_starting_pos_after_ZO = go_to_starting_location
 
