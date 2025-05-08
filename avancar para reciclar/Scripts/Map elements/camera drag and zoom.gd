@@ -1,16 +1,20 @@
 class_name ScrollingCamera
 extends Camera2D
 
-var is_zoom_on_cooldown: bool = false	
+var is_zoom_on_cooldown: bool = false
 
 var zoom_target: Vector2
-@export var pan_speed: float = 300
+var starting_position: Vector2
 
+var max_zoom: float = 2.85
+
+@export var pan_speed: float = 300
 @export var map_background: Sprite2D
-@export var zoom_cooldown: Timer
+@export var zoom_cooldown_timer: Timer
 
 func _ready() -> void:
 	zoom_target = zoom
+	starting_position = global_position
 
 func _process(delta: float) -> void:
 	zoom_with_mouse(delta)
@@ -19,12 +23,12 @@ func _process(delta: float) -> void:
 	
 func zoom_with_mouse(delta: float) -> void:
 	if Input.is_action_pressed("Camera zoom in") && !is_zoom_on_cooldown:
-		zoom_cooldown.start()
+		zoom_cooldown_timer.start()
 		is_zoom_on_cooldown = true
 		zoom_target *= 1.1
 		
 	if Input.is_action_pressed("Camera zoom out") && !is_zoom_on_cooldown:
-		zoom_cooldown.start()
+		zoom_cooldown_timer.start()
 		is_zoom_on_cooldown = true
 		zoom_target *= 0.9
 		
@@ -33,9 +37,9 @@ func zoom_with_mouse(delta: float) -> void:
 	if zoom.x < 1:
 		zoom_target = Vector2(1,1)
 		zoom = Vector2(1,1)
-	elif zoom.x > 2.85:
-		zoom_target = Vector2(2.85, 2.85)
-		zoom_target = Vector2(2.85, 2.85)
+	elif zoom.x > max_zoom:
+		zoom_target = Vector2(max_zoom, max_zoom)
+		zoom_target = Vector2(max_zoom, max_zoom)
 
 func move_with_keyboard(delta: float) -> void:
 	var movement_direction: Vector2 = Vector2.ZERO
@@ -64,12 +68,15 @@ func move_with_keyboard(delta: float) -> void:
 	#global_position += movement_direction.normalized() * pan_speed * delta * (1/zoom.x)
 
 
-func _on_zoom_cooldown_timeout() -> void:
+func _on_zoom_cooldown_timer_timeout() -> void:
 	is_zoom_on_cooldown = false
 	
 func remove_zoom() -> void:
 	zoom_target = Vector2.ZERO
 
-func zoom_to_location(location: Vector2, zoom_value: float = 2.85):
+func zoom_to_location(location: Vector2, zoom_value: float = max_zoom):
 	zoom_target = Vector2(zoom_value, zoom_value)
 	global_position = location
+
+func go_to_starting_position() -> void:
+	global_position = starting_position
