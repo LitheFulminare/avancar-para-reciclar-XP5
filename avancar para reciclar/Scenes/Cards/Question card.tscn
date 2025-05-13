@@ -8,11 +8,15 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmoot"]
 bg_color = Color(1, 1, 1, 0)
 
-[node name="Question Card" type="Node2D" node_paths=PackedStringArray("question_text_label", "face_up_elements", "face_down_elements")]
+[node name="Question Card" type="Node2D" node_paths=PackedStringArray("face_up_elements", "face_down_elements", "question_text_label", "answer1_button", "answer2_button", "answer3_button", "answer4_button")]
 script = ExtResource("1_7iqeb")
-question_text_label = NodePath("Face up elements/Question text")
 face_up_elements = NodePath("Face up elements")
 face_down_elements = NodePath("Face down elements")
+question_text_label = NodePath("Face up elements/Question text")
+answer1_button = NodePath("Face up elements/Answer 1")
+answer2_button = NodePath("Face up elements/Answer 2")
+answer3_button = NodePath("Face up elements/Answer 3")
+answer4_button = NodePath("Face up elements/Answer 4")
 
 [node name="Face up elements" type="Node2D" parent="."]
 
@@ -29,10 +33,61 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "Test Text"
 
-[node name="Button" type="Button" parent="Face up elements"]
+[node name="Answer 1" type="Button" parent="Face up elements"]
 offset_left = -76.0
 offset_right = 64.0
 offset_bottom = 26.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_kmoot")
+theme_override_colors/font_hover_pressed_color = Color(0.530983, 0.605291, 0.0960035, 1)
+theme_override_colors/font_hover_color = Color(0.34902, 0.4, 0.054902, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxFlat_kmoot")
+text = "texto"
+flat = true
+alignment = 0
+
+[node name="Answer 2" type="Button" parent="Face up elements"]
+offset_left = -76.0
+offset_top = 22.0
+offset_right = 64.0
+offset_bottom = 48.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_kmoot")
+theme_override_colors/font_hover_pressed_color = Color(0.530983, 0.605291, 0.0960035, 1)
+theme_override_colors/font_hover_color = Color(0.34902, 0.4, 0.054902, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxFlat_kmoot")
+text = "texto"
+flat = true
+alignment = 0
+
+[node name="Answer 3" type="Button" parent="Face up elements"]
+offset_left = -76.0
+offset_top = 47.0
+offset_right = 64.0
+offset_bottom = 73.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_kmoot")
+theme_override_colors/font_hover_pressed_color = Color(0.530983, 0.605291, 0.0960035, 1)
+theme_override_colors/font_hover_color = Color(0.34902, 0.4, 0.054902, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxFlat_kmoot")
+text = "texto"
+flat = true
+alignment = 0
+
+[node name="Answer 4" type="Button" parent="Face up elements"]
+offset_left = -76.0
+offset_top = 73.0
+offset_right = 64.0
+offset_bottom = 99.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_kmoot")
 theme_override_colors/font_hover_pressed_color = Color(0.530983, 0.605291, 0.0960035, 1)
