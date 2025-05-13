@@ -18,7 +18,7 @@ var texts: QuestionCardTexts
 @onready var answer_buttons: Array[Button] = [answer1_button, answer2_button, answer3_button, answer4_button]
 var right_answer_index: int = 0
 
-var answers: Array[String]
+var wrong_answers: Array[String]
 
 func _ready() -> void:
 	face_up_elements.visible = false
@@ -31,19 +31,24 @@ func set_texts(question_texts: QuestionCardTexts) -> void:
 		get_tree().paused = true
 	
 	texts = question_texts
-	answers = [texts.wrong_answer_1, texts.wrong_answer_2, texts.wrong_answer_3]
+	wrong_answers = [texts.wrong_answer_1, texts.wrong_answer_2, texts.wrong_answer_3]
+	print("wrong answers array size: " + str(wrong_answers.size()))
 	
 	question_text_label.text = texts.question
 	
 	randomize()
 	right_answer_index = randi_range(0, answer_buttons.size()-1)
-	print("right answer index: " + str(right_answer_index))
 	answer_buttons[right_answer_index].text = texts.right_answer
+	print("right answer index: " + str(right_answer_index))
 	answer_buttons.remove_at(right_answer_index)
 	
-	for i in range(answer_buttons.size()):
-		answer_buttons[i-1].text = get_random_wrong_answer()
-		answer_buttons.remove_at(i-1)
+	## WRITE THIS IN A WHILE FUNCTIONS INSTEAD
+	for i in answer_buttons.size()-1:
+		print("iteration " + str(i))
+		answer_buttons[i].text = get_random_wrong_answer()
+		print("answer button text: " + answer_buttons[i].text)
+		answer_buttons.remove_at(i)
+		print("remaining buttons: " + str(answer_buttons.size()))
 
 func reveal() -> void:
 	face_up_elements.visible = true
@@ -53,8 +58,8 @@ func get_random_wrong_answer() -> String:
 	var rand_ans: String
 	
 	randomize()
-	var rand_ans_index: int = randi_range(0, answers.size() - 1)
-	rand_ans = answers[rand_ans_index]
-	answers.remove_at(rand_ans_index)
+	var rand_ans_index: int = randi_range(0, wrong_answers.size() - 1)
+	rand_ans = wrong_answers[rand_ans_index]
+	wrong_answers.remove_at(rand_ans_index)
 	
 	return rand_ans
