@@ -1,6 +1,8 @@
 class_name ScrollingCamera
 extends Camera2D
 
+signal finished_zooming_out
+
 var is_zoom_on_cooldown: bool = false
 var go_to_starting_pos_after_ZO: bool = false
 
@@ -45,6 +47,7 @@ func zoom_in_and_out(delta: float) -> void:
 			go_to_starting_position()
 			go_to_starting_pos_after_ZO = false
 			zoom_smoothing = base_zoom_smoothing
+			finished_zooming_out.emit()
 		
 	elif zoom.x > max_zoom:
 		zoom_target = Vector2(max_zoom, max_zoom)
@@ -88,9 +91,9 @@ func remove_zoom(go_to_starting_location: bool = false) -> void:
 	zoom_smoothing = base_zoom_smoothing * zoom.x / 3.5
 	go_to_starting_pos_after_ZO = go_to_starting_location
 
-func zoom_to_location(location: Vector2, zoom_value: float = max_zoom):
+func zoom_to_location(location: Vector2, zoom_value: float = max_zoom) -> void:
 	zoom_target = Vector2(zoom_value, zoom_value)
 	global_position = location
 
 func go_to_starting_position() -> void:
-	global_position = starting_position
+	global_position = starting_position	

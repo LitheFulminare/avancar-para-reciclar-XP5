@@ -12,3 +12,7 @@ centered = false
 
 [node name="Scrolling Camera" parent="." instance=ExtResource("2_y42xc")]
 position = Vector2(576, 328)
+
+[node name="Question Card Stack" type="Marker2D" parent="."]
+position = Vector2(58, 276)
+gizmo_extents = 26.5

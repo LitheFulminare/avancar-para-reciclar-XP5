@@ -16,6 +16,7 @@ enum round_states
 
 @export var question_card_res_manager: QuestionCardResourceManager
 @export var main_camera: ScrollingCamera
+@export var question_card_spawn: Marker2D
 
 var current_round_state: round_states = round_states.start_round
 
@@ -59,6 +60,7 @@ var trash_card: PackedScene = preload(trash_card_path)
 @onready var square_array: Array[Square] = get_squares()
 
 func _ready() -> void:
+	main_camera.connect("finished_zooming_out", camera_finished_zooming_out)
 	start_game()
 	
 func _process(delta: float) -> void:
@@ -202,7 +204,7 @@ func draw_question_card() -> void:
 	var question_card: QuestionCard = question_card_scene.instantiate()
 	get_tree().root.add_child(question_card)
 	question_card.set_texts(question_card_res_manager.get_random_question_res())
-	question_card.position = Vector2(300,300)
+	question_card.position = question_card_spawn.position
 
 # returns array of the squares
 # get_children() only returns an array of node so you have to come up with your own solution
@@ -217,3 +219,8 @@ func get_squares() -> Array[Square]:
 			get_tree().paused = true
 			
 	return squares
+
+func camera_finished_zooming_out() -> void:
+	print("camera finished zooming out")
+	await get_tree().create_timer(1).timeout
+	print("1 sec has passed")
