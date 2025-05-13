@@ -96,4 +96,4 @@ func zoom_to_location(location: Vector2, zoom_value: float = max_zoom) -> void:
 	global_position = location
 
 func go_to_starting_position() -> void:
-	global_position = starting_position	
+	global_position = starting_position

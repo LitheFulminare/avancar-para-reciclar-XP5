@@ -1,21 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://4wusbevputnd"]
+[gd_scene load_steps=4 format=3 uid="uid://4wusbevputnd"]
 
 [ext_resource type="Script" uid="uid://d3bknv5t61f0k" path="res://Scripts/Cards/Question cards/question card.gd" id="1_7iqeb"]
 [ext_resource type="Texture2D" uid="uid://di4gx44nhwgq7" path="res://Assets/Sprites/Cards/Question cards/Question card facing up.png" id="2_2gg23"]
+[ext_resource type="Texture2D" uid="uid://d12io1c2of5s4" path="res://Assets/Sprites/Cards/Question cards/Question card facing down.png" id="2_5nxy6"]
 
-[node name="Question Card" type="Node2D" node_paths=PackedStringArray("question_text_label")]
-scale = Vector2(0.5, 0.5)
+[node name="Question Card" type="Node2D" node_paths=PackedStringArray("question_text_label", "face_up_elements", "face_down_elements")]
 script = ExtResource("1_7iqeb")
-question_text_label = NodePath("Question text")
+question_text_label = NodePath("Face up elements/Question text")
+face_up_elements = NodePath("Face up elements")
+face_down_elements = NodePath("Face down elements")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Face up elements" type="Node2D" parent="."]
+visible = false
+
+[node name="Face up sprite" type="Sprite2D" parent="Face up elements"]
+scale = Vector2(0.283, 0.283)
 texture = ExtResource("2_2gg23")
 
-[node name="Question text" type="Label" parent="."]
-offset_left = -269.0
-offset_top = -453.0
-offset_right = 219.0
-offset_bottom = -12.0
+[node name="Question text" type="Label" parent="Face up elements"]
+offset_left = -75.0
+offset_top = -132.0
+offset_right = 62.0
+offset_bottom = -5.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 13
 text = "Test Text"
+
+[node name="Face down elements" type="Node2D" parent="."]
+
+[node name="Face down sprite" type="Sprite2D" parent="Face down elements"]
+texture = ExtResource("2_5nxy6")

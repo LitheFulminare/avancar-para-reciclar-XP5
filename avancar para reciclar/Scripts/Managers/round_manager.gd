@@ -204,7 +204,9 @@ func draw_question_card() -> void:
 	var question_card: QuestionCard = question_card_scene.instantiate()
 	get_tree().root.add_child(question_card)
 	question_card.set_texts(question_card_res_manager.get_random_question_res())
-	question_card.position = question_card_spawn.position
+	question_card.position = question_card_spawn.global_position
+	await get_tree().create_timer(1).timeout
+	question_card.reveal()
 
 # returns array of the squares
 # get_children() only returns an array of node so you have to come up with your own solution
@@ -221,6 +223,5 @@ func get_squares() -> Array[Square]:
 	return squares
 
 func camera_finished_zooming_out() -> void:
-	print("camera finished zooming out")
 	await get_tree().create_timer(1).timeout
-	print("1 sec has passed")
+	draw_question_card()

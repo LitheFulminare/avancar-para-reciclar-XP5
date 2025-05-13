@@ -5,6 +5,12 @@ extends Node
 var texts: QuestionCardTexts
 
 @export var question_text_label: Label
+@export var face_up_elements: Node2D
+@export var face_down_elements: Node2D
+
+func _ready() -> void:
+	face_up_elements.visible = false
+	face_down_elements.visible = true
 
 # called by round manager after being instantiated and added to the tree
 func set_texts(question_texts: QuestionCardTexts) -> void:
@@ -21,3 +27,7 @@ func print_texts():
 	print(texts.wrong_answer_1)
 	print(texts.wrong_answer_2)
 	print(texts.wrong_answer_3)
+
+func reveal() -> void:
+	face_up_elements.visible = true
+	face_down_elements.visible = false
