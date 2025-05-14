@@ -15,9 +15,15 @@ var texts: QuestionCardTexts
 @export var answer3_button: Button
 @export var answer4_button: Button
 
+# remains unaltered, it's used to know if the player clicked on the right button
+@onready var base_answer_buttons: Array[Button] = [answer1_button, answer2_button, answer3_button, answer4_button]
+
+# will have elements removed to set random texts in the buttons
 @onready var answer_buttons: Array[Button] = [answer1_button, answer2_button, answer3_button, answer4_button]
+
 var right_answer_index: int = 0
 
+# set on ready() since the resource has to be loaded
 var wrong_answers: Array[String]
 
 func _ready() -> void:
@@ -36,6 +42,7 @@ func set_texts(question_texts: QuestionCardTexts) -> void:
 	
 	question_text_label.text = texts.question
 	
+	# sets the right answer to a random button
 	randomize()
 	right_answer_index = randi_range(0, answer_buttons.size()-1)
 	answer_buttons[right_answer_index].text = texts.right_answer
@@ -54,6 +61,7 @@ func set_texts(question_texts: QuestionCardTexts) -> void:
 	## the i is for debug purposes only, it can be deleted
 	var i: int = 0
 	
+	# randomizes the wrong answers
 	while answer_buttons.size() > 0:
 		i += 1
 		print("iteration " + str(i))
@@ -66,6 +74,7 @@ func reveal() -> void:
 	face_up_elements.visible = true
 	face_down_elements.visible = false
 
+# gets a random wrong answer and removes it from the array
 func get_random_wrong_answer() -> String:
 	var rand_ans: String
 	
