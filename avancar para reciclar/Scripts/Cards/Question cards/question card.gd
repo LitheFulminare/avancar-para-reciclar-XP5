@@ -43,11 +43,23 @@ func set_texts(question_texts: QuestionCardTexts) -> void:
 	answer_buttons.remove_at(right_answer_index)
 	
 	## WRITE THIS IN A WHILE FUNCTIONS INSTEAD
-	for i in answer_buttons.size()-1:
+	#for i in answer_buttons.size()-1:
+		#print("iteration " + str(i))
+		#answer_buttons[i].text = get_random_wrong_answer()
+		#print("answer button text: " + answer_buttons[i].text)
+		#answer_buttons.remove_at(i)
+		#print("remaining buttons: " + str(answer_buttons.size()))
+		
+		
+	## the i is for debug purposes only, it can be deleted
+	var i: int = 0
+	
+	while answer_buttons.size() > 0:
+		i += 1
 		print("iteration " + str(i))
-		answer_buttons[i].text = get_random_wrong_answer()
-		print("answer button text: " + answer_buttons[i].text)
-		answer_buttons.remove_at(i)
+		answer_buttons[0].text = get_random_wrong_answer()
+		print("answer button text: " + answer_buttons[0].text)
+		answer_buttons.remove_at(0)
 		print("remaining buttons: " + str(answer_buttons.size()))
 
 func reveal() -> void:
