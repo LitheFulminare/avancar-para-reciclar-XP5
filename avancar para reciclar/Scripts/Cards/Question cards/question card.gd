@@ -84,3 +84,26 @@ func get_random_wrong_answer() -> String:
 	wrong_answers.remove_at(rand_ans_index)
 	
 	return rand_ans
+
+func check_answer(button_index: int) -> void:
+	if button_index == right_answer_index:
+		print("Right answer")
+	
+	else:
+		print("Wrong answer")
+
+func _on_answer_1_pressed() -> void:
+	print("Button 1 pressed")
+	check_answer(0)
+
+func _on_answer_2_pressed() -> void:
+	print("Button 2 pressed")
+	check_answer(1)
+
+func _on_answer_3_pressed() -> void:
+	print("Button 3 pressed")
+	check_answer(2)
+
+func _on_answer_4_pressed() -> void:
+	print("Button 4 pressed")
+	check_answer(3)

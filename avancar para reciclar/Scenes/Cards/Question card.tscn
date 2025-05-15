@@ -105,3 +105,8 @@ visible = false
 
 [node name="Face down sprite" type="Sprite2D" parent="Face down elements"]
 texture = ExtResource("2_5nxy6")
+
+[connection signal="pressed" from="Face up elements/Answer 1" to="." method="_on_answer_1_pressed"]
+[connection signal="pressed" from="Face up elements/Answer 2" to="." method="_on_answer_2_pressed"]
+[connection signal="pressed" from="Face up elements/Answer 3" to="." method="_on_answer_3_pressed"]
+[connection signal="pressed" from="Face up elements/Answer 4" to="." method="_on_answer_4_pressed"]
