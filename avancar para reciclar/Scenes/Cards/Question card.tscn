@@ -1,22 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://4wusbevputnd"]
+[gd_scene load_steps=5 format=3 uid="uid://4wusbevputnd"]
 
 [ext_resource type="Script" uid="uid://d3bknv5t61f0k" path="res://Scripts/Cards/Question cards/question card.gd" id="1_7iqeb"]
 [ext_resource type="Texture2D" uid="uid://di4gx44nhwgq7" path="res://Assets/Sprites/Cards/Question cards/Question card facing up.png" id="2_2gg23"]
 [ext_resource type="Texture2D" uid="uid://d12io1c2of5s4" path="res://Assets/Sprites/Cards/Question cards/Question card facing down.png" id="2_5nxy6"]
 [ext_resource type="Theme" uid="uid://bnygovcukwib" path="res://Misc/Text/Question card text theme.tres" id="3_kmoot"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmoot"]
-bg_color = Color(1, 1, 1, 0)
-
 [node name="Question Card" type="Node2D" node_paths=PackedStringArray("face_up_elements", "face_down_elements", "question_text_label", "answer1_button", "answer2_button", "answer3_button", "answer4_button")]
 script = ExtResource("1_7iqeb")
 face_up_elements = NodePath("Face up elements")
 face_down_elements = NodePath("Face down elements")
 question_text_label = NodePath("Face up elements/Question text")
-answer1_button = NodePath("Face up elements/Answer 1")
-answer2_button = NodePath("Face up elements/Answer 2")
-answer3_button = NodePath("Face up elements/Answer 3")
-answer4_button = NodePath("Face up elements/Answer 4")
+answer1_button = NodePath("Face up elements/VBoxContainer/Answer 1")
+answer2_button = NodePath("Face up elements/VBoxContainer/Answer 2")
+answer3_button = NodePath("Face up elements/VBoxContainer/Answer 3")
+answer4_button = NodePath("Face up elements/VBoxContainer/Answer 4")
 
 [node name="Face up elements" type="Node2D" parent="."]
 
@@ -33,69 +30,44 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "Test Text"
 
-[node name="Answer 1" type="Button" parent="Face up elements"]
-offset_left = -76.0
-offset_right = 64.0
-offset_bottom = 26.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Face up elements"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_right = 63.0
+offset_bottom = 116.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="Answer 1" type="Button" parent="Face up elements/VBoxContainer"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_kmoot")
-theme_override_colors/font_hover_pressed_color = Color(0.530983, 0.605291, 0.0960035, 1)
-theme_override_colors/font_hover_color = Color(0.34902, 0.4, 0.054902, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
-theme_override_styles/focus = SubResource("StyleBoxFlat_kmoot")
 text = "texto"
 flat = true
 alignment = 0
 
-[node name="Answer 2" type="Button" parent="Face up elements"]
-offset_left = -76.0
-offset_top = 22.0
-offset_right = 64.0
-offset_bottom = 48.0
+[node name="Answer 2" type="Button" parent="Face up elements/VBoxContainer"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_kmoot")
-theme_override_colors/font_hover_pressed_color = Color(0.530983, 0.605291, 0.0960035, 1)
-theme_override_colors/font_hover_color = Color(0.34902, 0.4, 0.054902, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
-theme_override_styles/focus = SubResource("StyleBoxFlat_kmoot")
 text = "texto"
 flat = true
 alignment = 0
 
-[node name="Answer 3" type="Button" parent="Face up elements"]
-offset_left = -76.0
-offset_top = 47.0
-offset_right = 64.0
-offset_bottom = 73.0
+[node name="Answer 3" type="Button" parent="Face up elements/VBoxContainer"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_kmoot")
-theme_override_colors/font_hover_pressed_color = Color(0.530983, 0.605291, 0.0960035, 1)
-theme_override_colors/font_hover_color = Color(0.34902, 0.4, 0.054902, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
-theme_override_styles/focus = SubResource("StyleBoxFlat_kmoot")
 text = "texto"
 flat = true
 alignment = 0
 
-[node name="Answer 4" type="Button" parent="Face up elements"]
-offset_left = -76.0
-offset_top = 73.0
-offset_right = 64.0
-offset_bottom = 99.0
+[node name="Answer 4" type="Button" parent="Face up elements/VBoxContainer"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_kmoot")
-theme_override_colors/font_hover_pressed_color = Color(0.530983, 0.605291, 0.0960035, 1)
-theme_override_colors/font_hover_color = Color(0.34902, 0.4, 0.054902, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
-theme_override_styles/focus = SubResource("StyleBoxFlat_kmoot")
 text = "texto"
 flat = true
 alignment = 0
@@ -106,7 +78,7 @@ visible = false
 [node name="Face down sprite" type="Sprite2D" parent="Face down elements"]
 texture = ExtResource("2_5nxy6")
 
-[connection signal="pressed" from="Face up elements/Answer 1" to="." method="_on_answer_1_pressed"]
-[connection signal="pressed" from="Face up elements/Answer 2" to="." method="_on_answer_2_pressed"]
-[connection signal="pressed" from="Face up elements/Answer 3" to="." method="_on_answer_3_pressed"]
-[connection signal="pressed" from="Face up elements/Answer 4" to="." method="_on_answer_4_pressed"]
+[connection signal="pressed" from="Face up elements/VBoxContainer/Answer 1" to="." method="_on_answer_1_pressed"]
+[connection signal="pressed" from="Face up elements/VBoxContainer/Answer 2" to="." method="_on_answer_2_pressed"]
+[connection signal="pressed" from="Face up elements/VBoxContainer/Answer 3" to="." method="_on_answer_3_pressed"]
+[connection signal="pressed" from="Face up elements/VBoxContainer/Answer 4" to="." method="_on_answer_4_pressed"]
