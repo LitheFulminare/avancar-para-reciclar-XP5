@@ -9,7 +9,7 @@ var texts: QuestionCardTexts
 @export var face_down_elements: Node2D
 
 @export_group("Texts")
-@export var question_text_label: Label
+@export var question_text_label: LabelManager
 @export var answer1_button: Button
 @export var answer2_button: Button
 @export var answer3_button: Button
@@ -33,20 +33,20 @@ func _ready() -> void:
 # called by round manager after being instantiated and added to the tree
 func set_texts(question_texts: QuestionCardTexts) -> void:
 	if question_texts == null:
-		printerr("question texts is null")
+		#printerr("question texts is null")
 		get_tree().paused = true
 	
 	texts = question_texts
 	wrong_answers = [texts.wrong_answer_1, texts.wrong_answer_2, texts.wrong_answer_3]
-	print("wrong answers array size: " + str(wrong_answers.size()))
+	#print("wrong answers array size: " + str(wrong_answers.size()))
 	
-	question_text_label.text = texts.question
+	question_text_label.update_text(texts.question)
 	
 	# sets the right answer to a random button
 	randomize()
 	right_answer_index = randi_range(0, answer_buttons.size()-1)
 	answer_buttons[right_answer_index].text = texts.right_answer
-	print("right answer index: " + str(right_answer_index))
+	#print("right answer index: " + str(right_answer_index))
 	answer_buttons.remove_at(right_answer_index)
 	
 	## WRITE THIS IN A WHILE FUNCTIONS INSTEAD
@@ -64,11 +64,11 @@ func set_texts(question_texts: QuestionCardTexts) -> void:
 	# randomizes the wrong answers
 	while answer_buttons.size() > 0:
 		i += 1
-		print("iteration " + str(i))
+		#print("iteration " + str(i))
 		answer_buttons[0].text = get_random_wrong_answer()
-		print("answer button text: " + answer_buttons[0].text)
+		#print("answer button text: " + answer_buttons[0].text)
 		answer_buttons.remove_at(0)
-		print("remaining buttons: " + str(answer_buttons.size()))
+		#print("remaining buttons: " + str(answer_buttons.size()))
 
 func reveal() -> void:
 	face_up_elements.visible = true

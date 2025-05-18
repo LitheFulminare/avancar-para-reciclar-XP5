@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_mrtyo")
-question = "pergunta carta 2"
-right_answer = "resposta certa carta 2"
-wrong_answer_1 = "resposta carta 2"
-wrong_answer_2 = "resposta carta 2"
-wrong_answer_3 = "gsdsfs"
+question = "Existem alguns objetos que depois de usados, perdem energia e ficam descarregados. Esses objetos precisam ser descartados em lugares adequados. Qual o nome desses tipos de resíduo?"
+right_answer = "Pilhas e baterias"
+wrong_answer_1 = "Fraldas descartáveis"
+wrong_answer_2 = "Plantas"
+wrong_answer_3 = "Lápis de cor"
 metadata/_custom_type_script = "uid://spwobx81lsvr"

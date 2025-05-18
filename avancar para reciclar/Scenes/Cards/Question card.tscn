@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://4wusbevputnd"]
+[gd_scene load_steps=6 format=3 uid="uid://4wusbevputnd"]
 
 [ext_resource type="Script" uid="uid://d3bknv5t61f0k" path="res://Scripts/Cards/Question cards/question card.gd" id="1_7iqeb"]
 [ext_resource type="Texture2D" uid="uid://di4gx44nhwgq7" path="res://Assets/Sprites/Cards/Question cards/Question card facing up.png" id="2_2gg23"]
 [ext_resource type="Texture2D" uid="uid://d12io1c2of5s4" path="res://Assets/Sprites/Cards/Question cards/Question card facing down.png" id="2_5nxy6"]
+[ext_resource type="Script" uid="uid://bxvwd2sst80lt" path="res://Scripts/Misc/fit_text_in_label.gd" id="3_bryby"]
 [ext_resource type="Theme" uid="uid://bnygovcukwib" path="res://Misc/Text/Question card text theme.tres" id="3_kmoot"]
 
 [node name="Question Card" type="Node2D" node_paths=PackedStringArray("face_up_elements", "face_down_elements", "question_text_label", "answer1_button", "answer2_button", "answer3_button", "answer4_button")]
@@ -28,7 +29,9 @@ offset_right = 62.0
 offset_bottom = -5.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
-text = "Test Text"
+text = "test text"
+autowrap_mode = 2
+script = ExtResource("3_bryby")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Face up elements"]
 anchors_preset = 5
