@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj6p1vb1p554o" path="res://Scripts/Map elements/square.gd" id="1_bmo2i"]
 
-[node name="Square" type="Node2D" node_paths=PackedStringArray("square_sprite")]
+[node name="Square" type="Node2D" node_paths=PackedStringArray("square_sprite") groups=["Square"]]
 scale = Vector2(0.15, 0.15)
 script = ExtResource("1_bmo2i")
 square_sprite = NodePath("Sprite2D")

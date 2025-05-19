@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="SquareStats" load_steps=2 format=3 uid="uid://br484ai56mu1a"]
+[gd_resource type="Resource" script_class="SquareStats" load_steps=3 format=3 uid="uid://br484ai56mu1a"]
 
 [ext_resource type="Script" uid="uid://djo0ibe5y6lo3" path="res://Scripts/Map elements/square resource.gd" id="1_0cqa6"]
+[ext_resource type="Texture2D" uid="uid://c1ax6uy04riyh" path="res://Assets/Sprites/Squares/Luck card.png" id="2_k7f5i"]
 
 [resource]
 script = ExtResource("1_0cqa6")
+sprite = ExtResource("2_k7f5i")
 type = 0
 metadata/_custom_type_script = "uid://djo0ibe5y6lo3"

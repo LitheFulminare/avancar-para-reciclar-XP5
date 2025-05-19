@@ -1,5 +1,7 @@
 # handles square-specific actions, like skipping next player's turn
 
+@tool
+
 class_name SquareManager
 extends Node
 
@@ -13,6 +15,11 @@ enum square_type
 }
 
 @export var round_manager: RoundManager
+@export var square_size: float = 1.0
+
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		get_tree().call_group("Square", "update_size", square_size)
 
 # the square the player landed calls this method on nodes that are part of the "Round Manager" group
 ## maybe this functions could be their own subresource and the square type res has that subres

@@ -27,6 +27,7 @@ script = ExtResource("2_81x0c")
 [node name="Square Manager" type="Node" parent="." node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
 script = ExtResource("3_q0u56")
 round_manager = NodePath("../Round Manager")
+square_size = 0.12
 
 [node name="Question Card Res Manager" type="Node" parent="."]
 script = ExtResource("4_riorq")
@@ -49,7 +50,8 @@ scale = Vector2(2.17391, 2.17391)
 [node name="Squares" type="Node" parent="."]
 
 [node name="Square 1" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(962, 549)
+position = Vector2(925, 543)
+scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
 [node name="Players" type="Node" parent="."]

@@ -18,3 +18,7 @@ func _process(delta: float) -> void:
 
 func action() -> void:
 	get_tree().call_group("Square Manager", "action", stats.type)
+	
+func update_size(new_size:float = 1.0) -> void:
+	scale.x = new_size
+	scale.y = new_size

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="SquareStats" load_steps=2 format=3 uid="uid://d1411atrrck5y"]
+[gd_resource type="Resource" script_class="SquareStats" load_steps=3 format=3 uid="uid://d1411atrrck5y"]
 
 [ext_resource type="Script" uid="uid://djo0ibe5y6lo3" path="res://Scripts/Map elements/square resource.gd" id="1_vnt68"]
+[ext_resource type="Texture2D" uid="uid://4iaru7hdhdap" path="res://Assets/Sprites/Squares/Garbage truck.png" id="2_fmohk"]
 
 [resource]
 script = ExtResource("1_vnt68")
+sprite = ExtResource("2_fmohk")
 type = 3
 metadata/_custom_type_script = "uid://djo0ibe5y6lo3"
