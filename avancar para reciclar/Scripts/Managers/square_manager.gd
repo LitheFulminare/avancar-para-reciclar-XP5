@@ -5,11 +5,11 @@ extends Node
 
 enum square_type
 {
-	luck_card,
-	collect_trash,
-	discard_trash,
-	garbage_truck,
-	quiz_card
+	luck_card, # draws a luck card with a random action
+	collect_trash, # player collects a random trash
+	discard_trash, # player can discard a specific trash card
+	garbage_truck, # player can discard any trash card
+	quiz_card # draws a quiz card
 }
 
 @export var round_manager: RoundManager

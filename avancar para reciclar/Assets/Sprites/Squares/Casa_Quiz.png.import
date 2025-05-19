@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c36jllb542e4c"
-path="res://.godot/imported/mapa placeholder 2.png-8d45d5fdd4577bde7032ef764a53bef5.ctex"
+uid="uid://kxkyokhgwr07"
+path="res://.godot/imported/Casa_Quiz.png-cb4d311f5f9b6bd1ae82e16e7f5644a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Map/mapa placeholder 2.png"
-dest_files=["res://.godot/imported/mapa placeholder 2.png-8d45d5fdd4577bde7032ef764a53bef5.ctex"]
+source_file="res://Assets/Sprites/Squares/Casa_Quiz.png"
+dest_files=["res://.godot/imported/Casa_Quiz.png-cb4d311f5f9b6bd1ae82e16e7f5644a1.ctex"]
 
 [params]
 

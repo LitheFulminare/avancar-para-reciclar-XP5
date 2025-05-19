@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnlh52pyr57r1"
-path="res://.godot/imported/Mapa_Avacar_para_reciclar_1.png-e99ae74ee8fa2d74a59dbc657c6ea04c.ctex"
+uid="uid://dyerk1qcwx7hi"
+path="res://.godot/imported/Casa_Coleta_1.2.png-9dd8c0680415d07febf87734b3e9232c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Map/Mapa_Avacar_para_reciclar_1.png"
-dest_files=["res://.godot/imported/Mapa_Avacar_para_reciclar_1.png-e99ae74ee8fa2d74a59dbc657c6ea04c.ctex"]
+source_file="res://Assets/Sprites/Squares/Casa_Coleta_1.2.png"
+dest_files=["res://.godot/imported/Casa_Coleta_1.2.png-9dd8c0680415d07febf87734b3e9232c.ctex"]
 
 [params]
 
