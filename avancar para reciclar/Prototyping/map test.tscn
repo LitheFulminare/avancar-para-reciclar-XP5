@@ -1,18 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://chykjqi524s2r"]
+[gd_scene load_steps=11 format=3 uid="uid://chykjqi524s2r"]
 
 [ext_resource type="Texture2D" uid="uid://c36jllb542e4c" path="res://Assets/Sprites/Map/mapa placeholder 2.png" id="1_114w1"]
+[ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
+[ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
 [ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="2_y42xc"]
+[ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
+[ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
+[ext_resource type="Texture2D" uid="uid://d2bl6tcfe6e5o" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_ahe86"]
+[ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
+[ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="8_5w0ha"]
+[ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="9_ujeix"]
 
 [node name="MapTest" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.20561, 1.21869)
+[node name="Round Manager" type="Node" parent="." node_paths=PackedStringArray("question_card_res_manager", "main_camera", "question_card_spawn")]
+script = ExtResource("1_oqp8s")
+question_card_res_manager = NodePath("../Question Card Res Manager")
+main_camera = NodePath("../Scrolling Camera")
+question_card_spawn = NodePath("../BG and Map Elements/Stack of question cards/Question Marker Spawn")
+
+[node name="Path Manager" type="Node" parent="."]
+editor_description = "handles branching paths and this kind of thing
+"
+script = ExtResource("2_81x0c")
+
+[node name="Square Manager" type="Node" parent="." node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
+script = ExtResource("3_q0u56")
+round_manager = NodePath("../Round Manager")
+
+[node name="Question Card Res Manager" type="Node" parent="."]
+script = ExtResource("4_riorq")
+
+[node name="BG and Map Elements" type="Node" parent="."]
+
+[node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
+scale = Vector2(1.21, 1.21)
 texture = ExtResource("1_114w1")
 centered = false
 
-[node name="Scrolling Camera" parent="." instance=ExtResource("2_y42xc")]
-position = Vector2(576, 328)
+[node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]
+position = Vector2(85, 357)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("6_ahe86")
 
-[node name="Question Card Stack" type="Marker2D" parent="."]
-position = Vector2(58, 276)
-gizmo_extents = 26.5
+[node name="Question Marker Spawn" type="Marker2D" parent="BG and Map Elements/Stack of question cards"]
+scale = Vector2(2.17391, 2.17391)
+
+[node name="Squares" type="Node" parent="."]
+
+[node name="Square 1" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(962, 549)
+stats = ExtResource("9_ujeix")
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player 1" parent="Players" instance=ExtResource("7_v5epi")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(1061, 569)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player 2" parent="Players" instance=ExtResource("7_v5epi")]
+modulate = Color(0, 0.15625, 1, 1)
+position = Vector2(930, 617)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player 3" parent="Players" instance=ExtResource("7_v5epi")]
+modulate = Color(0, 1, 0.015625, 1)
+position = Vector2(993, 610)
+scale = Vector2(0.5, 0.5)
+
+[node name="Scrolling Camera" parent="." instance=ExtResource("2_y42xc")]
+position = Vector2(576, 324)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
