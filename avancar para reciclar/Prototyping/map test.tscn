@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://chykjqi524s2r"]
 
-[ext_resource type="Texture2D" uid="uid://c36jllb542e4c" path="res://Assets/Sprites/Map/mapa placeholder 2.png" id="1_114w1"]
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
 [ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="2_y42xc"]
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
+[ext_resource type="Texture2D" uid="uid://c36jllb542e4c" path="res://Assets/Sprites/Maps/mapa placeholder 2.png" id="5_oqp8s"]
 [ext_resource type="Texture2D" uid="uid://d2bl6tcfe6e5o" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_ahe86"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="8_5w0ha"]
@@ -35,7 +35,7 @@ script = ExtResource("4_riorq")
 
 [node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
 scale = Vector2(1.21, 1.21)
-texture = ExtResource("1_114w1")
+texture = ExtResource("5_oqp8s")
 centered = false
 
 [node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]

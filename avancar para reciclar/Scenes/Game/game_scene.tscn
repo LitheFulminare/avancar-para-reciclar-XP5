@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_x87qo"]
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="2_83mwp"]
-[ext_resource type="Texture2D" uid="uid://dnlh52pyr57r1" path="res://Assets/Sprites/Map/Mapa_Avacar_para_reciclar_1.png" id="2_c53t7"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_jxx51"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="3_ihfs7"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="3_u63k7"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="4_7r8ec"]
+[ext_resource type="Texture2D" uid="uid://dnlh52pyr57r1" path="res://Assets/Sprites/Maps/Mapa_Avacar_para_reciclar_1.png" id="5_jxx51"]
 [ext_resource type="Texture2D" uid="uid://d2bl6tcfe6e5o" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="5_u011v"]
 [ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="6_m6pt0"]
 [ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="8_wsift"]
@@ -36,7 +36,7 @@ script = ExtResource("3_u63k7")
 [node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
 position = Vector2(576, 326)
 scale = Vector2(0.6, 0.603704)
-texture = ExtResource("2_c53t7")
+texture = ExtResource("5_jxx51")
 
 [node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]
 position = Vector2(261, 462)

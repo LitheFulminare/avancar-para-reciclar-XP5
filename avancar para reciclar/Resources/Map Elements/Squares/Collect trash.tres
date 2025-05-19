@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="SquareStats" load_steps=2 format=3 uid="uid://deauvaioy08lj"]
+[gd_resource type="Resource" script_class="SquareStats" load_steps=3 format=3 uid="uid://deauvaioy08lj"]
 
 [ext_resource type="Script" uid="uid://djo0ibe5y6lo3" path="res://Scripts/Map elements/square resource.gd" id="1_0p5o7"]
+[ext_resource type="Texture2D" uid="uid://bl4rkpvwdms2y" path="res://Assets/Sprites/Squares/Collect trash.png" id="2_ctxh1"]
 
 [resource]
 script = ExtResource("1_0p5o7")
+sprite = ExtResource("2_ctxh1")
 type = 1
 metadata/_custom_type_script = "uid://djo0ibe5y6lo3"
