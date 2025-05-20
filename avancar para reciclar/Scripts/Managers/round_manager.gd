@@ -15,6 +15,7 @@ enum round_states
 }
 
 @export var question_card_res_manager: QuestionCardResourceManager
+@export var path_manager: PathManager
 @export var main_camera: ScrollingCamera
 @export var question_card_spawn: Marker2D
 
@@ -29,7 +30,11 @@ var total_dice_result: int = 0
 
 # for when the player's dice roll exceeds the board's number of squares
 # saves what they're supposed to move after going back to the start square
-var remaining_distance : int = 0
+var remaining_distance: int = 0
+
+# self explanatory
+# used to spawn the buttons when the player passes though a fork square, among other things
+var player_at_fork: bool = false
 
 var active_player: Player
 
@@ -64,12 +69,25 @@ func _ready() -> void:
 	start_game()
 	
 func _process(delta: float) -> void:
+	
 	if active_player != null:
 		main_camera.global_position = active_player.global_position
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Confirm"):
 		next_turn();
+		
+	# won't be like this forever
+	# prob a button will be spawned and call the group or something
+	# then the method called will handle this things
+	if Input.is_key_pressed(KEY_1):
+		if player_at_fork:
+			active_player.current_branch = path_manager.branches.branch_A
+			print("Active player's branch: " + str(active_player.current_branch))
+	if Input.is_key_pressed(KEY_2):
+		if player_at_fork:
+			active_player.current_branch = path_manager.branches.branch_B
+			print("Active player's branch: " + str(active_player.current_branch))
 
 # called at the start of the game
 func start_game() -> void:
@@ -130,6 +148,13 @@ func action() -> void:
 			current_round_state = round_states.start_round
 
 func move() -> void:
+	# decides what's the player's next branch is going to be
+	if active_player.current_square <= path_manager.branch1_A_start:
+		active_player.next_branch_start = path_manager.branch1_A_start
+		
+	else:
+		active_player.next_branch_start = path_manager.branch2_A_start
+	
 	# prevents the signal being connected twice to a function
 	if !active_player.stopped_moving.is_connected(player_stopped_moving):
 		active_player.stopped_moving.connect(player_stopped_moving) 
@@ -150,6 +175,14 @@ func move() -> void:
 		active_player.current_square = square_array.size()
 		print("Remaining distance: " + str(remaining_distance))
 		
+	# when the player passes through a fork
+	# simply landing on a fork does not trigger the interaction, so it's the start-1
+	elif active_player.current_square + total_dice_result > active_player.next_branch_start - 1:
+		print("Player arrived at a fork")
+		
+		player_at_fork = true
+		active_player.current_square = active_player.next_branch_start - 1
+	
 	# when the player's dice roll doesn't exceed the board's size
 	else:
 		active_player.current_square += total_dice_result
@@ -162,9 +195,18 @@ func move() -> void:
 # emits a signal after the tween ends, signal is connected on this class' move() func
 func player_stopped_moving() -> void:
 	print("Player stopped moving")
+	
+	if player_at_fork:
+		print("")
+		print("Press 1 to go to branch A")
+		print("Press 2 to go to branch B")
+		return
+	
+	# when the player passes through the start
 	if remaining_distance != 0:
 		move()
-	else:
+		
+	elif remaining_distance == 0:
 		await get_tree().create_timer(1).timeout
 		main_camera.remove_zoom(true)
 		# now no square has a resource/type, so calling this func will throw an error

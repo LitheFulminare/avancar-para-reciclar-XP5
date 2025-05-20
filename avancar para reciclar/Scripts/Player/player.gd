@@ -13,6 +13,7 @@ var trash_cards: Array[TrashCard] = []
 # round_manager changes right before moving the player
 var current_square : int = 0
 var current_branch: PathManager.branches
+var next_branch_start: int
 
 func _on_move(target_position: Vector2) -> void:
 	print("moving to " + str(target_position))
