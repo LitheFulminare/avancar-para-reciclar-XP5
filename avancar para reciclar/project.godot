@@ -74,6 +74,11 @@ Confirm={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_2="Background"
+2d_render/layer_3="Squares"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

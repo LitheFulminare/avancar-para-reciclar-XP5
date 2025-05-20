@@ -43,6 +43,7 @@ script = ExtResource("4_riorq")
 [node name="BG and Map Elements" type="Node" parent="."]
 
 [node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
+visibility_layer = 2
 scale = Vector2(1.21, 1.21)
 texture = ExtResource("5_oqp8s")
 centered = false
@@ -163,7 +164,7 @@ scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
 [node name="Square 22" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(461, 226)
+position = Vector2(453, 234)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
