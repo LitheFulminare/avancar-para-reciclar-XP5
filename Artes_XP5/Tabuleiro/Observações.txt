@@ -1,0 +1,3 @@
+largura da linha do circulo: 5,00 px
+tamanho do circulo: 300x300 px 
+tamanho do arquivo: 500x500 px

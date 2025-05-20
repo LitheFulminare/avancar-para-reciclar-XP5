@@ -1,0 +1,14 @@
+Barco1 (vermelho):
+1:0
+2:100
+3:0
+
+Barco2 (amarelo):
+1:65
+2:85
+3:17
+
+Barco3 (verde):
+1:125
+2:75
+3:5
