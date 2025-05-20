@@ -1,6 +1,13 @@
 class_name PathManager
 extends Node
 
+enum branches
+{
+	no_branch,
+	branch_A,
+	branch_B
+}
+
 @export_subgroup("Branch 1")
 @export var branch1_A_start: int = 0
 @export var branch1_A_end: int = 0

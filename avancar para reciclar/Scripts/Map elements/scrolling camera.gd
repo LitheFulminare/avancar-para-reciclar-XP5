@@ -9,7 +9,7 @@ var go_to_starting_pos_after_ZO: bool = false
 var zoom_target: Vector2
 var starting_position: Vector2
 
-var max_zoom: float = 2.25
+var max_zoom: float = 2.75
 var base_zoom_smoothing: float = 8
 var zoom_smoothing: float = 8
 

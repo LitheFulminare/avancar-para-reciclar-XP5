@@ -266,18 +266,18 @@ stats = ExtResource("9_ujeix")
 
 [node name="Player 1" parent="Players" instance=ExtResource("7_v5epi")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(1061, 569)
-scale = Vector2(0.5, 0.5)
+position = Vector2(984, 611)
+scale = Vector2(0.2, 0.2)
 
 [node name="Player 2" parent="Players" instance=ExtResource("7_v5epi")]
 modulate = Color(0, 0.15625, 1, 1)
-position = Vector2(930, 617)
-scale = Vector2(0.5, 0.5)
+position = Vector2(1002, 562)
+scale = Vector2(0.2, 0.2)
 
 [node name="Player 3" parent="Players" instance=ExtResource("7_v5epi")]
 modulate = Color(0, 1, 0.015625, 1)
-position = Vector2(993, 610)
-scale = Vector2(0.5, 0.5)
+position = Vector2(1035, 631)
+scale = Vector2(0.2, 0.2)
 
 [node name="Scrolling Camera" parent="." instance=ExtResource("2_y42xc")]
 position = Vector2(576, 324)

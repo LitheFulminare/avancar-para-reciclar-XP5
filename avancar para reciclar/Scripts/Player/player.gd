@@ -1,5 +1,5 @@
-extends Node
 class_name Player
+extends Node
 
 signal move(target_position: Vector2)
 signal stopped_moving # connected to player_stopped_moving() on the RoundManager
@@ -12,6 +12,7 @@ var trash_cards: Array[TrashCard] = []
 # doesn't get changed internally
 # round_manager changes right before moving the player
 var current_square : int = 0
+var current_branch: PathManager.branches
 
 func _on_move(target_position: Vector2) -> void:
 	print("moving to " + str(target_position))
