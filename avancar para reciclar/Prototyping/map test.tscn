@@ -23,6 +23,14 @@ question_card_spawn = NodePath("../BG and Map Elements/Stack of question cards/Q
 editor_description = "handles branching paths and this kind of thing
 "
 script = ExtResource("2_81x0c")
+branch1_A_start = 9
+branch1_A_end = 17
+branch1_B_start = 18
+branch1_B_end = 21
+branch2_A_start = 25
+branch2_A_end = 31
+branch2_B_start = 32
+branch2_B_end = 38
 
 [node name="Square Manager" type="Node" parent="." node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
 script = ExtResource("3_q0u56")
