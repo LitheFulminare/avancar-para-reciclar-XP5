@@ -54,6 +54,206 @@ position = Vector2(925, 543)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
+[node name="Square 2" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(857, 527)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 3" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(784, 511)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 4" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(711, 510)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 5" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(655, 536)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 6" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(615, 573)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 7" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(563, 599)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 8" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(483, 599)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 9" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(369, 605)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 10" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(292, 608)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 11" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(209, 600)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 12" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(166, 544)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 13" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(179, 465)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 14" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(189, 389)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 15" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(221, 324)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 16" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(288, 285)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 17" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(363, 274)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 18" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(438, 506)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 19" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(463, 442)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 20" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(478, 369)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 21" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(442, 321)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 22" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(461, 226)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 23" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(514, 216)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 24" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(569, 235)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 25" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(641, 254)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 26" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(706, 245)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 27" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(777, 232)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 28" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(841, 238)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 29" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(900, 254)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 30" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(951, 274)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 31" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(990, 327)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 32" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(588, 313)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 33" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(623, 353)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 34" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(682, 362)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 35" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(747, 362)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 36" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(809, 361)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 37" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(877, 356)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 38" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(924, 364)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 39" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(976, 417)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 40" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(990, 467)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
+[node name="Square 41" parent="Squares" instance=ExtResource("8_5w0ha")]
+position = Vector2(988, 515)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+
 [node name="Players" type="Node" parent="."]
 
 [node name="Player 1" parent="Players" instance=ExtResource("7_v5epi")]
