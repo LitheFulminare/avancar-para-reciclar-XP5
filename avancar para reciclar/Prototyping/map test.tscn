@@ -48,7 +48,7 @@ script = ExtResource("4_riorq")
 [node name="BG and Map Elements" type="Node" parent="."]
 
 [node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
-visibility_layer = 2
+z_index = -1
 scale = Vector2(1.21, 1.21)
 texture = ExtResource("5_oqp8s")
 centered = false
