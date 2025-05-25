@@ -13,7 +13,7 @@ enum types
 	organic
 }
 
-@export var sprite: Image
+@export var sprites: Array[Texture2D]
 @export var value: int
 @export var type: types
 
