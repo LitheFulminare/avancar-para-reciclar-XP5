@@ -257,14 +257,14 @@ func draw_question_card() -> void:
 	question_card.position = question_card_spawn.global_position
 	question_card.scale = card_stack.scale
 	
-	# moves it smoothly to the center of the screen
+	# moves it smoothly to the center of the screen and makes it bigger
 	var tween = create_tween()
 	tween.set_parallel()
 	var screen_mid_point: Vector2 = Vector2(get_viewport().get_visible_rect().size.x/2, 
 	get_viewport().get_visible_rect().size.y/2)
 	print(screen_mid_point)
-	tween.tween_property(question_card, "position", screen_mid_point, 1)
-	tween.tween_property(question_card, "scale", Vector2(1,1), 1)
+	tween.tween_property(question_card, "position", screen_mid_point, 0.6)
+	tween.tween_property(question_card, "scale", Vector2(1,1), 0.6)
 	await tween.finished
 	
 	await get_tree().create_timer(1).timeout
