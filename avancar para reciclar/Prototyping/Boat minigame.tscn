@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvylhbkrryn2p"]
+
+[ext_resource type="Texture2D" uid="uid://b3piecwswwead" path="res://Assets/Sprites/Minigames/Boat/Green boat.png" id="1_m5ba4"]
+[ext_resource type="Texture2D" uid="uid://de0ire3jwru3w" path="res://Assets/Sprites/Players/Green pawn.png" id="2_47uti"]
+[ext_resource type="Texture2D" uid="uid://ctis46dkihx1r" path="res://Assets/Sprites/Minigames/Boat/Yellow boat.png" id="2_x851a"]
+[ext_resource type="Texture2D" uid="uid://dnyqioq3rpbhy" path="res://Assets/Sprites/Minigames/Boat/Green rod.png" id="3_imucs"]
+[ext_resource type="Texture2D" uid="uid://b13mx14m2qf2l" path="res://Assets/Sprites/Minigames/Boat/Red boat.png" id="3_x851a"]
+[ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="5_v7u5m"]
+[ext_resource type="Texture2D" uid="uid://wpevfnr4bhi0" path="res://Assets/Sprites/Minigames/Boat/Yellow rod.png" id="6_8x0kp"]
+[ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="8_mpqio"]
+[ext_resource type="Texture2D" uid="uid://c7ixqt75i304g" path="res://Assets/Sprites/Minigames/Boat/Red rod.png" id="9_d5u5j"]
+
+[node name="BoatMinigame" type="Node2D"]
+
+[node name="Scenario" type="Node" parent="."]
+
+[node name="Water" type="Sprite2D" parent="Scenario"]
+
+[node name="Boats" type="Node" parent="."]
+
+[node name="Green boat" type="Sprite2D" parent="Boats"]
+position = Vector2(254, 171)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_m5ba4")
+
+[node name="Player pawn" type="Sprite2D" parent="Boats/Green boat"]
+show_behind_parent = true
+position = Vector2(-8, -56)
+texture = ExtResource("2_47uti")
+
+[node name="Rod" type="Sprite2D" parent="Boats/Green boat"]
+show_behind_parent = true
+position = Vector2(-82, -34)
+texture = ExtResource("3_imucs")
+
+[node name="Yellow boat" type="Sprite2D" parent="Boats"]
+position = Vector2(577, 171)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_x851a")
+
+[node name="Player pawn" type="Sprite2D" parent="Boats/Yellow boat"]
+show_behind_parent = true
+position = Vector2(-8, -56)
+texture = ExtResource("5_v7u5m")
+
+[node name="Rod" type="Sprite2D" parent="Boats/Yellow boat"]
+show_behind_parent = true
+position = Vector2(-82, -34)
+texture = ExtResource("6_8x0kp")
+
+[node name="Red boat" type="Sprite2D" parent="Boats"]
+position = Vector2(905, 171)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x851a")
+
+[node name="Player pawn" type="Sprite2D" parent="Boats/Red boat"]
+show_behind_parent = true
+position = Vector2(-8, -56)
+texture = ExtResource("8_mpqio")
+
+[node name="Rod" type="Sprite2D" parent="Boats/Red boat"]
+show_behind_parent = true
+position = Vector2(-82, -34)
+texture = ExtResource("9_d5u5j")

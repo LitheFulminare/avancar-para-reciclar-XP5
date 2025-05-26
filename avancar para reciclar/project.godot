@@ -27,6 +27,11 @@ gdscript/warnings/unused_signal=0
 
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="D:/Game dev and college/Games/Godot/avancar-para-reciclar-XP5/Godot movies/movie.avi"
+movie_writer/disable_vsync=true
+
 [input]
 
 Confirm={
