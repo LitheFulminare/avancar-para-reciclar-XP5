@@ -51,7 +51,7 @@ script = ExtResource("4_riorq")
 
 [node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
 z_index = -1
-scale = Vector2(1.21, 1.21)
+scale = Vector2(1.20628, 1.21122)
 texture = ExtResource("5_oqp8s")
 centered = false
 
@@ -221,14 +221,14 @@ position = Vector2(1002, 562)
 scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" parent="Players/Player 2" index="0"]
-texture = ExtResource("14_5w0ha")
+texture = ExtResource("15_ujeix")
 
 [node name="Player 3" parent="Players" instance=ExtResource("7_v5epi")]
-position = Vector2(1035, 631)
+position = Vector2(1025, 613)
 scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" parent="Players/Player 3" index="0"]
-texture = ExtResource("15_ujeix")
+texture = ExtResource("14_5w0ha")
 
 [node name="Scrolling Camera" parent="." instance=ExtResource("2_y42xc")]
 position = Vector2(576, 324)
