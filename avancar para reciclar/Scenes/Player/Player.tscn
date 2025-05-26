@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bakufkwaxuiuk"]
 
 [ext_resource type="Script" uid="uid://bsdwb4vv4880c" path="res://Scripts/Player/player.gd" id="1_s0eop"]
-[ext_resource type="Texture2D" uid="uid://ccrru0tcv13gi" path="res://icon.svg" id="2_ft8w5"]
+[ext_resource type="Texture2D" uid="uid://de0ire3jwru3w" path="res://Assets/Sprites/Players/Green pawn.png" id="2_ft8w5"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_s0eop")

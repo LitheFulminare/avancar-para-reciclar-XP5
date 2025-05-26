@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://chykjqi524s2r"]
+[gd_scene load_steps=17 format=3 uid="uid://chykjqi524s2r"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
@@ -14,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="9_ujeix"]
 [ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard trash.tres" id="11_v5epi"]
 [ext_resource type="Resource" uid="uid://d1411atrrck5y" path="res://Resources/Map Elements/Squares/Garbage truck.tres" id="12_ahe86"]
+[ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="14_5w0ha"]
+[ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="15_ujeix"]
 
 [node name="MapTest" type="Node2D"]
 
@@ -211,19 +213,22 @@ stats = ExtResource("9_ujeix")
 [node name="Players" type="Node" parent="."]
 
 [node name="Player 1" parent="Players" instance=ExtResource("7_v5epi")]
-modulate = Color(1, 0, 0, 1)
 position = Vector2(984, 611)
 scale = Vector2(0.2, 0.2)
 
 [node name="Player 2" parent="Players" instance=ExtResource("7_v5epi")]
-modulate = Color(0, 0.15625, 1, 1)
 position = Vector2(1002, 562)
 scale = Vector2(0.2, 0.2)
 
+[node name="Sprite2D" parent="Players/Player 2" index="0"]
+texture = ExtResource("14_5w0ha")
+
 [node name="Player 3" parent="Players" instance=ExtResource("7_v5epi")]
-modulate = Color(0, 1, 0.015625, 1)
 position = Vector2(1035, 631)
 scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" parent="Players/Player 3" index="0"]
+texture = ExtResource("15_ujeix")
 
 [node name="Scrolling Camera" parent="." instance=ExtResource("2_y42xc")]
 position = Vector2(576, 324)
@@ -231,3 +236,6 @@ limit_left = 0
 limit_top = 0
 limit_right = 1152
 limit_bottom = 648
+
+[editable path="Players/Player 2"]
+[editable path="Players/Player 3"]
