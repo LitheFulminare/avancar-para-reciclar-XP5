@@ -19,22 +19,26 @@
 
 [node name="Sky" type="Sprite2D" parent="Scenario"]
 z_index = -1
-position = Vector2(576, 324)
+texture_filter = 1
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_8x0kp")
+centered = false
 
 [node name="Water (back layer)" type="Sprite2D" parent="Scenario"]
+modulate = Color(1, 1, 1, 0.784314)
 z_index = -1
-position = Vector2(576, 324)
+texture_filter = 1
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_d5u5j")
+centered = false
 
 [node name="Water (front layer)" type="Sprite2D" parent="Scenario"]
 modulate = Color(1, 1, 1, 0.784314)
 z_index = 1
-position = Vector2(576, 324)
+texture_filter = 1
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_mpqio")
+centered = false
 
 [node name="Boats" type="Node" parent="."]
 
