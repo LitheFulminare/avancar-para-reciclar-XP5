@@ -19,6 +19,8 @@ enum round_states
 @export var main_camera: ScrollingCamera
 @export var question_card_spawn: Marker2D
 
+@onready var card_stack: Sprite2D = $"../BG and Map Elements/Stack of question cards"
+
 var current_round_state: round_states = round_states.start_round
 
 var turn: int = 0 # goes from 1 to 2 or 3 depending on the player count
@@ -114,12 +116,12 @@ func action() -> void:
 			current_round_state = round_states.first_dice_roll
 		
 		round_states.first_dice_roll: 
-			first_dice_result = GameManager.roll_dice(1, 6)
+			first_dice_result = 1#GameManager.roll_dice(1, 6)
 			print("First dice roll: " + str(first_dice_result))
 			current_round_state = round_states.second_dice_roll
 			
 		round_states.second_dice_roll: 
-			second_dice_result = GameManager.roll_dice(1, 6)
+			second_dice_result = 1#GameManager.roll_dice(1, 6)
 			total_dice_result = first_dice_result + second_dice_result
 			print("Second dice roll: " + str(second_dice_result))
 			# if there is a special item that makes the player roll another dice I could 
@@ -246,10 +248,25 @@ func get_random_trash_type() -> TrashCardStats:
 # gets called by action() on the SquareManager
 ## not complete, will have some more visual stuff going on
 func draw_question_card() -> void:
+	#instantiates the card
 	var question_card: QuestionCard = question_card_scene.instantiate()
 	get_tree().root.add_child(question_card)
+	
+	# changes the text, sets position to the card stack nad changes the size
 	question_card.set_texts(question_card_res_manager.get_random_question_res())
 	question_card.position = question_card_spawn.global_position
+	question_card.scale = card_stack.scale
+	
+	# moves it smoothly to the center of the screen
+	var tween = create_tween()
+	tween.set_parallel()
+	var screen_mid_point: Vector2 = Vector2(get_viewport().get_visible_rect().size.x/2, 
+	get_viewport().get_visible_rect().size.y/2)
+	print(screen_mid_point)
+	tween.tween_property(question_card, "position", screen_mid_point, 1)
+	tween.tween_property(question_card, "scale", Vector2(1,1), 1)
+	await tween.finished
+	
 	await get_tree().create_timer(1).timeout
 	question_card.reveal()
 
