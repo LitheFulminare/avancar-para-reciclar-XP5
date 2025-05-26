@@ -15,12 +15,15 @@
 
 [node name="Scenario" type="Node" parent="."]
 
-[node name="Water" type="Sprite2D" parent="Scenario"]
+[node name="Cenario1_0" type="Sprite2D" parent="Scenario"]
+position = Vector2(577.25, 324.75)
+scale = Vector2(0.920336, 0.92532)
+texture = ExtResource("10_8x0kp")
 
 [node name="Boats" type="Node" parent="."]
 
 [node name="Green boat" type="Sprite2D" parent="Boats"]
-position = Vector2(239, 171)
+position = Vector2(260, 232)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_m5ba4")
 
@@ -35,7 +38,7 @@ position = Vector2(-82, -34)
 texture = ExtResource("3_imucs")
 
 [node name="Yellow boat" type="Sprite2D" parent="Boats"]
-position = Vector2(562, 171)
+position = Vector2(583, 232)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_x851a")
 
@@ -50,7 +53,7 @@ position = Vector2(-82, -34)
 texture = ExtResource("6_8x0kp")
 
 [node name="Red boat" type="Sprite2D" parent="Boats"]
-position = Vector2(890, 171)
+position = Vector2(911, 232)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_x851a")
 
@@ -63,8 +66,3 @@ texture = ExtResource("8_mpqio")
 show_behind_parent = true
 position = Vector2(-82, -34)
 texture = ExtResource("9_d5u5j")
-
-[node name="Cenario1_0" type="Sprite2D" parent="."]
-position = Vector2(577.25, 324.75)
-scale = Vector2(0.920336, 0.92532)
-texture = ExtResource("10_8x0kp")

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="2_y42xc"]
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
-[ext_resource type="Texture2D" uid="uid://c36jllb542e4c" path="res://Assets/Sprites/Maps/mapa placeholder 2.png" id="5_oqp8s"]
+[ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
 [ext_resource type="Texture2D" uid="uid://d2bl6tcfe6e5o" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_ahe86"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="8_5w0ha"]
@@ -51,8 +51,9 @@ script = ExtResource("4_riorq")
 
 [node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
 z_index = -1
-scale = Vector2(1.20628, 1.21122)
-texture = ExtResource("5_oqp8s")
+position = Vector2(-1, 0)
+scale = Vector2(0.300521, 0.300463)
+texture = ExtResource("5_5w0ha")
 centered = false
 
 [node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]
@@ -66,165 +67,165 @@ scale = Vector2(2.17391, 2.17391)
 [node name="Squares" type="Node" parent="."]
 
 [node name="Square 1" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(897, 536)
+position = Vector2(897, 542)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 
 [node name="Square 2" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(803, 515)
+position = Vector2(801, 537)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 
 [node name="Square 3" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(701, 515)
+position = Vector2(704, 568)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 
 [node name="Square 4" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(630, 564)
+position = Vector2(616, 582)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 
 [node name="Square 5" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(562, 601)
+position = Vector2(526, 582)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
 [node name="Square 6" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(478, 597)
+position = Vector2(437, 574)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 
 [node name="Square 7" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(294, 609)
+position = Vector2(273, 591)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 
 [node name="Square 8" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(165, 586)
+position = Vector2(179, 583)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 
 [node name="Square 9" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(182, 450)
+position = Vector2(157, 505)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 
 [node name="Square 10" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(221, 323)
+position = Vector2(189, 403)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
 [node name="Square 11" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(348, 277)
+position = Vector2(267, 322)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 
 [node name="Square 12" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(435, 512)
+position = Vector2(336, 517)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 
 [node name="Square 13" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(463, 438)
+position = Vector2(371, 462)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 
 [node name="Square 14" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(476, 374)
+position = Vector2(403, 411)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("12_ahe86")
 
 [node name="Square 15" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(444, 318)
+position = Vector2(371, 357)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
 [node name="Square 16" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(455, 232)
+position = Vector2(382, 279)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("12_ahe86")
 
 [node name="Square 17" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(510, 217)
+position = Vector2(448, 256)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 
 [node name="Square 18" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(571, 235)
+position = Vector2(524, 271)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 
 [node name="Square 19" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(647, 255)
+position = Vector2(610, 274)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("12_ahe86")
 
 [node name="Square 20" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(743, 239)
+position = Vector2(683, 246)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 
 [node name="Square 21" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(838, 235)
+position = Vector2(777, 239)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 
 [node name="Square 22" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(911, 258)
+position = Vector2(878, 257)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 
 [node name="Square 23" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(980, 309)
+position = Vector2(905, 326)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
 [node name="Square 24" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(590, 321)
+position = Vector2(563, 342)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 
 [node name="Square 25" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(652, 359)
+position = Vector2(607, 402)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
 [node name="Square 26" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(741, 359)
+position = Vector2(703, 405)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 
 [node name="Square 27" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(853, 363)
+position = Vector2(807, 389)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("12_ahe86")
 
 [node name="Square 28" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(977, 419)
+position = Vector2(938, 426)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 
 [node name="Square 29" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(989, 492)
+position = Vector2(962, 487)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
 [node name="Players" type="Node" parent="."]
 
 [node name="Player 1" parent="Players" instance=ExtResource("7_v5epi")]
-position = Vector2(984, 611)
+position = Vector2(1000, 621)
 scale = Vector2(0.2, 0.2)
 
 [node name="Player 2" parent="Players" instance=ExtResource("7_v5epi")]
-position = Vector2(1002, 562)
+position = Vector2(1063, 606)
 scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" parent="Players/Player 2" index="0"]
 texture = ExtResource("15_ujeix")
 
 [node name="Player 3" parent="Players" instance=ExtResource("7_v5epi")]
-position = Vector2(1025, 613)
+position = Vector2(1108, 570)
 scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" parent="Players/Player 3" index="0"]
