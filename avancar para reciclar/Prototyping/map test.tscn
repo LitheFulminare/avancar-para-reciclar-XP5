@@ -57,8 +57,8 @@ texture = ExtResource("5_5w0ha")
 centered = false
 
 [node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]
-position = Vector2(85, 357)
-scale = Vector2(0.46, 0.46)
+position = Vector2(61, 430)
+scale = Vector2(0.343333, 0.343333)
 texture = ExtResource("6_ahe86")
 
 [node name="Question Marker Spawn" type="Marker2D" parent="BG and Map Elements/Stack of question cards"]
