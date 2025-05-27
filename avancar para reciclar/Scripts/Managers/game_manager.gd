@@ -1,5 +1,5 @@
+## AUTOLOADED SCRIPT
 # handles main game logic
-
 extends Node
 
 var player_count: int = 3 
