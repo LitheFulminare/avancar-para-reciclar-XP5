@@ -7,13 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cnhvg6344fysk" path="res://Prototyping/oceano2.png" id="2_mpqio"]
 [ext_resource type="Texture2D" uid="uid://ctis46dkihx1r" path="res://Assets/Sprites/Minigames/Boat/Yellow boat.png" id="2_x851a"]
 [ext_resource type="Texture2D" uid="uid://dlk78ddhui816" path="res://Prototyping/oceano1.png" id="3_d5u5j"]
-[ext_resource type="Texture2D" uid="uid://dnyqioq3rpbhy" path="res://Assets/Sprites/Minigames/Boat/Green rod.png" id="3_imucs"]
 [ext_resource type="Texture2D" uid="uid://b13mx14m2qf2l" path="res://Assets/Sprites/Minigames/Boat/Red boat.png" id="3_x851a"]
 [ext_resource type="Script" uid="uid://b3ue81nmu0dpb" path="res://Scripts/Minigames/Boat/boat.gd" id="5_a5sum"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="5_v7u5m"]
-[ext_resource type="Texture2D" uid="uid://wpevfnr4bhi0" path="res://Assets/Sprites/Minigames/Boat/Yellow rod.png" id="6_8x0kp"]
 [ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="8_mpqio"]
-[ext_resource type="Texture2D" uid="uid://c7ixqt75i304g" path="res://Assets/Sprites/Minigames/Boat/Red rod.png" id="9_d5u5j"]
 [ext_resource type="Texture2D" uid="uid://n4mho3pasp23" path="res://Assets/Sprites/Cards/Trash icons/Glass (broken bottle).png" id="13_4t6ly"]
 [ext_resource type="Texture2D" uid="uid://ckdsj5y6522py" path="res://Assets/Sprites/Cards/Trash icons/Metal (can).png" id="14_a5sum"]
 [ext_resource type="Texture2D" uid="uid://dkd7cs6du8tuu" path="res://Assets/Sprites/Cards/Trash icons/Plastic (bottle).png" id="15_asdbi"]
@@ -21,6 +18,15 @@
 [ext_resource type="Texture2D" uid="uid://dv3rkqrjjbybf" path="res://Assets/Sprites/Cards/Trash icons/Organic (banana).png" id="17_hok0p"]
 [ext_resource type="Texture2D" uid="uid://bfxejdbmpbxn" path="res://Assets/Sprites/Cards/Trash icons/Metal (nail).png" id="18_bxus4"]
 [ext_resource type="Texture2D" uid="uid://dwsquny4bmcy7" path="res://Assets/Sprites/Cards/Trash icons/Metal (cog).png" id="19_vq1go"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4t6ly"]
+load_path = "res://.godot/imported/Green rod.png-67dcc6ee3b2183bd93d2c661b28ae0ae.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7thci"]
+load_path = "res://.godot/imported/Yellow rod.png-9dd54c9276a93082198dfc7e4350cd10.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a5sum"]
+load_path = "res://.godot/imported/Red rod.png-2843e9c285d3807b7969ce73ce385459.ctex"
 
 [node name="BoatMinigame" type="Node2D"]
 
@@ -70,7 +76,14 @@ texture = ExtResource("2_47uti")
 [node name="Rod" type="Sprite2D" parent="Boats/Green boat"]
 show_behind_parent = true
 position = Vector2(-82, -34)
-texture = ExtResource("3_imucs")
+texture = SubResource("CompressedTexture2D_4t6ly")
+
+[node name="Line2D" type="Line2D" parent="Boats/Green boat"]
+position = Vector2(-264, -252)
+points = PackedVector2Array(0.15, 0, 14, 430)
+width = 2.945
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="Yellow boat" type="Sprite2D" parent="Boats"]
 position = Vector2(566, 257)
@@ -86,7 +99,7 @@ texture = ExtResource("5_v7u5m")
 [node name="Rod" type="Sprite2D" parent="Boats/Yellow boat"]
 show_behind_parent = true
 position = Vector2(-82, -34)
-texture = ExtResource("6_8x0kp")
+texture = SubResource("CompressedTexture2D_7thci")
 
 [node name="Red boat" type="Sprite2D" parent="Boats"]
 position = Vector2(894, 257)
@@ -102,7 +115,7 @@ texture = ExtResource("8_mpqio")
 [node name="Rod" type="Sprite2D" parent="Boats/Red boat"]
 show_behind_parent = true
 position = Vector2(-82, -34)
-texture = ExtResource("9_d5u5j")
+texture = SubResource("CompressedTexture2D_a5sum")
 
 [node name="Trash" type="Node" parent="."]
 
