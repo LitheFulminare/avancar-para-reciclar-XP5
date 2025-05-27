@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvylhbkrryn2p"]
+[gd_scene load_steps=22 format=3 uid="uid://dvylhbkrryn2p"]
 
 [ext_resource type="Texture2D" uid="uid://ch3nf61ed5eae" path="res://Prototyping/céu.png" id="1_8x0kp"]
+[ext_resource type="Script" uid="uid://cq3h6rlsu8kjr" path="res://Scripts/Managers/time_tracker.gd" id="1_asdbi"]
 [ext_resource type="Texture2D" uid="uid://b3piecwswwead" path="res://Assets/Sprites/Minigames/Boat/Green boat.png" id="1_m5ba4"]
 [ext_resource type="Texture2D" uid="uid://de0ire3jwru3w" path="res://Assets/Sprites/Players/Green pawn.png" id="2_47uti"]
 [ext_resource type="Texture2D" uid="uid://cnhvg6344fysk" path="res://Prototyping/oceano2.png" id="2_mpqio"]
@@ -8,14 +9,27 @@
 [ext_resource type="Texture2D" uid="uid://dlk78ddhui816" path="res://Prototyping/oceano1.png" id="3_d5u5j"]
 [ext_resource type="Texture2D" uid="uid://dnyqioq3rpbhy" path="res://Assets/Sprites/Minigames/Boat/Green rod.png" id="3_imucs"]
 [ext_resource type="Texture2D" uid="uid://b13mx14m2qf2l" path="res://Assets/Sprites/Minigames/Boat/Red boat.png" id="3_x851a"]
+[ext_resource type="Script" uid="uid://b3ue81nmu0dpb" path="res://Scripts/Minigames/Boat/boat.gd" id="5_a5sum"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="5_v7u5m"]
 [ext_resource type="Texture2D" uid="uid://wpevfnr4bhi0" path="res://Assets/Sprites/Minigames/Boat/Yellow rod.png" id="6_8x0kp"]
 [ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="8_mpqio"]
 [ext_resource type="Texture2D" uid="uid://c7ixqt75i304g" path="res://Assets/Sprites/Minigames/Boat/Red rod.png" id="9_d5u5j"]
+[ext_resource type="Texture2D" uid="uid://n4mho3pasp23" path="res://Assets/Sprites/Cards/Trash icons/Glass (broken bottle).png" id="13_4t6ly"]
+[ext_resource type="Texture2D" uid="uid://ckdsj5y6522py" path="res://Assets/Sprites/Cards/Trash icons/Metal (can).png" id="14_a5sum"]
+[ext_resource type="Texture2D" uid="uid://dkd7cs6du8tuu" path="res://Assets/Sprites/Cards/Trash icons/Plastic (bottle).png" id="15_asdbi"]
+[ext_resource type="Texture2D" uid="uid://dyuik7hva84wa" path="res://Assets/Sprites/Cards/Trash icons/Plastic (bag).png" id="16_gkymc"]
+[ext_resource type="Texture2D" uid="uid://dv3rkqrjjbybf" path="res://Assets/Sprites/Cards/Trash icons/Organic (banana).png" id="17_hok0p"]
+[ext_resource type="Texture2D" uid="uid://bfxejdbmpbxn" path="res://Assets/Sprites/Cards/Trash icons/Metal (nail).png" id="18_bxus4"]
+[ext_resource type="Texture2D" uid="uid://dwsquny4bmcy7" path="res://Assets/Sprites/Cards/Trash icons/Metal (cog).png" id="19_vq1go"]
 
 [node name="BoatMinigame" type="Node2D"]
 
-[node name="Scenario" type="Node" parent="."]
+[node name="Time tracker" type="Node" parent="."]
+script = ExtResource("1_asdbi")
+
+[node name="Scenario" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sky" type="Sprite2D" parent="Scenario"]
 z_index = -1
@@ -46,6 +60,7 @@ centered = false
 position = Vector2(243, 257)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_m5ba4")
+script = ExtResource("5_a5sum")
 
 [node name="Player pawn" type="Sprite2D" parent="Boats/Green boat"]
 show_behind_parent = true
@@ -61,6 +76,7 @@ texture = ExtResource("3_imucs")
 position = Vector2(566, 257)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_x851a")
+script = ExtResource("5_a5sum")
 
 [node name="Player pawn" type="Sprite2D" parent="Boats/Yellow boat"]
 show_behind_parent = true
@@ -76,6 +92,7 @@ texture = ExtResource("6_8x0kp")
 position = Vector2(894, 257)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_x851a")
+script = ExtResource("5_a5sum")
 
 [node name="Player pawn" type="Sprite2D" parent="Boats/Red boat"]
 show_behind_parent = true
@@ -86,3 +103,64 @@ texture = ExtResource("8_mpqio")
 show_behind_parent = true
 position = Vector2(-82, -34)
 texture = ExtResource("9_d5u5j")
+
+[node name="Trash" type="Node" parent="."]
+
+[node name="Trash" type="Sprite2D" parent="Trash"]
+position = Vector2(171, 527)
+scale = Vector2(0.154, 0.154)
+texture = ExtResource("13_4t6ly")
+
+[node name="Trash2" type="Sprite2D" parent="Trash"]
+position = Vector2(146, 601)
+rotation = -0.609176
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("14_a5sum")
+
+[node name="Trash3" type="Sprite2D" parent="Trash"]
+position = Vector2(266, 551)
+rotation = 0.659853
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_asdbi")
+
+[node name="Trash5" type="Sprite2D" parent="Trash"]
+position = Vector2(520, 544)
+rotation = 0.659853
+scale = Vector2(0.173803, 0.173803)
+texture = ExtResource("16_gkymc")
+
+[node name="Trash6" type="Sprite2D" parent="Trash"]
+position = Vector2(674, 506)
+rotation = -0.299937
+scale = Vector2(0.173803, 0.173803)
+texture = ExtResource("17_hok0p")
+
+[node name="Trash7" type="Sprite2D" parent="Trash"]
+position = Vector2(580.484, 491.305)
+rotation = -1.22533
+scale = Vector2(0.0736935, 0.0736935)
+texture = ExtResource("18_bxus4")
+
+[node name="Trash8" type="Sprite2D" parent="Trash"]
+position = Vector2(647, 605)
+rotation = -1.22533
+scale = Vector2(0.110231, 0.110231)
+texture = ExtResource("14_a5sum")
+
+[node name="Trash4" type="Sprite2D" parent="Trash"]
+position = Vector2(933, 593)
+rotation = -0.954215
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_4t6ly")
+
+[node name="Trash9" type="Sprite2D" parent="Trash"]
+position = Vector2(1051.46, 533.089)
+rotation = -0.954215
+scale = Vector2(0.242783, 0.242783)
+texture = ExtResource("15_asdbi")
+
+[node name="Trash10" type="Sprite2D" parent="Trash"]
+position = Vector2(898, 504)
+rotation = -0.954215
+scale = Vector2(0.242783, 0.242783)
+texture = ExtResource("19_vq1go")

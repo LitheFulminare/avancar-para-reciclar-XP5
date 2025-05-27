@@ -1,0 +1,31 @@
+class_name Boat
+extends Sprite2D
+
+# video reference:
+# https://www.youtube.com/watch?v=HFEpqsy0VSc
+
+@onready var starting_pos_y: float = position.y
+
+@export_group("Amplitude")
+@export var min_amplitude: float = 1.5
+@export var max_amplitude: float = 2.5
+
+@export_group("Speed")
+@export var min_speed: float = 1.5
+@export var max_speed: float = 2.5
+
+var amplitude: float = 2
+var speed:float = 2
+
+func _ready() -> void:
+	# randomizes movement amplitude and speed
+	# I wanted this to randomize every cycle, but cheking position.y == starting_pos_y doesn't work
+	randomize()
+	amplitude = randf_range(min_amplitude, max_amplitude)
+	speed = randf_range(min_speed, max_speed)
+
+func _process(delta: float) -> void:
+	position.y = get_sine() + starting_pos_y 
+
+func get_sine() -> float:
+	return sin(TimeTracker.time * speed) * amplitude
