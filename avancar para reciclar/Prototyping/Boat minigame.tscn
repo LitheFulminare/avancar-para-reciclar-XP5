@@ -1,15 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://dvylhbkrryn2p"]
+[gd_scene load_steps=24 format=3 uid="uid://dvylhbkrryn2p"]
 
 [ext_resource type="Texture2D" uid="uid://ch3nf61ed5eae" path="res://Prototyping/céu.png" id="1_8x0kp"]
 [ext_resource type="Script" uid="uid://cq3h6rlsu8kjr" path="res://Scripts/Managers/time_tracker.gd" id="1_asdbi"]
 [ext_resource type="Texture2D" uid="uid://b3piecwswwead" path="res://Assets/Sprites/Minigames/Boat/Green boat.png" id="1_m5ba4"]
 [ext_resource type="Texture2D" uid="uid://de0ire3jwru3w" path="res://Assets/Sprites/Players/Green pawn.png" id="2_47uti"]
+[ext_resource type="Script" uid="uid://dlojdj4g8u2ex" path="res://Assets/Sprites/Minigames/Boat/split_input_manager.gd" id="2_a5sum"]
 [ext_resource type="Texture2D" uid="uid://cnhvg6344fysk" path="res://Prototyping/oceano2.png" id="2_mpqio"]
 [ext_resource type="Texture2D" uid="uid://ctis46dkihx1r" path="res://Assets/Sprites/Minigames/Boat/Yellow boat.png" id="2_x851a"]
 [ext_resource type="Texture2D" uid="uid://dlk78ddhui816" path="res://Prototyping/oceano1.png" id="3_d5u5j"]
 [ext_resource type="Texture2D" uid="uid://b13mx14m2qf2l" path="res://Assets/Sprites/Minigames/Boat/Red boat.png" id="3_x851a"]
 [ext_resource type="Script" uid="uid://b3ue81nmu0dpb" path="res://Scripts/Minigames/Boat/boat.gd" id="5_a5sum"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="5_v7u5m"]
+[ext_resource type="Texture2D" uid="uid://b0fg5if18j8r1" path="res://Assets/Sprites/Minigames/Boat/Hook.png" id="8_4t6ly"]
 [ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="8_mpqio"]
 [ext_resource type="Texture2D" uid="uid://n4mho3pasp23" path="res://Assets/Sprites/Cards/Trash icons/Glass (broken bottle).png" id="13_4t6ly"]
 [ext_resource type="Texture2D" uid="uid://ckdsj5y6522py" path="res://Assets/Sprites/Cards/Trash icons/Metal (can).png" id="14_a5sum"]
@@ -32,6 +34,12 @@ load_path = "res://.godot/imported/Red rod.png-2843e9c285d3807b7969ce73ce385459.
 
 [node name="Time tracker" type="Node" parent="."]
 script = ExtResource("1_asdbi")
+
+[node name="Split Input Manager" type="Node" parent="." node_paths=PackedStringArray("player1", "player2", "player3")]
+script = ExtResource("2_a5sum")
+player1 = NodePath("../Boats/Green boat")
+player2 = NodePath("../Boats/Yellow boat")
+player3 = NodePath("../Boats/Red boat")
 
 [node name="Scenario" type="Node2D" parent="."]
 metadata/_edit_group_ = true
@@ -62,11 +70,12 @@ centered = false
 
 [node name="Boats" type="Node" parent="."]
 
-[node name="Green boat" type="Sprite2D" parent="Boats"]
+[node name="Green boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("hook")]
 position = Vector2(243, 257)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_m5ba4")
 script = ExtResource("5_a5sum")
+hook = NodePath("Hook")
 
 [node name="Player pawn" type="Sprite2D" parent="Boats/Green boat"]
 show_behind_parent = true
@@ -79,17 +88,22 @@ position = Vector2(-82, -34)
 texture = SubResource("CompressedTexture2D_4t6ly")
 
 [node name="Line2D" type="Line2D" parent="Boats/Green boat"]
-position = Vector2(-264, -252)
-points = PackedVector2Array(0.15, 0, 14, 430)
+position = Vector2(-228, -174)
+points = PackedVector2Array(-2, -2, 14, 430)
 width = 2.945
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Yellow boat" type="Sprite2D" parent="Boats"]
+[node name="Hook" type="Sprite2D" parent="Boats/Green boat"]
+position = Vector2(-218, 266)
+texture = ExtResource("8_4t6ly")
+
+[node name="Yellow boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("hook")]
 position = Vector2(566, 257)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_x851a")
 script = ExtResource("5_a5sum")
+hook = NodePath("Hook")
 
 [node name="Player pawn" type="Sprite2D" parent="Boats/Yellow boat"]
 show_behind_parent = true
@@ -101,11 +115,23 @@ show_behind_parent = true
 position = Vector2(-82, -34)
 texture = SubResource("CompressedTexture2D_7thci")
 
-[node name="Red boat" type="Sprite2D" parent="Boats"]
+[node name="Line2D" type="Line2D" parent="Boats/Yellow boat"]
+position = Vector2(-228, -174)
+points = PackedVector2Array(-8, -2, 14, 430)
+width = 2.945
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Hook" type="Sprite2D" parent="Boats/Yellow boat"]
+position = Vector2(-218, 266)
+texture = ExtResource("8_4t6ly")
+
+[node name="Red boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("hook")]
 position = Vector2(894, 257)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_x851a")
 script = ExtResource("5_a5sum")
+hook = NodePath("Hook")
 
 [node name="Player pawn" type="Sprite2D" parent="Boats/Red boat"]
 show_behind_parent = true
@@ -116,6 +142,17 @@ texture = ExtResource("8_mpqio")
 show_behind_parent = true
 position = Vector2(-82, -34)
 texture = SubResource("CompressedTexture2D_a5sum")
+
+[node name="Line2D" type="Line2D" parent="Boats/Red boat"]
+position = Vector2(-228, -174)
+points = PackedVector2Array(-2, -2, 14, 430)
+width = 2.945
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Hook" type="Sprite2D" parent="Boats/Red boat"]
+position = Vector2(-218, 266)
+texture = ExtResource("8_4t6ly")
 
 [node name="Trash" type="Node" parent="."]
 

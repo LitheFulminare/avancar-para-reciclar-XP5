@@ -6,6 +6,8 @@ extends Sprite2D
 
 @onready var starting_pos_y: float = position.y
 
+@export var hook: Sprite2D
+
 @export_group("Amplitude")
 @export var min_amplitude: float = 1.5
 @export var max_amplitude: float = 2.5
@@ -15,7 +17,9 @@ extends Sprite2D
 @export var max_speed: float = 2.5
 
 var amplitude: float = 2
-var speed:float = 2
+var speed: float = 2
+
+var is_hook_going_down: bool = true
 
 func _ready() -> void:
 	# randomizes movement amplitude and speed
@@ -24,8 +28,12 @@ func _ready() -> void:
 	amplitude = randf_range(min_amplitude, max_amplitude)
 	speed = randf_range(min_speed, max_speed)
 
-func _process(delta: float) -> void:
-	position.y = get_sine() + starting_pos_y 
+func _process(delta: float) -> void: 
+	position.y = get_sine() + starting_pos_y
+	hook.position.y += 75 * delta
+
+func move_hook(direction: Vector2, delta: float) -> void:
+	hook.position += direction.normalized() * 75 * delta
 
 func get_sine() -> float:
 	return sin(TimeTracker.time * speed) * amplitude
