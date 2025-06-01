@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 		player1.move_hook(Vector2(1, 0), delta)
 	if Input.is_action_pressed("Player 1 Up"):
 		player1.move_hook(Vector2(0, -1), delta)
+	else: 
+		player1.move_hook(Vector2(0, 1), delta)
 		
 	# player 2 input
 	if Input.is_action_pressed("Player 2 Left"):
@@ -23,6 +25,8 @@ func _process(delta: float) -> void:
 		player2.move_hook(Vector2(1, 0), delta)
 	if Input.is_action_pressed("Player 2 Up"):
 		player2.move_hook(Vector2(0, -1), delta)
+	else: 
+		player2.move_hook(Vector2(0, 1), delta)
 	
 	# player 3 input
 	if Input.is_action_pressed("Player 3 Left"):
@@ -31,3 +35,5 @@ func _process(delta: float) -> void:
 		player3.move_hook(Vector2(1, 0), delta)
 	if Input.is_action_pressed("Player 3 Up"):
 		player3.move_hook(Vector2(0, -1), delta)
+	else: 
+		player3.move_hook(Vector2(0, 1), delta)

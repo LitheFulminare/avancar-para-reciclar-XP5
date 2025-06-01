@@ -30,7 +30,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void: 
 	position.y = get_sine() + starting_pos_y
-	hook.position.y += 75 * delta
 
 func move_hook(direction: Vector2, delta: float) -> void:
 	hook.position += direction.normalized() * 75 * delta
