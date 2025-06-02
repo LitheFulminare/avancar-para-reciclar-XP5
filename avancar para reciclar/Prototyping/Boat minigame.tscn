@@ -1,18 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvylhbkrryn2p"]
+[gd_scene load_steps=14 format=3 uid="uid://dvylhbkrryn2p"]
 
 [ext_resource type="Texture2D" uid="uid://ch3nf61ed5eae" path="res://Prototyping/céu.png" id="1_8x0kp"]
 [ext_resource type="Script" uid="uid://cq3h6rlsu8kjr" path="res://Scripts/Managers/time_tracker.gd" id="1_asdbi"]
-[ext_resource type="Texture2D" uid="uid://b3piecwswwead" path="res://Assets/Sprites/Minigames/Boat/Green boat.png" id="1_m5ba4"]
-[ext_resource type="Texture2D" uid="uid://de0ire3jwru3w" path="res://Assets/Sprites/Players/Green pawn.png" id="2_47uti"]
 [ext_resource type="Script" uid="uid://dlojdj4g8u2ex" path="res://Assets/Sprites/Minigames/Boat/split_input_manager.gd" id="2_a5sum"]
 [ext_resource type="Texture2D" uid="uid://cnhvg6344fysk" path="res://Prototyping/oceano2.png" id="2_mpqio"]
-[ext_resource type="Texture2D" uid="uid://ctis46dkihx1r" path="res://Assets/Sprites/Minigames/Boat/Yellow boat.png" id="2_x851a"]
 [ext_resource type="Texture2D" uid="uid://dlk78ddhui816" path="res://Prototyping/oceano1.png" id="3_d5u5j"]
-[ext_resource type="Texture2D" uid="uid://b13mx14m2qf2l" path="res://Assets/Sprites/Minigames/Boat/Red boat.png" id="3_x851a"]
-[ext_resource type="Script" uid="uid://b3ue81nmu0dpb" path="res://Scripts/Minigames/Boat/boat.gd" id="5_a5sum"]
-[ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="5_v7u5m"]
-[ext_resource type="Texture2D" uid="uid://b0fg5if18j8r1" path="res://Assets/Sprites/Minigames/Boat/Hook.png" id="8_4t6ly"]
-[ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="8_mpqio"]
+[ext_resource type="PackedScene" uid="uid://cylcs0je638t1" path="res://Scenes/Minigames/Boat minigame/boat.tscn" id="6_4t6ly"]
 [ext_resource type="PackedScene" uid="uid://y0258n18ft22" path="res://Scenes/Minigames/Trash/Glass (broken bottle).tscn" id="14_asdbi"]
 [ext_resource type="PackedScene" uid="uid://c2it5v6713wrb" path="res://Scenes/Minigames/Trash/Metal (can).tscn" id="15_hok0p"]
 [ext_resource type="PackedScene" uid="uid://chpdbyblahauv" path="res://Scenes/Minigames/Trash/Plastic (bottle).tscn" id="16_bxus4"]
@@ -20,21 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://3uovkm3yq555" path="res://Scenes/Minigames/Trash/Organic (banana).tscn" id="18_hok0p"]
 [ext_resource type="PackedScene" uid="uid://hyvcipfl6bb6" path="res://Scenes/Minigames/Trash/Metal (nail).tscn" id="19_gkymc"]
 [ext_resource type="PackedScene" uid="uid://cb0lcv22mgx4e" path="res://Scenes/Minigames/Trash/Metal (cog).tscn" id="20_a5sum"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4t6ly"]
-load_path = "res://.godot/imported/Green rod.png-67dcc6ee3b2183bd93d2c661b28ae0ae.ctex"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_a5sum"]
-radius = 16.1245
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sum"]
-size = Vector2(460, 172)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7thci"]
-load_path = "res://.godot/imported/Yellow rod.png-9dd54c9276a93082198dfc7e4350cd10.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a5sum"]
-load_path = "res://.godot/imported/Red rod.png-2843e9c285d3807b7969ce73ce385459.ctex"
 
 [node name="BoatMinigame" type="Node2D"]
 
@@ -48,6 +26,7 @@ player2 = NodePath("../Boats/Yellow boat")
 player3 = NodePath("../Boats/Red boat")
 
 [node name="Scenario" type="Node2D" parent="."]
+z_index = 1
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -76,140 +55,14 @@ centered = false
 
 [node name="Boats" type="Node" parent="."]
 
-[node name="Green boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("line", "hook")]
+[node name="Green boat" parent="Boats" instance=ExtResource("6_4t6ly")]
 position = Vector2(243, 257)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_m5ba4")
-script = ExtResource("5_a5sum")
-line = NodePath("Rod/Line2D")
-hook = NodePath("Rod/Line2D/Hook")
 
-[node name="Player pawn" type="Sprite2D" parent="Boats/Green boat"]
-show_behind_parent = true
-position = Vector2(-8, -56)
-texture = ExtResource("2_47uti")
-
-[node name="Rod" type="Sprite2D" parent="Boats/Green boat"]
-show_behind_parent = true
-position = Vector2(-130, -70)
-texture = SubResource("CompressedTexture2D_4t6ly")
-
-[node name="Line2D" type="Line2D" parent="Boats/Green boat/Rod"]
-position = Vector2(-146, -140)
-points = PackedVector2Array(-2, -2, 14, 430)
-width = 2.945
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Hook" type="Area2D" parent="Boats/Green boat/Rod/Line2D"]
-position = Vector2(14, 430)
-collision_layer = 2
-collision_mask = 5
-
-[node name="Sprite2D" type="Sprite2D" parent="Boats/Green boat/Rod/Line2D/Hook"]
-texture = ExtResource("8_4t6ly")
-offset = Vector2(-4.305, 9.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boats/Green boat/Rod/Line2D/Hook"]
-position = Vector2(-4, 10)
-shape = SubResource("CircleShape2D_a5sum")
-
-[node name="Player Area2D" type="Area2D" parent="Boats/Green boat" groups=["Player"]]
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boats/Green boat/Player Area2D"]
-position = Vector2(-12, 28)
-shape = SubResource("RectangleShape2D_a5sum")
-
-[node name="Yellow boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("line", "hook")]
+[node name="Yellow boat" parent="Boats" instance=ExtResource("6_4t6ly")]
 position = Vector2(566, 257)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_x851a")
-script = ExtResource("5_a5sum")
-line = NodePath("Rod/Line2D")
-hook = NodePath("Rod/Line2D/Hook")
 
-[node name="Player pawn" type="Sprite2D" parent="Boats/Yellow boat"]
-show_behind_parent = true
-position = Vector2(-8, -56)
-texture = ExtResource("5_v7u5m")
-
-[node name="Rod" type="Sprite2D" parent="Boats/Yellow boat"]
-show_behind_parent = true
-position = Vector2(-130, -70)
-texture = SubResource("CompressedTexture2D_7thci")
-
-[node name="Line2D" type="Line2D" parent="Boats/Yellow boat/Rod"]
-position = Vector2(-146, -140)
-points = PackedVector2Array(-8, -2, 14, 430)
-width = 2.945
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Hook" type="Area2D" parent="Boats/Yellow boat/Rod/Line2D"]
-position = Vector2(14, 430)
-collision_layer = 2
-collision_mask = 5
-
-[node name="Sprite2D" type="Sprite2D" parent="Boats/Yellow boat/Rod/Line2D/Hook"]
-texture = ExtResource("8_4t6ly")
-offset = Vector2(-4.305, 9.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boats/Yellow boat/Rod/Line2D/Hook"]
-position = Vector2(-4, 10)
-shape = SubResource("CircleShape2D_a5sum")
-
-[node name="Player Area2D" type="Area2D" parent="Boats/Yellow boat" groups=["Player"]]
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boats/Yellow boat/Player Area2D"]
-position = Vector2(-12, 28)
-shape = SubResource("RectangleShape2D_a5sum")
-
-[node name="Red boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("line", "hook")]
+[node name="Red boat" parent="Boats" instance=ExtResource("6_4t6ly")]
 position = Vector2(894, 257)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_x851a")
-script = ExtResource("5_a5sum")
-line = NodePath("Rod/Line2D")
-hook = NodePath("Rod/Line2D/Hook")
-
-[node name="Player pawn" type="Sprite2D" parent="Boats/Red boat"]
-show_behind_parent = true
-position = Vector2(-8, -56)
-texture = ExtResource("8_mpqio")
-
-[node name="Rod" type="Sprite2D" parent="Boats/Red boat"]
-show_behind_parent = true
-position = Vector2(-130, -70)
-texture = SubResource("CompressedTexture2D_a5sum")
-
-[node name="Line2D" type="Line2D" parent="Boats/Red boat/Rod"]
-position = Vector2(-146, -140)
-points = PackedVector2Array(-2, -2, 14, 430)
-width = 2.945
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Hook" type="Area2D" parent="Boats/Red boat/Rod/Line2D"]
-position = Vector2(14, 430)
-collision_layer = 2
-collision_mask = 5
-
-[node name="Sprite2D" type="Sprite2D" parent="Boats/Red boat/Rod/Line2D/Hook"]
-texture = ExtResource("8_4t6ly")
-offset = Vector2(-4.305, 9.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boats/Red boat/Rod/Line2D/Hook"]
-position = Vector2(-4, 10)
-shape = SubResource("CircleShape2D_a5sum")
-
-[node name="Player Area2D" type="Area2D" parent="Boats/Red boat" groups=["Player"]]
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boats/Red boat/Player Area2D"]
-position = Vector2(-12, 28)
-shape = SubResource("RectangleShape2D_a5sum")
 
 [node name="Trash" type="Node2D" parent="."]
 z_index = -1

@@ -1,19 +1,20 @@
 class_name Boat
-extends Sprite2D
+extends Area2D
 
 # video reference:
 # https://www.youtube.com/watch?v=HFEpqsy0VSc
 
 @onready var starting_pos_y: float = position.y
 
+@export_group("Node components")
 @export var line: Line2D
 @export var hook: Area2D
 
-@export_group("Amplitude")
+@export_group("Water amplitude")
 @export var min_amplitude: float = 1.5
 @export var max_amplitude: float = 2.5
 
-@export_group("Speed")
+@export_group("Water speed")
 @export var min_speed: float = 1.5
 @export var max_speed: float = 2.5
 
@@ -53,4 +54,4 @@ func hooked(area: Area2D) -> void:
 		hooked_trash = area
 		print(str(self.name) + " hooked " + str(hooked_trash.name))
 	if area.is_in_group("Player"):
-		print("player collected trash")
+		print(str(self.name) + " collected trash")
