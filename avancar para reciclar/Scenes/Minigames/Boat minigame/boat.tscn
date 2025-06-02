@@ -17,28 +17,28 @@ radius = 16.1245
 [node name="Boat" type="Area2D" node_paths=PackedStringArray("line", "hook") groups=["Player"]]
 collision_mask = 6
 script = ExtResource("2_2ybh2")
-line = NodePath("Green boat/Rod/Line2D")
-hook = NodePath("Green boat/Rod/Line2D/Hook")
+line = NodePath("Boat Sprite2D/Rod Sprite2D/Line2D")
+hook = NodePath("Boat Sprite2D/Rod Sprite2D/Line2D/Hook")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6.5, 8.5)
 shape = SubResource("RectangleShape2D_a5sum")
 
-[node name="Green boat" type="Sprite2D" parent="."]
+[node name="Boat Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_toye7")
 
-[node name="Player pawn" type="Sprite2D" parent="Green boat"]
+[node name="Pawn Sprite2D" type="Sprite2D" parent="Boat Sprite2D"]
 show_behind_parent = true
 position = Vector2(-8, -56)
 texture = ExtResource("3_0bx2c")
 
-[node name="Rod" type="Sprite2D" parent="Green boat"]
+[node name="Rod Sprite2D" type="Sprite2D" parent="Boat Sprite2D"]
 show_behind_parent = true
 position = Vector2(-130, -70)
 texture = SubResource("CompressedTexture2D_4t6ly")
 
-[node name="Line2D" type="Line2D" parent="Green boat/Rod"]
+[node name="Line2D" type="Line2D" parent="Boat Sprite2D/Rod Sprite2D"]
 z_index = 1
 position = Vector2(-146, -140)
 points = PackedVector2Array(-2, -2, 14, 430)
@@ -46,15 +46,15 @@ width = 2.945
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Hook" type="Area2D" parent="Green boat/Rod/Line2D"]
+[node name="Hook" type="Area2D" parent="Boat Sprite2D/Rod Sprite2D/Line2D"]
 position = Vector2(14, 430)
 collision_layer = 2
 collision_mask = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="Green boat/Rod/Line2D/Hook"]
+[node name="Hook Sprite2D" type="Sprite2D" parent="Boat Sprite2D/Rod Sprite2D/Line2D/Hook"]
 texture = ExtResource("4_cgfk4")
 offset = Vector2(-4.305, 9.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Green boat/Rod/Line2D/Hook"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boat Sprite2D/Rod Sprite2D/Line2D/Hook"]
 position = Vector2(-4, 10)
 shape = SubResource("CircleShape2D_a5sum")
