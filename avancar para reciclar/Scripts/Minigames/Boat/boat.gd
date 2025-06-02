@@ -23,6 +23,8 @@ var speed: float = 2
 
 var is_hook_going_down: bool = true
 
+var hooked_trash: Area2D
+
 func _ready() -> void:
 	# randomizes movement amplitude and speed
 	# I wanted this to randomize every cycle, but cheking position.y == starting_pos_y doesn't work
@@ -35,6 +37,9 @@ func _process(_delta: float) -> void:
 	position.y = get_sine() + starting_pos_y
 	line.set_point_position(line.get_point_count() - 1, hook.position)
 	
+	if hooked_trash != null:
+		hooked_trash.global_position = hook.global_position
+	
 func move_hook(direction: Vector2, delta: float) -> void:
 	hook.position += direction.normalized() * 75 * delta
 
@@ -43,4 +48,5 @@ func get_sine() -> float:
 
 func hooked(area: Area2D) -> void:
 	if area.is_in_group("Trash"):
-		print(str(self.name) + " hooked a trash")
+		hooked_trash = area
+		print(str(self.name) + " hooked " + str(hooked_trash.name))

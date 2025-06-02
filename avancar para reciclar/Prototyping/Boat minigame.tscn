@@ -193,7 +193,7 @@ shape = SubResource("CircleShape2D_a5sum")
 [node name="Trash" type="Node2D" parent="."]
 z_index = -1
 
-[node name="Broken bottle" parent="Trash" instance=ExtResource("14_asdbi")]
+[node name="Glass (broken bottle)" parent="Trash" instance=ExtResource("14_asdbi")]
 position = Vector2(145, 531)
 scale = Vector2(0.2, 0.2)
 
@@ -240,5 +240,3 @@ scale = Vector2(0.22, 0.22)
 [node name="Metal (cog)" parent="Trash" instance=ExtResource("20_a5sum")]
 position = Vector2(894.156, 501.833)
 scale = Vector2(0.24, 0.24)
-
-[editable path="Trash/Broken bottle"]
