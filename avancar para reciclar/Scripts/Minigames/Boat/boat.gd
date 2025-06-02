@@ -54,4 +54,7 @@ func hooked(area: Area2D) -> void:
 		hooked_trash = area
 		print(str(self.name) + " hooked " + str(hooked_trash.name))
 	if area.is_in_group("Player"):
+		if hooked_trash != null:
+			hooked_trash.queue_free()
+			points += 1
 		print(str(self.name) + " collected trash")
