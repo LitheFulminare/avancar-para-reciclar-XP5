@@ -32,6 +32,10 @@ window/stretch/mode="canvas_items"
 movie_writer/movie_file="D:/Game dev and college/Games/Godot/avancar-para-reciclar-XP5/Godot movies/movie.avi"
 movie_writer/disable_vsync=true
 
+[global_group]
+
+Trash="Mainly used for collision purposes on minigames"
+
 [input]
 
 Confirm={

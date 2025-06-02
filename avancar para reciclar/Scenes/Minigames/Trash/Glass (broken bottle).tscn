@@ -8,7 +8,7 @@ size = Vector2(159.004, 118.416)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbknv"]
 size = Vector2(96.5149, 258.006)
 
-[node name="Broken bottle" type="Area2D"]
+[node name="Broken bottle" type="Area2D" groups=["Trash"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-120.926, 15.8938)

@@ -5,7 +5,7 @@
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_r6cyq"]
 points = PackedVector2Array(88.4334, -242.208, 160.974, -11.3768, 100.547, 233.765, -152.487, 219.357, -143.4, -170.665)
 
-[node name="Plastic (bag)" type="Area2D"]
+[node name="Plastic (bag)" type="Area2D" groups=["Trash"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, 7)

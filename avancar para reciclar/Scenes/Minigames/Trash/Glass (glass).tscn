@@ -5,7 +5,7 @@
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_h4etu"]
 points = PackedVector2Array(80, 169, -91, 164, -130, -168, 122, -165)
 
-[node name="Glass (glass)" type="Area2D"]
+[node name="Glass (glass)" type="Area2D" groups=["Trash"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("ConvexPolygonShape2D_h4etu")

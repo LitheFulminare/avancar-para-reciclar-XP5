@@ -5,12 +5,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjquv"]
 size = Vector2(221.415, 438.969)
 
-[node name="Paper (toilet paper roll)" type="Area2D"]
+[node name="Paper (toilet paper roll)" type="Area2D" groups=["Trash"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7.44868, 15.8851)
 rotation = -0.487828
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pjquv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

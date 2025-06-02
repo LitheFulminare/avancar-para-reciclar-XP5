@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_o4tod"]
 radius = 205.45
 
-[node name="Metal (cog)" type="Area2D"]
+[node name="Metal (cog)" type="Area2D" groups=["Trash"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_o4tod")

@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjquv"]
 size = Vector2(393.66, 144.83)
 
-[node name="Metal (nail)" type="Area2D"]
+[node name="Metal (nail)" type="Area2D" groups=["Trash"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-24.2208, 14.6148)

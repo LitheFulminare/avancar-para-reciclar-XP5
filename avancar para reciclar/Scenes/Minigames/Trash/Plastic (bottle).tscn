@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjquv"]
 size = Vector2(162, 348)
 
-[node name="Plastic (bottle)" type="Area2D"]
+[node name="Plastic (bottle)" type="Area2D" groups=["Trash"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 3.8147e-06)
