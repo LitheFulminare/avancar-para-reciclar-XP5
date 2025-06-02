@@ -117,7 +117,7 @@ scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 
 [node name="Square 11" parent="Squares" instance=ExtResource("8_5w0ha")]
-position = Vector2(267, 322)
+position = Vector2(269, 325)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 

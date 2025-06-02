@@ -8,6 +8,7 @@ extends Sprite2D
 
 @export var hook: Sprite2D
 @export var line: Line2D
+@export var collider: Area2D
 
 @export_group("Amplitude")
 @export var min_amplitude: float = 1.5
@@ -28,6 +29,7 @@ func _ready() -> void:
 	randomize()
 	amplitude = randf_range(min_amplitude, max_amplitude)
 	speed = randf_range(min_speed, max_speed)
+	collider.area_entered.connect(hooked)
 
 func _process(_delta: float) -> void: 
 	position.y = get_sine() + starting_pos_y
@@ -38,3 +40,7 @@ func move_hook(direction: Vector2, delta: float) -> void:
 
 func get_sine() -> float:
 	return sin(TimeTracker.time * speed) * amplitude
+
+func hooked(area: Area2D) -> void:
+	if area.is_in_group("Trash"):
+		print(str(self.name) + " hooked a trash")
