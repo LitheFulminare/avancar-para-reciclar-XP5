@@ -6,9 +6,8 @@ extends Sprite2D
 
 @onready var starting_pos_y: float = position.y
 
-@export var hook: Sprite2D
 @export var line: Line2D
-@export var collider: Area2D
+@export var hook: Area2D
 
 @export_group("Amplitude")
 @export var min_amplitude: float = 1.5
@@ -21,9 +20,12 @@ extends Sprite2D
 var amplitude: float = 2
 var speed: float = 2
 
+# prob won't be used
 var is_hook_going_down: bool = true
 
 var hooked_trash: Area2D
+
+var points: int = 0
 
 func _ready() -> void:
 	# randomizes movement amplitude and speed
@@ -31,7 +33,7 @@ func _ready() -> void:
 	randomize()
 	amplitude = randf_range(min_amplitude, max_amplitude)
 	speed = randf_range(min_speed, max_speed)
-	collider.area_entered.connect(hooked)
+	hook.area_entered.connect(hooked)
 
 func _process(_delta: float) -> void: 
 	position.y = get_sine() + starting_pos_y
@@ -50,3 +52,5 @@ func hooked(area: Area2D) -> void:
 	if area.is_in_group("Trash"):
 		hooked_trash = area
 		print(str(self.name) + " hooked " + str(hooked_trash.name))
+	if area.is_in_group("Player"):
+		print("player collected trash")
