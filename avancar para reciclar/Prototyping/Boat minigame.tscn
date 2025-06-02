@@ -70,12 +70,13 @@ centered = false
 
 [node name="Boats" type="Node" parent="."]
 
-[node name="Green boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("hook")]
+[node name="Green boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("hook", "line")]
 position = Vector2(243, 257)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_m5ba4")
 script = ExtResource("5_a5sum")
-hook = NodePath("Hook")
+hook = NodePath("Line2D/Hook")
+line = NodePath("Line2D")
 
 [node name="Player pawn" type="Sprite2D" parent="Boats/Green boat"]
 show_behind_parent = true
@@ -94,16 +95,18 @@ width = 2.945
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Hook" type="Sprite2D" parent="Boats/Green boat"]
-position = Vector2(-218, 266)
+[node name="Hook" type="Sprite2D" parent="Boats/Green boat/Line2D"]
+position = Vector2(14, 430)
 texture = ExtResource("8_4t6ly")
+offset = Vector2(-4.305, 9.5)
 
-[node name="Yellow boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("hook")]
+[node name="Yellow boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("hook", "line")]
 position = Vector2(566, 257)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_x851a")
 script = ExtResource("5_a5sum")
-hook = NodePath("Hook")
+hook = NodePath("Line2D/Hook")
+line = NodePath("Line2D")
 
 [node name="Player pawn" type="Sprite2D" parent="Boats/Yellow boat"]
 show_behind_parent = true
@@ -122,16 +125,18 @@ width = 2.945
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Hook" type="Sprite2D" parent="Boats/Yellow boat"]
-position = Vector2(-218, 266)
+[node name="Hook" type="Sprite2D" parent="Boats/Yellow boat/Line2D"]
+position = Vector2(14, 430)
 texture = ExtResource("8_4t6ly")
+offset = Vector2(-4.305, 9.5)
 
-[node name="Red boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("hook")]
+[node name="Red boat" type="Sprite2D" parent="Boats" node_paths=PackedStringArray("hook", "line")]
 position = Vector2(894, 257)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_x851a")
 script = ExtResource("5_a5sum")
-hook = NodePath("Hook")
+hook = NodePath("Line2D/Hook")
+line = NodePath("Line2D")
 
 [node name="Player pawn" type="Sprite2D" parent="Boats/Red boat"]
 show_behind_parent = true
@@ -150,9 +155,10 @@ width = 2.945
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Hook" type="Sprite2D" parent="Boats/Red boat"]
-position = Vector2(-218, 266)
+[node name="Hook" type="Sprite2D" parent="Boats/Red boat/Line2D"]
+position = Vector2(14, 430)
 texture = ExtResource("8_4t6ly")
+offset = Vector2(-4.305, 9.5)
 
 [node name="Trash" type="Node" parent="."]
 
