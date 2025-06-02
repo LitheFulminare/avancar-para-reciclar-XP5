@@ -37,24 +37,31 @@ func _ready() -> void:
 	hook.area_entered.connect(hooked)
 
 func _process(_delta: float) -> void: 
+	# makes the boat go up and down
 	position.y = get_sine() + starting_pos_y
 	line.set_point_position(line.get_point_count() - 1, hook.position)
 	
 	if hooked_trash != null:
 		hooked_trash.global_position = hook.global_position
 	
+# called by Split Input Manager
 func move_hook(direction: Vector2, delta: float) -> void:
-	hook.position += direction.normalized() * 75 * delta
+	hook.position += direction.normalized() * 125 * delta
 
+# used to make the boat go up and down
 func get_sine() -> float:
 	return sin(TimeTracker.time * speed) * amplitude
 
+# the hook's 'area_entered' signal is connected to this funcion
 func hooked(area: Area2D) -> void:
+	# hook colliding with trash
 	if area.is_in_group("Trash"):
 		hooked_trash = area
 		print(str(self.name) + " hooked " + str(hooked_trash.name))
+		
+	# hook colliding with the player
 	if area.is_in_group("Player"):
 		if hooked_trash != null:
 			hooked_trash.queue_free()
 			points += 1
-		print(str(self.name) + " collected trash")
+			print(str(self.name) + " collected trash")

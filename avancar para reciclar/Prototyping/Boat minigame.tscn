@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://disbcp6ujcu0q"]
+[gd_scene load_steps=21 format=3 uid="uid://disbcp6ujcu0q"]
 
 [ext_resource type="Texture2D" uid="uid://ch3nf61ed5eae" path="res://Prototyping/céu.png" id="1_8x0kp"]
 [ext_resource type="Script" path="res://Scripts/Managers/time_tracker.gd" id="1_asdbi"]
-[ext_resource type="Script" uid="uid://dlojdj4g8u2ex" path="res://Assets/Sprites/Minigames/Boat/split_input_manager.gd" id="2_a5sum"]
+[ext_resource type="Script" uid="uid://dokerxycq6cla" path="res://Scripts/Minigames/Boat/boat minigame manager.gd" id="2_4t6ly"]
+[ext_resource type="Script" uid="uid://dlojdj4g8u2ex" path="res://Scripts/Minigames/Boat/split_input_manager.gd" id="2_a5sum"]
 [ext_resource type="Texture2D" uid="uid://cnhvg6344fysk" path="res://Prototyping/oceano2.png" id="2_mpqio"]
 [ext_resource type="Texture2D" uid="uid://dlk78ddhui816" path="res://Prototyping/oceano1.png" id="3_d5u5j"]
 [ext_resource type="PackedScene" uid="uid://cylcs0je638t1" path="res://Scenes/Minigames/Boat minigame/boat.tscn" id="6_4t6ly"]
@@ -21,6 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://cb0lcv22mgx4e" path="res://Scenes/Minigames/Trash/Metal (cog).tscn" id="20_a5sum"]
 
 [node name="BoatMinigame" type="Node2D"]
+
+[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("trash_parent")]
+script = ExtResource("2_4t6ly")
+trash_parent = NodePath("../Trash")
 
 [node name="Time tracker" type="Node" parent="."]
 script = ExtResource("1_asdbi")
