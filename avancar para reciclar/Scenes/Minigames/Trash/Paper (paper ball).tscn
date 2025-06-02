@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpkx5g0qjcuq7"]
+
+[ext_resource type="Texture2D" uid="uid://c1m577rlwudgg" path="res://Assets/Sprites/Cards/Trash icons/Paper (paper ball).png" id="1_3u5bv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kkrq7"]
+radius = 347.052
+
+[node name="Paper (paper ball)" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kkrq7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3u5bv")

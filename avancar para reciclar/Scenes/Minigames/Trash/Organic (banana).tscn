@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3uovkm3yq555"]
+
+[ext_resource type="Texture2D" uid="uid://dv3rkqrjjbybf" path="res://Assets/Sprites/Cards/Trash icons/Organic (banana).png" id="1_nl2na"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ge1mc"]
+points = PackedVector2Array(-199, 159, 183, 148, 191, 2, -53, -188)
+
+[node name="Organic (banana)" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_ge1mc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nl2na")

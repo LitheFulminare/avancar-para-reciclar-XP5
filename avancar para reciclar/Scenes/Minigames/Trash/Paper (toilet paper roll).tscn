@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://gvstwm4dehp1"]
+
+[ext_resource type="Texture2D" uid="uid://bnabsj130h7fm" path="res://Assets/Sprites/Cards/Trash icons/Paper (toilet paper roll).png" id="1_rp6q3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjquv"]
+size = Vector2(221.415, 438.969)
+
+[node name="Paper (toilet paper roll)" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.44868, 15.8851)
+rotation = -0.487828
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pjquv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rp6q3")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmk81iov45bj4"]
+
+[ext_resource type="Texture2D" uid="uid://4voon8kyoill" path="res://Assets/Sprites/Cards/Trash icons/Organic (fish).png" id="1_mw2bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjquv"]
+size = Vector2(189.73, 502.985)
+
+[node name="Organic (fish)" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.85299, -7.80722)
+rotation = -1.13289
+shape = SubResource("RectangleShape2D_pjquv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mw2bn")

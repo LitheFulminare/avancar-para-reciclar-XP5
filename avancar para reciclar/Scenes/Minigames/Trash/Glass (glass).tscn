@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c37wpb40pheay"]
+
+[ext_resource type="Texture2D" uid="uid://c2q3d3oqwq6e8" path="res://Assets/Sprites/Cards/Trash icons/Glass (glass).png" id="1_h4etu"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_h4etu"]
+points = PackedVector2Array(80, 169, -91, 164, -130, -168, 122, -165)
+
+[node name="Glass (glass)" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_h4etu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h4etu")

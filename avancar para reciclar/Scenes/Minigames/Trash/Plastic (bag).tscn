@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3dds0fovxl81"]
+
+[ext_resource type="Texture2D" uid="uid://dyuik7hva84wa" path="res://Assets/Sprites/Cards/Trash icons/Plastic (bag).png" id="1_r6cyq"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_r6cyq"]
+points = PackedVector2Array(88.4334, -242.208, 160.974, -11.3768, 100.547, 233.765, -152.487, 219.357, -143.4, -170.665)
+
+[node name="Plastic (bag)" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 7)
+rotation = 0.00234039
+shape = SubResource("ConvexPolygonShape2D_r6cyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r6cyq")

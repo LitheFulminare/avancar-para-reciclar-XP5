@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://chpdbyblahauv"]
+
+[ext_resource type="Texture2D" uid="uid://dkd7cs6du8tuu" path="res://Assets/Sprites/Cards/Trash icons/Plastic (bottle).png" id="1_n34jx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjquv"]
+size = Vector2(162, 348)
+
+[node name="Plastic (bottle)" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 3.8147e-06)
+shape = SubResource("RectangleShape2D_pjquv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n34jx")

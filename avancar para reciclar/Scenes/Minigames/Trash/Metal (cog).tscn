@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb0lcv22mgx4e"]
+
+[ext_resource type="Texture2D" uid="uid://dwsquny4bmcy7" path="res://Assets/Sprites/Cards/Trash icons/Metal (cog).png" id="1_odkyn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o4tod"]
+radius = 205.45
+
+[node name="Metal (cog)" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o4tod")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_odkyn")

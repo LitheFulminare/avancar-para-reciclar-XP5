@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2it5v6713wrb"]
+
+[ext_resource type="Texture2D" uid="uid://ckdsj5y6522py" path="res://Assets/Sprites/Cards/Trash icons/Metal (can).png" id="1_rnp1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjquv"]
+size = Vector2(387.35, 269.881)
+
+[node name="Metal (can)" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.368411, 1.93747)
+rotation = -1.78139
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pjquv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rnp1c")
