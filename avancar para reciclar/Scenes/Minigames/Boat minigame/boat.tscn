@@ -43,6 +43,7 @@ z_index = 1
 position = Vector2(-146, -140)
 points = PackedVector2Array(-2, -2, 14, 430)
 width = 2.945
+default_color = Color(0, 0, 0, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 

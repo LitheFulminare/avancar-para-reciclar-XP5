@@ -29,6 +29,8 @@ var hooked_trash: Area2D
 var points: int = 0
 
 func _ready() -> void:
+	print("Viewport Y size: " + str(get_viewport_rect().size.y))
+	
 	# randomizes movement amplitude and speed
 	# I wanted this to randomize every cycle, but cheking position.y == starting_pos_y doesn't work
 	randomize()
@@ -47,6 +49,16 @@ func _process(_delta: float) -> void:
 # called by Split Input Manager
 func move_hook(direction: Vector2, delta: float) -> void:
 	hook.position += direction.normalized() * 125 * delta
+	
+	# clamp hook movement
+	if hook.position.y < 241:
+		hook.position.y = 241
+	elif hook.global_position.x < 10:
+		hook.global_position.x = 10
+	elif hook.global_position.y > get_viewport_rect().size.y - 10:
+		hook.global_position.y = get_viewport_rect().size.y - 10
+	elif hook.global_position.x > get_viewport_rect().size.x - 10:
+		hook.global_position.x = get_viewport_rect().size.x - 10
 
 # used to make the boat go up and down
 func get_sine() -> float:
