@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://disbcp6ujcu0q"]
+[gd_scene load_steps=20 format=3 uid="uid://disbcp6ujcu0q"]
 
 [ext_resource type="Texture2D" uid="uid://ch3nf61ed5eae" path="res://Prototyping/céu.png" id="1_8x0kp"]
 [ext_resource type="Script" path="res://Scripts/Managers/time_tracker.gd" id="1_asdbi"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cylcs0je638t1" path="res://Scenes/Minigames/Boat minigame/boat.tscn" id="6_4t6ly"]
 [ext_resource type="Texture2D" uid="uid://ctis46dkihx1r" path="res://Assets/Sprites/Minigames/Boat/Yellow boat.png" id="7_44j1y"]
 [ext_resource type="Texture2D" uid="uid://b13mx14m2qf2l" path="res://Assets/Sprites/Minigames/Boat/Red boat.png" id="8_63jl8"]
+[ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="8_rf473"]
+[ext_resource type="Texture2D" uid="uid://dsh0hs0707x7p" path="res://Assets/Sprites/Minigames/Boat/Yellow rod.png" id="9_7thci"]
+[ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="10_rf473"]
+[ext_resource type="Texture2D" uid="uid://bffyk6fby1x1x" path="res://Assets/Sprites/Minigames/Boat/Red rod.png" id="12_4t6ly"]
 [ext_resource type="PackedScene" uid="uid://y0258n18ft22" path="res://Scenes/Minigames/Trash/Glass (broken bottle).tscn" id="14_asdbi"]
 [ext_resource type="PackedScene" uid="uid://c2it5v6713wrb" path="res://Scenes/Minigames/Trash/Metal (can).tscn" id="15_hok0p"]
 [ext_resource type="PackedScene" uid="uid://chpdbyblahauv" path="res://Scenes/Minigames/Trash/Plastic (bottle).tscn" id="16_bxus4"]
@@ -66,11 +70,23 @@ position = Vector2(566, 257)
 [node name="Boat Sprite2D" parent="Boats/Yellow boat" index="1"]
 texture = ExtResource("7_44j1y")
 
+[node name="Pawn Sprite2D" parent="Boats/Yellow boat/Boat Sprite2D" index="0"]
+texture = ExtResource("8_rf473")
+
+[node name="Rod Sprite2D" parent="Boats/Yellow boat/Boat Sprite2D" index="1"]
+texture = ExtResource("9_7thci")
+
 [node name="Red boat" parent="Boats" instance=ExtResource("6_4t6ly")]
 position = Vector2(894, 257)
 
 [node name="Boat Sprite2D" parent="Boats/Red boat" index="1"]
 texture = ExtResource("8_63jl8")
+
+[node name="Pawn Sprite2D" parent="Boats/Red boat/Boat Sprite2D" index="0"]
+texture = ExtResource("10_rf473")
+
+[node name="Rod Sprite2D" parent="Boats/Red boat/Boat Sprite2D" index="1"]
+texture = ExtResource("12_4t6ly")
 
 [node name="Trash" type="Node2D" parent="."]
 z_index = -1
