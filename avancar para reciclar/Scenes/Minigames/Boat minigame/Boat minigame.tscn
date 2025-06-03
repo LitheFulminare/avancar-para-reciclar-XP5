@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://disbcp6ujcu0q"]
+[gd_scene load_steps=22 format=3 uid="uid://disbcp6ujcu0q"]
 
 [ext_resource type="Script" uid="uid://dokerxycq6cla" path="res://Scripts/Minigames/Boat/boat minigame manager.gd" id="1_ric7v"]
 [ext_resource type="Script" path="res://Scripts/Managers/time_tracker.gd" id="2_7s84n"]
 [ext_resource type="Script" uid="uid://dlojdj4g8u2ex" path="res://Scripts/Minigames/Boat/split_input_manager.gd" id="3_pbxlv"]
+[ext_resource type="PackedScene" uid="uid://cnwsc4ltpbsh2" path="res://Scenes/Minigames/Generic elements/point_display.tscn" id="4_7s84n"]
 [ext_resource type="Texture2D" uid="uid://ch3nf61ed5eae" path="res://Assets/Sprites/Minigames/Boat minigame/Scenario/céu.png" id="4_gerl7"]
 [ext_resource type="Texture2D" uid="uid://dlk78ddhui816" path="res://Assets/Sprites/Minigames/Boat minigame/Scenario/oceano1.png" id="5_a66v7"]
 [ext_resource type="Texture2D" uid="uid://cnhvg6344fysk" path="res://Assets/Sprites/Minigames/Boat minigame/Scenario/oceano2.png" id="6_upck5"]
@@ -36,6 +37,17 @@ player1 = NodePath("../Boats/Green boat")
 player2 = NodePath("../Boats/Yellow boat")
 player3 = NodePath("../Boats/Red boat")
 
+[node name="HUD" type="Node2D" parent="."]
+
+[node name="Green score display" parent="HUD" instance=ExtResource("4_7s84n")]
+position = Vector2(238, 135)
+
+[node name="Yellow score display" parent="HUD" instance=ExtResource("4_7s84n")]
+position = Vector2(561, 135)
+
+[node name="Red score display" parent="HUD" instance=ExtResource("4_7s84n")]
+position = Vector2(891, 135)
+
 [node name="Scenario" type="Node2D" parent="."]
 z_index = 1
 metadata/_edit_group_ = true
@@ -66,11 +78,13 @@ centered = false
 
 [node name="Boats" type="Node" parent="."]
 
-[node name="Green boat" parent="Boats" instance=ExtResource("7_jg4fs")]
+[node name="Green boat" parent="Boats" node_paths=PackedStringArray("score_display") instance=ExtResource("7_jg4fs")]
 position = Vector2(243, 257)
+score_display = NodePath("../../HUD/Green score display")
 
-[node name="Yellow boat" parent="Boats" instance=ExtResource("7_jg4fs")]
+[node name="Yellow boat" parent="Boats" node_paths=PackedStringArray("score_display") instance=ExtResource("7_jg4fs")]
 position = Vector2(566, 257)
+score_display = NodePath("../../HUD/Yellow score display")
 
 [node name="Boat Sprite2D" parent="Boats/Yellow boat" index="1"]
 texture = ExtResource("8_b72gt")
@@ -81,8 +95,9 @@ texture = ExtResource("9_wgktd")
 [node name="Rod Sprite2D" parent="Boats/Yellow boat/Boat Sprite2D" index="1"]
 texture = ExtResource("10_ow4m4")
 
-[node name="Red boat" parent="Boats" instance=ExtResource("7_jg4fs")]
+[node name="Red boat" parent="Boats" node_paths=PackedStringArray("score_display") instance=ExtResource("7_jg4fs")]
 position = Vector2(894, 257)
+score_display = NodePath("../../HUD/Red score display")
 
 [node name="Boat Sprite2D" parent="Boats/Red boat" index="1"]
 texture = ExtResource("11_2igmv")
@@ -95,6 +110,7 @@ texture = ExtResource("13_pa471")
 
 [node name="Trash" type="Node2D" parent="."]
 z_index = -1
+metadata/_edit_lock_ = true
 
 [node name="Glass (broken bottle)" parent="Trash" instance=ExtResource("14_7lixa")]
 position = Vector2(145, 531)

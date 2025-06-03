@@ -6,6 +6,9 @@ extends Area2D
 
 @onready var starting_pos_y: float = position.y
 
+@export_group("Scene managers")
+@export var score_display: ScoreDisplay
+
 @export_group("Node components")
 @export var line: Line2D
 @export var hook: Area2D
@@ -76,4 +79,5 @@ func hooked(area: Area2D) -> void:
 		if hooked_trash != null:
 			hooked_trash.queue_free()
 			points += 1
+			score_display.update_score(str(points))
 			print(str(self.name) + " collected trash")
