@@ -25,8 +25,9 @@
 
 [node name="BoatMinigame" type="Node2D"]
 
-[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("trash_parent")]
+[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("timer_clock", "trash_parent")]
 script = ExtResource("1_ric7v")
+timer_clock = NodePath("../HUD/Timer/Timer")
 trash_parent = NodePath("../Trash")
 
 [node name="Time tracker" type="Node" parent="."]

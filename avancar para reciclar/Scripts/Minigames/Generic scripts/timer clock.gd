@@ -1,5 +1,7 @@
-class_name Chronometer
+class_name TimerClock
 extends Node2D
+
+signal timer_reached_zero
 
 @export var stage_time: int = 30
 
@@ -16,4 +18,4 @@ func start_timer() -> void:
 	timer.start(stage_time)
 
 func _on_timer_timeout() -> void:
-	print("Timer reached 0")
+	timer_reached_zero.emit()
