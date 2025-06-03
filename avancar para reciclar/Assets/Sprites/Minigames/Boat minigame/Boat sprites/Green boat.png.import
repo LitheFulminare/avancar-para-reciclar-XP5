@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0fg5if18j8r1"
-path="res://.godot/imported/Hook.png-96ee0c7064a628630cc47e7312babf94.ctex"
+uid="uid://b3piecwswwead"
+path="res://.godot/imported/Green boat.png-66a2bc23b5f8c17a1902ca3c445a7249.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Minigames/Boat/Hook.png"
-dest_files=["res://.godot/imported/Hook.png-96ee0c7064a628630cc47e7312babf94.ctex"]
+source_file="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Green boat.png"
+dest_files=["res://.godot/imported/Green boat.png-66a2bc23b5f8c17a1902ca3c445a7249.ctex"]
 
 [params]
 

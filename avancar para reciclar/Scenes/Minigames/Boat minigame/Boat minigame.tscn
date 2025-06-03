@@ -1,0 +1,148 @@
+[gd_scene load_steps=21 format=3 uid="uid://disbcp6ujcu0q"]
+
+[ext_resource type="Script" uid="uid://dokerxycq6cla" path="res://Scripts/Minigames/Boat/boat minigame manager.gd" id="1_ric7v"]
+[ext_resource type="Script" path="res://Scripts/Managers/time_tracker.gd" id="2_7s84n"]
+[ext_resource type="Script" uid="uid://dlojdj4g8u2ex" path="res://Scripts/Minigames/Boat/split_input_manager.gd" id="3_pbxlv"]
+[ext_resource type="Texture2D" uid="uid://ch3nf61ed5eae" path="res://Assets/Sprites/Minigames/Boat minigame/Scenario/céu.png" id="4_gerl7"]
+[ext_resource type="Texture2D" uid="uid://dlk78ddhui816" path="res://Assets/Sprites/Minigames/Boat minigame/Scenario/oceano1.png" id="5_a66v7"]
+[ext_resource type="Texture2D" uid="uid://cnhvg6344fysk" path="res://Assets/Sprites/Minigames/Boat minigame/Scenario/oceano2.png" id="6_upck5"]
+[ext_resource type="PackedScene" uid="uid://cylcs0je638t1" path="res://Scenes/Minigames/Boat minigame/boat.tscn" id="7_jg4fs"]
+[ext_resource type="Texture2D" uid="uid://ctis46dkihx1r" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Yellow boat.png" id="8_b72gt"]
+[ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="9_wgktd"]
+[ext_resource type="Texture2D" uid="uid://dsh0hs0707x7p" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Yellow rod.png" id="10_ow4m4"]
+[ext_resource type="Texture2D" uid="uid://b13mx14m2qf2l" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Red boat.png" id="11_2igmv"]
+[ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="12_5366f"]
+[ext_resource type="Texture2D" uid="uid://bffyk6fby1x1x" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Red rod.png" id="13_pa471"]
+[ext_resource type="PackedScene" uid="uid://y0258n18ft22" path="res://Scenes/Minigames/Trash/Glass (broken bottle).tscn" id="14_7lixa"]
+[ext_resource type="PackedScene" uid="uid://c2it5v6713wrb" path="res://Scenes/Minigames/Trash/Metal (can).tscn" id="15_tsgpx"]
+[ext_resource type="PackedScene" uid="uid://chpdbyblahauv" path="res://Scenes/Minigames/Trash/Plastic (bottle).tscn" id="16_40lan"]
+[ext_resource type="PackedScene" uid="uid://c3dds0fovxl81" path="res://Scenes/Minigames/Trash/Plastic (bag).tscn" id="17_wbeg2"]
+[ext_resource type="PackedScene" uid="uid://3uovkm3yq555" path="res://Scenes/Minigames/Trash/Organic (banana).tscn" id="18_wbmyf"]
+[ext_resource type="PackedScene" uid="uid://hyvcipfl6bb6" path="res://Scenes/Minigames/Trash/Metal (nail).tscn" id="19_cwbkq"]
+[ext_resource type="PackedScene" uid="uid://cb0lcv22mgx4e" path="res://Scenes/Minigames/Trash/Metal (cog).tscn" id="20_wcgs5"]
+
+[node name="BoatMinigame" type="Node2D"]
+
+[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("trash_parent")]
+script = ExtResource("1_ric7v")
+trash_parent = NodePath("../Trash")
+
+[node name="Time tracker" type="Node" parent="."]
+script = ExtResource("2_7s84n")
+
+[node name="Split Input Manager" type="Node" parent="." node_paths=PackedStringArray("player1", "player2", "player3")]
+script = ExtResource("3_pbxlv")
+player1 = NodePath("../Boats/Green boat")
+player2 = NodePath("../Boats/Yellow boat")
+player3 = NodePath("../Boats/Red boat")
+
+[node name="Scenario" type="Node2D" parent="."]
+z_index = 1
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sky" type="Sprite2D" parent="Scenario"]
+z_index = -2
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_gerl7")
+centered = false
+
+[node name="Water (back layer)" type="Sprite2D" parent="Scenario"]
+modulate = Color(1, 1, 1, 0.784314)
+z_index = -1
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_a66v7")
+centered = false
+
+[node name="Water (front layer)" type="Sprite2D" parent="Scenario"]
+modulate = Color(1, 1, 1, 0.784314)
+z_index = 1
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_upck5")
+centered = false
+
+[node name="Boats" type="Node" parent="."]
+
+[node name="Green boat" parent="Boats" instance=ExtResource("7_jg4fs")]
+position = Vector2(243, 257)
+
+[node name="Yellow boat" parent="Boats" instance=ExtResource("7_jg4fs")]
+position = Vector2(566, 257)
+
+[node name="Boat Sprite2D" parent="Boats/Yellow boat" index="1"]
+texture = ExtResource("8_b72gt")
+
+[node name="Pawn Sprite2D" parent="Boats/Yellow boat/Boat Sprite2D" index="0"]
+texture = ExtResource("9_wgktd")
+
+[node name="Rod Sprite2D" parent="Boats/Yellow boat/Boat Sprite2D" index="1"]
+texture = ExtResource("10_ow4m4")
+
+[node name="Red boat" parent="Boats" instance=ExtResource("7_jg4fs")]
+position = Vector2(894, 257)
+
+[node name="Boat Sprite2D" parent="Boats/Red boat" index="1"]
+texture = ExtResource("11_2igmv")
+
+[node name="Pawn Sprite2D" parent="Boats/Red boat/Boat Sprite2D" index="0"]
+texture = ExtResource("12_5366f")
+
+[node name="Rod Sprite2D" parent="Boats/Red boat/Boat Sprite2D" index="1"]
+texture = ExtResource("13_pa471")
+
+[node name="Trash" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Glass (broken bottle)" parent="Trash" instance=ExtResource("14_7lixa")]
+position = Vector2(145, 531)
+scale = Vector2(0.2, 0.2)
+
+[node name="Metal (can)" parent="Trash" instance=ExtResource("15_tsgpx")]
+position = Vector2(158, 601)
+rotation = -0.418879
+scale = Vector2(0.1, 0.1)
+
+[node name="Plastic (bottle)" parent="Trash" instance=ExtResource("16_40lan")]
+position = Vector2(271, 544)
+rotation = 0.689405
+scale = Vector2(0.215, 0.215)
+
+[node name="Plastic (bag)" parent="Trash" instance=ExtResource("17_wbeg2")]
+position = Vector2(522, 545)
+rotation = 0.555015
+scale = Vector2(0.19, 0.19)
+
+[node name="Organic (banana)" parent="Trash" instance=ExtResource("18_wbmyf")]
+position = Vector2(673, 504)
+rotation = -0.462512
+scale = Vector2(0.165, 0.165)
+
+[node name="Metal (nail)" parent="Trash" instance=ExtResource("19_cwbkq")]
+position = Vector2(580, 491)
+rotation = -1.29329
+scale = Vector2(0.075, 0.075)
+
+[node name="Metal (can)2" parent="Trash" instance=ExtResource("15_tsgpx")]
+position = Vector2(651, 603)
+rotation = -1.15017
+scale = Vector2(0.125, 0.125)
+
+[node name="Broken bottle2" parent="Trash" instance=ExtResource("14_7lixa")]
+position = Vector2(937, 588)
+rotation = -0.940653
+scale = Vector2(0.227, 0.227)
+
+[node name="Plastic (bottle)2" parent="Trash" instance=ExtResource("16_40lan")]
+position = Vector2(1052.78, 541.9)
+rotation = -1.01578
+scale = Vector2(0.22, 0.22)
+
+[node name="Metal (cog)" parent="Trash" instance=ExtResource("20_wcgs5")]
+position = Vector2(894.156, 501.833)
+scale = Vector2(0.24, 0.24)
+
+[editable path="Boats/Yellow boat"]
+[editable path="Boats/Red boat"]

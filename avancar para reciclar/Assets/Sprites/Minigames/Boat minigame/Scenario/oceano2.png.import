@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch3nf61ed5eae"
-path="res://.godot/imported/céu.png-9d381be50714a8b7715f3412465e7682.ctex"
+uid="uid://cnhvg6344fysk"
+path="res://.godot/imported/oceano2.png-337c81a1d4e701d38c9479abd86d137d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Prototyping/céu.png"
-dest_files=["res://.godot/imported/céu.png-9d381be50714a8b7715f3412465e7682.ctex"]
+source_file="res://Assets/Sprites/Minigames/Boat minigame/Scenario/oceano2.png"
+dest_files=["res://.godot/imported/oceano2.png-337c81a1d4e701d38c9479abd86d137d.ctex"]
 
 [params]
 

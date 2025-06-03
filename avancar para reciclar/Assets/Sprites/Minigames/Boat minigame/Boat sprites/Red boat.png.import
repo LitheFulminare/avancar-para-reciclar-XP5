@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsh0hs0707x7p"
-path="res://.godot/imported/Yellow rod.png-9dd54c9276a93082198dfc7e4350cd10.ctex"
+uid="uid://b13mx14m2qf2l"
+path="res://.godot/imported/Red boat.png-e59ed1e01b68c9122f47862fc21d0c5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Minigames/Boat/Yellow rod.png"
-dest_files=["res://.godot/imported/Yellow rod.png-9dd54c9276a93082198dfc7e4350cd10.ctex"]
+source_file="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Red boat.png"
+dest_files=["res://.godot/imported/Red boat.png-e59ed1e01b68c9122f47862fc21d0c5e.ctex"]
 
 [params]
 
