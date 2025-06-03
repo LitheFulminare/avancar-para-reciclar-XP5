@@ -27,7 +27,7 @@
 
 [node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("timer_clock", "trash_parent")]
 script = ExtResource("1_ric7v")
-timer_clock = NodePath("../HUD/Timer/Timer")
+timer_clock = NodePath("../HUD/Timer clock")
 trash_parent = NodePath("../Trash")
 
 [node name="Time tracker" type="Node" parent="."]
@@ -52,9 +52,7 @@ position = Vector2(561, 135)
 [node name="Red score display" parent="HUD/Score displays" instance=ExtResource("4_7s84n")]
 position = Vector2(891, 135)
 
-[node name="Timer" type="Node" parent="HUD"]
-
-[node name="Timer" parent="HUD/Timer" instance=ExtResource("5_pbxlv")]
+[node name="Timer clock" parent="HUD" instance=ExtResource("5_pbxlv")]
 position = Vector2(66, 79)
 scale = Vector2(0.685, 0.685)
 

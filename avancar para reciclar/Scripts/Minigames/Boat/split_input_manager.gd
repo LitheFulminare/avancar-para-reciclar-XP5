@@ -3,11 +3,15 @@
 class_name BoatSplitInputManager
 extends Node
 
+@export_group("Players")
 @export var player1: Boat
 @export var player2: Boat
 @export var player3: Boat
 
 func _process(delta: float) -> void:
+	if BoatMinigameManager.ignore_input:
+		return
+	
 	# player 1 input
 	if Input.is_action_pressed("Player 1 Left"):
 		player1.move_hook(Vector2(-1, 0), delta)
