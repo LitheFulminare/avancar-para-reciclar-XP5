@@ -9,7 +9,7 @@ extends Node2D
 func _ready() -> void: 
 	start_timer()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	label.text = str(int(timer.time_left))
 	
 func start_timer() -> void: 

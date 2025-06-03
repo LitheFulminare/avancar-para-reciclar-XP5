@@ -78,6 +78,9 @@ func hooked(area: Area2D) -> void:
 	if area.is_in_group("Player"):
 		if hooked_trash != null:
 			hooked_trash.queue_free()
-			points += 1
-			score_display.update_score(str(points))
-			print(str(self.name) + " collected trash")
+			area.add_point()
+			print(str(area.name) + " collected trash")
+
+func add_point() -> void:
+	points += 1
+	score_display.update_score(str(points))
