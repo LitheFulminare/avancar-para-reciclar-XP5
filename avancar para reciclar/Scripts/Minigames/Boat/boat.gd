@@ -24,16 +24,11 @@ extends Area2D
 var amplitude: float = 2
 var speed: float = 2
 
-# prob won't be used
-var is_hook_going_down: bool = true
-
 var hooked_trash: Area2D
 
 var points: int = 0
 
 func _ready() -> void:
-	print("Viewport Y size: " + str(get_viewport_rect().size.y))
-	
 	# randomizes movement amplitude and speed
 	# I wanted this to randomize every cycle, but cheking position.y == starting_pos_y doesn't work
 	randomize()
@@ -81,6 +76,7 @@ func hooked(area: Area2D) -> void:
 			area.add_point()
 			print(str(area.name) + " collected trash")
 
+# called by hooked() when the hook collided with an Area2D in the "Player" group
 func add_point() -> void:
 	points += 1
 	score_display.update_score(str(points))
