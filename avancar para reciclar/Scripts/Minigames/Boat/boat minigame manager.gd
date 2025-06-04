@@ -1,6 +1,11 @@
 class_name BoatMinigameManager
 extends Node
 
+@export_category("Parameters")
+@export var trash_spawn_interval: float = 2
+
+@export_category("Nodes")
+
 @export_group("Trash spawner")
 @export var spawn_area: CollisionShape2D
 @export var trash_spawn_timer: Timer
@@ -22,6 +27,8 @@ func _ready() -> void:
 	trash_spawn_timer.start()
 	
 	load_trash()
+	
+	trash_spawn_timer.wait_time = trash_spawn_interval
 	
 	trash_spawn_timer.timeout.connect(spawn_trash)
 	trash_parent.child_exiting_tree.connect(trash_collected)
