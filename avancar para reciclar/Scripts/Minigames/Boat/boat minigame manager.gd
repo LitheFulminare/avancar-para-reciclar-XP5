@@ -75,8 +75,11 @@ func spawn_trash() -> void:
 		spawn_area.position.y + trash_spawn_rect.size.y / 2)
 	
 	print("")
-	print("X position: " + str(spawn_area.position.x - trash_spawn_rect.size.x / 2))
-	print("Y position: " + str(spawn_area.position.y - trash_spawn_rect.size.y / 2))
+	print("X starting point: " + str(spawn_area.position.x - trash_spawn_rect.size.x / 2))
+	print("X ending point: " + str(spawn_area.position.x + trash_spawn_rect.size.x / 2))
+	print("Y starting point: " + str(spawn_area.position.y - trash_spawn_rect.size.y / 2))
+	print("Y ending point: " + str(spawn_area.position.y + trash_spawn_rect.size.y / 2))
+	print("")
 	print("X random point: " + str(rand_x))
 	print("Y random point: " + str(rand_y))
 	trash.global_position = trash.global_position + Vector2(rand_x, rand_y)
