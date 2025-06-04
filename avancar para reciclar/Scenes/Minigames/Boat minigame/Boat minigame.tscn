@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://disbcp6ujcu0q"]
+[gd_scene load_steps=24 format=3 uid="uid://disbcp6ujcu0q"]
 
 [ext_resource type="Script" uid="uid://dokerxycq6cla" path="res://Scripts/Minigames/Boat/boat minigame manager.gd" id="1_ric7v"]
 [ext_resource type="Script" path="res://Scripts/Managers/time_tracker.gd" id="2_7s84n"]
@@ -23,10 +23,15 @@
 [ext_resource type="PackedScene" uid="uid://hyvcipfl6bb6" path="res://Scenes/Minigames/Trash/Metal (nail).tscn" id="19_cwbkq"]
 [ext_resource type="PackedScene" uid="uid://cb0lcv22mgx4e" path="res://Scenes/Minigames/Trash/Metal (cog).tscn" id="20_wcgs5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbxlv"]
+size = Vector2(1068, 182.364)
+
 [node name="BoatMinigame" type="Node2D"]
 
-[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("timer_clock", "trash_parent")]
+[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("spawn_area", "trash_spawn_timer", "timer_clock", "trash_parent")]
 script = ExtResource("1_ric7v")
+spawn_area = NodePath("../Trash spawner/Trash spawn area")
+trash_spawn_timer = NodePath("../Trash spawner/Timer")
 timer_clock = NodePath("../HUD/Timer clock")
 trash_parent = NodePath("../Trash")
 
@@ -38,6 +43,19 @@ script = ExtResource("3_pbxlv")
 player1 = NodePath("../Boats/Green boat")
 player2 = NodePath("../Boats/Yellow boat")
 player3 = NodePath("../Boats/Red boat")
+
+[node name="Trash spawner" type="Node" parent="."]
+editor_description = "The spawning logic is handled by the Boat Minigame Manager"
+
+[node name="Timer" type="Timer" parent="Trash spawner"]
+wait_time = 2.0
+
+[node name="Trash spawn area" type="CollisionShape2D" parent="Trash spawner"]
+editor_description = "Boat Minigame Manager gets a random point of this area to spawn a random trash."
+position = Vector2(565, 542.818)
+shape = SubResource("RectangleShape2D_pbxlv")
+disabled = true
+debug_color = Color(1, 0, 0, 0.501961)
 
 [node name="HUD" type="Node2D" parent="."]
 

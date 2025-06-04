@@ -9,7 +9,7 @@ extends Node
 @export var player3: Boat
 
 func _process(delta: float) -> void:
-	if BoatMinigameManager.ignore_input:
+	if BoatMinigameManager.minigame_paused:
 		return
 	
 	# player 1 input
