@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cb0lcv22mgx4e" path="res://Scenes/Minigames/Trash/Metal (cog).tscn" id="20_wcgs5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbxlv"]
-size = Vector2(1068, 182.364)
+size = Vector2(1068, 182)
 
 [node name="BoatMinigame" type="Node2D"]
 
@@ -52,7 +52,7 @@ wait_time = 2.0
 
 [node name="Trash spawn area" type="CollisionShape2D" parent="Trash spawner"]
 editor_description = "Boat Minigame Manager gets a random point of this area to spawn a random trash."
-position = Vector2(565, 542.818)
+position = Vector2(565, 542)
 shape = SubResource("RectangleShape2D_pbxlv")
 disabled = true
 debug_color = Color(1, 0, 0, 0.501961)

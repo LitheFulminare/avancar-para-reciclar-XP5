@@ -22,11 +22,16 @@ static var minigame_paused  = false
 const trash_directory: String = "res://Scenes/Minigames/Trash/"
 var trash_pool: Array[PackedScene]
 
+# used when spawning trash
+var trash_spawn_rect: Rect2
+
 func _ready() -> void:
 	## TEMPORARY
 	trash_spawn_timer.start()
 	
 	load_trash()
+	
+	trash_spawn_rect = spawn_area.shape.get_rect()
 	
 	trash_spawn_timer.wait_time = trash_spawn_interval
 	
@@ -59,4 +64,19 @@ func spawn_trash() -> void:
 	if minigame_paused:
 		return
 		
-	print("trash spawned")
+	var trash_scene: PackedScene = trash_pool.pick_random()
+	var trash: Area2D = trash_scene.instantiate()
+	add_child(trash)
+		
+	# get a random point in the spawn rect
+	var rand_x: float = randf_range(spawn_area.position.x - trash_spawn_rect.size.x / 2, 
+		spawn_area.position.x + trash_spawn_rect.size.x / 2)
+	var rand_y: float = randf_range(spawn_area.position.y - trash_spawn_rect.size.y / 2, 
+		spawn_area.position.y + trash_spawn_rect.size.y / 2)
+	
+	print("")
+	print("X position: " + str(spawn_area.position.x - trash_spawn_rect.size.x / 2))
+	print("Y position: " + str(spawn_area.position.y - trash_spawn_rect.size.y / 2))
+	print("X random point: " + str(rand_x))
+	print("Y random point: " + str(rand_y))
+	trash.global_position = trash.global_position + Vector2(rand_x, rand_y)
