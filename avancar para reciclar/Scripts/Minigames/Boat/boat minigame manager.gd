@@ -7,17 +7,18 @@ extends Node
 @export_category("Nodes")
 @export var timer_clock: TimerClock
 @export var trash_parent: Node2D
-@export var countdown_text: Label
+@export var countdown: Countdown
 
 static var pre_round_phase = true
 static var minigame_paused  = true
 
 func _ready() -> void:
 	timer_clock.duration = stage_duration
-	start_countdown()
+	countdown.start_countdown()
 	
 	trash_parent.child_exiting_tree.connect(trash_collected)
 	timer_clock.timer_reached_zero.connect(timer_ended)
+	countdown.countdown_ended.connect(start_minigame)
 
 ## PROBABLY WONT BE USED -->
 ## trash will be spawned until the timer ends, making this useless
@@ -28,55 +29,15 @@ func trash_collected(_node: Node) -> void:
 	if trash_parent.get_child_count() == 1:
 		print("minigame ended")
 
-# called on ready
-func start_countdown() -> void:
-	countdown_text.scale = Vector2.ZERO
-	
-	await get_tree().create_timer(1).timeout
-	tween_label_scale()
-	countdown_text.text = "3"
-	
-	await get_tree().create_timer(0.7).timeout
-	countdown_text.text = ""
-	countdown_text.scale = Vector2.ZERO
-	
-	await get_tree().create_timer(0.3).timeout
-	tween_label_scale()
-	countdown_text.text = "2"
-	
-	await get_tree().create_timer(0.7).timeout
-	countdown_text.text = ""
-	countdown_text.scale = Vector2.ZERO
-	
-	await get_tree().create_timer(0.3).timeout
-	tween_label_scale()
-	countdown_text.text = "1"
-	
-	await get_tree().create_timer(0.7).timeout
-	countdown_text.text = ""
-	countdown_text.scale = Vector2.ZERO
-	
-	await get_tree().create_timer(0.3).timeout
-	tween_label_scale()
-	countdown_text.text = "Já!"
-	
-	await get_tree().create_timer(0.7).timeout
-	countdown_text.text = ""
-	countdown_text.scale = Vector2.ZERO
-	
-	await get_tree().create_timer(0.3).timeout
-	
+# called when the 'Countdown' script reaches 0 and emits the countdown_ended signal
+func start_minigame() -> void:
 	minigame_paused = false
 	pre_round_phase = false
 	
 	timer_clock.start_timer()
 
-func tween_label_scale() -> void:
-	var tween: Tween = get_tree().create_tween()
-	tween.tween_property(countdown_text, "scale", Vector2(1, 1), 0.15)
-
 # called when the timer on the Timer Clock reaches 0
 func timer_ended() -> void:
 	minigame_paused = true
 	await get_tree().create_timer(1).timeout
-	countdown_text.text = "Fim de jogo!"
+	countdown.change_text("Fim de jogo!")

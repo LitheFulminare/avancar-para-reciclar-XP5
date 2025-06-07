@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://disbcp6ujcu0q"]
+[gd_scene load_steps=30 format=3 uid="uid://disbcp6ujcu0q"]
 
 [ext_resource type="Script" uid="uid://dokerxycq6cla" path="res://Scripts/Minigames/Boat/boat minigame manager.gd" id="1_ric7v"]
 [ext_resource type="Script" uid="uid://cq3h6rlsu8kjr" path="res://Scripts/Managers/time_tracker.gd" id="2_7s84n"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dio0tl17031id" path="res://Scenes/Minigames/Generic elements/timer clock.tscn" id="5_pbxlv"]
 [ext_resource type="Texture2D" uid="uid://cnhvg6344fysk" path="res://Assets/Sprites/Minigames/Boat minigame/Scenario/oceano2.png" id="6_upck5"]
 [ext_resource type="PackedScene" uid="uid://cylcs0je638t1" path="res://Scenes/Minigames/Boat minigame/boat.tscn" id="7_jg4fs"]
+[ext_resource type="PackedScene" uid="uid://bhqtcdo5ta3dq" path="res://Scenes/Minigames/Generic elements/countdown.tscn" id="7_wgktd"]
 [ext_resource type="Texture2D" uid="uid://ctis46dkihx1r" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Yellow boat.png" id="8_b72gt"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="9_wgktd"]
 [ext_resource type="Texture2D" uid="uid://dsh0hs0707x7p" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Yellow rod.png" id="10_ow4m4"]
@@ -33,12 +34,11 @@ size = Vector2(1068, 182)
 
 [node name="BoatMinigame" type="Node2D"]
 
-[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("timer_clock", "trash_parent", "countdown_text")]
+[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("timer_clock", "trash_parent")]
 script = ExtResource("1_ric7v")
 stage_duration = 30
 timer_clock = NodePath("../HUD/Timer clock")
 trash_parent = NodePath("../Trash")
-countdown_text = NodePath("../HUD/Control/Container/Countdown text")
 
 [node name="Time tracker" type="Node" parent="."]
 script = ExtResource("2_7s84n")
@@ -82,38 +82,7 @@ position = Vector2(891, 135)
 position = Vector2(66, 79)
 scale = Vector2(0.685, 0.685)
 
-[node name="Control" type="Control" parent="HUD"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Container" type="Control" parent="HUD/Control"]
-layout_mode = 1
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="Countdown text" type="Label" parent="HUD/Control/Container"]
-z_index = 10
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.5
-offset_top = -34.5
-offset_right = 14.5
-offset_bottom = 34.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(14.5, 34.5)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 70
-text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Countdown Control" parent="HUD" instance=ExtResource("7_wgktd")]
 
 [node name="Scenario" type="Node2D" parent="."]
 z_index = 1

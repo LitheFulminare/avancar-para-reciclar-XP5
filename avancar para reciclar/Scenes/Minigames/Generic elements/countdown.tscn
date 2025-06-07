@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhqtcdo5ta3dq"]
+
+[ext_resource type="Script" uid="uid://cnxysuse0dqoq" path="res://Scripts/Minigames/Generic scripts/countdown.gd" id="1_agx3l"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("countdown_text")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_agx3l")
+countdown_text = NodePath("Container/Countdown text")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Countdown text" type="Label" parent="Container"]
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -34.5
+offset_right = 14.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(14.5, 34.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
