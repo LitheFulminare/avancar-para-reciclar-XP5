@@ -2,10 +2,7 @@ class_name BoatMinigameManager
 extends Node
 
 @export_category("Nodes")
-@export_group("Timer")
 @export var timer_clock: TimerClock
-
-@export_group("Other nodes")
 @export var trash_parent: Node2D
 
 static var minigame_paused  = false
