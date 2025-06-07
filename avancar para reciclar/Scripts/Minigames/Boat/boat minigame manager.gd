@@ -40,4 +40,4 @@ func start_minigame() -> void:
 func timer_ended() -> void:
 	minigame_paused = true
 	await get_tree().create_timer(1).timeout
-	countdown.change_text("Fim de jogo!")
+	countdown.change_text("Fim de jogo!", true)
