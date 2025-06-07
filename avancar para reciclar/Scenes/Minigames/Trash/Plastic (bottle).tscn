@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://chpdbyblahauv"]
+[gd_scene load_steps=4 format=3 uid="uid://chpdbyblahauv"]
 
+[ext_resource type="Script" uid="uid://n3tjhod16yp8" path="res://Scripts/Minigames/Generic scripts/trash.gd" id="1_ampl8"]
 [ext_resource type="Texture2D" uid="uid://dkd7cs6du8tuu" path="res://Assets/Sprites/Cards/Trash icons/Plastic (bottle).png" id="1_n34jx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjquv"]
 size = Vector2(162, 348)
 
 [node name="Plastic (bottle)" type="Area2D" groups=["Trash"]]
+script = ExtResource("1_ampl8")
+type = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 3.8147e-06)

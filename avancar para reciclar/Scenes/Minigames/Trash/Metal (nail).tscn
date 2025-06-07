@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://hyvcipfl6bb6"]
+[gd_scene load_steps=4 format=3 uid="uid://hyvcipfl6bb6"]
 
 [ext_resource type="Texture2D" uid="uid://bfxejdbmpbxn" path="res://Assets/Sprites/Cards/Trash icons/Metal (nail).png" id="1_0uci1"]
+[ext_resource type="Script" uid="uid://n3tjhod16yp8" path="res://Scripts/Minigames/Generic scripts/trash.gd" id="1_kxc7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjquv"]
 size = Vector2(393.66, 144.83)
 
 [node name="Metal (nail)" type="Area2D" groups=["Trash"]]
+script = ExtResource("1_kxc7x")
+type = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-24.2208, 14.6148)

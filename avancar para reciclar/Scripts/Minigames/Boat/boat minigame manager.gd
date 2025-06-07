@@ -63,11 +63,15 @@ func spawn_trash() -> void:
 	# not really the best way to handle pausing, but it's fine for now
 	if minigame_paused:
 		return
-		
+	
+	# instantiate trash
 	var trash_scene: PackedScene = trash_pool.pick_random()
-	var trash: Area2D = trash_scene.instantiate()
+	var trash: Trash = trash_scene.instantiate()
 	add_child(trash)
-		
+	
+	#randomize scale and rotation
+	trash.apply_boat_minigame_transform()
+	
 	# get a random point in the spawn rect
 	var rand_x: float = randf_range(spawn_area.position.x - trash_spawn_rect.size.x / 2, 
 		spawn_area.position.x + trash_spawn_rect.size.x / 2)

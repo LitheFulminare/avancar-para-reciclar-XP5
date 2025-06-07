@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3dds0fovxl81"]
+[gd_scene load_steps=4 format=3 uid="uid://c3dds0fovxl81"]
 
+[ext_resource type="Script" uid="uid://n3tjhod16yp8" path="res://Scripts/Minigames/Generic scripts/trash.gd" id="1_1sa03"]
 [ext_resource type="Texture2D" uid="uid://dyuik7hva84wa" path="res://Assets/Sprites/Cards/Trash icons/Plastic (bag).png" id="1_r6cyq"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_r6cyq"]
 points = PackedVector2Array(88.4334, -242.208, 160.974, -11.3768, 100.547, 233.765, -152.487, 219.357, -143.4, -170.665)
 
 [node name="Plastic (bag)" type="Area2D" groups=["Trash"]]
+script = ExtResource("1_1sa03")
+type = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, 7)

@@ -51,7 +51,7 @@ editor_description = "The spawning logic is handled by the Boat Minigame Manager
 wait_time = 2.0
 
 [node name="Trash spawn area" type="CollisionShape2D" parent="Trash spawner"]
-editor_description = "Boat Minigame Manager gets a random point of this area to spawn a random trash."
+editor_description = "Area2D not needed. Boat Minigame Manager gets a random point of this area to spawn a random trash."
 position = Vector2(565, 542)
 shape = SubResource("RectangleShape2D_pbxlv")
 disabled = true
