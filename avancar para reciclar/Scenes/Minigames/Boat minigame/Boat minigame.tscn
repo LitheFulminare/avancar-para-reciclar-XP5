@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://disbcp6ujcu0q"]
+[gd_scene load_steps=29 format=3 uid="uid://disbcp6ujcu0q"]
 
 [ext_resource type="Script" uid="uid://dokerxycq6cla" path="res://Scripts/Minigames/Boat/boat minigame manager.gd" id="1_ric7v"]
 [ext_resource type="Script" uid="uid://cq3h6rlsu8kjr" path="res://Scripts/Managers/time_tracker.gd" id="2_7s84n"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dsh0hs0707x7p" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Yellow rod.png" id="10_ow4m4"]
 [ext_resource type="Texture2D" uid="uid://b13mx14m2qf2l" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Red boat.png" id="11_2igmv"]
 [ext_resource type="Texture2D" uid="uid://dnrp4hylx0h5u" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Green hook.png" id="11_a66v7"]
+[ext_resource type="Texture2D" uid="uid://whwp6ktm00oq" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Green rod.png" id="11_b72gt"]
 [ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="12_5366f"]
 [ext_resource type="Texture2D" uid="uid://bffyk6fby1x1x" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Red rod.png" id="13_pa471"]
 [ext_resource type="PackedScene" uid="uid://y0258n18ft22" path="res://Scenes/Minigames/Trash/Glass (broken bottle).tscn" id="14_7lixa"]
@@ -24,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c3dds0fovxl81" path="res://Scenes/Minigames/Trash/Plastic (bag).tscn" id="17_wbeg2"]
 [ext_resource type="PackedScene" uid="uid://3uovkm3yq555" path="res://Scenes/Minigames/Trash/Organic (banana).tscn" id="18_wbmyf"]
 [ext_resource type="PackedScene" uid="uid://hyvcipfl6bb6" path="res://Scenes/Minigames/Trash/Metal (nail).tscn" id="19_cwbkq"]
+[ext_resource type="Texture2D" uid="uid://dcb4wneyilsiu" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Red hook.png" id="19_jg4fs"]
 [ext_resource type="PackedScene" uid="uid://cb0lcv22mgx4e" path="res://Scenes/Minigames/Trash/Metal (cog).tscn" id="20_wcgs5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbxlv"]
@@ -123,6 +125,9 @@ centered = false
 position = Vector2(243, 257)
 score_display = NodePath("../../HUD/Score displays/Green score display")
 
+[node name="Rod Sprite2D" parent="Boats/Green boat/Boat Sprite2D" index="1"]
+texture = ExtResource("11_b72gt")
+
 [node name="Hook Sprite2D" parent="Boats/Green boat/Boat Sprite2D/Rod Sprite2D/Line2D/Hook" index="0"]
 modulate = Color(0.101961, 0.717647, 0.152941, 1)
 texture = ExtResource("11_a66v7")
@@ -159,6 +164,7 @@ texture = ExtResource("13_pa471")
 
 [node name="Hook Sprite2D" parent="Boats/Red boat/Boat Sprite2D/Rod Sprite2D/Line2D/Hook" index="0"]
 modulate = Color(0.890625, 0, 0, 1)
+texture = ExtResource("19_jg4fs")
 
 [node name="Trash" type="Node2D" parent="."]
 z_index = -1
