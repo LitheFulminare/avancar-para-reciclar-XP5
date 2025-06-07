@@ -30,14 +30,24 @@ func trash_collected(_node: Node) -> void:
 
 # called on ready
 func start_countdown() -> void:
+	countdown_text.scale = Vector2.ZERO
+	
 	await get_tree().create_timer(1).timeout
+	tween_label_scale()
 	countdown_text.text = "3"
+	
 	await get_tree().create_timer(1).timeout
+	tween_label_scale()
 	countdown_text.text = "2"
+	
 	await get_tree().create_timer(1).timeout
+	tween_label_scale()
 	countdown_text.text = "1"
+	
 	await get_tree().create_timer(1).timeout
+	tween_label_scale()
 	countdown_text.text = "Já!"
+	
 	await get_tree().create_timer(1).timeout
 	countdown_text.text = ""
 	
@@ -45,6 +55,10 @@ func start_countdown() -> void:
 	pre_round_phase = false
 	
 	timer_clock.start_timer()
+
+func tween_label_scale() -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(countdown_text, "scale", Vector2(1, 1), 0.15)
 
 # called when the timer on the Timer Clock reaches 0
 func timer_ended() -> void:

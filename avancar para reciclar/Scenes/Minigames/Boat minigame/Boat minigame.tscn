@@ -38,7 +38,7 @@ script = ExtResource("1_ric7v")
 stage_duration = 30
 timer_clock = NodePath("../HUD/Timer clock")
 trash_parent = NodePath("../Trash")
-countdown_text = NodePath("../HUD/Countdown text")
+countdown_text = NodePath("../HUD/Control/Container/Countdown text")
 
 [node name="Time tracker" type="Node" parent="."]
 script = ExtResource("2_7s84n")
@@ -82,12 +82,36 @@ position = Vector2(891, 135)
 position = Vector2(66, 79)
 scale = Vector2(0.685, 0.685)
 
-[node name="Countdown text" type="Label" parent="HUD"]
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Container" type="Control" parent="HUD/Control"]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Countdown text" type="Label" parent="HUD/Control/Container"]
 z_index = 10
-offset_right = 933.0
-offset_bottom = 525.0
-scale = Vector2(1.235, 1.235)
-theme_override_font_sizes/font_size = 50
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -34.5
+offset_right = 14.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(14.5, 34.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
