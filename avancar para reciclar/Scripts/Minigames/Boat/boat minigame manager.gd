@@ -36,20 +36,35 @@ func start_countdown() -> void:
 	tween_label_scale()
 	countdown_text.text = "3"
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.7).timeout
+	countdown_text.text = ""
+	countdown_text.scale = Vector2.ZERO
+	
+	await get_tree().create_timer(0.3).timeout
 	tween_label_scale()
 	countdown_text.text = "2"
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.7).timeout
+	countdown_text.text = ""
+	countdown_text.scale = Vector2.ZERO
+	
+	await get_tree().create_timer(0.3).timeout
 	tween_label_scale()
 	countdown_text.text = "1"
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.7).timeout
+	countdown_text.text = ""
+	countdown_text.scale = Vector2.ZERO
+	
+	await get_tree().create_timer(0.3).timeout
 	tween_label_scale()
 	countdown_text.text = "Já!"
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.7).timeout
 	countdown_text.text = ""
+	countdown_text.scale = Vector2.ZERO
+	
+	await get_tree().create_timer(0.3).timeout
 	
 	minigame_paused = false
 	pre_round_phase = false
