@@ -23,7 +23,7 @@ func apply_boat_minigame_transform() -> void:
 		trash_type.glass_broken_bottle:
 			scale = Vector2(0.2, 0.2)
 		trash_type.glass_glass:
-			printerr("No value determined")
+			scale = Vector2(0.12, 0.12)
 		trash_type.metal_can:
 			scale = Vector2(0.1, 0.1)
 		trash_type.metal_cog:
@@ -33,11 +33,11 @@ func apply_boat_minigame_transform() -> void:
 		trash_type.organic_banana:
 			scale = Vector2(0.165, 0.165)
 		trash_type.organic_fish:
-			printerr("No value determined")
+			scale = Vector2(0.11, 0.11)
 		trash_type.paper_ball:
-			printerr("No value determined")
+			scale = Vector2(0.05, 0.05)
 		trash_type.paper_roll:
-			printerr("No value determined")
+			scale = Vector2(0.095, 0.095)
 		trash_type.plastic_bag: 
 			scale = Vector2(0.19, 0.19)
 		trash_type.plastic_bottle:
