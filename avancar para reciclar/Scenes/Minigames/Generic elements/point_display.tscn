@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjeila1nbgpgl" path="res://Scripts/Minigames/Generic scripts/score_display.gd" id="1_beix8"]
 [ext_resource type="Texture2D" uid="uid://d2pajmflt1op2" path="res://Assets/Sprites/Minigames/Generic sprites/Points display.png" id="1_lc2kt"]
-[ext_resource type="Theme" uid="uid://bwy1hi4qdwc76" path="res://Misc/Text/Minigame UI text.tres" id="3_7ogns"]
+[ext_resource type="Theme" uid="uid://cshv02vau53ar" path="res://Misc/Text/Minigame HUD text.tres" id="3_7ogns"]
 
 [node name="Score display" type="Node2D"]
 script = ExtResource("1_beix8")
