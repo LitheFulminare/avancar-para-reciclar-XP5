@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Avancar Para Reciclar"
-run/main_scene="uid://disbcp6ujcu0q"
+run/main_scene="uid://chykjqi524s2r"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

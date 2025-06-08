@@ -87,6 +87,7 @@ position = Vector2(66, 79)
 scale = Vector2(0.685, 0.685)
 
 [node name="Countdown Control" parent="HUD" instance=ExtResource("7_wgktd")]
+metadata/_edit_use_anchors_ = true
 
 [node name="Scenario" type="Node2D" parent="."]
 z_index = 1
