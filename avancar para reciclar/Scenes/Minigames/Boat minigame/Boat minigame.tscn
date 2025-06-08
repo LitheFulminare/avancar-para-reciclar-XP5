@@ -34,12 +34,15 @@ size = Vector2(1068, 182)
 
 [node name="BoatMinigame" type="Node2D"]
 
-[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("timer_clock", "trash_parent", "countdown")]
+[node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("timer_clock", "trash_parent", "countdown", "player1", "player2", "player3")]
 script = ExtResource("1_ric7v")
-stage_duration = 30
+stage_duration = 10
 timer_clock = NodePath("../HUD/Timer clock")
 trash_parent = NodePath("../Trash")
 countdown = NodePath("../HUD/Countdown Control")
+player1 = NodePath("../Boats/Green boat")
+player2 = NodePath("../Boats/Yellow boat")
+player3 = NodePath("../Boats/Red boat")
 
 [node name="Time tracker" type="Node" parent="."]
 script = ExtResource("2_7s84n")

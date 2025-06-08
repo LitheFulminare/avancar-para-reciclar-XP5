@@ -8,6 +8,11 @@ extends Node
 @export var timer_clock: TimerClock
 @export var trash_parent: Node2D
 @export var countdown: Countdown
+@export_subgroup("Players")
+@export var player1: Boat
+@export var player2: Boat
+@export var player3: Boat
+
 
 static var pre_round_phase = true
 static var minigame_paused  = true
@@ -41,3 +46,20 @@ func timer_ended() -> void:
 	minigame_paused = true
 	await get_tree().create_timer(1).timeout
 	countdown.change_text("Fim de jogo!", true)
+	await get_tree().create_timer(2).timeout
+	
+	if player1.points > player2.points && player1.points > player3.points:
+		countdown.change_text("Jogador 1 ganhou", false)
+	elif player2.points > player1.points && player2.points > player3.points:
+		countdown.change_text("Jogador 2 ganhou", false)
+	elif player3.points > player1.points && player3.points > player2.points:
+		countdown.change_text("Jogador 2 ganhou", false)
+		
+	elif player1.points == player2.points:
+		countdown.change_text("Jogadores 1 e 2 empataram", false)
+	elif player1.points == player3.points:
+		countdown.change_text("Jogadores 1 e 3 empataram", false)
+	elif player2.points == player3.points:
+		countdown.change_text("Jogadores 2 e 3 empataram", false)
+	elif player1.points == player2.points && player2.points == player3.points:
+		countdown.change_text("Todos os jogadores empataram", false)
