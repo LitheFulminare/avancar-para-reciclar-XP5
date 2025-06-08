@@ -70,7 +70,7 @@ func _ready() -> void:
 	main_camera.connect("finished_zooming_out", camera_finished_zooming_out)
 	start_game()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if active_player != null:
 		main_camera.global_position = active_player.global_position

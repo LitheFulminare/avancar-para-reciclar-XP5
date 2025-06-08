@@ -10,7 +10,7 @@ func _ready() -> void:
 	if stats != null && stats.sprite != null:
 		square_sprite.texture = stats.sprite
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		if square_sprite != null:
 			if stats != null && stats.sprite != null:
