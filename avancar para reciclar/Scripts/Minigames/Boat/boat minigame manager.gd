@@ -65,4 +65,4 @@ func timer_ended() -> void:
 		countdown.change_text("Todos os jogadores empataram", false)
 		
 	await get_tree().create_timer(2).timeout
-	GameManager.go_to_scene("res://Prototyping/map test.tscn")
+	GameManager.go_to_scene("res://Scenes/Game/map test.tscn")

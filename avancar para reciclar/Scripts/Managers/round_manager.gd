@@ -3,6 +3,8 @@
 class_name RoundManager
 extends Node
 
+signal player_chose_branch()
+
 enum round_states 
 { 
 	start_round, 
@@ -67,6 +69,7 @@ var trash_card: PackedScene = preload(trash_card_path)
 @onready var square_array: Array[Square] = get_squares()
 
 func _ready() -> void:
+	player_chose_branch.connect(branch_chosen)
 	main_camera.connect("finished_zooming_out", camera_finished_zooming_out)
 	start_game()
 	
@@ -85,11 +88,12 @@ func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_1):
 		if player_at_fork:
 			active_player.current_branch = path_manager.branches.branch_A
-			print("Active player's branch: " + str(active_player.current_branch))
+			player_chose_branch.emit()
+			
 	if Input.is_key_pressed(KEY_2):
 		if player_at_fork:
 			active_player.current_branch = path_manager.branches.branch_B
-			print("Active player's branch: " + str(active_player.current_branch))
+			player_chose_branch.emit()
 
 # called at the start of the game
 func start_game() -> void:
@@ -116,12 +120,12 @@ func action() -> void:
 			current_round_state = round_states.first_dice_roll
 		
 		round_states.first_dice_roll: 
-			first_dice_result = 1#GameManager.roll_dice(1, 6)
+			first_dice_result = GameManager.roll_dice(1, 6)
 			print("First dice roll: " + str(first_dice_result))
 			current_round_state = round_states.second_dice_roll
 			
 		round_states.second_dice_roll: 
-			second_dice_result = 3#GameManager.roll_dice(1, 6)
+			second_dice_result = GameManager.roll_dice(1, 6)
 			total_dice_result = first_dice_result + second_dice_result
 			print("Second dice roll: " + str(second_dice_result))
 			# if there is a special item that makes the player roll another dice I could 
@@ -219,6 +223,9 @@ func player_stopped_moving() -> void:
 		
 		#draw_question_card()
 		# this func wont be called all rounds, only when the player lands on quiz squares
+
+func branch_chosen():
+	print("Active player's branch: " + str(active_player.current_branch))
 
 # this is NOT how actions are gonna be handled anymore, 
 # this is only still here in case I need to remember something

@@ -91,6 +91,9 @@ func check_answer(button_index: int) -> void:
 	
 	else:
 		print("Wrong answer")
+		
+	await get_tree().create_timer(2)
+	queue_free()
 
 func _on_answer_1_pressed() -> void:
 	print("Button 1 pressed")
