@@ -1,0 +1,237 @@
+[gd_scene load_steps=12 format=3 uid="uid://bl0xravughsfo"]
+
+[ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_x87qo"]
+[ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="2_83mwp"]
+[ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_jxx51"]
+[ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="3_ihfs7"]
+[ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="3_u63k7"]
+[ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="4_7r8ec"]
+[ext_resource type="Texture2D" uid="uid://dnlh52pyr57r1" path="res://Assets/Sprites/Maps/Mapa_Avacar_para_reciclar_1.png" id="5_jxx51"]
+[ext_resource type="Texture2D" uid="uid://d2bl6tcfe6e5o" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="5_u011v"]
+[ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="6_m6pt0"]
+[ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="8_wsift"]
+[ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard trash.tres" id="10_fqdje"]
+
+[node name="Game scene" type="Node2D"]
+
+[node name="Round Manager" type="Node" parent="." node_paths=PackedStringArray("question_card_res_manager", "main_camera", "question_card_spawn")]
+script = ExtResource("1_x87qo")
+question_card_res_manager = NodePath("../Question Card Res Manager")
+main_camera = NodePath("../Scrolling Camera")
+question_card_spawn = NodePath("../BG and Map Elements/Stack of question cards/Question Marker Spawn")
+
+[node name="Path Manager" type="Node" parent="."]
+editor_description = "handles branching paths and this kind of thing
+"
+script = ExtResource("2_jxx51")
+
+[node name="Square Manager" type="Node" parent="." node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
+script = ExtResource("2_83mwp")
+round_manager = NodePath("../Round Manager")
+square_size = 0.12
+
+[node name="Question Card Res Manager" type="Node" parent="."]
+script = ExtResource("3_u63k7")
+
+[node name="BG and Map Elements" type="Node" parent="."]
+
+[node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
+position = Vector2(576, 326)
+scale = Vector2(0.6, 0.603704)
+texture = ExtResource("5_jxx51")
+
+[node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]
+position = Vector2(261, 462)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("5_u011v")
+
+[node name="Question Marker Spawn" type="Marker2D" parent="BG and Map Elements/Stack of question cards"]
+scale = Vector2(2.17391, 2.17391)
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player 1" parent="Players" instance=ExtResource("3_ihfs7")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(150, 108)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player 2" parent="Players" instance=ExtResource("3_ihfs7")]
+modulate = Color(0, 0.15625, 1, 1)
+position = Vector2(78, 151)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player 3" parent="Players" instance=ExtResource("3_ihfs7")]
+modulate = Color(0, 1, 0.015625, 1)
+position = Vector2(150, 188)
+scale = Vector2(0.5, 0.5)
+
+[node name="Squares" type="Node" parent="."]
+
+[node name="Square 1" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(246, 155)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("6_m6pt0")
+
+[node name="Square 2" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(333, 154)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("10_fqdje")
+
+[node name="Square 3" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(408, 153)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 4" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(488, 153)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 5" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(563, 153)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 6" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(644, 155)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 7" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(728, 153)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 8" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(807, 155)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 9" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(881, 154)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 10" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(946, 153)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 11" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1016, 155)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 12" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1020, 236)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 13" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1018, 311)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 14" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1021, 379)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 15" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1019, 444)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 16" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1018, 509)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 17" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(1020, 584)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 18" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(945, 583)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 19" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(882, 585)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 20" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(804, 587)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 21" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(734, 588)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 22" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(663, 588)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 23" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(588, 589)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 24" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(517, 588)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 25" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(442, 587)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 26" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(365, 588)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 27" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(294, 589)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 28" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(226, 588)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 29" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(152, 589)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 30" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(146, 504)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 31" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(147, 423)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 32" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(141, 335)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 33" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(217, 333)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 34" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(293, 333)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 35" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(364, 337)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 36" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(441, 336)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 37" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(512, 335)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 38" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(588, 334)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 39" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(664, 336)
+scale = Vector2(0.12, 0.12)
+
+[node name="Square 40" parent="Squares" instance=ExtResource("4_7r8ec")]
+position = Vector2(743, 337)
+scale = Vector2(0.12, 0.12)
+
+[node name="Scrolling Camera" parent="." instance=ExtResource("8_wsift")]
+position = Vector2(576, 324)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648

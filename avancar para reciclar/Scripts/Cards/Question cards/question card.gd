@@ -92,7 +92,7 @@ func check_answer(button_index: int) -> void:
 	else:
 		print("Wrong answer")
 		
-	await get_tree().create_timer(2)
+	await get_tree().create_timer(2).timeout
 	queue_free()
 
 func _on_answer_1_pressed() -> void:

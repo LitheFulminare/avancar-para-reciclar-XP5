@@ -1,7 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://disbcp6ujcu0q"]
+[gd_scene load_steps=29 format=3 uid="uid://disbcp6ujcu0q"]
 
 [ext_resource type="Script" uid="uid://dokerxycq6cla" path="res://Scripts/Minigames/Boat/boat minigame manager.gd" id="1_ric7v"]
-[ext_resource type="Script" uid="uid://cq3h6rlsu8kjr" path="res://Scripts/Managers/time_tracker.gd" id="2_7s84n"]
+[ext_resource type="Script" path="res://Scripts/Managers/time_tracker.gd" id="2_7s84n"]
 [ext_resource type="Script" uid="uid://dlojdj4g8u2ex" path="res://Scripts/Minigames/Boat/split_input_manager.gd" id="3_pbxlv"]
 [ext_resource type="PackedScene" uid="uid://cnwsc4ltpbsh2" path="res://Scenes/Minigames/Generic elements/point_display.tscn" id="4_7s84n"]
 [ext_resource type="Script" uid="uid://cmq834pg1maen" path="res://Scripts/Minigames/Boat/trash_spawner.gd" id="4_a66v7"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="9_wgktd"]
 [ext_resource type="Texture2D" uid="uid://dsh0hs0707x7p" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Yellow rod.png" id="10_ow4m4"]
 [ext_resource type="Texture2D" uid="uid://b13mx14m2qf2l" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Red boat.png" id="11_2igmv"]
-[ext_resource type="Texture2D" uid="uid://dnrp4hylx0h5u" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Green hook.png" id="11_a66v7"]
 [ext_resource type="Texture2D" uid="uid://whwp6ktm00oq" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Green rod.png" id="11_b72gt"]
 [ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="12_5366f"]
 [ext_resource type="Texture2D" uid="uid://bffyk6fby1x1x" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Red rod.png" id="13_pa471"]
@@ -36,7 +35,7 @@ size = Vector2(1068, 182)
 
 [node name="Boat Minigame Manager" type="Node" parent="." node_paths=PackedStringArray("timer_clock", "trash_parent", "countdown", "player1", "player2", "player3")]
 script = ExtResource("1_ric7v")
-stage_duration = 10
+stage_duration = 30
 timer_clock = NodePath("../HUD/Timer clock")
 trash_parent = NodePath("../Trash")
 countdown = NodePath("../HUD/Countdown Control")
@@ -128,7 +127,6 @@ texture = ExtResource("11_b72gt")
 
 [node name="Hook Sprite2D" parent="Boats/Green boat/Boat Sprite2D/Rod Sprite2D/Line2D/Hook" index="0"]
 modulate = Color(0.101961, 0.717647, 0.152941, 1)
-texture = ExtResource("11_a66v7")
 
 [node name="Yellow boat" parent="Boats" node_paths=PackedStringArray("score_display") instance=ExtResource("7_jg4fs")]
 position = Vector2(566, 257)

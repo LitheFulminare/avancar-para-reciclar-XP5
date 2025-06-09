@@ -3,13 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://b3piecwswwead" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Green boat.png" id="1_toye7"]
 [ext_resource type="Script" uid="uid://b3ue81nmu0dpb" path="res://Scripts/Minigames/Boat/boat.gd" id="2_2ybh2"]
 [ext_resource type="Texture2D" uid="uid://de0ire3jwru3w" path="res://Assets/Sprites/Players/Green pawn.png" id="3_0bx2c"]
-[ext_resource type="Texture2D" uid="uid://b0fg5if18j8r1" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Hook.png" id="4_cgfk4"]
+[ext_resource type="Texture2D" uid="uid://dnrp4hylx0h5u" path="res://Assets/Sprites/Minigames/Boat minigame/Boat sprites/Green hook.png" id="4_cgfk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sum"]
 size = Vector2(235, 91)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4t6ly"]
-load_path = "res://.godot/imported/Green rod.png-67dcc6ee3b2183bd93d2c661b28ae0ae.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a5sum"]
 radius = 16.1245
