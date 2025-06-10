@@ -11,7 +11,8 @@ var trash_cards: Array[TrashCard] = []
 
 # doesn't get changed internally
 # round_manager changes right before moving the player
-var current_square : int = 0
+# represents the actual number of the square, and not its index on the array
+var current_square: int = 0
 var current_branch: PathManager.branches
 var next_branch_start: int
 

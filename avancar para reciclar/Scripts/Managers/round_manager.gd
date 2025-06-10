@@ -186,11 +186,17 @@ func move() -> void:
 	elif active_player.current_square + total_dice_result > active_player.next_branch_start - 1:
 		print("Player arrived at a fork")
 		
-		## REMEMBER
-		# add the remaining squares here, so player_stopped_moving() can move the player
-		# again after choosing the branch
 		player_at_fork = true
+		
+		var player_previous_square: int = active_player.current_square
+		print("Player previous square: " + str(player_previous_square))
+		
 		active_player.current_square = active_player.next_branch_start - 1
+		
+		var squares_moved: int = active_player.current_square - player_previous_square
+		print("Squares moved: " + str(squares_moved))
+		remaining_distance = total_dice_result - squares_moved
+		print("Remaining distance: " + str(remaining_distance))
 	
 	# when the player's dice roll doesn't exceed the board's size
 	else:
@@ -226,6 +232,8 @@ func player_stopped_moving() -> void:
 
 func branch_chosen():
 	print("Active player's branch: " + str(active_player.current_branch))
+	player_at_fork = false
+	move()	
 
 # this is NOT how actions are gonna be handled anymore, 
 # this is only still here in case I need to remember something
