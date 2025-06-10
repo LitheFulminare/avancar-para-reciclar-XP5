@@ -1,0 +1,2 @@
+When on branch B, if dice result exceeds the next fork the player won't stop. 
+They only stop if they are on branch A
