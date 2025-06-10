@@ -10,10 +10,15 @@ signal stopped_moving # connected to player_stopped_moving() on the RoundManager
 var trash_cards: Array[TrashCard] = []
 
 # doesn't get changed internally
-# round_manager changes right before moving the player
+# RoundManager changes right before moving the player
 # represents the actual number of the square, and not its index on the array
 var current_square: int = 0
+
+# branch variables
+# again, RoundManager uses these
 var current_branch: PathManager.branches
+var is_at_branch_B: bool = false
+var opposite_branch_length: int
 var next_branch_start: int
 
 func _on_move(target_position: Vector2) -> void:

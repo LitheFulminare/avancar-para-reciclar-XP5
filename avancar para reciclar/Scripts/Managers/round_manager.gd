@@ -93,6 +93,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_2):
 		if player_at_fork:
 			active_player.current_branch = path_manager.branches.branch_B
+			active_player.is_at_branch_B = true
 			player_chose_branch.emit()
 
 # called at the start of the game
@@ -157,9 +158,11 @@ func move() -> void:
 	# decides what's the player's next branch is going to be
 	if active_player.current_square <= path_manager.branch1_A_start:
 		active_player.next_branch_start = path_manager.branch1_A_start
+		active_player.opposite_branch_length = path_manager.branch_1_A_size
 		
 	else:
 		active_player.next_branch_start = path_manager.branch2_A_start
+		active_player.current_branch_length = path_manager.branch_2_A_size
 	
 	# prevents the signal being connected twice to a function
 	if !active_player.stopped_moving.is_connected(player_stopped_moving):
@@ -170,6 +173,10 @@ func move() -> void:
 	if remaining_distance != 0:
 		if player_at_fork:
 			total_dice_result = active_player.current_square + remaining_distance
+			
+			if active_player.is_at_branch_B:
+				total_dice_result += active_player.opposite_branch_length
+				
 			player_at_fork = false
 		else:
 			total_dice_result = remaining_distance

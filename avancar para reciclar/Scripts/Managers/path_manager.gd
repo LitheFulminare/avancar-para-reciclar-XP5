@@ -24,5 +24,5 @@ var branch_1_A_size: int
 var branch_2_A_size: int
 
 func _ready() -> void:
-	branch_1_A_size = branch1_A_end - branch1_A_start
-	branch_2_A_size = branch2_A_end - branch2_A_start
+	branch_1_A_size = branch1_A_end - branch1_A_start + 1
+	branch_2_A_size = branch2_A_end - branch2_A_start + 1
