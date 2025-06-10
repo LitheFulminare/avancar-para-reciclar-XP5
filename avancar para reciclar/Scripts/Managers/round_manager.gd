@@ -157,6 +157,7 @@ func action() -> void:
 func move() -> void:
 	# decides what's the player's next branch is going to be
 	if active_player.current_square < path_manager.branch1_A_start:
+		print("Player's current square: " + str(active_player.current_square))
 		print("Setting player next branch start to: " + str(path_manager.branch1_A_start))
 		active_player.next_branch_start = path_manager.branch1_A_start
 		
@@ -254,8 +255,6 @@ func move() -> void:
 	
 	active_player.move.emit(square_array[active_player.current_square-1].global_position)
 	
-	
-
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func
 func player_stopped_moving() -> void:
