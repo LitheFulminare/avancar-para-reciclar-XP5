@@ -162,7 +162,7 @@ func move() -> void:
 		
 	else:
 		active_player.next_branch_start = path_manager.branch2_A_start
-		active_player.current_branch_length = path_manager.branch_2_A_size
+		active_player.opposite_branch_length = path_manager.branch_2_A_size
 	
 	# prevents the signal being connected twice to a function
 	if !active_player.stopped_moving.is_connected(player_stopped_moving):
@@ -313,4 +313,4 @@ func get_squares() -> Array[Square]:
 
 func camera_finished_zooming_out() -> void:
 	await get_tree().create_timer(1).timeout
-	draw_question_card()
+	#draw_question_card()
