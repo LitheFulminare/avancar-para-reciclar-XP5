@@ -156,13 +156,19 @@ func action() -> void:
 
 func move() -> void:
 	# decides what's the player's next branch is going to be
-	if active_player.current_square <= path_manager.branch1_A_start:
+	if active_player.current_square < path_manager.branch1_A_start:
 		active_player.next_branch_start = path_manager.branch1_A_start
-		active_player.opposite_branch_length = path_manager.branch_1_A_size
+		if active_player.current_branch == path_manager.branches.branch_A:
+			active_player.opposite_branch_length = path_manager.branch_1_B_size
+		else:
+			active_player.opposite_branch_length = path_manager.branch_1_A_size
 		
 	else:
 		active_player.next_branch_start = path_manager.branch2_A_start
-		active_player.opposite_branch_length = path_manager.branch_2_A_size
+		if active_player.current_branch == path_manager.branches.branch_A:
+			active_player.opposite_branch_length = path_manager.branch_2_B_size
+		else:
+			active_player.opposite_branch_length = path_manager.branch_2_A_size 
 	
 	# prevents the signal being connected twice to a function
 	if !active_player.stopped_moving.is_connected(player_stopped_moving):
@@ -197,6 +203,8 @@ func move() -> void:
 	# when the player passes through a fork
 	# simply landing on a fork does not trigger the interaction, so it's the start-1
 	elif active_player.current_square + total_dice_result > active_player.next_branch_start - 1:
+		#if active_player.current_branch == path_manager.branches.branch_A:
+			#return
 		print("Player arrived at a fork")
 		
 		player_at_fork = true
@@ -204,7 +212,16 @@ func move() -> void:
 		var player_previous_square: int = active_player.current_square
 		print("Player previous square: " + str(player_previous_square))
 		
+		# next_branch_start is the number of the first square of the branch,
+		# so the start - 1 is the fork position
 		active_player.current_square = active_player.next_branch_start - 1
+		print("")
+		if active_player.next_branch_start == path_manager.branch1_A_start:
+			print("player on first branch, updating to branch 2")
+			active_player.next_branch_start = path_manager.branch2_A_start
+		elif active_player.next_branch_start == path_manager.branch2_A_start:
+			print("player on second branch, updating to branch 1")
+			active_player.next_branch_start = path_manager.branch1_A_start
 		
 		var squares_moved: int = active_player.current_square - player_previous_square
 		print("Squares moved: " + str(squares_moved))

@@ -21,8 +21,13 @@ enum branches
 @export var branch2_B_end: int = 0
 
 var branch_1_A_size: int
+var branch_1_B_size: int
 var branch_2_A_size: int
+var branch_2_B_size: int
 
 func _ready() -> void:
 	branch_1_A_size = branch1_A_end - branch1_A_start + 1
+	branch_1_B_size = branch1_B_end - branch1_B_start + 1
+	
 	branch_2_A_size = branch2_A_end - branch2_A_start + 1
+	branch_2_B_size = branch2_B_end - branch2_B_start + 1
