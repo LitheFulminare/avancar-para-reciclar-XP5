@@ -18,6 +18,7 @@ var current_square: int = 0
 # again, RoundManager uses these
 var current_branch: PathManager.branches
 var is_at_branch_B: bool = false
+var current_branch_end: int
 var opposite_branch_length: int
 var next_branch_start: int
 

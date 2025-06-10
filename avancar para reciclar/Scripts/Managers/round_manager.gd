@@ -158,15 +158,24 @@ func move() -> void:
 	# decides what's the player's next branch is going to be
 	if active_player.current_square < path_manager.branch1_A_start:
 		active_player.next_branch_start = path_manager.branch1_A_start
+		
+		# is on Branch 1 A
 		if active_player.current_branch == path_manager.branches.branch_A:
 			active_player.opposite_branch_length = path_manager.branch_1_B_size
+			active_player.current_branch_end = path_manager.branch1_A_end
+			
+		# is on Branch 1 B
 		else:
 			active_player.opposite_branch_length = path_manager.branch_1_A_size
+			active_player.current_branch_end = path_manager.branch1_B_end
 		
+	# is on Branch 2 A
 	else:
 		active_player.next_branch_start = path_manager.branch2_A_start
 		if active_player.current_branch == path_manager.branches.branch_A:
 			active_player.opposite_branch_length = path_manager.branch_2_B_size
+			
+		# is on Branch 2 B
 		else:
 			active_player.opposite_branch_length = path_manager.branch_2_A_size 
 	
@@ -231,6 +240,13 @@ func move() -> void:
 	# when the player's dice roll doesn't exceed the board's size
 	else:
 		active_player.current_square += total_dice_result
+		
+	if active_player.current_branch == path_manager.branches.branch_A:
+		if active_player.current_square + remaining_distance > active_player.current_branch_end:
+			print ("")
+			print("Player would go to square: " + str(active_player.current_square + remaining_distance))
+			print("Sending player to square: " + str(active_player.current_square + active_player.opposite_branch_length))
+			active_player.current_square += active_player.opposite_branch_length
 	
 	active_player.move.emit(square_array[active_player.current_square-1].global_position)
 	
