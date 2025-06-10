@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2pajmflt1op2"
-path="res://.godot/imported/Points display.png-a476be08770a402a017d6adf8c3f732a.ctex"
+uid="uid://bne4yq8i4a55u"
+path="res://.godot/imported/yellow stats bar.png-4e9a8339d3ff903b42c3421caef7d5e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Minigames/Generic sprites/Points display.png"
-dest_files=["res://.godot/imported/Points display.png-a476be08770a402a017d6adf8c3f732a.ctex"]
+source_file="res://Assets/Sprites/HUD & UI/HUD/yellow stats bar.png"
+dest_files=["res://.godot/imported/yellow stats bar.png-4e9a8339d3ff903b42c3421caef7d5e5.ctex"]
 
 [params]
 

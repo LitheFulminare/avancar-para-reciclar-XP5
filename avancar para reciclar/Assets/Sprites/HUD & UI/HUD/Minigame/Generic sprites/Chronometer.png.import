@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj1hq8kflqof1"
-path="res://.godot/imported/Chronometer.png-b2fd7ecdce3bc195f5adae282c5d8485.ctex"
+path="res://.godot/imported/Chronometer.png-cbfd396c3cfb61da2be9f81d91470189.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Minigames/Generic sprites/Chronometer.png"
-dest_files=["res://.godot/imported/Chronometer.png-b2fd7ecdce3bc195f5adae282c5d8485.ctex"]
+source_file="res://Assets/Sprites/HUD & UI/HUD/Minigame/Generic sprites/Chronometer.png"
+dest_files=["res://.godot/imported/Chronometer.png-cbfd396c3cfb61da2be9f81d91470189.ctex"]
 
 [params]
 
