@@ -1,6 +1,6 @@
 >> BUG 1
 
-When on branch 1 A, if total_dice_result is going to make the player leave the branch, it goes past the fork 2
+When on branch 1 A or fork 1, if total_dice_result is going to make the player leave the branch, it goes past the fork 2
 
 The cause is:
 	if active_player.current_branch == path_manager.branches.branch_A:
