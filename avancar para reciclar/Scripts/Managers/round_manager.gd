@@ -157,6 +157,7 @@ func action() -> void:
 func move() -> void:
 	# decides what's the player's next branch is going to be
 	if active_player.current_square < path_manager.branch1_A_start:
+		print("Setting player next branch start to: " + str(path_manager.branch1_A_start))
 		active_player.next_branch_start = path_manager.branch1_A_start
 		
 		# is on Branch 1 A
@@ -171,6 +172,7 @@ func move() -> void:
 		
 	# is on Branch 2 A
 	else:
+		print("Setting player next branch start to: " + str(path_manager.branch1_A_start))
 		active_player.next_branch_start = path_manager.branch2_A_start
 		if active_player.current_branch == path_manager.branches.branch_A:
 			active_player.opposite_branch_length = path_manager.branch_2_B_size
@@ -221,6 +223,7 @@ func move() -> void:
 		var player_previous_square: int = active_player.current_square
 		print("Player previous square: " + str(player_previous_square))
 		
+		# updates next branch start
 		# next_branch_start is the number of the first square of the branch,
 		# so the start - 1 is the fork position
 		active_player.current_square = active_player.next_branch_start - 1
@@ -240,7 +243,8 @@ func move() -> void:
 	# when the player's dice roll doesn't exceed the board's size
 	else:
 		active_player.current_square += total_dice_result
-		
+	
+	# when leaving branch A
 	if active_player.current_branch == path_manager.branches.branch_A:
 		if active_player.current_square + remaining_distance > active_player.current_branch_end:
 			print ("")
