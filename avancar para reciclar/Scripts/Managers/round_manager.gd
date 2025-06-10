@@ -156,6 +156,8 @@ func action() -> void:
 
 func move() -> void:
 	# decides what's the player's next branch is going to be
+	
+	# is on branch 1
 	if active_player.current_square < path_manager.branch1_A_start:
 		print("Player's current square: " + str(active_player.current_square))
 		print("Setting player next branch start to: " + str(path_manager.branch1_A_start))
@@ -171,10 +173,12 @@ func move() -> void:
 			active_player.opposite_branch_length = path_manager.branch_1_A_size
 			active_player.current_branch_end = path_manager.branch1_B_end
 		
-	# is on Branch 2 A
+	# is on Branch 2
 	else:
-		print("Setting player next branch start to: " + str(path_manager.branch1_A_start))
+		print("Setting player next branch start to: " + str(path_manager.branch2_A_start))
 		active_player.next_branch_start = path_manager.branch2_A_start
+		
+		# is on Branch 2 A
 		if active_player.current_branch == path_manager.branches.branch_A:
 			active_player.opposite_branch_length = path_manager.branch_2_B_size
 			

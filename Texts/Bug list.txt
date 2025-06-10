@@ -1,2 +1,10 @@
-When on branch B, if dice result exceeds the next fork the player won't stop. 
-They only stop if they are on branch A
+>> BUG 1
+
+When on branch 1 A, if total_dice_result is going to make the player leave the branch, it goes past the fork 2
+
+The cause is:
+	if active_player.current_branch == path_manager.branches.branch_A:
+		if active_player.current_square + remaining_distance > active_player.current_branch_end:
+			active_player.current_square += active_player.opposite_branch_length
+
+It changes active_player.current_square and doesn't check whether there is a fork on the way
