@@ -165,9 +165,15 @@ func move() -> void:
 	if !active_player.stopped_moving.is_connected(player_stopped_moving):
 		active_player.stopped_moving.connect(player_stopped_moving) 
 	
-	# when the player passed through the start and there are squares left to walk	
+	# when the player passed through the start and there are squares left to walk
+	# or when on a fork
 	if remaining_distance != 0:
-		total_dice_result = remaining_distance
+		if player_at_fork:
+			total_dice_result = active_player.current_square + remaining_distance
+			player_at_fork = false
+		else:
+			total_dice_result = remaining_distance
+			
 		remaining_distance = 0
 		active_player.current_square = total_dice_result
 	
@@ -232,8 +238,7 @@ func player_stopped_moving() -> void:
 
 func branch_chosen():
 	print("Active player's branch: " + str(active_player.current_branch))
-	player_at_fork = false
-	move()	
+	move()
 
 # this is NOT how actions are gonna be handled anymore, 
 # this is only still here in case I need to remember something
