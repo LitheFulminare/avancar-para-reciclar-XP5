@@ -229,8 +229,10 @@ func move() -> void:
 			print("Sending player to square: " + str(active_player.current_square + active_player.opposite_branch_length))
 			
 			## fork_check() copy with minor changer, later I should make a more generic function
-			#if active_player.current_square +
-			
+			if (active_player.current_square + active_player.opposite_branch_length > 
+			active_player.next_branch_start - 1):
+				print("Player should stop at fork of number: " + str(active_player.next_branch_start - 1))
+				
 			active_player.current_square += active_player.opposite_branch_length
 	
 	active_player.move.emit(square_array[active_player.current_square-1].global_position)
