@@ -41,6 +41,9 @@ var remaining_distance: int = 0
 # used to spawn the buttons when the player passes though a fork square, among other things
 var player_at_fork: bool = false
 
+# used to know if camera should be zoomed in or out
+var is_player_moving: bool = false
+
 var active_player: Player
 
 const glass_card_stats: TrashCardStats = preload("res://Resources/Cards/Trash cards/glass.tres")
@@ -71,7 +74,12 @@ var trash_card: PackedScene = preload(trash_card_path)
 
 func _ready() -> void:
 	player_chose_branch.connect(branch_chosen)
+	
 	main_camera.connect("finished_zooming_out", camera_finished_zooming_out)
+	player1.stopped_moving.connect(player_stopped_moving)
+	player2.stopped_moving.connect(player_stopped_moving)
+	player3.stopped_moving.connect(player_stopped_moving)
+	
 	start_game()
 	
 func _process(_delta: float) -> void:
@@ -156,24 +164,25 @@ func action() -> void:
 			current_round_state = round_states.start_round
 
 func move() -> void:
-	while total_dice_result > 0:
+	if total_dice_result > 0:
 		#start of the game
 		if active_player.square == null:
 			active_player.square = first_square
-			active_player.move_to_current_square()
 			
 		else:
 			if active_player.square.is_fork:
 				print("Player got to a fork")
 			else:
 				active_player.square = active_player.square.next_square
-			
+		
 		total_dice_result -= 1
+		active_player.move_to_current_square()
 		
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func
 func player_stopped_moving() -> void:
 	print("Player stopped moving")
+	move()
 	
 	if player_at_fork:
 		print("")
