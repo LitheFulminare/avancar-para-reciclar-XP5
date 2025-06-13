@@ -258,7 +258,7 @@ func draw_question_card() -> void:
 	get_viewport().get_visible_rect().size.y/2)
 	print(screen_mid_point)
 	tween.tween_property(question_card, "position", screen_mid_point, 0.6)
-	tween.tween_property(question_card, "scale", Vector2(1,1), 0.6)
+	tween.tween_property(question_card, "scale", Vector2(1.5,1.5), 0.6)
 	await tween.finished
 	
 	await get_tree().create_timer(1).timeout
@@ -280,4 +280,4 @@ func get_squares() -> Array[Square]:
 
 func camera_finished_zooming_out() -> void:
 	await get_tree().create_timer(1).timeout
-	#draw_question_card()
+	draw_question_card()

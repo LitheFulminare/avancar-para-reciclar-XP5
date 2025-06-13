@@ -11,10 +11,10 @@ script = ExtResource("1_7iqeb")
 face_up_elements = NodePath("Face up elements")
 face_down_elements = NodePath("Face down elements")
 question_text_label = NodePath("Face up elements/Question text")
-answer1_button = NodePath("Face up elements/VBoxContainer/Answer 1")
-answer2_button = NodePath("Face up elements/VBoxContainer/Answer 2")
-answer3_button = NodePath("Face up elements/VBoxContainer/Answer 3")
-answer4_button = NodePath("Face up elements/VBoxContainer/Answer 4")
+answer1_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 1")
+answer2_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 2")
+answer3_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 3")
+answer4_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 4")
 
 [node name="Face up elements" type="Node2D" parent="."]
 
@@ -32,47 +32,63 @@ text = "test text"
 autowrap_mode = 2
 script = ExtResource("3_bryby")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Face up elements"]
+[node name="Control" type="Control" parent="Face up elements"]
+layout_mode = 3
+offset_left = -77.0
+offset_right = 65.0
+offset_bottom = 125.0
+grow_horizontal = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Face up elements/Control"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -77.0
-offset_right = 63.0
-offset_bottom = 116.0
+offset_left = -71.0
+offset_right = 70.0
+offset_bottom = 124.0
 grow_horizontal = 2
-size_flags_horizontal = 4
+horizontal_scroll_mode = 0
 
-[node name="Answer 1" type="Button" parent="Face up elements/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Face up elements/Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Answer 1" type="Button" parent="Face up elements/Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_kmoot")
-text = "texto"
+text = "text text text text text text  text  text  text  text "
 flat = true
 alignment = 0
+autowrap_mode = 2
 
-[node name="Answer 2" type="Button" parent="Face up elements/VBoxContainer"]
+[node name="Answer 2" type="Button" parent="Face up elements/Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_kmoot")
-text = "texto"
+text = "text text "
 flat = true
 alignment = 0
+autowrap_mode = 2
 
-[node name="Answer 3" type="Button" parent="Face up elements/VBoxContainer"]
+[node name="Answer 3" type="Button" parent="Face up elements/Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_kmoot")
-text = "texto"
+text = "text"
 flat = true
 alignment = 0
+autowrap_mode = 2
 
-[node name="Answer 4" type="Button" parent="Face up elements/VBoxContainer"]
+[node name="Answer 4" type="Button" parent="Face up elements/Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_kmoot")
-text = "texto"
+text = "text"
 flat = true
 alignment = 0
+autowrap_mode = 2
 
 [node name="Face down elements" type="Node2D" parent="."]
 visible = false
@@ -81,7 +97,7 @@ visible = false
 texture = ExtResource("2_5nxy6")
 
 [connection signal="resized" from="Face up elements/Question text" to="Face up elements/Question text" method="_on_resized"]
-[connection signal="pressed" from="Face up elements/VBoxContainer/Answer 1" to="." method="_on_answer_1_pressed"]
-[connection signal="pressed" from="Face up elements/VBoxContainer/Answer 2" to="." method="_on_answer_2_pressed"]
-[connection signal="pressed" from="Face up elements/VBoxContainer/Answer 3" to="." method="_on_answer_3_pressed"]
-[connection signal="pressed" from="Face up elements/VBoxContainer/Answer 4" to="." method="_on_answer_4_pressed"]
+[connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 1" to="." method="_on_answer_1_pressed"]
+[connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 2" to="." method="_on_answer_2_pressed"]
+[connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 3" to="." method="_on_answer_3_pressed"]
+[connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 4" to="." method="_on_answer_4_pressed"]
