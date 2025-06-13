@@ -163,7 +163,7 @@ func action() -> void:
 			current_round += 1
 			current_round_state = round_states.start_round
 
-func move() -> void:
+func move(bypass_fork_check: bool = false) -> void:
 	if total_dice_result > 0:
 		# used to make the camera zoom in
 		is_player_moving = true
@@ -173,8 +173,11 @@ func move() -> void:
 			active_player.square = first_square
 			
 		else:
-			if active_player.square.is_fork:
+			if active_player.square.is_fork && !bypass_fork_check:
 				print("Player got to a fork")
+				player_at_fork = true
+				player_landed_at_fork()
+				return
 			else:
 				active_player.square = active_player.square.next_square
 		
@@ -185,17 +188,18 @@ func move() -> void:
 		# makes the camera zoom out
 		is_player_moving = false
 		
+func player_landed_at_fork() -> void:
+	print("")
+	print("Press 1 to go to branch A")
+	print("Press 2 to go to branch B")
+
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func
 func player_stopped_moving() -> void:
 	print("Player stopped moving")
-	move()
 	
-	if player_at_fork:
-		print("")
-		print("Press 1 to go to branch A")
-		print("Press 2 to go to branch B")
-		return
+	if !player_at_fork:
+		move()
 	
 	# when the player passes through the start
 	if remaining_distance != 0:
@@ -213,7 +217,14 @@ func player_stopped_moving() -> void:
 
 func branch_chosen():
 	print("Active player's branch: " + str(active_player.current_branch))
-	#move()
+	if active_player.current_branch == path_manager.branches.branch_A:
+		active_player.square.next_square = active_player.square.branch_A_start
+	else:
+		active_player.square.next_square = active_player.square.branch_B_start
+		
+	player_at_fork = false
+		
+	move(true)
 
 # this is NOT how actions are gonna be handled anymore, 
 # this is only still here in case I need to remember something

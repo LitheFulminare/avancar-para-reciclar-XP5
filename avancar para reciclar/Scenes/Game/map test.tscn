@@ -105,30 +105,35 @@ is_fork = true
 branch_A_start = NodePath("../Square 7")
 branch_B_start = NodePath("../Square 12")
 
-[node name="Square 7" parent="Squares" instance=ExtResource("8_5w0ha")]
+[node name="Square 7" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(273, 591)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
+next_square = NodePath("../Square 8")
 
-[node name="Square 8" parent="Squares" instance=ExtResource("8_5w0ha")]
+[node name="Square 8" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(179, 583)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
+next_square = NodePath("../Square 9")
 
-[node name="Square 9" parent="Squares" instance=ExtResource("8_5w0ha")]
+[node name="Square 9" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(157, 505)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
+next_square = NodePath("../Square 10")
 
-[node name="Square 10" parent="Squares" instance=ExtResource("8_5w0ha")]
+[node name="Square 10" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(189, 403)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
+next_square = NodePath("../Square 11")
 
-[node name="Square 11" parent="Squares" instance=ExtResource("8_5w0ha")]
+[node name="Square 11" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(269, 325)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
+next_square = NodePath("../Square 16")
 
 [node name="Square 12" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(336, 517)

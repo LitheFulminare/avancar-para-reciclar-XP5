@@ -15,6 +15,7 @@ var trash_cards: Array[TrashCard] = []
 var current_square: int = 0
 var square: Square
 
+# used to move player to square using a tween with consistent speed
 var target_position: Vector2
 var distance_to_target: float
 var tween_duration: float
@@ -27,6 +28,7 @@ var current_branch_end: int
 var opposite_branch_length: int
 var next_branch_start: int
 
+# called by RoundManager on move()
 func move_to_current_square() -> void:
 	print("moving to " + str(square.name))
 	
