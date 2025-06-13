@@ -168,7 +168,7 @@ func move() -> void:
 		# used to make the camera zoom in
 		is_player_moving = true
 		
-		#start of the game
+		# on game start
 		if active_player.square == null:
 			active_player.square = first_square
 			
