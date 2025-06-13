@@ -13,6 +13,7 @@ var trash_cards: Array[TrashCard] = []
 # RoundManager changes right before moving the player
 # represents the actual number of the square, and not its index on the array
 var current_square: int = 0
+var square: Square
 
 # branch variables
 # again, RoundManager uses these

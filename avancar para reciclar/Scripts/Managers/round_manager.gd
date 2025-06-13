@@ -20,6 +20,7 @@ enum round_states
 @export var path_manager: PathManager
 @export var main_camera: ScrollingCamera
 @export var question_card_spawn: Marker2D
+@export var first_square: Square
 
 @onready var card_stack: Sprite2D = $"../BG and Map Elements/Stack of question cards"
 
@@ -155,140 +156,15 @@ func action() -> void:
 			current_round_state = round_states.start_round
 
 func move() -> void:
-	# decides what's the player's next branch is going to be
-	
-	# is on branch 1
-	if active_player.current_square < path_manager.branch1_A_start:
-		print("Player's current square: " + str(active_player.current_square))
-		print("Setting player next branch start to: " + str(path_manager.branch1_A_start))
-		active_player.next_branch_start = path_manager.branch1_A_start
-		
-		# is on Branch 1 A
-		if active_player.current_branch == path_manager.branches.branch_A:
-			active_player.opposite_branch_length = path_manager.branch_1_B_size
-			active_player.current_branch_end = path_manager.branch1_A_end
-			
-		# is on Branch 1 B
+	while total_dice_result > 0:
+		# start of the game
+		if active_player.square == null:
+			active_player.square == first_square
 		else:
-			active_player.opposite_branch_length = path_manager.branch_1_A_size
-			active_player.current_branch_end = path_manager.branch1_B_end
+			active_player.square = active_player.square.next_square
 		
-	# is on Branch 2
-	else:
-		print("Setting player next branch start to: " + str(path_manager.branch2_A_start))
-		active_player.next_branch_start = path_manager.branch2_A_start
+		total_dice_result - 1
 		
-		# is on Branch 2 A
-		if active_player.current_branch == path_manager.branches.branch_A:
-			active_player.opposite_branch_length = path_manager.branch_2_B_size
-			
-		# is on Branch 2 B
-		else:
-			active_player.opposite_branch_length = path_manager.branch_2_A_size 
-	
-	# prevents the signal being connected twice to a function
-	if !active_player.stopped_moving.is_connected(player_stopped_moving):
-		active_player.stopped_moving.connect(player_stopped_moving) 
-	
-	# when the player passed through the start and there are squares left to walk
-	# or when on a fork
-	if remaining_distance != 0:
-		if player_at_fork:
-			total_dice_result = active_player.current_square + remaining_distance
-			
-			if active_player.is_at_branch_B:
-				total_dice_result += active_player.opposite_branch_length
-				
-			player_at_fork = false
-		else:
-			total_dice_result = remaining_distance
-			
-		remaining_distance = 0
-		active_player.current_square = total_dice_result
-	
-	# when the player's dice roll exceeds the board's size
-	elif active_player.current_square + total_dice_result > square_array.size():
-		print("Player passed through the start")
-		
-		# makes the player move to end of the board and calculates what's left
-		var squares_moved : int = square_array.size() - active_player.current_square
-		remaining_distance = total_dice_result - squares_moved
-		active_player.current_square = square_array.size()
-		print("Remaining distance: " + str(remaining_distance))
-		
-	
-	# when the player's dice roll doesn't exceed the board's size
-	elif !fork_check():
-		active_player.current_square += total_dice_result
-	
-	# when leaving branch A
-	
-	# when before first fork
-	if active_player.next_branch_start == path_manager.branch1_A_start:
-		# when the player is going to jump from fork 1 to 2
-		if active_player.current_square + remaining_distance > path_manager.branch2_A_start:
-			if active_player.current_square != path_manager.branch1_A_start - 1:
-				print("Player is going to: " + str(active_player.current_square + remaining_distance))
-				print("Start of branch 2 is: " + str(path_manager.branch2_A_start))
-				print("PLAYER JUMPED FROM FORK 1 TO 2")
-				active_player.next_branch_start = path_manager.branch2_A_start
-				active_player.current_square = active_player.next_branch_start - 1
-				player_at_fork = true
-				print("Going back to 'no branch'")
-				active_player.current_branch = path_manager.branches.no_branch
-	
-	if active_player.current_branch == path_manager.branches.branch_A:
-		if active_player.current_square + remaining_distance > active_player.current_branch_end:
-			print ("")
-			print("Player would go to square: " + str(active_player.current_square + remaining_distance))
-			print("Sending player to square: " + str(active_player.current_square + active_player.opposite_branch_length))
-			
-			## fork_check() copy with minor changer, later I should make a more generic function
-			if (active_player.current_square + active_player.opposite_branch_length > 
-			active_player.next_branch_start - 1):
-				print("Player stopping at fork of number: " + str(active_player.next_branch_start - 1))
-				active_player.current_square = active_player.next_branch_start - 1
-				
-			else:
-				active_player.current_square += active_player.opposite_branch_length
-	
-	active_player.move.emit(square_array[active_player.current_square-1].global_position)
-
-# called by move()
-func fork_check() -> bool:
-	# when the player passes through a fork
-	# simply landing on a fork does not trigger the interaction, so it's the start - 1
-	if active_player.current_square + total_dice_result > active_player.next_branch_start - 1:
-		#if active_player.current_branch == path_manager.branches.branch_A:
-			#return
-		print("Player arrived at a fork")
-		
-		player_at_fork = true
-		
-		var player_previous_square: int = active_player.current_square
-		print("Player previous square: " + str(player_previous_square))
-		
-		# updates next branch start
-		# next_branch_start is the number of the first square of the branch,
-		# so the start - 1 is the fork position
-		active_player.current_square = active_player.next_branch_start - 1
-		print("")
-		if active_player.next_branch_start == path_manager.branch1_A_start:
-			print("player on first branch, updating branch 2")
-			active_player.next_branch_start = path_manager.branch2_A_start
-		elif active_player.next_branch_start == path_manager.branch2_A_start:
-			print("player on second branch, updating branch 1")
-			active_player.next_branch_start = path_manager.branch1_A_start
-		
-		var squares_moved: int = active_player.current_square - player_previous_square
-		print("Squares moved: " + str(squares_moved))
-		remaining_distance = total_dice_result - squares_moved
-		print("Remaining distance: " + str(remaining_distance))
-		
-		return true
-		
-	return false
-
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func
 func player_stopped_moving() -> void:
@@ -302,7 +178,8 @@ func player_stopped_moving() -> void:
 	
 	# when the player passes through the start
 	if remaining_distance != 0:
-		move()
+		#move()
+		return
 		
 	elif remaining_distance == 0:
 		await get_tree().create_timer(1).timeout
@@ -315,7 +192,7 @@ func player_stopped_moving() -> void:
 
 func branch_chosen():
 	print("Active player's branch: " + str(active_player.current_branch))
-	move()
+	#move()
 
 # this is NOT how actions are gonna be handled anymore, 
 # this is only still here in case I need to remember something

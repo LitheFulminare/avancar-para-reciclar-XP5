@@ -7,5 +7,6 @@ visibility_layer = 4
 scale = Vector2(0.15, 0.15)
 script = ExtResource("1_bmo2i")
 square_sprite = NodePath("Sprite2D")
+is_fork = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

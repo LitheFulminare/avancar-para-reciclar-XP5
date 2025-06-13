@@ -5,6 +5,11 @@ extends Node2D
 
 @export var stats: SquareStats
 @export var square_sprite: Sprite2D
+@export_group("Square logic")
+@export var next_square: Square
+@export var is_fork: bool = false
+@export var branch_A_start: Square
+@export var branch_B_start: Square
 
 func _ready() -> void:
 	if stats != null && stats.sprite != null:
