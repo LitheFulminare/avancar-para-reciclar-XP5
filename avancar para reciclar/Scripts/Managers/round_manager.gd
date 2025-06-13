@@ -230,6 +230,11 @@ func move() -> void:
 			print("Player is going to: " + str(active_player.current_square + remaining_distance))
 			print("Start of branch 2 is: " + str(path_manager.branch2_A_start))
 			print("PLAYER JUMPED FROM FORK 1 TO 2")
+			active_player.next_branch_start = path_manager.branch2_A_start
+			active_player.current_square = active_player.next_branch_start - 1
+			player_at_fork = true
+			print("Going back to 'no branch'")
+			active_player.current_branch = path_manager.branches.no_branch
 	
 	if active_player.current_branch == path_manager.branches.branch_A:
 		if active_player.current_square + remaining_distance > active_player.current_branch_end:
@@ -240,9 +245,11 @@ func move() -> void:
 			## fork_check() copy with minor changer, later I should make a more generic function
 			if (active_player.current_square + active_player.opposite_branch_length > 
 			active_player.next_branch_start - 1):
-				print("Player should stop at fork of number: " + str(active_player.next_branch_start - 1))
+				print("Player stopping at fork of number: " + str(active_player.next_branch_start - 1))
+				active_player.current_square = active_player.next_branch_start - 1
 				
-			active_player.current_square += active_player.opposite_branch_length
+			else:
+				active_player.current_square += active_player.opposite_branch_length
 	
 	active_player.move.emit(square_array[active_player.current_square-1].global_position)
 
