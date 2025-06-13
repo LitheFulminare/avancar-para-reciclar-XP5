@@ -207,7 +207,7 @@ next_square = NodePath("../Square 23")
 position = Vector2(905, 326)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
-next_square = NodePath("../Square 24")
+next_square = NodePath("../Square 28")
 
 [node name="Square 24" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(563, 342)

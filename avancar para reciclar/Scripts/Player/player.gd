@@ -12,7 +12,6 @@ var trash_cards: Array[TrashCard] = []
 # doesn't get changed internally
 # RoundManager changes right before moving the player
 # represents the actual number of the square, and not its index on the array
-var current_square: int = 0
 var square: Square
 
 # used to move player to square using a tween with consistent speed
@@ -23,15 +22,9 @@ var tween_duration: float
 # branch variables
 # again, RoundManager uses these
 var current_branch: PathManager.branches
-var is_at_branch_B: bool = false
-var current_branch_end: int
-var opposite_branch_length: int
-var next_branch_start: int
 
 # called by RoundManager on move()
 func move_to_current_square() -> void:
-	print("moving to " + str(square.name))
-	
 	distance_to_target = global_position.distance_to(square.global_position)
 	tween_duration = distance_to_target / speed
 	

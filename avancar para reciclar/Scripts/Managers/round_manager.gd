@@ -33,12 +33,6 @@ var first_dice_result: int = 0
 var second_dice_result: int = 0
 var total_dice_result: int = 0
 
-# for when the player's dice roll exceeds the board's number of squares
-# saves what they're supposed to move after going back to the start square
-var remaining_distance: int = 0
-
-# self explanatory
-# used to spawn the buttons when the player passes though a fork square, among other things
 var player_at_fork: bool = false
 
 # used to know if camera should be zoomed in or out
@@ -102,7 +96,6 @@ func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_2):
 		if player_at_fork:
 			active_player.current_branch = path_manager.branches.branch_B
-			active_player.is_at_branch_B = true
 			player_chose_branch.emit()
 
 # called at the start of the game
@@ -173,9 +166,8 @@ func move(bypass_fork_check: bool = false) -> void:
 			active_player.square = first_square
 			
 		else:
+			# when at a fork and no branch chosen yet
 			if active_player.square.is_fork && !bypass_fork_check:
-				print("Player got to a fork")
-				player_at_fork = true
 				player_landed_at_fork()
 				return
 			else:
@@ -187,8 +179,9 @@ func move(bypass_fork_check: bool = false) -> void:
 	else:
 		# makes the camera zoom out
 		is_player_moving = false
-		
+
 func player_landed_at_fork() -> void:
+	player_at_fork = true # prevents move() from being called again on player_stopped_moving()
 	print("")
 	print("Press 1 to go to branch A")
 	print("Press 2 to go to branch B")
@@ -200,13 +193,8 @@ func player_stopped_moving() -> void:
 	
 	if !player_at_fork:
 		move()
-	
-	# when the player passes through the start
-	if remaining_distance != 0:
-		#move()
-		return
 		
-	elif remaining_distance == 0 && !is_player_moving:
+	if !is_player_moving:
 		await get_tree().create_timer(1).timeout
 		main_camera.remove_zoom(true)
 		# now no square has a resource/type, so calling this func will throw an error
