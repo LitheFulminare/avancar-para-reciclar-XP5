@@ -227,14 +227,15 @@ func move() -> void:
 	if active_player.next_branch_start == path_manager.branch1_A_start:
 		# when the player is going to jump from fork 1 to 2
 		if active_player.current_square + remaining_distance > path_manager.branch2_A_start:
-			print("Player is going to: " + str(active_player.current_square + remaining_distance))
-			print("Start of branch 2 is: " + str(path_manager.branch2_A_start))
-			print("PLAYER JUMPED FROM FORK 1 TO 2")
-			active_player.next_branch_start = path_manager.branch2_A_start
-			active_player.current_square = active_player.next_branch_start - 1
-			player_at_fork = true
-			print("Going back to 'no branch'")
-			active_player.current_branch = path_manager.branches.no_branch
+			if active_player.current_square != path_manager.branch1_A_start - 1:
+				print("Player is going to: " + str(active_player.current_square + remaining_distance))
+				print("Start of branch 2 is: " + str(path_manager.branch2_A_start))
+				print("PLAYER JUMPED FROM FORK 1 TO 2")
+				active_player.next_branch_start = path_manager.branch2_A_start
+				active_player.current_square = active_player.next_branch_start - 1
+				player_at_fork = true
+				print("Going back to 'no branch'")
+				active_player.current_branch = path_manager.branches.no_branch
 	
 	if active_player.current_branch == path_manager.branches.branch_A:
 		if active_player.current_square + remaining_distance > active_player.current_branch_end:
