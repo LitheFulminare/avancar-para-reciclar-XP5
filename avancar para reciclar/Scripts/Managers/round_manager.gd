@@ -157,13 +157,18 @@ func action() -> void:
 
 func move() -> void:
 	while total_dice_result > 0:
-		# start of the game
+		#start of the game
 		if active_player.square == null:
-			active_player.square == first_square
+			active_player.square = first_square
+			active_player.move_to_current_square()
+			
 		else:
-			active_player.square = active_player.square.next_square
-		
-		total_dice_result - 1
+			if active_player.square.is_fork:
+				print("Player got to a fork")
+			else:
+				active_player.square = active_player.square.next_square
+			
+		total_dice_result -= 1
 		
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func

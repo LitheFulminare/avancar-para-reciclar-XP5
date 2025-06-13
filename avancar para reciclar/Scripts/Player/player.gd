@@ -1,7 +1,6 @@
 class_name Player
 extends Node
 
-signal move(target_position: Vector2)
 signal stopped_moving # connected to player_stopped_moving() on the RoundManager
 
 @export var dice_roll: int = 0
@@ -23,9 +22,9 @@ var current_branch_end: int
 var opposite_branch_length: int
 var next_branch_start: int
 
-func _on_move(target_position: Vector2) -> void:
-	print("moving to " + str(target_position))
+func move_to_current_square() -> void:
+	print("moving to " + str(square.name))
 	var tween = create_tween()
-	tween.tween_property(self, "position", target_position, 1)
+	tween.tween_property(self, "position", square.global_position, 1)
 	await tween.finished
 	stopped_moving.emit() # connected to player_stopped_moving() on the RoundManager
