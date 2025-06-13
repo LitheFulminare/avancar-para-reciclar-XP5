@@ -165,6 +165,9 @@ func action() -> void:
 
 func move() -> void:
 	if total_dice_result > 0:
+		# used to make the camera zoom in
+		is_player_moving = true
+		
 		#start of the game
 		if active_player.square == null:
 			active_player.square = first_square
@@ -177,6 +180,10 @@ func move() -> void:
 		
 		total_dice_result -= 1
 		active_player.move_to_current_square()
+	
+	else:
+		# makes the camera zoom out
+		is_player_moving = false
 		
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func
@@ -195,7 +202,7 @@ func player_stopped_moving() -> void:
 		#move()
 		return
 		
-	elif remaining_distance == 0:
+	elif remaining_distance == 0 && !is_player_moving:
 		await get_tree().create_timer(1).timeout
 		main_camera.remove_zoom(true)
 		# now no square has a resource/type, so calling this func will throw an error
