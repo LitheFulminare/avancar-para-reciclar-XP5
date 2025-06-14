@@ -24,13 +24,16 @@
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square", "player1", "player2", "player3")]
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "card_stack", "players_parent_node", "player1", "player2", "player3")]
 script = ExtResource("1_oqp8s")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
 main_camera = NodePath("../../Scrolling Camera")
 question_card_spawn = NodePath("../../BG and Map Elements/Stack of question cards/Question Marker Spawn")
 first_square = NodePath("../../Squares/Square 1")
+squares_parent_node = NodePath("../../Squares")
+card_stack = NodePath("../../BG and Map Elements/Stack of question cards")
+players_parent_node = NodePath("../../Players")
 player1 = NodePath("../../Players/Player 1")
 player2 = NodePath("../../Players/Player 2")
 player3 = NodePath("../../Players/Player 3")

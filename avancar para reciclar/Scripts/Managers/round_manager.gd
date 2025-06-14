@@ -16,13 +16,16 @@ enum round_states
 	end_round 
 }
 
+@export_group("Managers")
 @export var question_card_res_manager: QuestionCardResourceManager
 @export var path_manager: PathManager
+
+@export_group("Scene node components")
 @export var main_camera: ScrollingCamera
 @export var question_card_spawn: Marker2D
 @export var first_square: Square
-
-@onready var card_stack: Sprite2D = $"../../BG and Map Elements/Stack of question cards"
+@export var squares_parent_node: Node
+@export var card_stack: Sprite2D
 
 var current_round_state: round_states = round_states.start_round
 
@@ -60,20 +63,26 @@ const trash_card_path: String = "res://Scenes/Cards/Trash card.tscn"
 var trash_card: PackedScene = preload(trash_card_path)
 
 @export_group("Players")
+@export var players_parent_node: Node
 @export var player1: Player
 @export var player2: Player
 @export var player3: Player
 
-@onready var player_array: Array[Node] = $"../../Players".get_children()
 @onready var square_array: Array[Square] = get_squares()
+var player_array: Array[Node]
 
 func _ready() -> void:
-	player_chose_branch.connect(branch_chosen)
+	player_array = players_parent_node.get_children()
 	
+	#region connect signals
 	main_camera.connect("finished_zooming_out", camera_finished_zooming_out)
+	
 	player1.stopped_moving.connect(player_stopped_moving)
 	player2.stopped_moving.connect(player_stopped_moving)
 	player3.stopped_moving.connect(player_stopped_moving)
+	
+	player_chose_branch.connect(branch_chosen)
+	#endregion
 	
 	start_game()
 	
@@ -266,7 +275,7 @@ func draw_question_card() -> void:
 # returns array of the squares
 # get_children() only returns an array of node so you have to come up with your own solution
 func get_squares() -> Array[Square]:
-	var nodes: Array[Node] = $"../../Squares".get_children()
+	var nodes: Array[Node] = squares_parent_node.get_children()
 	var squares: Array[Square] = []
 	for node in nodes:
 		if node is Square:
@@ -280,4 +289,4 @@ func get_squares() -> Array[Square]:
 func camera_finished_zooming_out() -> void:
 	await get_tree().create_timer(1).timeout
 	draw_question_card()
-	#add_trash(turn-1, get_random_trash_type())
+	add_trash(turn-1, get_random_trash_type())
