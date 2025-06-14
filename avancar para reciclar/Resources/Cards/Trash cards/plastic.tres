@@ -8,5 +8,5 @@
 script = ExtResource("1_khxyr")
 sprites = Array[Texture2D]([ExtResource("2_bsqbp"), ExtResource("3_aaho4")])
 value = 0
-type = 0
+type = 1
 metadata/_custom_type_script = "uid://by2iqqsceahle"

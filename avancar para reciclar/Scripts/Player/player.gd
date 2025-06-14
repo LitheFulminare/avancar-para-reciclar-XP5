@@ -42,6 +42,8 @@ func add_trash(trash_card: TrashCard) -> void:
 			glass_trash_cards.append(trash_card)
 		TrashCardStats.types.organic:
 			organic_trash_cards.append(trash_card)
+			
+	trash_inventory_changed.emit(trash_card.stats.type)
 
 # called by RoundManager on move()
 func move_to_current_square() -> void:
