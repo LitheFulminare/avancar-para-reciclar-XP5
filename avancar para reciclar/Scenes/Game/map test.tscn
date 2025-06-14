@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=20 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
@@ -14,7 +14,10 @@
 [ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="9_ujeix"]
 [ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard trash.tres" id="11_v5epi"]
 [ext_resource type="Resource" uid="uid://d1411atrrck5y" path="res://Resources/Map Elements/Squares/Garbage truck.tres" id="12_ahe86"]
+[ext_resource type="Texture2D" uid="uid://b8t7623golbp7" path="res://Assets/Sprites/HUD & UI/HUD/green stats bar.png" id="13_ypxuo"]
 [ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="14_5w0ha"]
+[ext_resource type="Theme" uid="uid://b80bt64wlmq1g" path="res://Misc/Text/Gameplay HUD text.tres" id="14_7acfh"]
+[ext_resource type="Script" uid="uid://dy1mtwfdm3eoe" path="res://Scripts/HUD/player_stats_hud.gd" id="14_v2k4j"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="15_ujeix"]
 
 [node name="MapTest" type="Node2D"]
@@ -244,6 +247,110 @@ position = Vector2(962, 487)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 next_square = NodePath("../Square 1")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="Player Stats HUD" type="TextureRect" parent="HUD" node_paths=PackedStringArray("total_points_label", "paper_label", "metal_label", "glass_label", "plastic_label", "organic_label")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -390.0
+offset_right = 1166.0
+offset_bottom = 259.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_ypxuo")
+script = ExtResource("14_v2k4j")
+total_points_label = NodePath("Total points label")
+paper_label = NodePath("Paper label")
+metal_label = NodePath("Metal label")
+glass_label = NodePath("Glass label")
+plastic_label = NodePath("Plastic label")
+organic_label = NodePath("Organic label")
+
+[node name="Total points label" type="Label" parent="HUD/Player Stats HUD"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 148.0
+offset_right = 133.0
+offset_bottom = 176.0
+scale = Vector2(3, 3)
+theme = ExtResource("14_7acfh")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Paper label" type="Label" parent="HUD/Player Stats HUD"]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 28.0
+offset_right = 468.0
+offset_bottom = 72.0
+scale = Vector2(3, 3)
+theme = ExtResource("14_7acfh")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Metal label" type="Label" parent="HUD/Player Stats HUD"]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 32.0
+offset_right = 701.0
+offset_bottom = 75.0
+scale = Vector2(3, 3)
+theme = ExtResource("14_7acfh")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Glass label" type="Label" parent="HUD/Player Stats HUD"]
+layout_mode = 0
+offset_left = 908.0
+offset_top = 32.0
+offset_right = 953.0
+offset_bottom = 75.0
+scale = Vector2(3, 3)
+theme = ExtResource("14_7acfh")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Plastic label" type="Label" parent="HUD/Player Stats HUD"]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 32.0
+offset_right = 1197.0
+offset_bottom = 75.0
+scale = Vector2(3, 3)
+theme = ExtResource("14_7acfh")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Organic label" type="Label" parent="HUD/Player Stats HUD"]
+layout_mode = 0
+offset_left = 1400.0
+offset_top = 32.0
+offset_right = 1445.0
+offset_bottom = 75.0
+scale = Vector2(3, 3)
+theme = ExtResource("14_7acfh")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container" type="Control" parent="HUD"]
+visible = false
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
 
 [node name="Players" type="Node" parent="."]
 
