@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://upl3hrejn3dq"]
+
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/Question cards/question cards resource.gd" id="1_x2odw"]
+
+[resource]
+script = ExtResource("1_x2odw")
+question = "O óleo de cozinha usado não deve ser descartado na pia. Devemos colocá-lo em uma garrafa PET e levar para onde?"
+right_answer = "Ponto de coleta de óleo usado"
+wrong_answer_1 = "Farmácia"
+wrong_answer_2 = "Lixeira de resíduo reciclável"
+wrong_answer_3 = "Supermercado"
+metadata/_custom_type_script = "uid://spwobx81lsvr"

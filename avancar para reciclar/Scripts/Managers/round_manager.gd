@@ -239,8 +239,6 @@ func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
 
 # spawns a question card and randomizes its text
-# gets called by action() on the SquareManager
-## not complete, will have some more visual stuff going on
 func draw_question_card() -> void:
 	#instantiates the card
 	var question_card: QuestionCard = question_card_scene.instantiate()

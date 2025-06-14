@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://c2ek1fua3rcb8"]
+
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/Question cards/question cards resource.gd" id="1_44wnq"]
+
+[resource]
+script = ExtResource("1_44wnq")
+question = "Para onde são mandados fraldas e papel higiênico?"
+right_answer = "Aterro Sanitário"
+wrong_answer_1 = "Compostagem"
+wrong_answer_2 = "Pro rio"
+wrong_answer_3 = "Caminhão reciclável"
+metadata/_custom_type_script = "uid://spwobx81lsvr"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://b7377ciij8scn"]
+
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/Question cards/question cards resource.gd" id="1_x2bhv"]
+
+[resource]
+script = ExtResource("1_x2bhv")
+question = "A composteira transforma qual tipo de resíduo em adubo?"
+right_answer = "Orgânico"
+wrong_answer_1 = "Papel"
+wrong_answer_2 = "Reciclável"
+wrong_answer_3 = "Metal"
+metadata/_custom_type_script = "uid://spwobx81lsvr"

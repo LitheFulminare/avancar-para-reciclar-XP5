@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://dp4cqy5b7w17f"]
+
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/Question cards/question cards resource.gd" id="1_pvxrs"]
+
+[resource]
+script = ExtResource("1_pvxrs")
+question = "Como é chamada a ação de diminuir o consumo de produtos que não precisamos?"
+right_answer = "Reduzir"
+wrong_answer_1 = "Responder"
+wrong_answer_2 = "Reciclar"
+wrong_answer_3 = "Reafirmar"
+metadata/_custom_type_script = "uid://spwobx81lsvr"

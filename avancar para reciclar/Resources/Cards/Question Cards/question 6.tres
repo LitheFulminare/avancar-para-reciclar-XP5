@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://vh7q0cbagka1"]
+
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/Question cards/question cards resource.gd" id="1_qya7v"]
+
+[resource]
+script = ExtResource("1_qya7v")
+question = "Alguns dos produtos que compramos precisam de um destino especial, sendo responsabilidade da empresa que as fez a sua reciclagem ou destinação final. Como se chama esse processo afinal?"
+right_answer = "Logística reversa"
+wrong_answer_1 = "Reciclagem"
+wrong_answer_2 = "Triagem"
+wrong_answer_3 = "Compostagem"
+metadata/_custom_type_script = "uid://spwobx81lsvr"

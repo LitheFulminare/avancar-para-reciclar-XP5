@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://b0tb33p1qwkpb"]
+
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/Question cards/question cards resource.gd" id="1_jslk5"]
+
+[resource]
+script = ExtResource("1_jslk5")
+question = "Qual o nome do processo de aproveitamento do resíduo descartado, dando origem a um novo material ou produto?"
+right_answer = "Reciclagem"
+wrong_answer_1 = "Reutilização"
+wrong_answer_2 = "Retorno da embalagem"
+wrong_answer_3 = "Compostagem"
+metadata/_custom_type_script = "uid://spwobx81lsvr"

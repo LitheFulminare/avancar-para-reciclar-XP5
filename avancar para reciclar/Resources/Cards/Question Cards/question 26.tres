@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://ccu681in8lnln"]
+
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/Question cards/question cards resource.gd" id="1_c31ib"]
+
+[resource]
+script = ExtResource("1_c31ib")
+question = "Em qual destes produtos o papel reciclado pode se transformar?"
+right_answer = "Caixa"
+wrong_answer_1 = "Lanterna"
+wrong_answer_2 = "Toalha de banho"
+wrong_answer_3 = "Roupa"
+metadata/_custom_type_script = "uid://spwobx81lsvr"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestionCardTexts" load_steps=2 format=3 uid="uid://bnjpgr10p6gna"]
+
+[ext_resource type="Script" uid="uid://spwobx81lsvr" path="res://Scripts/Cards/Question cards/question cards resource.gd" id="1_3k4vy"]
+
+[resource]
+script = ExtResource("1_3k4vy")
+question = "Jogar medicamentos vencidos no meio ambiente é preocupante e gera risco à saúde de crianças e animais. Qual é a maneira correta de descartar esse tipo de resíduo?"
+right_answer = "Nos postos de saúde ou farmácias que possuem pontos de coleta"
+wrong_answer_1 = "Nos mercados"
+wrong_answer_2 = "Nos postos de gasolina"
+wrong_answer_3 = "Nos restaurantes"
+metadata/_custom_type_script = "uid://spwobx81lsvr"
