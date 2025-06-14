@@ -1,7 +1,78 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bnygovcukwib"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bnygovcukwib"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fqiw"]
 bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="ImageTexture" id="ImageTexture_6fqiw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbf7r"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.34902, 0.4, 0.054902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p60x3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.420047, 0.464844, 0.161606, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kg7mh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.414921, 0.46875, 0.10437, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuc38"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.176471, 0.2, 0.027451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v73bb"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [resource]
 default_font_size = 13
@@ -13,3 +84,14 @@ Button/font_sizes/font_size = 13
 Button/styles/focus = SubResource("StyleBoxFlat_6fqiw")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 13
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_6fqiw")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_6fqiw")
+VScrollBar/icons/increment = SubResource("ImageTexture_6fqiw")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_6fqiw")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_6fqiw")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_lbf7r")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_p60x3")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_kg7mh")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_nuc38")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_v73bb")
