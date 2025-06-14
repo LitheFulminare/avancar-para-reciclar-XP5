@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
-[ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/stack replacement.png" id="6_v2k4j"]
+[ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_v2k4j"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="8_5w0ha"]
 [ext_resource type="Resource" uid="uid://dvbvx8lvkwn7o" path="res://Resources/Map Elements/Squares/Quiz card.tres" id="8_riorq"]
@@ -292,10 +292,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 649.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Green HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
 layout_mode = 1
 player = NodePath("../../../Players/Player 1")
+metadata/_edit_use_anchors_ = true
 
 [node name="Yellow HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
 layout_mode = 1
@@ -303,34 +305,41 @@ offset_left = -1153.0
 offset_right = 193.0
 texture = ExtResource("14_7acfh")
 player = NodePath("../../../Players/Player 2")
+metadata/_edit_use_anchors_ = true
 
 [node name="Total points label" parent="CanvasLayer/HUD/Yellow HUD" index="0"]
 offset_left = 1000.0
 offset_right = 1121.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Paper label" parent="CanvasLayer/HUD/Yellow HUD" index="1"]
 offset_left = 104.0
 offset_right = 144.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Metal label" parent="CanvasLayer/HUD/Yellow HUD" index="2"]
 offset_left = 304.0
 offset_right = 349.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Glass label" parent="CanvasLayer/HUD/Yellow HUD" index="3"]
 offset_left = 516.0
 offset_right = 561.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Plastic label" parent="CanvasLayer/HUD/Yellow HUD" index="4"]
 offset_left = 732.0
 offset_top = 20.0
 offset_right = 777.0
 offset_bottom = 63.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Organic label" parent="CanvasLayer/HUD/Yellow HUD" index="5"]
 offset_left = 948.0
 offset_top = 24.0
 offset_right = 993.0
 offset_bottom = 67.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Red HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
 layout_mode = 1
@@ -340,42 +349,49 @@ offset_right = 193.0
 offset_bottom = 816.0
 texture = ExtResource("15_v2k4j")
 player = NodePath("../../../Players/Player 3")
+metadata/_edit_use_anchors_ = true
 
 [node name="Total points label" parent="CanvasLayer/HUD/Red HUD" index="0"]
 offset_left = 1000.0
 offset_top = 140.0
 offset_right = 1121.0
 offset_bottom = 168.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Paper label" parent="CanvasLayer/HUD/Red HUD" index="1"]
 offset_left = 104.0
 offset_top = 76.0
 offset_right = 144.0
 offset_bottom = 120.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Metal label" parent="CanvasLayer/HUD/Red HUD" index="2"]
 offset_left = 304.0
 offset_top = 76.0
 offset_right = 349.0
 offset_bottom = 119.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Glass label" parent="CanvasLayer/HUD/Red HUD" index="3"]
 offset_left = 516.0
 offset_top = 76.0
 offset_right = 561.0
 offset_bottom = 119.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Plastic label" parent="CanvasLayer/HUD/Red HUD" index="4"]
 offset_left = 732.0
 offset_top = 76.0
 offset_right = 777.0
 offset_bottom = 119.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Organic label" parent="CanvasLayer/HUD/Red HUD" index="5"]
 offset_left = 944.0
 offset_top = 76.0
 offset_right = 989.0
 offset_bottom = 119.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Container" type="Control" parent="CanvasLayer/HUD"]
 visible = false
