@@ -253,8 +253,7 @@ offset_right = 1153.0
 offset_bottom = 649.0
 
 [node name="Green HUD" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 player = NodePath("../../Players/Player 1")
 
 [node name="Container" type="Control" parent="HUD"]
