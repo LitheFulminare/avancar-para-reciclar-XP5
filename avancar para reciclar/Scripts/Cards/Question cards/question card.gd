@@ -15,6 +15,9 @@ var texts: QuestionCardTexts
 @export var answer3_button: Button
 @export var answer4_button: Button
 
+@export_group("Answer feedback")
+@export var answer_result: Label
+
 # remains unaltered, it's used to know if the player clicked on the right button
 @onready var base_answer_buttons: Array[Button] = [answer1_button, answer2_button, answer3_button, answer4_button]
 
@@ -26,10 +29,12 @@ var right_answer_index: int = 0
 # set on ready() since the resource has to be loaded
 var wrong_answers: Array[String]
 
-const right_color: Color = Color(0.35, 0.41, 0, 1)
-const wrong_color: Color = Color(0.875, 0, 0, 1)
+const right_color: Color = Color(0.35, 0.41, 0, 1) # green
+const wrong_color: Color = Color(0.875, 0, 0, 1) # red
 
 func _ready() -> void:
+	answer_result.visible = false
+	
 	face_up_elements.visible = false
 	face_down_elements.visible = true
 
@@ -81,21 +86,29 @@ func get_random_wrong_answer() -> String:
 	
 	return rand_ans
 
+# called when player presses a button
 func check_answer(button_index: int) -> void:
-		
-	if button_index == right_answer_index:
-		print("Right answer")
+	spawn_answer_result(button_index == right_answer_index)
 	
-	else:
-		print("Wrong answer")
+	disable_buttons()
 		
+	await get_tree().create_timer(2).timeout
+	queue_free()
+
+# spawns a text above the card telling the result
+# will also do some eye candy stuff
+func spawn_answer_result(player_got_right: bool):
+	answer_result.visible = true
+	
+	if !player_got_right:
+		answer_result.text = "Errado"
+		answer_result.add_theme_color_override("font_outline_color", wrong_color)
+
+func disable_buttons() -> void:
 	answer1_button.disabled = true
 	answer2_button.disabled = true
 	answer3_button.disabled = true
 	answer4_button.disabled = true
-		
-	await get_tree().create_timer(2).timeout
-	queue_free()
 
 func _on_answer_1_pressed() -> void:
 	print("Button 1 pressed")

@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://bnygovcukwib" path="res://Misc/Text/Question card text theme.tres" id="3_kmoot"]
 [ext_resource type="Texture2D" uid="uid://3kunblxicgqt" path="res://Assets/card replacement.png" id="5_bryby"]
 
-[node name="Question Card" type="Node2D" node_paths=PackedStringArray("face_up_elements", "face_down_elements", "question_text_label", "answer1_button", "answer2_button", "answer3_button", "answer4_button")]
+[node name="Question Card" type="Node2D" node_paths=PackedStringArray("face_up_elements", "face_down_elements", "question_text_label", "answer1_button", "answer2_button", "answer3_button", "answer4_button", "answer_result")]
 script = ExtResource("1_7iqeb")
 face_up_elements = NodePath("Face up elements")
 face_down_elements = NodePath("Face down elements")
@@ -15,6 +15,7 @@ answer1_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContaine
 answer2_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 2")
 answer3_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 3")
 answer4_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 4")
+answer_result = NodePath("Answer result label")
 
 [node name="Face up elements" type="Node2D" parent="."]
 
@@ -99,6 +100,19 @@ visible = false
 position = Vector2(-8.5, -3.5)
 scale = Vector2(0.153906, 0.153241)
 texture = ExtResource("5_bryby")
+
+[node name="Answer result label" type="Label" parent="."]
+offset_left = -190.0
+offset_top = -214.0
+offset_right = 181.0
+offset_bottom = -145.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.34902, 0.4, 0.054902, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 50
+text = "Correto!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="resized" from="Face up elements/Question text" to="Face up elements/Question text" method="_on_resized"]
 [connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 1" to="." method="_on_answer_1_pressed"]
