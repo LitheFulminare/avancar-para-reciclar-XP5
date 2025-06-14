@@ -102,10 +102,11 @@ scale = Vector2(0.153906, 0.153241)
 texture = ExtResource("5_bryby")
 
 [node name="Answer result label" type="Label" parent="."]
-offset_left = -190.0
-offset_top = -214.0
-offset_right = 181.0
-offset_bottom = -145.0
+offset_left = -191.0
+offset_top = -212.0
+offset_right = 180.0
+offset_bottom = -143.0
+pivot_offset = Vector2(185.5, 34.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.34902, 0.4, 0.054902, 1)
 theme_override_constants/outline_size = 11

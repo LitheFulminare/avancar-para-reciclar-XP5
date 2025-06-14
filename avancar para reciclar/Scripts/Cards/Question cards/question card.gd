@@ -33,6 +33,7 @@ const right_color: Color = Color(0.35, 0.41, 0, 1) # green
 const wrong_color: Color = Color(0.875, 0, 0, 1) # red
 
 func _ready() -> void:
+	#answer_result.size = Vector2.ZERO
 	answer_result.visible = false
 	
 	face_up_elements.visible = false
@@ -98,11 +99,23 @@ func check_answer(button_index: int) -> void:
 # spawns a text above the card telling the result
 # will also do some eye candy stuff
 func spawn_answer_result(player_got_right: bool):
-	answer_result.visible = true
-	
 	if !player_got_right:
 		answer_result.text = "Errado"
 		answer_result.add_theme_color_override("font_outline_color", wrong_color)
+		
+	make_label_grow(answer_result, Vector2(1, 1))
+
+func make_label_grow(target_node: Label, target_size: Vector2) -> void:
+	await get_tree().process_frame
+	
+	target_node.pivot_offset.x = target_node.size.x / 2
+	target_node.pivot_offset.y = target_node.size.y / 2
+	
+	target_node.scale = Vector2.ZERO
+	answer_result.visible = true
+	
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(target_node, "scale", target_size, 0.2)
 
 func disable_buttons() -> void:
 	answer1_button.disabled = true
