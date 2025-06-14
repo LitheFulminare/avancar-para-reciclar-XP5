@@ -242,7 +242,7 @@ func get_random_trash_type() -> TrashCardStats:
 func draw_question_card() -> void:
 	#instantiates the card
 	var question_card: QuestionCard = question_card_scene.instantiate()
-	get_tree().root.add_child(question_card)
+	$"../CanvasLayer".add_child(question_card)
 	
 	# changes the text, sets position to the card stack nad changes the size
 	question_card.set_texts(question_card_res_manager.get_random_question_res())

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=20 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
@@ -16,7 +16,9 @@
 [ext_resource type="Resource" uid="uid://d1411atrrck5y" path="res://Resources/Map Elements/Squares/Garbage truck.tres" id="12_ahe86"]
 [ext_resource type="PackedScene" uid="uid://bhtxvatf0dymt" path="res://Scenes/HUD/player_stats_hud.tscn" id="13_ypxuo"]
 [ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="14_5w0ha"]
+[ext_resource type="Texture2D" uid="uid://bne4yq8i4a55u" path="res://Assets/Sprites/HUD & UI/HUD/yellow stats bar.png" id="14_7acfh"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="15_ujeix"]
+[ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/red stats bar.png" id="15_v2k4j"]
 
 [node name="MapTest" type="Node2D"]
 
@@ -246,23 +248,6 @@ scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 next_square = NodePath("../Square 1")
 
-[node name="HUD" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1153.0
-offset_bottom = 649.0
-
-[node name="Green HUD" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
-layout_mode = 1
-player = NodePath("../../Players/Player 1")
-
-[node name="Container" type="Control" parent="HUD"]
-visible = false
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-
 [node name="Players" type="Node" parent="."]
 
 [node name="Player 1" parent="Players" instance=ExtResource("7_v5epi")]
@@ -290,5 +275,108 @@ limit_top = 0
 limit_right = 1152
 limit_bottom = 648
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="Green HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+layout_mode = 1
+player = NodePath("../../../Players/Player 1")
+
+[node name="Yellow HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+layout_mode = 1
+offset_left = -1153.0
+offset_right = 193.0
+texture = ExtResource("14_7acfh")
+player = NodePath("../../../Players/Player 2")
+
+[node name="Total points label" parent="CanvasLayer/HUD/Yellow HUD" index="0"]
+offset_left = 1000.0
+offset_right = 1121.0
+
+[node name="Paper label" parent="CanvasLayer/HUD/Yellow HUD" index="1"]
+offset_left = 104.0
+offset_right = 144.0
+
+[node name="Metal label" parent="CanvasLayer/HUD/Yellow HUD" index="2"]
+offset_left = 304.0
+offset_right = 349.0
+
+[node name="Glass label" parent="CanvasLayer/HUD/Yellow HUD" index="3"]
+offset_left = 516.0
+offset_right = 561.0
+
+[node name="Plastic label" parent="CanvasLayer/HUD/Yellow HUD" index="4"]
+offset_left = 732.0
+offset_top = 20.0
+offset_right = 777.0
+offset_bottom = 63.0
+
+[node name="Organic label" parent="CanvasLayer/HUD/Yellow HUD" index="5"]
+offset_left = 948.0
+offset_top = 24.0
+offset_right = 993.0
+offset_bottom = 67.0
+
+[node name="Red HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+layout_mode = 1
+offset_left = -1153.0
+offset_top = 592.0
+offset_right = 193.0
+offset_bottom = 816.0
+texture = ExtResource("15_v2k4j")
+player = NodePath("../../../Players/Player 3")
+
+[node name="Total points label" parent="CanvasLayer/HUD/Red HUD" index="0"]
+offset_left = 1000.0
+offset_top = 140.0
+offset_right = 1121.0
+offset_bottom = 168.0
+
+[node name="Paper label" parent="CanvasLayer/HUD/Red HUD" index="1"]
+offset_left = 104.0
+offset_top = 76.0
+offset_right = 144.0
+offset_bottom = 120.0
+
+[node name="Metal label" parent="CanvasLayer/HUD/Red HUD" index="2"]
+offset_left = 304.0
+offset_top = 76.0
+offset_right = 349.0
+offset_bottom = 119.0
+
+[node name="Glass label" parent="CanvasLayer/HUD/Red HUD" index="3"]
+offset_left = 516.0
+offset_top = 76.0
+offset_right = 561.0
+offset_bottom = 119.0
+
+[node name="Plastic label" parent="CanvasLayer/HUD/Red HUD" index="4"]
+offset_left = 732.0
+offset_top = 76.0
+offset_right = 777.0
+offset_bottom = 119.0
+
+[node name="Organic label" parent="CanvasLayer/HUD/Red HUD" index="5"]
+offset_left = 944.0
+offset_top = 76.0
+offset_right = 989.0
+offset_bottom = 119.0
+
+[node name="Container" type="Control" parent="CanvasLayer/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
 [editable path="Players/Player 2"]
 [editable path="Players/Player 3"]
+[editable path="CanvasLayer/HUD/Yellow HUD"]
+[editable path="CanvasLayer/HUD/Red HUD"]
