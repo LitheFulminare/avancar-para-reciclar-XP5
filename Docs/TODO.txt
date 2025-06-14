@@ -1,0 +1,23 @@
+TODO:
+
+>> Finish trash card spawn
+	- create a card background
+	- make it appear on screen
+	- make it move to the player and shrink till it disappears (use tween)
+
+>> Create a right/wrong feedback when answering a question card
+	- still not sure what to do
+
+>> Finish square action stuff
+	- prob will create a resource for each of them containing a script that will be run
+
+>> Implement discard trash thing when getting an answer right
+	- can reuse the "discard trash square" script since it's the same principle
+
+>> Some sort of feedback when starting a game, changing turns, rounds, "Hora do minigame!" and game end
+	- can reuse some of  the logic on the boat minigame to display this stuff
+
+>> Go to minigame when finishing a round
+	- easy, just use game_manager.go_to_scene()
+
+>> Save and load state when going to a minigame scene and then going back to the board scene
