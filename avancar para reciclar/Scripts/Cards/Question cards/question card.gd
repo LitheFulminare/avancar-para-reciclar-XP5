@@ -26,6 +26,9 @@ var right_answer_index: int = 0
 # set on ready() since the resource has to be loaded
 var wrong_answers: Array[String]
 
+const right_color: Color = Color(0.35, 0.41, 0, 1)
+const wrong_color: Color = Color(0.875, 0, 0, 1)
+
 func _ready() -> void:
 	face_up_elements.visible = false
 	face_down_elements.visible = true
@@ -47,23 +50,16 @@ func set_texts(question_texts: QuestionCardTexts) -> void:
 	right_answer_index = randi_range(0, answer_buttons.size()-1)
 	answer_buttons[right_answer_index].text = texts.right_answer
 	#print("right answer index: " + str(right_answer_index))
-	answer_buttons.remove_at(right_answer_index)
 	
-	## WRITE THIS IN A WHILE FUNCTIONS INSTEAD
-	#for i in answer_buttons.size()-1:
-		#print("iteration " + str(i))
-		#answer_buttons[i].text = get_random_wrong_answer()
-		#print("answer button text: " + answer_buttons[i].text)
-		#answer_buttons.remove_at(i)
-		#print("remaining buttons: " + str(answer_buttons.size()))
-		
+	answer_buttons[right_answer_index].add_theme_color_override("font_disabled_color", right_color)
+	answer_buttons.remove_at(right_answer_index)
 		
 	## the i is for debug purposes only, it can be deleted
-	var i: int = 0
+	var _i: int = 0
 	
 	# randomizes the wrong answers
 	while answer_buttons.size() > 0:
-		i += 1
+		_i += 1
 		#print("iteration " + str(i))
 		answer_buttons[0].text = get_random_wrong_answer()
 		#print("answer button text: " + answer_buttons[0].text)
@@ -86,11 +82,17 @@ func get_random_wrong_answer() -> String:
 	return rand_ans
 
 func check_answer(button_index: int) -> void:
+		
 	if button_index == right_answer_index:
 		print("Right answer")
 	
 	else:
 		print("Wrong answer")
+		
+	answer1_button.disabled = true
+	answer2_button.disabled = true
+	answer3_button.disabled = true
+	answer4_button.disabled = true
 		
 	await get_tree().create_timer(2).timeout
 	queue_free()
