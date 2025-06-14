@@ -7,7 +7,12 @@ signal stopped_moving # connected to player_stopped_moving() on the RoundManager
 @export var total_cards: int = 0
 @export var speed: float = 50
 
-var trash_cards: Array[TrashCard] = []
+var points: int
+var paper_trash_cards: Array[TrashCard] = []
+var plastic_trash_cards: Array[TrashCard] = []
+var metal_trash_cards: Array[TrashCard] = []
+var glass_trash_cards: Array[TrashCard] = []
+var organic_trash_cards: Array[TrashCard] = []
 
 # doesn't get changed internally
 # RoundManager changes right before moving the player

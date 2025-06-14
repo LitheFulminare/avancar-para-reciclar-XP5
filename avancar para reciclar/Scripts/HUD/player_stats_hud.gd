@@ -23,15 +23,19 @@ extends TextureRect
 #}
 #endregion
 
+# updates the text based on what type of trash count need to be updated
 func update_trash_text(trash_type: TrashCardStats.types) -> void:
 	match trash_type:
 		TrashCardStats.types.paper:
-			return
+			paper_label.text = str(player.paper_trash_cards.size())
 		TrashCardStats.types.plastic:
-			return
+			metal_label.text = str(player.plastic_trash_cards.size())
 		TrashCardStats.types.metal:
-			return
+			glass_label.text = str(player.metal_trash_cards.size())
 		TrashCardStats.types.glass:
-			return
+			glass_label.text = str(player.glass_trash_cards.size())
 		TrashCardStats.types.organic:
-			return
+			organic_label.text = str(player.organic_trash_cards.size())
+
+func update_total_points() -> void:
+	total_points_label.text = str(player.points)

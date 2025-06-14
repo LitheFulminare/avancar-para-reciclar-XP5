@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhtxvatf0dymt"]
+
+[ext_resource type="Texture2D" uid="uid://b8t7623golbp7" path="res://Assets/Sprites/HUD & UI/HUD/green stats bar.png" id="1_1jpge"]
+[ext_resource type="Script" uid="uid://dy1mtwfdm3eoe" path="res://Scripts/HUD/player_stats_hud.gd" id="2_p0rjn"]
+[ext_resource type="Theme" uid="uid://b80bt64wlmq1g" path="res://Misc/Text/Gameplay HUD text.tres" id="3_f7clm"]
+
+[node name="Player Stats HUD" type="TextureRect" node_paths=PackedStringArray("total_points_label", "paper_label", "metal_label", "glass_label", "plastic_label", "organic_label")]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -390.0
+offset_right = 1166.0
+offset_bottom = 259.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_1jpge")
+script = ExtResource("2_p0rjn")
+total_points_label = NodePath("Total points label")
+paper_label = NodePath("Paper label")
+metal_label = NodePath("Metal label")
+glass_label = NodePath("Glass label")
+plastic_label = NodePath("Plastic label")
+organic_label = NodePath("Organic label")
+
+[node name="Total points label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 148.0
+offset_right = 133.0
+offset_bottom = 176.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_f7clm")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Paper label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 28.0
+offset_right = 468.0
+offset_bottom = 72.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_f7clm")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Metal label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 32.0
+offset_right = 701.0
+offset_bottom = 75.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_f7clm")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Glass label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 908.0
+offset_top = 32.0
+offset_right = 953.0
+offset_bottom = 75.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_f7clm")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Plastic label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 32.0
+offset_right = 1197.0
+offset_bottom = 75.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_f7clm")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Organic label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1400.0
+offset_top = 32.0
+offset_right = 1445.0
+offset_bottom = 75.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_f7clm")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
