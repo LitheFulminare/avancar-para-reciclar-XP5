@@ -22,15 +22,20 @@
 
 [node name="MapTest" type="Node2D"]
 
-[node name="Round Manager" type="Node" parent="." node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square")]
+[node name="Managers" type="Node" parent="."]
+
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square", "player1", "player2", "player3")]
 script = ExtResource("1_oqp8s")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
-main_camera = NodePath("../Scrolling Camera")
-question_card_spawn = NodePath("../BG and Map Elements/Stack of question cards/Question Marker Spawn")
-first_square = NodePath("../Squares/Square 1")
+main_camera = NodePath("../../Scrolling Camera")
+question_card_spawn = NodePath("../../BG and Map Elements/Stack of question cards/Question Marker Spawn")
+first_square = NodePath("../../Squares/Square 1")
+player1 = NodePath("../../Players/Player 1")
+player2 = NodePath("../../Players/Player 2")
+player3 = NodePath("../../Players/Player 3")
 
-[node name="Path Manager" type="Node" parent="."]
+[node name="Path Manager" type="Node" parent="Managers"]
 editor_description = "handles branching paths and this kind of thing
 "
 script = ExtResource("2_81x0c")
@@ -43,12 +48,12 @@ branch2_A_end = 23
 branch2_B_start = 24
 branch2_B_end = 27
 
-[node name="Square Manager" type="Node" parent="." node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
+[node name="Square Manager" type="Node" parent="Managers" node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
 script = ExtResource("3_q0u56")
 round_manager = NodePath("../Round Manager")
 square_size = 0.12
 
-[node name="Question Card Res Manager" type="Node" parent="."]
+[node name="Question Card Res Manager" type="Node" parent="Managers"]
 script = ExtResource("4_riorq")
 
 [node name="BG and Map Elements" type="Node" parent="."]

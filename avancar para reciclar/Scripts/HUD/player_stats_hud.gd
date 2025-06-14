@@ -31,6 +31,8 @@ func _ready() -> void:
 	update_trash_text(TrashCardStats.types.organic)
 	
 	update_total_points()
+	
+	player.trash_inventory_changed.connect(update_trash_text)
 
 # updates the text based on what type of trash count need to be updated
 func update_trash_text(trash_type: TrashCardStats.types) -> void:

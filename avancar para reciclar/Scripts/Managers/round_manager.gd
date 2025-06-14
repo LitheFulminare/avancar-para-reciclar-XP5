@@ -22,7 +22,7 @@ enum round_states
 @export var question_card_spawn: Marker2D
 @export var first_square: Square
 
-@onready var card_stack: Sprite2D = $"../BG and Map Elements/Stack of question cards"
+@onready var card_stack: Sprite2D = $"../../BG and Map Elements/Stack of question cards"
 
 var current_round_state: round_states = round_states.start_round
 
@@ -59,11 +59,12 @@ var trash_card_types: Array[TrashCardStats] = [
 const trash_card_path: String = "res://Scenes/Cards/Trash card.tscn"
 var trash_card: PackedScene = preload(trash_card_path)
 
-@onready var player1: Player = $"../Players/Player 1"
-@onready var player2: Player = $"../Players/Player 2"
-@onready var player3: Player = $"../Players/Player 3"
+@export_group("Players")
+@export var player1: Player
+@export var player2: Player
+@export var player3: Player
 
-@onready var player_array: Array[Node] = $"../Players".get_children()
+@onready var player_array: Array[Node] = $"../../Players".get_children()
 @onready var square_array: Array[Square] = get_squares()
 
 func _ready() -> void:
@@ -229,11 +230,11 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	# instantiates the trash card and assign the correct type
 	var spawned_trash_card: TrashCard = trash_card.instantiate()
 	get_tree().root.add_child(spawned_trash_card)
-	spawned_trash_card.stats = trash_type
+	spawned_trash_card.update_stats(trash_type)
 	
 	# gives the card to the target player
 	var player: Player = player_array[target_player_index]
-	player.trash_cards.append(spawned_trash_card)
+	player.add_trash(spawned_trash_card)
 
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
@@ -242,7 +243,7 @@ func get_random_trash_type() -> TrashCardStats:
 func draw_question_card() -> void:
 	#instantiates the card
 	var question_card: QuestionCard = question_card_scene.instantiate()
-	$"../CanvasLayer".add_child(question_card)
+	$"../../CanvasLayer".add_child(question_card)
 	
 	# changes the text, sets position to the card stack nad changes the size
 	question_card.set_texts(question_card_res_manager.get_random_question_res())
@@ -265,7 +266,7 @@ func draw_question_card() -> void:
 # returns array of the squares
 # get_children() only returns an array of node so you have to come up with your own solution
 func get_squares() -> Array[Square]:
-	var nodes: Array[Node] = $"../Squares".get_children()
+	var nodes: Array[Node] = $"../../Squares".get_children()
 	var squares: Array[Square] = []
 	for node in nodes:
 		if node is Square:
@@ -279,3 +280,4 @@ func get_squares() -> Array[Square]:
 func camera_finished_zooming_out() -> void:
 	await get_tree().create_timer(1).timeout
 	draw_question_card()
+	add_trash(turn-1, get_random_trash_type())

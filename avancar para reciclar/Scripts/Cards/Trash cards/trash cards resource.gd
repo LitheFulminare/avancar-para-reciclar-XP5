@@ -21,3 +21,6 @@ enum types
 # the the video did it cuz it translates the color name (enum) to the color's code
 func get_type() -> types:
 	return type
+
+func get_random_sprite() -> Texture2D:
+	return sprites.pick_random()
