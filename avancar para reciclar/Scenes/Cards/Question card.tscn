@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d3bknv5t61f0k" path="res://Scripts/Cards/Question cards/question card.gd" id="1_7iqeb"]
 [ext_resource type="Texture2D" uid="uid://di4gx44nhwgq7" path="res://Assets/Sprites/Cards/Question cards/Question card facing up.png" id="2_2gg23"]
-[ext_resource type="Texture2D" uid="uid://d12io1c2of5s4" path="res://Assets/Sprites/Cards/Question cards/Question card facing down.png" id="2_5nxy6"]
 [ext_resource type="Script" uid="uid://bxvwd2sst80lt" path="res://Scripts/Misc/fit_text_in_label.gd" id="3_bryby"]
 [ext_resource type="Theme" uid="uid://bnygovcukwib" path="res://Misc/Text/Question card text theme.tres" id="3_kmoot"]
+[ext_resource type="Texture2D" uid="uid://3kunblxicgqt" path="res://Assets/card replacement.png" id="5_bryby"]
 
 [node name="Question Card" type="Node2D" node_paths=PackedStringArray("face_up_elements", "face_down_elements", "question_text_label", "answer1_button", "answer2_button", "answer3_button", "answer4_button")]
 script = ExtResource("1_7iqeb")
@@ -96,7 +96,9 @@ autowrap_mode = 2
 visible = false
 
 [node name="Face down sprite" type="Sprite2D" parent="Face down elements"]
-texture = ExtResource("2_5nxy6")
+position = Vector2(-8.5, -3.5)
+scale = Vector2(0.153906, 0.153241)
+texture = ExtResource("5_bryby")
 
 [connection signal="resized" from="Face up elements/Question text" to="Face up elements/Question text" method="_on_resized"]
 [connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 1" to="." method="_on_answer_1_pressed"]

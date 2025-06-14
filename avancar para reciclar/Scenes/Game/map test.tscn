@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
-[ext_resource type="Texture2D" uid="uid://d2bl6tcfe6e5o" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_ahe86"]
+[ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/stack replacement.png" id="6_v2k4j"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="8_5w0ha"]
 [ext_resource type="Resource" uid="uid://dvbvx8lvkwn7o" path="res://Resources/Map Elements/Squares/Quiz card.tres" id="8_riorq"]
@@ -63,18 +63,20 @@ script = ExtResource("4_riorq")
 
 [node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
 z_index = -1
+texture_filter = 1
 position = Vector2(-1, 0)
-scale = Vector2(0.300521, 0.300463)
+scale = Vector2(0.30026, 0.300463)
 texture = ExtResource("5_5w0ha")
 centered = false
 
 [node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]
-position = Vector2(61, 430)
-scale = Vector2(0.343333, 0.343333)
-texture = ExtResource("6_ahe86")
+position = Vector2(59.5, 428.5)
+scale = Vector2(0.0518229, 0.0532407)
+texture = ExtResource("6_v2k4j")
 
 [node name="Question Marker Spawn" type="Marker2D" parent="BG and Map Elements/Stack of question cards"]
-scale = Vector2(2.17391, 2.17391)
+position = Vector2(28.9446, 28.1738)
+scale = Vector2(14.4024, 14.0189)
 
 [node name="Squares" type="Node" parent="."]
 
@@ -288,7 +290,7 @@ limit_bottom = 648
 [node name="HUD" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1153.0
+offset_right = 1152.0
 offset_bottom = 649.0
 
 [node name="Green HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
