@@ -38,15 +38,19 @@ func action(type: square_type):
 		
 func luck_card() -> void:
 	print("Player landed on a Luck Card square")
+	round_manager.square_action_finished()
 
 func collect_trash() -> void:
 	round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
+	round_manager.square_action_finished()
 	
 func discard_trash() -> void:
 	print("Player landed on a Discard trash square")
+	round_manager.square_action_finished()
 	
 func garbage_truck() -> void:
 	print("Player landed on a Garbade Truck square")
+	round_manager.square_action_finished()
 
 func quiz_card():
 	round_manager.draw_question_card()

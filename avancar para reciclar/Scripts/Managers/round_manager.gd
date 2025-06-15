@@ -171,7 +171,7 @@ func start_turn() -> void:
 	game_message.display_current_player(turn-1)
 	
 	await get_tree().create_timer(2).timeout
-	game_message.hide_text()
+	game_message.visible = false
 	await get_tree().create_timer(1).timeout
 	main_camera.zoom_to_location(active_player.global_position)
 	
@@ -218,7 +218,9 @@ func end_round():
 	current_round += 1
 	current_round_state = round_states.start_round
 	
-	action()
+	game_message.display_message("Minigame time!")
+	
+	go_to_minigame()
 
 func move(bypass_fork_check: bool = false) -> void:
 	if total_dice_result > 0:
@@ -296,6 +298,13 @@ func question_card_closed() -> void:
 	current_round_state = round_states.end_turn
 	action()
 
+# maybe this could replace question_card_closed() entirely
+func square_action_finished() -> void:
+	await get_tree().create_timer(0.5).timeout
+	
+	current_round_state = round_states.end_turn
+	action()
+
 # gives the specified player a trash card
 func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	# instantiates the trash card and assign the correct type
@@ -357,3 +366,6 @@ func camera_finished_zooming_out() -> void:
 	active_player.square.action()
 	#draw_question_card()
 	#add_trash(turn-1, get_random_trash_type())
+
+func go_to_minigame() -> void:
+	GameManager.go_to_scene("res://Scenes/Minigames/Boat minigame/Boat minigame.tscn")
