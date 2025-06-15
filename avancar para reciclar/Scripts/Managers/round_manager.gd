@@ -123,11 +123,7 @@ func action() -> void:
 			start_round()
 		
 		round_states.start_turn:
-			turn += 1
-			active_player = player_array[turn-1]
-			print(active_player.name + "'s turn")
-			main_camera.zoom_to_location(active_player.global_position)
-			current_round_state = round_states.first_dice_roll
+			start_turn()
 		
 		round_states.first_dice_roll: 
 			first_dice_result = GameManager.roll_dice(1, 6)
@@ -163,7 +159,7 @@ func action() -> void:
 			current_round += 1
 			current_round_state = round_states.start_round
 
-func start_round():
+func start_round() -> void:
 	await get_tree().create_timer(2).timeout
 	game_message.display_new_round_message(current_round)
 	turn = 0
@@ -171,6 +167,18 @@ func start_round():
 	await get_tree().create_timer(2).timeout
 	current_round_state = round_states.start_turn
 	action()
+
+func start_turn() -> void:
+	turn += 1
+	active_player = player_array[turn-1]
+	game_message.display_current_player(turn-1)
+	
+	await get_tree().create_timer(2).timeout
+	game_message.hide_text()
+	await get_tree().create_timer(1).timeout
+	main_camera.zoom_to_location(active_player.global_position)
+	current_round_state = round_states.first_dice_roll
+	action() 
 
 func move(bypass_fork_check: bool = false) -> void:
 	if total_dice_result > 0:

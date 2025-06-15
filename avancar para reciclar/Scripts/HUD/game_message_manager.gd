@@ -27,6 +27,8 @@ func display_new_round_message(current_round: int) -> void:
 	text = "Rodada " + str(current_round)
 	
 func display_current_player(current_player: players) -> void:
+	unhide_text()
+	
 	var player_color_name: String
 	var new_color: Color
 	
@@ -44,3 +46,10 @@ func display_current_player(current_player: players) -> void:
 	text = "Vez do jogador \n" 
 	seconday_label.text = "\n" + player_color_name
 	seconday_label.add_theme_color_override("font_color", new_color)
+
+func hide_text() -> void:
+	visible = false
+
+func unhide_text() -> void:
+	visible = true
+	seconday_label.visible = true
