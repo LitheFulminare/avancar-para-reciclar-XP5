@@ -154,10 +154,7 @@ func action() -> void:
 			end_turn()
 			
 		round_states.end_round:
-			print("Round ended")
-			print("")
-			current_round += 1
-			current_round_state = round_states.start_round
+			end_round()
 
 func start_round() -> void:
 	await get_tree().create_timer(2).timeout
@@ -181,9 +178,6 @@ func start_turn() -> void:
 	await get_tree().create_timer(0.3).timeout
 	
 	active_player.spawn_interaction_buttons(true)
-	
-	#current_round_state = round_states.first_dice_roll
-	#action() 
 
 func player_pressed_dice_button() -> void:
 	if current_round_state == round_states.start_turn:
@@ -206,9 +200,9 @@ func dice_roll(is_first_dice_roll: bool) -> void:
 		second_dice_result = GameManager.roll_dice(1, 6)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
-		## this was written when this part was on action(), but i'll keep it anyways
-		# if there is a special item that makes the player roll another dice I could 
-		# add another state here
+		# this was written when this part was on action(), but i'll keep it anyways:
+			# if there is a special item that makes the player roll another dice I could 
+			# add another state here
 		current_round_state = round_states.move
 		action()
 
@@ -218,6 +212,12 @@ func end_turn() -> void:
 	else:
 		current_round_state = round_states.start_turn
 		
+	action()
+
+func end_round():
+	current_round += 1
+	current_round_state = round_states.start_round
+	
 	action()
 
 func move(bypass_fork_check: bool = false) -> void:
@@ -289,7 +289,12 @@ func branch_chosen():
 	#add_trash(turn-1, get_random_trash_type())
 
 func player_answered(answer_result: bool) -> void:
-	# I can put discard trash logic here
+	# maybe I can put discard trash logic here, not sure yet
+	return
+	
+func question_card_closed() -> void:
+	await get_tree().create_timer(1).timeout
+	
 	current_round_state = round_states.end_turn
 	action()
 
@@ -329,6 +334,7 @@ func draw_question_card() -> void:
 	await tween.finished
 	
 	question_card.player_answered.connect(player_answered)
+	question_card.tree_exiting.connect(question_card_closed)
 	
 	await get_tree().create_timer(1).timeout
 	question_card.reveal()
