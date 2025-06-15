@@ -11,29 +11,38 @@ TODO:
 	- make it appear on screen
 	- make it move to the player and shrink till it disappears (use tween)
 
->> Create a right/wrong feedback when answering a question card
-	- (done) make right answer green and the wrong ones red
-	- play a sound reflecting whether it's right or wrong
-	- (done) put a text above the card "Correct!", "Wrong"
-
 >> Finish square action stuff
 	- prob will create a resource for each of them containing a script that will be run
 
 >> Implement discard trash thing when getting an answer right
 	- can reuse the "discard trash square" script since it's the same principle
 
->> Some sort of feedback when starting a game, changing turns, rounds, "Hora do minigame!" and game end
-	- can reuse some of  the logic on the boat minigame to display this stuff
-
->> Go to minigame when finishing a round
-	- easy, just use game_manager.go_to_scene()
-
 >> Save and load state when going to a minigame scene and then going back to the board scene
 	- not sure whether I'll use GameManager or create a new autoload, or a new thing I haven't learned yet. Still have to do some research
 
+>> Create a preparation scene before the minigame, just like Mario Party - and show controls
+
+>> Make player able to navigate the camera through the map and show controls
 
 (Arthur stuff)
 
 >> Change quiz square icon to match new question mark font
 
 >> Ajust branch 1 A (it's overlapping with the HUD
+
+
+
+PARTIALLY DONE
+
+>> Create a right/wrong feedback when answering a question card
+	- (done) make right answer green and the wrong ones red
+	- play a sound reflecting whether it's right or wrong
+	- (done) put a text above the card "Correct!", "Wrong"
+
+>> Go to minigame when finishing a round
+	- (done) easy, just use game_manager.go_to_scene()
+
+DONE
+
+>> Some sort of feedback when starting a game, changing turns, rounds, "Hora do minigame!" and game end
+	- (done) can reuse some of  the logic on the boat minigame to display this stuff

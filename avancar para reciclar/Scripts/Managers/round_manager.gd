@@ -218,7 +218,9 @@ func end_round():
 	current_round += 1
 	current_round_state = round_states.start_round
 	
-	game_message.display_message("Minigame time!")
+	game_message.display_message("Hora do minigame!")
+	
+	await get_tree().create_timer(1.5).timeout
 	
 	go_to_minigame()
 
