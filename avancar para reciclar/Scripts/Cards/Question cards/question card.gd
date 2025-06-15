@@ -1,6 +1,8 @@
 class_name QuestionCard
 extends Node
 
+signal player_answered(is_answer_right: bool)
+
 # set by RoundManager when being instantiated
 var texts: QuestionCardTexts
 
@@ -89,6 +91,7 @@ func get_random_wrong_answer() -> String:
 
 # called when player presses a button
 func check_answer(button_index: int) -> void:
+	player_answered.emit(button_index == right_answer_index)
 	spawn_answer_result(button_index == right_answer_index)
 	
 	disable_buttons()

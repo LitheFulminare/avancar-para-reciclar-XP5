@@ -291,6 +291,11 @@ func branch_chosen():
 	## gives the active_player a random trash card
 	#add_trash(turn-1, get_random_trash_type())
 
+func player_answered(answer_result: bool) -> void:
+	# I can put discard trash logic here
+	current_round_state = round_states.end_turn
+	action()
+
 # gives the specified player a trash card
 func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	# instantiates the trash card and assign the correct type
@@ -325,6 +330,8 @@ func draw_question_card() -> void:
 	tween.tween_property(question_card, "position", screen_mid_point, 0.6)
 	tween.tween_property(question_card, "scale", Vector2(1.5,1.5), 0.6)
 	await tween.finished
+	
+	question_card.player_answered.connect(player_answered)
 	
 	await get_tree().create_timer(1).timeout
 	question_card.reveal()

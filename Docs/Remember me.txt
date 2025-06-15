@@ -1,0 +1,3 @@
+After answering the question a signal is emitted to the player_answered() func
+The state is changed to end_turn, action() is called again and it detects that the turn has ended
+Now I just have to make the end_turn part its own function and automate the turn change functionality
