@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=21 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bne4yq8i4a55u" path="res://Assets/Sprites/HUD & UI/HUD/yellow stats bar.png" id="14_7acfh"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="15_ujeix"]
 [ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/red stats bar.png" id="15_v2k4j"]
+[ext_resource type="Script" uid="uid://bjd7a3ows5xbg" path="res://Scripts/HUD/game_message_manager.gd" id="20_uahh7"]
 
 [node name="MapTest" type="Node2D"]
 
@@ -393,14 +394,27 @@ offset_right = 989.0
 offset_bottom = 119.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Container" type="Control" parent="CanvasLayer/HUD"]
-visible = false
+[node name="Game message" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = -55.5
+offset_right = 232.5
+offset_bottom = 55.5
+grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "Rodada 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("20_uahh7")
+metadata/_edit_use_anchors_ = true
 
 [editable path="Players/Player 2"]
 [editable path="Players/Player 3"]
