@@ -2,3 +2,5 @@
 
 class_name GameMessageManager
 extends Label
+
+@export var seconday_label: Label
