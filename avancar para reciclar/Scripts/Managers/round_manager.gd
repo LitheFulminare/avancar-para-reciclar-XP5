@@ -16,6 +16,8 @@ enum round_states
 	end_round 
 }
 
+#region variables
+
 @export_group("Managers")
 @export var question_card_res_manager: QuestionCardResourceManager
 @export var path_manager: PathManager
@@ -72,7 +74,11 @@ var trash_card: PackedScene = preload(trash_card_path)
 @onready var square_array: Array[Square] = get_squares()
 var player_array: Array[Node]
 
+#endregion
+
 func _ready() -> void:
+	main_camera.ignore_input = true
+	
 	player_array = players_parent_node.get_children()
 	
 	#region connect signals
@@ -81,6 +87,14 @@ func _ready() -> void:
 	player1.stopped_moving.connect(player_stopped_moving)
 	player2.stopped_moving.connect(player_stopped_moving)
 	player3.stopped_moving.connect(player_stopped_moving)
+	
+	player1.dice_button.pressed.connect(player_pressed_dice_button)
+	player2.dice_button.pressed.connect(player_pressed_dice_button)
+	player3.dice_button.pressed.connect(player_pressed_dice_button)
+	
+	player1.map_button.pressed.connect(player_pressed_map_button)
+	player2.map_button.pressed.connect(player_pressed_map_button)
+	player3.map_button.pressed.connect(player_pressed_map_button)
 	
 	player_chose_branch.connect(branch_chosen)
 	#endregion
@@ -94,7 +108,8 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Confirm"):
-		next_turn();
+		return 
+		#next_turn();
 		
 	# won't be like this forever
 	# prob a button will be spawned and call the group or something
@@ -177,8 +192,24 @@ func start_turn() -> void:
 	game_message.hide_text()
 	await get_tree().create_timer(1).timeout
 	main_camera.zoom_to_location(active_player.global_position)
-	current_round_state = round_states.first_dice_roll
-	action() 
+	
+	await get_tree().create_timer(0.3).timeout
+	
+	active_player.spawn_interaction_buttons()
+	
+	#current_round_state = round_states.first_dice_roll
+	#action() 
+
+func player_pressed_dice_button() -> void:
+	if current_round_state == round_states.start_turn:
+		current_round_state = round_states.first_dice_roll
+	elif current_round_state == round_states.first_dice_roll:
+		current_round_state = round_states.second_dice_roll
+		
+	action()
+
+func player_pressed_map_button() -> void:
+	return
 
 func move(bypass_fork_check: bool = false) -> void:
 	if total_dice_result > 0:

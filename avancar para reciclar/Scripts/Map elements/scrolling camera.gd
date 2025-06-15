@@ -3,6 +3,8 @@ extends Camera2D
 
 signal finished_zooming_out
 
+var ignore_input
+
 var is_zoom_on_cooldown: bool = false
 var go_to_starting_pos_after_ZO: bool = false
 
@@ -54,6 +56,9 @@ func zoom_in_and_out(delta: float) -> void:
 
 # moves the camera with WASD and arrows
 func move_with_keyboard(delta: float) -> void:
+	if ignore_input:
+		return
+	
 	var movement_direction: Vector2 = Vector2.ZERO
 	
 	# used to ensure the camera is not going beyond the limits
