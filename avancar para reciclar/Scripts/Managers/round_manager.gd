@@ -151,15 +151,7 @@ func action() -> void:
 			current_round_state = round_states.end_turn
 			
 		round_states.end_turn:
-			if turn == GameManager.player_count:
-				# maybe I could change the state (like I'm doing already) and calling action() again
-				# then it automatically triggers the end of the round
-				print("Last turn ended. Press again to finish the round")
-				current_round_state = round_states.end_round
-			else:
-				print("Turn ended")
-				print("")
-				current_round_state = round_states.start_turn
+			end_turn()
 			
 		round_states.end_round:
 			print("Round ended")
@@ -194,7 +186,6 @@ func start_turn() -> void:
 	#action() 
 
 func player_pressed_dice_button() -> void:
-	print("player_pressed_dice_button on RoundManager called")
 	if current_round_state == round_states.start_turn:
 		current_round_state = round_states.first_dice_roll
 	elif current_round_state == round_states.first_dice_roll:
@@ -206,8 +197,6 @@ func player_pressed_map_button() -> void:
 	return
 
 func dice_roll(is_first_dice_roll: bool) -> void:
-	print("dice_roll called. value received: " + str(is_first_dice_roll))
-	
 	if is_first_dice_roll:
 		first_dice_result = GameManager.roll_dice(1, 6)
 		print("First dice roll: " + str(first_dice_result))
@@ -222,6 +211,14 @@ func dice_roll(is_first_dice_roll: bool) -> void:
 		# add another state here
 		current_round_state = round_states.move
 		action()
+
+func end_turn() -> void:
+	if turn == GameManager.player_count:
+		current_round_state = round_states.end_round
+	else:
+		current_round_state = round_states.start_turn
+		
+	action()
 
 func move(bypass_fork_check: bool = false) -> void:
 	if total_dice_result > 0:
