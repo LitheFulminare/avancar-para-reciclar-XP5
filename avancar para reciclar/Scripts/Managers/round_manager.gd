@@ -141,17 +141,10 @@ func action() -> void:
 			start_turn()
 		
 		round_states.first_dice_roll: 
-			first_dice_result = GameManager.roll_dice(1, 6)
-			print("First dice roll: " + str(first_dice_result))
-			current_round_state = round_states.second_dice_roll
+			dice_roll(true)
 			
 		round_states.second_dice_roll: 
-			second_dice_result = GameManager.roll_dice(1, 6)
-			total_dice_result = first_dice_result + second_dice_result
-			print("Second dice roll: " + str(second_dice_result))
-			# if there is a special item that makes the player roll another dice I could 
-			# add another state here
-			current_round_state = round_states.move
+			dice_roll(false)
 		
 		round_states.move: 
 			move()
@@ -195,12 +188,13 @@ func start_turn() -> void:
 	
 	await get_tree().create_timer(0.3).timeout
 	
-	active_player.spawn_interaction_buttons()
+	active_player.spawn_interaction_buttons(true)
 	
 	#current_round_state = round_states.first_dice_roll
 	#action() 
 
 func player_pressed_dice_button() -> void:
+	print("player_pressed_dice_button on RoundManager called")
 	if current_round_state == round_states.start_turn:
 		current_round_state = round_states.first_dice_roll
 	elif current_round_state == round_states.first_dice_roll:
@@ -210,6 +204,24 @@ func player_pressed_dice_button() -> void:
 
 func player_pressed_map_button() -> void:
 	return
+
+func dice_roll(is_first_dice_roll: bool) -> void:
+	print("dice_roll called. value received: " + str(is_first_dice_roll))
+	
+	if is_first_dice_roll:
+		first_dice_result = GameManager.roll_dice(1, 6)
+		print("First dice roll: " + str(first_dice_result))
+		#current_round_state = round_states.second_dice_roll
+		active_player.spawn_interaction_buttons(false)
+	else:
+		second_dice_result = GameManager.roll_dice(1, 6)
+		total_dice_result = first_dice_result + second_dice_result
+		print("Second dice roll: " + str(second_dice_result))
+		## this was written when this part was on action(), but i'll keep it anyways
+		# if there is a special item that makes the player roll another dice I could 
+		# add another state here
+		current_round_state = round_states.move
+		action()
 
 func move(bypass_fork_check: bool = false) -> void:
 	if total_dice_result > 0:
