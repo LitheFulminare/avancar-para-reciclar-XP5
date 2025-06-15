@@ -356,4 +356,4 @@ func get_squares() -> Array[Square]:
 func camera_finished_zooming_out() -> void:
 	await get_tree().create_timer(1).timeout
 	draw_question_card()
-	add_trash(turn-1, get_random_trash_type())
+	#add_trash(turn-1, get_random_trash_type())
