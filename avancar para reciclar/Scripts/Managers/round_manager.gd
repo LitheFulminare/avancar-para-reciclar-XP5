@@ -26,6 +26,7 @@ enum round_states
 @export var first_square: Square
 @export var squares_parent_node: Node
 @export var card_stack: Sprite2D
+@export var game_message: GameMessageManager
 
 var current_round_state: round_states = round_states.start_round
 
@@ -116,14 +117,10 @@ func next_turn() -> void:
 	action()
 
 # gets the current round state and decides what to do
-# note:  I could change the current round and call action again to be recursive, 
-# but all action would happen at once, which is not what I want.
 func action() -> void:
 	match current_round_state:
 		round_states.start_round:
-			print("Starting round: " + str(current_round))
-			turn = 0
-			current_round_state = round_states.start_turn
+			start_round()
 		
 		round_states.start_turn:
 			turn += 1
@@ -165,6 +162,15 @@ func action() -> void:
 			print("")
 			current_round += 1
 			current_round_state = round_states.start_round
+
+func start_round():
+	await get_tree().create_timer(2).timeout
+	game_message.display_new_round_message(current_round)
+	turn = 0
+	
+	await get_tree().create_timer(2).timeout
+	current_round_state = round_states.start_turn
+	action()
 
 func move(bypass_fork_check: bool = false) -> void:
 	if total_dice_result > 0:
