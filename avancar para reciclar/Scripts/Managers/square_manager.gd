@@ -34,16 +34,19 @@ func action(type: square_type):
 		square_type.garbage_truck:
 			garbage_truck()
 		square_type.quiz_card:
-			round_manager.draw_question_card()
+			quiz_card()
 		
 func luck_card() -> void:
-	return
+	print("Player landed on a Luck Card square")
 
 func collect_trash() -> void:
 	round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
 	
 func discard_trash() -> void:
-	return
+	print("Player landed on a Discard trash square")
 	
 func garbage_truck() -> void:
-	return
+	print("Player landed on a Garbade Truck square")
+
+func quiz_card():
+	round_manager.draw_question_card()

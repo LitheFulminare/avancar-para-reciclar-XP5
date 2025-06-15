@@ -261,8 +261,6 @@ func player_stopped_moving() -> void:
 	if !is_player_moving:
 		await get_tree().create_timer(1).timeout
 		main_camera.remove_zoom(true)
-		# now no square has a resource/type, so calling this func will throw an error
-		#square_array[active_player.current_square-1].action()
 		
 		#draw_question_card()
 		# this func wont be called all rounds, only when the player lands on quiz squares
@@ -293,7 +291,7 @@ func player_answered(answer_result: bool) -> void:
 	return
 	
 func question_card_closed() -> void:
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	
 	current_round_state = round_states.end_turn
 	action()
@@ -355,5 +353,7 @@ func get_squares() -> Array[Square]:
 
 func camera_finished_zooming_out() -> void:
 	await get_tree().create_timer(1).timeout
-	draw_question_card()
+	
+	active_player.square.action()
+	#draw_question_card()
 	#add_trash(turn-1, get_random_trash_type())

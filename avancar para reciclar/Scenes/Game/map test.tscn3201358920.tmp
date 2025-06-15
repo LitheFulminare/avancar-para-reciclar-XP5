@@ -1,0 +1,451 @@
+[gd_scene load_steps=21 format=3 uid="uid://wvcevyu5vojc"]
+
+[ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
+[ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
+[ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="2_y42xc"]
+[ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
+[ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
+[ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
+[ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_v2k4j"]
+[ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
+[ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="8_5w0ha"]
+[ext_resource type="Resource" uid="uid://dvbvx8lvkwn7o" path="res://Resources/Map Elements/Squares/Quiz card.tres" id="8_riorq"]
+[ext_resource type="Resource" uid="uid://br484ai56mu1a" path="res://Resources/Map Elements/Squares/Luck card.tres" id="9_ahe86"]
+[ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="9_ujeix"]
+[ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard trash.tres" id="11_v5epi"]
+[ext_resource type="Resource" uid="uid://d1411atrrck5y" path="res://Resources/Map Elements/Squares/Garbage truck.tres" id="12_ahe86"]
+[ext_resource type="PackedScene" uid="uid://bhtxvatf0dymt" path="res://Scenes/HUD/player_stats_hud.tscn" id="13_ypxuo"]
+[ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="14_5w0ha"]
+[ext_resource type="Texture2D" uid="uid://bne4yq8i4a55u" path="res://Assets/Sprites/HUD & UI/HUD/yellow stats bar.png" id="14_7acfh"]
+[ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="15_ujeix"]
+[ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/red stats bar.png" id="15_v2k4j"]
+[ext_resource type="Script" uid="uid://bjd7a3ows5xbg" path="res://Scripts/HUD/game_message_manager.gd" id="20_uahh7"]
+
+[node name="MapTest" type="Node2D"]
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "card_stack", "game_message", "players_parent_node", "player1", "player2", "player3")]
+script = ExtResource("1_oqp8s")
+question_card_res_manager = NodePath("../Question Card Res Manager")
+path_manager = NodePath("../Path Manager")
+main_camera = NodePath("../../Scrolling Camera")
+question_card_spawn = NodePath("../../BG and Map Elements/Stack of question cards/Question Marker Spawn")
+first_square = NodePath("../../Squares/Square 1")
+squares_parent_node = NodePath("../../Squares")
+card_stack = NodePath("../../BG and Map Elements/Stack of question cards")
+game_message = NodePath("../../CanvasLayer/HUD/Game message")
+players_parent_node = NodePath("../../Players")
+player1 = NodePath("../../Players/Player 1")
+player2 = NodePath("../../Players/Player 2")
+player3 = NodePath("../../Players/Player 3")
+
+[node name="Path Manager" type="Node" parent="Managers"]
+editor_description = "handles branching paths and this kind of thing
+"
+script = ExtResource("2_81x0c")
+branch1_A_start = 7
+branch1_A_end = 11
+branch1_B_start = 12
+branch1_B_end = 15
+branch2_A_start = 19
+branch2_A_end = 23
+branch2_B_start = 24
+branch2_B_end = 27
+
+[node name="Square Manager" type="Node" parent="Managers" node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
+script = ExtResource("3_q0u56")
+round_manager = NodePath("../Round Manager")
+square_size = 0.12
+
+[node name="Question Card Res Manager" type="Node" parent="Managers"]
+script = ExtResource("4_riorq")
+
+[node name="BG and Map Elements" type="Node" parent="."]
+
+[node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-1, 0)
+scale = Vector2(0.30026, 0.300463)
+texture = ExtResource("5_5w0ha")
+centered = false
+
+[node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]
+position = Vector2(59.5, 428.5)
+scale = Vector2(0.0518229, 0.0532407)
+texture = ExtResource("6_v2k4j")
+
+[node name="Question Marker Spawn" type="Marker2D" parent="BG and Map Elements/Stack of question cards"]
+position = Vector2(28.9446, 28.1738)
+scale = Vector2(14.4024, 14.0189)
+
+[node name="Squares" type="Node" parent="."]
+
+[node name="Square 1" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(897, 542)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_riorq")
+next_square = NodePath("../Square 2")
+
+[node name="Square 2" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(801, 537)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ahe86")
+next_square = NodePath("../Square 3")
+
+[node name="Square 3" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(704, 568)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_riorq")
+next_square = NodePath("../Square 4")
+
+[node name="Square 4" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(616, 582)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_riorq")
+next_square = NodePath("../Square 5")
+
+[node name="Square 5" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(526, 582)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+next_square = NodePath("../Square 6")
+
+[node name="Square 6" parent="Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("8_5w0ha")]
+position = Vector2(437, 574)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("11_v5epi")
+is_fork = true
+branch_A_start = NodePath("../Square 7")
+branch_B_start = NodePath("../Square 12")
+
+[node name="Square 7" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(273, 591)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ahe86")
+next_square = NodePath("../Square 8")
+
+[node name="Square 8" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(179, 583)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_riorq")
+next_square = NodePath("../Square 9")
+
+[node name="Square 9" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(157, 505)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("11_v5epi")
+next_square = NodePath("../Square 10")
+
+[node name="Square 10" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(189, 403)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+next_square = NodePath("../Square 11")
+
+[node name="Square 11" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(269, 325)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ahe86")
+next_square = NodePath("../Square 16")
+
+[node name="Square 12" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(336, 517)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_riorq")
+next_square = NodePath("../Square 13")
+
+[node name="Square 13" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(371, 462)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("11_v5epi")
+next_square = NodePath("../Square 14")
+
+[node name="Square 14" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(403, 411)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("12_ahe86")
+next_square = NodePath("../Square 15")
+
+[node name="Square 15" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(371, 357)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+next_square = NodePath("../Square 16")
+
+[node name="Square 16" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(382, 279)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("12_ahe86")
+next_square = NodePath("../Square 17")
+
+[node name="Square 17" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(448, 256)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_riorq")
+next_square = NodePath("../Square 18")
+
+[node name="Square 18" parent="Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("8_5w0ha")]
+position = Vector2(524, 271)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("11_v5epi")
+is_fork = true
+branch_A_start = NodePath("../Square 19")
+branch_B_start = NodePath("../Square 24")
+
+[node name="Square 19" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(610, 274)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("12_ahe86")
+next_square = NodePath("../Square 20")
+
+[node name="Square 20" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(683, 246)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ahe86")
+next_square = NodePath("../Square 21")
+
+[node name="Square 21" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(777, 239)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("11_v5epi")
+next_square = NodePath("../Square 22")
+
+[node name="Square 22" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(878, 257)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_riorq")
+next_square = NodePath("../Square 23")
+
+[node name="Square 23" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(905, 326)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+next_square = NodePath("../Square 28")
+
+[node name="Square 24" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(563, 342)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ahe86")
+next_square = NodePath("../Square 25")
+
+[node name="Square 25" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(607, 402)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+next_square = NodePath("../Square 26")
+
+[node name="Square 26" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(703, 405)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("11_v5epi")
+next_square = NodePath("../Square 27")
+
+[node name="Square 27" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(807, 389)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("12_ahe86")
+next_square = NodePath("../Square 28")
+
+[node name="Square 28" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(938, 426)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_riorq")
+next_square = NodePath("../Square 29")
+
+[node name="Square 29" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+position = Vector2(962, 487)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_ujeix")
+next_square = NodePath("../Square 1")
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player 1" parent="Players" instance=ExtResource("7_v5epi")]
+position = Vector2(1000, 621)
+scale = Vector2(0.2, 0.2)
+
+[node name="Player 2" parent="Players" instance=ExtResource("7_v5epi")]
+position = Vector2(1063, 606)
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" parent="Players/Player 2" index="0"]
+texture = ExtResource("15_ujeix")
+
+[node name="Player 3" parent="Players" instance=ExtResource("7_v5epi")]
+position = Vector2(1108, 570)
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" parent="Players/Player 3" index="0"]
+texture = ExtResource("14_5w0ha")
+
+[node name="Scrolling Camera" parent="." instance=ExtResource("2_y42xc")]
+position = Vector2(576, 324)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 649.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Green HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+layout_mode = 1
+player = NodePath("../../../Players/Player 1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Yellow HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+layout_mode = 1
+offset_left = -1153.0
+offset_right = 193.0
+texture = ExtResource("14_7acfh")
+player = NodePath("../../../Players/Player 2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Total points label" parent="CanvasLayer/HUD/Yellow HUD" index="0"]
+offset_left = 1000.0
+offset_right = 1121.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Paper label" parent="CanvasLayer/HUD/Yellow HUD" index="1"]
+offset_left = 104.0
+offset_right = 144.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Metal label" parent="CanvasLayer/HUD/Yellow HUD" index="2"]
+offset_left = 304.0
+offset_right = 349.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Glass label" parent="CanvasLayer/HUD/Yellow HUD" index="3"]
+offset_left = 516.0
+offset_right = 561.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Plastic label" parent="CanvasLayer/HUD/Yellow HUD" index="4"]
+offset_left = 732.0
+offset_top = 20.0
+offset_right = 777.0
+offset_bottom = 63.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Organic label" parent="CanvasLayer/HUD/Yellow HUD" index="5"]
+offset_left = 948.0
+offset_top = 24.0
+offset_right = 993.0
+offset_bottom = 67.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Red HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+layout_mode = 1
+offset_left = -1153.0
+offset_top = 592.0
+offset_right = 193.0
+offset_bottom = 816.0
+texture = ExtResource("15_v2k4j")
+player = NodePath("../../../Players/Player 3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Total points label" parent="CanvasLayer/HUD/Red HUD" index="0"]
+offset_left = 1000.0
+offset_top = 140.0
+offset_right = 1121.0
+offset_bottom = 168.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Paper label" parent="CanvasLayer/HUD/Red HUD" index="1"]
+offset_left = 104.0
+offset_top = 76.0
+offset_right = 144.0
+offset_bottom = 120.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Metal label" parent="CanvasLayer/HUD/Red HUD" index="2"]
+offset_left = 304.0
+offset_top = 76.0
+offset_right = 349.0
+offset_bottom = 119.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Glass label" parent="CanvasLayer/HUD/Red HUD" index="3"]
+offset_left = 516.0
+offset_top = 76.0
+offset_right = 561.0
+offset_bottom = 119.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Plastic label" parent="CanvasLayer/HUD/Red HUD" index="4"]
+offset_left = 732.0
+offset_top = 76.0
+offset_right = 777.0
+offset_bottom = 119.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Organic label" parent="CanvasLayer/HUD/Red HUD" index="5"]
+offset_left = 944.0
+offset_top = 76.0
+offset_right = 989.0
+offset_bottom = 119.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Game message" type="Label" parent="CanvasLayer/HUD" node_paths=PackedStringArray("seconday_label")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = -55.5
+offset_right = 232.5
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "Vez do jogador
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("20_uahh7")
+seconday_label = NodePath("Secondary label")
+green_color = Color(0, 0.74902, 0.164706, 1)
+yellow_color = Color(1, 0.870588, 0, 1)
+red_color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Secondary label" type="Label" parent="CanvasLayer/HUD/Game message"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -111.5
+offset_right = 285.0
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.74902, 0.164706, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "
+VERDE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[editable path="Players/Player 2"]
+[editable path="Players/Player 3"]
+[editable path="CanvasLayer/HUD/Yellow HUD"]
+[editable path="CanvasLayer/HUD/Red HUD"]
