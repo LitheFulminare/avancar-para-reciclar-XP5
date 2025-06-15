@@ -29,18 +29,15 @@ func _process(delta: float) -> void:
 	
 	
 func zoom_in_and_out(delta: float) -> void:
-	if ignore_input:
-		return
-
 	# is_action_pressed doesn't work with scroll wheel, but I want it to be possible to hold the zoom button
 	if Input.is_action_pressed("Camera zoom in") || Input.is_action_just_pressed("Camera zoom in"):
-		if !is_zoom_on_cooldown:
+		if !is_zoom_on_cooldown && !ignore_input:
 			zoom_cooldown_timer.start()
 			is_zoom_on_cooldown = true
 			zoom_target *= 1.1
 		
 	if Input.is_action_pressed("Camera zoom out") || Input.is_action_pressed("Camera zoom out"):
-		if !is_zoom_on_cooldown:
+		if !is_zoom_on_cooldown && !ignore_input:
 			zoom_cooldown_timer.start()
 			is_zoom_on_cooldown = true
 			zoom_target *= 0.9
