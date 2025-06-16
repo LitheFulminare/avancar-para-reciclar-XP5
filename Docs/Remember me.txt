@@ -1,3 +1,7 @@
+This explains the error I'm having.
+Basically has to do with resources, nodes and the GameManager autoload script
+https://chatgpt.com/share/684f99db-4634-8009-b1dc-cfd0e46fd591
+
 After answering the question a signal is emitted to the player_answered() func
 The state is changed to end_turn, action() is called again and it detects that the turn has ended
 Now I just have to make the end_turn part its own function and automate the turn change functionality
