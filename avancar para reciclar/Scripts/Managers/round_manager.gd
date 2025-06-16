@@ -55,11 +55,11 @@ const plastic_card_stats: TrashCardStats = preload("res://Resources/Cards/Trash 
 const question_card_scene: PackedScene = preload("res://Scenes/Cards/Question card.tscn")
 
 var trash_card_types: Array[TrashCardStats] = [
-	glass_card_stats,
-	organic_card_stats,
-	paper_card_stats,
-	paper_card_stats,
-	plastic_card_stats
+	glass_card_stats as TrashCardStats,
+	organic_card_stats as TrashCardStats,
+	paper_card_stats as TrashCardStats,
+	paper_card_stats as TrashCardStats,
+	plastic_card_stats as TrashCardStats
 ]
 
 const trash_card_path: String = "res://Scenes/Cards/Trash card.tscn"
@@ -192,12 +192,12 @@ func player_pressed_map_button() -> void:
 
 func dice_roll(is_first_dice_roll: bool) -> void:
 	if is_first_dice_roll:
-		first_dice_result = GameManager.roll_dice(1, 6)
+		first_dice_result = 5#GameManager.roll_dice(1, 6)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 		active_player.spawn_interaction_buttons(false)
 	else:
-		second_dice_result = GameManager.roll_dice(1, 6)
+		second_dice_result = 0#GameManager.roll_dice(1, 6)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
 		# this was written when this part was on action(), but i'll keep it anyways:
@@ -319,7 +319,12 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	player.add_trash(spawned_trash_card)
 
 func get_random_trash_type() -> TrashCardStats:
-	return trash_card_types.pick_random()
+	# pick_random is returning null when trying to cast as TrashCardStats
+	var random_pick = trash_card_types.pick_random()
+	print(random_pick)
+	print(random_pick.resource_path)
+	print(random_pick.resource_name)
+	return random_pick as TrashCardStats
 
 # spawns a question card and randomizes its text
 func draw_question_card() -> void:

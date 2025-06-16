@@ -41,6 +41,7 @@ func luck_card() -> void:
 	round_manager.square_action_finished()
 
 func collect_trash() -> void:
+	print("function collect_trash() on SquareManager called")
 	round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
 	round_manager.square_action_finished()
 	
