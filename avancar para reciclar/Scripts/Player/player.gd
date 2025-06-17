@@ -12,6 +12,7 @@ signal stopped_moving # connected to player_stopped_moving() on the RoundManager
 @export_group("Internal node components")
 @export var dice_button: Button
 @export var map_button: Button
+@export var movement_remaining_label: Label
 
 var points: int
 var paper_trash_cards: Array[TrashCard] = []
@@ -35,6 +36,8 @@ var tween_duration: float
 var current_branch: PathManager.branches
 
 func _ready() -> void:
+	movement_remaining_label.visible = false
+	
 	dice_button.visible = false
 	map_button.visible = false
 
@@ -81,6 +84,12 @@ func move_to_current_square() -> void:
 	tween.tween_property(self, "position", square.global_position, tween_duration)
 	await tween.finished
 	stopped_moving.emit() # connected to player_stopped_moving() on the RoundManager
+
+func update_movement_HUD(remaining_distance: int) -> void:
+	movement_remaining_label.visible = true
+	movement_remaining_label.text = str(remaining_distance)
+	if remaining_distance == 0:
+		movement_remaining_label.visible = false
 
 # maybe I could even connect the signals to hide_buttons to simplify
 func _on_dice_button_pressed() -> void:

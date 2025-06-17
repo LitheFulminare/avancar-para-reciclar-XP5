@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://de0ire3jwru3w" path="res://Assets/Sprites/Players/Green pawn.png" id="2_ft8w5"]
 [ext_resource type="Theme" uid="uid://b80bt64wlmq1g" path="res://Misc/Text/Gameplay HUD text.tres" id="3_h54ih"]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("dice_button", "map_button")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("dice_button", "map_button", "movement_remaining_label")]
 script = ExtResource("1_s0eop")
-speed = 250.0
+speed = 150.0
 dice_button = NodePath("Button container/Dice button")
 map_button = NodePath("Button container/Map button")
+movement_remaining_label = NodePath("Label")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ft8w5")
@@ -31,6 +32,19 @@ layout_mode = 2
 theme = ExtResource("3_h54ih")
 text = "Examinar mapa"
 flat = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -75.0
+offset_top = -241.0
+offset_right = 80.0
+offset_bottom = -81.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 71
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button container/Dice button" to="." method="_on_dice_button_pressed"]
 [connection signal="pressed" from="Button container/Map button" to="." method="_on_map_button_pressed"]
