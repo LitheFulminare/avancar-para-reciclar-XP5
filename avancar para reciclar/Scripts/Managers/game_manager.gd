@@ -7,7 +7,7 @@ var current_scene = null
 var player_count: int = 3 
 var max_round: int = 20; # maybe give the player the option to ajust this?
 
-var players: Array[Player]
+var players: Array[PlayerData]
 
 var rng = RandomNumberGenerator.new()
 

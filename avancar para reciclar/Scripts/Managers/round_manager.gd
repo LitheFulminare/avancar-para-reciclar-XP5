@@ -381,6 +381,18 @@ func load_player_data():
 		return
 	
 	var players: Array[Player] = [player1, player2, player3]
-	var player_data: Array[Player] = SaveAndLoadManager.load_player_data(players)
-	for player in player_data:
-		return
+	for i in GameManager.players.size():
+		
+		print(players[i].square)
+		players[i].square = squares_parent_node.find_child(GameManager.players[i].square_name)
+		print(players[i].square)
+		players[i].points = GameManager.players[i].points
+		players[i].paper_trash_cards = GameManager.players[i].paper_trash_cards
+		players[i].plastic_trash_cards = GameManager.players[i].plastic_trash_cards
+		players[i].metal_trash_cards = GameManager.players[i].metal_trash_cards
+		players[i].glass_trash_cards = GameManager.players[i].glass_trash_cards
+		players[i].organic_trash_cards = GameManager.players[i].organic_trash_cards
+		
+		#players[i].global_position = players
+		
+	GameManager.players.clear()
