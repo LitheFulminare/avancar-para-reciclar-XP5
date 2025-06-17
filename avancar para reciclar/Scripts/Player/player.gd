@@ -40,7 +40,7 @@ func _ready() -> void:
 
 func spawn_interaction_buttons(is_first_dice_roll: bool) -> void:
 	dice_button.visible = true
-	map_button.visible = true
+	#map_button.visible = true
 	
 	if is_first_dice_roll:
 		dice_button.text = "Rolar o primeiro dado"
