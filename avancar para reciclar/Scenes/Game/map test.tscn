@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=22 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
+[ext_resource type="Script" uid="uid://dnyqq1kmmdbu5" path="res://Scripts/Managers/save_&_load_manager.gd" id="5_qyprb"]
 [ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_v2k4j"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="8_5w0ha"]
@@ -60,6 +61,9 @@ square_size = 0.12
 
 [node name="Question Card Res Manager" type="Node" parent="Managers"]
 script = ExtResource("4_riorq")
+
+[node name="Save & Load Manager" type="Node" parent="Managers"]
+script = ExtResource("5_qyprb")
 
 [node name="BG and Map Elements" type="Node" parent="."]
 

@@ -99,6 +99,8 @@ func _ready() -> void:
 	player_chose_branch.connect(branch_chosen)
 	#endregion
 	
+	load_player_data()
+	
 	start_game()
 	
 func _process(_delta: float) -> void:
@@ -192,12 +194,12 @@ func player_pressed_map_button() -> void:
 
 func dice_roll(is_first_dice_roll: bool) -> void:
 	if is_first_dice_roll:
-		first_dice_result = GameManager.roll_dice(1, 6)
+		first_dice_result = 5#GameManager.roll_dice(1, 6)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 		active_player.spawn_interaction_buttons(false)
 	else:
-		second_dice_result = GameManager.roll_dice(1, 6)
+		second_dice_result = 0#GameManager.roll_dice(1, 6)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
 		# this was written when this part was on action(), but i'll keep it anyways:
@@ -370,4 +372,15 @@ func camera_finished_zooming_out() -> void:
 	#add_trash(turn-1, get_random_trash_type())
 
 func go_to_minigame() -> void:
+	var players: Array[Player] = [player1, player2, player3]
+	SaveAndLoadManager.save_data(players)
 	GameManager.go_to_scene("res://Scenes/Minigames/Boat minigame/Boat minigame.tscn")
+
+func load_player_data():
+	if GameManager.players.size() == 0:
+		return
+	
+	var players: Array[Player] = [player1, player2, player3]
+	var player_data: Array[Player] = SaveAndLoadManager.load_player_data(players)
+	for player in player_data:
+		return
