@@ -194,12 +194,12 @@ func player_pressed_map_button() -> void:
 
 func dice_roll(is_first_dice_roll: bool) -> void:
 	if is_first_dice_roll:
-		first_dice_result = 5#GameManager.roll_dice(1, 6)
+		first_dice_result = GameManager.roll_dice(1, 6)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 		active_player.spawn_interaction_buttons(false)
 	else:
-		second_dice_result = 0#GameManager.roll_dice(1, 6)
+		second_dice_result = GameManager.roll_dice(1, 6)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
 		# this was written when this part was on action(), but i'll keep it anyways:
@@ -373,7 +373,7 @@ func camera_finished_zooming_out() -> void:
 
 func go_to_minigame() -> void:
 	var players: Array[Player] = [player1, player2, player3]
-	SaveAndLoadManager.save_data(players)
+	SaveAndLoadManager.save_data(players, current_round)
 	GameManager.go_to_scene("res://Scenes/Minigames/Boat minigame/Boat minigame.tscn")
 
 func load_player_data():
@@ -393,6 +393,7 @@ func load_player_data():
 		players[i].glass_trash_cards = GameManager.players[i].glass_trash_cards
 		players[i].organic_trash_cards = GameManager.players[i].organic_trash_cards
 		
-		#players[i].global_position = players
+		players[i].global_position = players[i].square.global_position
 		
+	current_round = GameManager.round
 	GameManager.players.clear()
