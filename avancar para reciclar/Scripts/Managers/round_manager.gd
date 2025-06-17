@@ -323,6 +323,9 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	get_tree().root.add_child(spawned_trash_card)
 	spawned_trash_card.update_stats(trash_type)
 	
+	## CHANGE THIS LATER
+	spawned_trash_card.visible = false
+	
 	# gives the card to the target player
 	var player: Player = player_array[target_player_index]
 	player.add_trash(spawned_trash_card)
