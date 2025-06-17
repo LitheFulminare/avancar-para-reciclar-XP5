@@ -18,6 +18,7 @@ offset_left = -464.425
 offset_top = -71.0
 offset_right = -87.425
 offset_bottom = 74.0
+mouse_filter = 2
 
 [node name="Dice button" type="Button" parent="Button container"]
 layout_mode = 2

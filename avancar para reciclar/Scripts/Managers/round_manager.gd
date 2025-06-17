@@ -258,9 +258,10 @@ func move(bypass_fork_check: bool = false) -> void:
 
 func player_landed_at_fork() -> void:
 	player_at_fork = true # prevents move() from being called again on player_stopped_moving()
-	print("")
-	print("Press 1 to go to branch A")
-	print("Press 2 to go to branch B")
+	if active_player.square.fork_number == 1:
+		branch1_buttons.visible = true
+	if active_player.square.fork_number == 2:
+		branch2_buttons.visible = true
 
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func
@@ -333,7 +334,7 @@ func get_random_trash_type() -> TrashCardStats:
 func draw_question_card() -> void:
 	#instantiates the card
 	var question_card: QuestionCard = question_card_scene.instantiate()
-	$"../../CanvasLayer".add_child(question_card)
+	$"../../HUD Canvas Layer".add_child(question_card)
 	
 	# changes the text, sets position to the card stack nad changes the size
 	question_card.set_texts(question_card_res_manager.get_random_question_res())
@@ -403,3 +404,31 @@ func load_player_data():
 		
 	current_round = GameManager.round
 	GameManager.players.clear()
+
+# I can combine these 4 into 2 methods
+func _on_branch_1_a_button_pressed() -> void:
+	print("button 1 A pressed")
+	active_player.current_branch = path_manager.branches.branch_A
+	player_chose_branch.emit()
+	branch1_buttons.visible = false
+
+
+func _on_branch_1_b_button_pressed() -> void:
+	print("button 1 B pressed")
+	active_player.current_branch = path_manager.branches.branch_B
+	player_chose_branch.emit()
+	branch1_buttons.visible = false
+
+
+func _on_branch_2_a_button_pressed() -> void:
+	print("button 2 A pressed")
+	active_player.current_branch = path_manager.branches.branch_A
+	player_chose_branch.emit()
+	branch2_buttons.visible = false
+
+
+func _on_branch_2_b_button_pressed() -> void:
+	print("button 2 B pressed")
+	active_player.current_branch = path_manager.branches.branch_B
+	player_chose_branch.emit()
+	branch2_buttons.visible = false
