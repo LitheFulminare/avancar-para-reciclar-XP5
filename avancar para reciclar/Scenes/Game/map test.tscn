@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=23 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="15_ujeix"]
 [ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/red stats bar.png" id="15_v2k4j"]
 [ext_resource type="Script" uid="uid://bjd7a3ows5xbg" path="res://Scripts/HUD/game_message_manager.gd" id="20_uahh7"]
+[ext_resource type="Texture2D" uid="uid://bdu1yl1sktrgs" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/arrow.png" id="22_ixrcv"]
 
 [node name="MapTest" type="Node2D"]
 
@@ -35,7 +36,7 @@ question_card_spawn = NodePath("../../BG and Map Elements/Stack of question card
 first_square = NodePath("../../Squares/Square 1")
 squares_parent_node = NodePath("../../Squares")
 card_stack = NodePath("../../BG and Map Elements/Stack of question cards")
-game_message = NodePath("../../CanvasLayer/HUD/Game message")
+game_message = NodePath("../../HUD Canvas Layer/HUD/Game message")
 players_parent_node = NodePath("../../Players")
 player1 = NodePath("../../Players/Player 1")
 player2 = NodePath("../../Players/Player 2")
@@ -91,36 +92,42 @@ position = Vector2(897, 542)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 next_square = NodePath("../Square 2")
+fork_number = null
 
 [node name="Square 2" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(801, 537)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 next_square = NodePath("../Square 3")
+fork_number = null
 
 [node name="Square 3" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(704, 568)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 next_square = NodePath("../Square 4")
+fork_number = null
 
 [node name="Square 4" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(616, 582)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 next_square = NodePath("../Square 5")
+fork_number = null
 
 [node name="Square 5" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(526, 582)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 next_square = NodePath("../Square 6")
+fork_number = null
 
 [node name="Square 6" parent="Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("8_5w0ha")]
 position = Vector2(437, 574)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 is_fork = true
+fork_number = null
 branch_A_start = NodePath("../Square 7")
 branch_B_start = NodePath("../Square 12")
 
@@ -129,72 +136,84 @@ position = Vector2(273, 591)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 next_square = NodePath("../Square 8")
+fork_number = null
 
 [node name="Square 8" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(179, 583)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 next_square = NodePath("../Square 9")
+fork_number = null
 
 [node name="Square 9" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(157, 505)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 next_square = NodePath("../Square 10")
+fork_number = null
 
 [node name="Square 10" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(189, 403)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 next_square = NodePath("../Square 11")
+fork_number = null
 
 [node name="Square 11" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(269, 325)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 next_square = NodePath("../Square 16")
+fork_number = null
 
 [node name="Square 12" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(336, 517)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 next_square = NodePath("../Square 13")
+fork_number = null
 
 [node name="Square 13" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(371, 462)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 next_square = NodePath("../Square 14")
+fork_number = null
 
 [node name="Square 14" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(403, 411)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("12_ahe86")
 next_square = NodePath("../Square 15")
+fork_number = null
 
 [node name="Square 15" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(371, 357)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 next_square = NodePath("../Square 16")
+fork_number = null
 
 [node name="Square 16" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(382, 279)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("12_ahe86")
 next_square = NodePath("../Square 17")
+fork_number = null
 
 [node name="Square 17" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(448, 256)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 next_square = NodePath("../Square 18")
+fork_number = null
 
 [node name="Square 18" parent="Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("8_5w0ha")]
 position = Vector2(524, 271)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 is_fork = true
+fork_number = null
 branch_A_start = NodePath("../Square 19")
 branch_B_start = NodePath("../Square 24")
 
@@ -203,66 +222,77 @@ position = Vector2(610, 274)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("12_ahe86")
 next_square = NodePath("../Square 20")
+fork_number = null
 
 [node name="Square 20" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(683, 246)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 next_square = NodePath("../Square 21")
+fork_number = null
 
 [node name="Square 21" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(777, 239)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 next_square = NodePath("../Square 22")
+fork_number = null
 
 [node name="Square 22" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(878, 257)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 next_square = NodePath("../Square 23")
+fork_number = null
 
 [node name="Square 23" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(905, 326)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 next_square = NodePath("../Square 28")
+fork_number = null
 
 [node name="Square 24" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(563, 342)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ahe86")
 next_square = NodePath("../Square 25")
+fork_number = null
 
 [node name="Square 25" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(607, 402)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 next_square = NodePath("../Square 26")
+fork_number = null
 
 [node name="Square 26" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(703, 405)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("11_v5epi")
 next_square = NodePath("../Square 27")
+fork_number = null
 
 [node name="Square 27" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(807, 389)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("12_ahe86")
 next_square = NodePath("../Square 28")
+fork_number = null
 
 [node name="Square 28" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(938, 426)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 next_square = NodePath("../Square 29")
+fork_number = null
 
 [node name="Square 29" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
 position = Vector2(962, 487)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("9_ujeix")
 next_square = NodePath("../Square 1")
+fork_number = null
 
 [node name="Players" type="Node" parent="."]
 
@@ -291,21 +321,22 @@ limit_top = 0
 limit_right = 1152
 limit_bottom = 648
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="HUD" type="Control" parent="CanvasLayer"]
+[node name="HUD" type="Control" parent="HUD Canvas Layer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 649.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Green HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+[node name="Green HUD" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
 layout_mode = 1
 player = NodePath("../../../Players/Player 1")
 metadata/_edit_use_anchors_ = true
 
-[node name="Yellow HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+[node name="Yellow HUD" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
 layout_mode = 1
 offset_left = -1153.0
 offset_right = 193.0
@@ -313,41 +344,41 @@ texture = ExtResource("14_7acfh")
 player = NodePath("../../../Players/Player 2")
 metadata/_edit_use_anchors_ = true
 
-[node name="Total points label" parent="CanvasLayer/HUD/Yellow HUD" index="0"]
+[node name="Total points label" parent="HUD Canvas Layer/HUD/Yellow HUD" index="0"]
 offset_left = 1000.0
 offset_right = 1121.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Paper label" parent="CanvasLayer/HUD/Yellow HUD" index="1"]
+[node name="Paper label" parent="HUD Canvas Layer/HUD/Yellow HUD" index="1"]
 offset_left = 104.0
 offset_right = 144.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Metal label" parent="CanvasLayer/HUD/Yellow HUD" index="2"]
+[node name="Metal label" parent="HUD Canvas Layer/HUD/Yellow HUD" index="2"]
 offset_left = 304.0
 offset_right = 349.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Glass label" parent="CanvasLayer/HUD/Yellow HUD" index="3"]
+[node name="Glass label" parent="HUD Canvas Layer/HUD/Yellow HUD" index="3"]
 offset_left = 516.0
 offset_right = 561.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Plastic label" parent="CanvasLayer/HUD/Yellow HUD" index="4"]
+[node name="Plastic label" parent="HUD Canvas Layer/HUD/Yellow HUD" index="4"]
 offset_left = 732.0
 offset_top = 20.0
 offset_right = 777.0
 offset_bottom = 63.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Organic label" parent="CanvasLayer/HUD/Yellow HUD" index="5"]
+[node name="Organic label" parent="HUD Canvas Layer/HUD/Yellow HUD" index="5"]
 offset_left = 948.0
 offset_top = 24.0
 offset_right = 993.0
 offset_bottom = 67.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Red HUD" parent="CanvasLayer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+[node name="Red HUD" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
 layout_mode = 1
 offset_left = -1153.0
 offset_top = 592.0
@@ -357,49 +388,49 @@ texture = ExtResource("15_v2k4j")
 player = NodePath("../../../Players/Player 3")
 metadata/_edit_use_anchors_ = true
 
-[node name="Total points label" parent="CanvasLayer/HUD/Red HUD" index="0"]
+[node name="Total points label" parent="HUD Canvas Layer/HUD/Red HUD" index="0"]
 offset_left = 1000.0
 offset_top = 140.0
 offset_right = 1121.0
 offset_bottom = 168.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Paper label" parent="CanvasLayer/HUD/Red HUD" index="1"]
+[node name="Paper label" parent="HUD Canvas Layer/HUD/Red HUD" index="1"]
 offset_left = 104.0
 offset_top = 76.0
 offset_right = 144.0
 offset_bottom = 120.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Metal label" parent="CanvasLayer/HUD/Red HUD" index="2"]
+[node name="Metal label" parent="HUD Canvas Layer/HUD/Red HUD" index="2"]
 offset_left = 304.0
 offset_top = 76.0
 offset_right = 349.0
 offset_bottom = 119.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Glass label" parent="CanvasLayer/HUD/Red HUD" index="3"]
+[node name="Glass label" parent="HUD Canvas Layer/HUD/Red HUD" index="3"]
 offset_left = 516.0
 offset_top = 76.0
 offset_right = 561.0
 offset_bottom = 119.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Plastic label" parent="CanvasLayer/HUD/Red HUD" index="4"]
+[node name="Plastic label" parent="HUD Canvas Layer/HUD/Red HUD" index="4"]
 offset_left = 732.0
 offset_top = 76.0
 offset_right = 777.0
 offset_bottom = 119.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Organic label" parent="CanvasLayer/HUD/Red HUD" index="5"]
+[node name="Organic label" parent="HUD Canvas Layer/HUD/Red HUD" index="5"]
 offset_left = 944.0
 offset_top = 76.0
 offset_right = 989.0
 offset_bottom = 119.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Game message" type="Label" parent="CanvasLayer/HUD" node_paths=PackedStringArray("seconday_label")]
+[node name="Game message" type="Label" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("seconday_label")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -426,7 +457,7 @@ yellow_color = Color(1, 0.870588, 0, 1)
 red_color = Color(1, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Secondary label" type="Label" parent="CanvasLayer/HUD/Game message"]
+[node name="Secondary label" type="Label" parent="HUD Canvas Layer/HUD/Game message"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -449,7 +480,49 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="UI" type="Node" parent="."]
+
+[node name="Branch 1 buttons" type="Node2D" parent="UI"]
+
+[node name="Branch 1 A button" type="TextureButton" parent="UI/Branch 1 buttons"]
+offset_left = 352.0
+offset_top = 583.0
+offset_right = 552.0
+offset_bottom = 783.0
+rotation = -2.20784
+scale = Vector2(0.245, 0.245)
+texture_normal = ExtResource("22_ixrcv")
+
+[node name="Branch 1 B button" type="TextureButton" parent="UI/Branch 1 buttons"]
+offset_left = 340.0
+offset_top = 607.0
+offset_right = 540.0
+offset_bottom = 807.0
+rotation = -3.27075
+scale = Vector2(0.245, 0.245)
+texture_normal = ExtResource("22_ixrcv")
+
+[node name="Branch 2 buttons" type="Node2D" parent="UI"]
+
+[node name="Branch 2 A button" type="TextureButton" parent="UI/Branch 2 buttons"]
+offset_left = 555.0
+offset_top = 269.0
+offset_right = 755.0
+offset_bottom = 469.0
+rotation = -0.178024
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("22_ixrcv")
+
+[node name="Branch 2 B button" type="TextureButton" parent="UI/Branch 2 buttons"]
+offset_left = 560.0
+offset_top = 283.0
+offset_right = 760.0
+offset_bottom = 483.0
+rotation = -5.20457
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("22_ixrcv")
+
 [editable path="Players/Player 2"]
 [editable path="Players/Player 3"]
-[editable path="CanvasLayer/HUD/Yellow HUD"]
-[editable path="CanvasLayer/HUD/Red HUD"]
+[editable path="HUD Canvas Layer/HUD/Yellow HUD"]
+[editable path="HUD Canvas Layer/HUD/Red HUD"]

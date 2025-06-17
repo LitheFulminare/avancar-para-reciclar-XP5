@@ -29,6 +29,9 @@ enum round_states
 @export var squares_parent_node: Node
 @export var card_stack: Sprite2D
 @export var game_message: GameMessageManager
+@export var branch1_buttons: Node2D
+@export var branch2_buttons: Node2D
+
 
 var current_round_state: round_states = round_states.start_round
 
@@ -77,6 +80,9 @@ var player_array: Array[Node]
 #endregion
 
 func _ready() -> void:
+	branch1_buttons.visible = false
+	branch2_buttons.visible = false
+	
 	main_camera.ignore_input = true
 	
 	player_array = players_parent_node.get_children()

@@ -8,6 +8,7 @@ extends Node2D
 @export_group("Square logic")
 @export var next_square: Square
 @export var is_fork: bool = false
+@export var fork_number: int = 0
 @export var branch_A_start: Square
 @export var branch_B_start: Square
 
