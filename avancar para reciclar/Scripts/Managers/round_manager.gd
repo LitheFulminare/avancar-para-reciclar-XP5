@@ -249,6 +249,7 @@ func move(bypass_fork_check: bool = false) -> void:
 			else:
 				active_player.square = active_player.square.next_square
 		
+		active_player.update_movement_HUD(total_dice_result)
 		total_dice_result -= 1
 		active_player.move_to_current_square()
 	
@@ -267,6 +268,9 @@ func player_landed_at_fork() -> void:
 # emits a signal after the tween ends, signal is connected on this class' move() func
 func player_stopped_moving() -> void:
 	print("Player stopped moving")
+	
+	if total_dice_result == 0:
+		active_player.update_movement_HUD(0)
 	
 	if !player_at_fork:
 		move()
