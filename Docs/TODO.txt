@@ -3,8 +3,10 @@ TODO:
 >> Visual feedback of dice rolling
 
 >> Visual feedback of how many the player can walk
+	- done, needs some polishing
 
 >> Spawn buttons to choose branch
+	- did that, but still need to update the sprites
 
 >> Finish trash card spawn
 	- create a card background
@@ -16,9 +18,6 @@ TODO:
 
 >> Implement discard trash thing when getting an answer right
 	- can reuse the "discard trash square" script since it's the same principle
-
->> Save and load state when going to a minigame scene and then going back to the board scene
-	- not sure whether I'll use GameManager or create a new autoload, or a new thing I haven't learned yet. Still have to do some research
 
 >> Create a preparation scene before the minigame, just like Mario Party - and show controls
 
@@ -46,3 +45,6 @@ DONE
 
 >> Some sort of feedback when starting a game, changing turns, rounds, "Hora do minigame!" and game end
 	- (done) can reuse some of  the logic on the boat minigame to display this stuff
+
+>> Save and load state when going to a minigame scene and then going back to the board scene
+	- (used GameManager) not sure whether I'll use GameManager or create a new autoload, or a new thing I haven't learned yet. Still have to do some research
