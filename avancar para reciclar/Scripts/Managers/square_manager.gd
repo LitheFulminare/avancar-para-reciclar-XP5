@@ -42,7 +42,6 @@ func luck_card() -> void:
 
 func collect_trash() -> void:
 	round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
-	round_manager.square_action_finished()
 	
 func discard_trash() -> void:
 	print("Player landed on a Discard trash square")

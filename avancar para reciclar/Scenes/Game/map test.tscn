@@ -29,7 +29,7 @@
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "game_message", "branch1_buttons", "branch2_buttons", "trash_card_stack", "luck_card_Stack", "players_parent_node", "player1", "player2", "player3")]
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "game_message", "branch1_buttons", "branch2_buttons", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
 script = ExtResource("1_oqp8s")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
@@ -42,6 +42,7 @@ branch1_buttons = NodePath("../../UI/Branch 1 buttons")
 branch2_buttons = NodePath("../../UI/Branch 2 buttons")
 trash_card_stack = NodePath("../../BG and Map Elements/Stack of trash cards")
 luck_card_Stack = NodePath("../../BG and Map Elements/Stack of luck cards")
+players_inventories = [NodePath("../../UI/Player 1 inventory"), NodePath("../../UI/Player 2 inventory"), NodePath("../../UI/Player 3 inventory")]
 players_parent_node = NodePath("../../Players")
 player1 = NodePath("../../Players/Player 1")
 player2 = NodePath("../../Players/Player 2")
@@ -521,6 +522,18 @@ offset_bottom = 483.0
 rotation = -5.20457
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("22_ixrcv")
+
+[node name="Player 1 inventory" type="Marker2D" parent="UI"]
+editor_description = "Used on round manager so it knows where the trash card should go when collected"
+position = Vector2(1007, 23)
+
+[node name="Player 2 inventory" type="Marker2D" parent="UI"]
+editor_description = "Used on round manager so it knows where the trash card should go when collected"
+position = Vector2(158, 18)
+
+[node name="Player 3 inventory" type="Marker2D" parent="UI"]
+editor_description = "Used on round manager so it knows where the trash card should go when collected"
+position = Vector2(140, 627)
 
 [connection signal="pressed" from="UI/Branch 1 buttons/Branch 1 A button" to="Managers/Round Manager" method="_on_branch_1_a_button_pressed"]
 [connection signal="pressed" from="UI/Branch 1 buttons/Branch 1 B button" to="Managers/Round Manager" method="_on_branch_1_b_button_pressed"]

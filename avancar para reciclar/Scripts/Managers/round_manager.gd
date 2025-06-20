@@ -34,6 +34,9 @@ enum round_states
 @export var question_card_stack: Sprite2D
 @export var trash_card_stack: Sprite2D
 @export var luck_card_Stack: Sprite2D
+@export_subgroup("Players' inventories")
+# used to know where to move the trash cards after being drawn
+@export var players_inventories: Array[Marker2D]
 
 var current_round_state: round_states = round_states.start_round
 
@@ -335,9 +338,20 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	
 	move_card_to_center(spawned_trash_card, trash_card_stack)
 	
+	await get_tree().create_timer(1.5).timeout
+	
+	var tween = create_tween()
+	tween.set_parallel()
+	var target_position: Vector2 = players_inventories[target_player_index].global_position
+	tween.tween_property(spawned_trash_card, "position", target_position, 0.6)
+	tween.tween_property(spawned_trash_card, "scale", Vector2.ZERO, 0.6)
+	await tween.finished
+	
 	# gives the card to the target player
 	var player: Player = player_array[target_player_index]
 	player.add_trash(spawned_trash_card)
+	
+	square_action_finished()
 
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
