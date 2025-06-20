@@ -22,18 +22,16 @@ func _ready() -> void:
 	timer_clock.duration = stage_duration
 	countdown.start_countdown()
 	
+	player1.trash_collected.connect(trash_collected)
+	player2.trash_collected.connect(trash_collected)
+	player3.trash_collected.connect(trash_collected)
+	
 	trash_parent.child_exiting_tree.connect(trash_collected)
 	timer_clock.timer_reached_zero.connect(timer_ended)
 	countdown.countdown_ended.connect(start_minigame)
 
-## PROBABLY WONT BE USED -->
-## trash will be spawned until the timer ends, making this useless
-# called when a child of the trash_parent node gets queue_free'd
 func trash_collected(_node: Node) -> void:
-	# check if there is any remaining trash left
-	# it has to be 1 because this value is not updated right after queue_free is called
-	if trash_parent.get_child_count() == 1:
-		print("minigame ended")
+	audio_manager.play_trash_collected_sfx()
 
 # called when the 'Countdown' script reaches 0 and emits the countdown_ended signal
 func start_minigame() -> void:

@@ -1,6 +1,8 @@
 class_name Boat
 extends Area2D
 
+signal trash_collected
+
 # video reference:
 # https://www.youtube.com/watch?v=HFEpqsy0VSc
 
@@ -67,12 +69,14 @@ func hooked(area: Area2D) -> void:
 	# hook colliding with trash
 	if area.is_in_group("Trash"):
 		hooked_trash = area
+		trash_collected.emit()
 		print(str(self.name) + " hooked " + str(hooked_trash.name))
 		
 	# hook colliding with the player
 	if area.is_in_group("Player"):
 		if hooked_trash != null:
 			hooked_trash.queue_free()
+			trash_collected.emit()
 			area.add_point()
 			print(str(area.name) + " collected trash")
 

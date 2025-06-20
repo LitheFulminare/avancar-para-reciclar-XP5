@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://disbcp6ujcu0q"]
+[gd_scene load_steps=35 format=3 uid="uid://disbcp6ujcu0q"]
 
 [ext_resource type="Script" uid="uid://dokerxycq6cla" path="res://Scripts/Minigames/Boat/boat minigame manager.gd" id="1_ric7v"]
 [ext_resource type="Script" uid="uid://cq3h6rlsu8kjr" path="res://Scripts/Managers/time_tracker.gd" id="2_7s84n"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwsc4ltpbsh2" path="res://Scenes/Minigames/Generic elements/point_display.tscn" id="4_7s84n"]
 [ext_resource type="Script" uid="uid://cmq834pg1maen" path="res://Scripts/Minigames/Boat/trash_spawner.gd" id="4_a66v7"]
 [ext_resource type="Texture2D" uid="uid://ch3nf61ed5eae" path="res://Assets/Sprites/Minigames/Boat minigame/Scenario/céu.png" id="4_gerl7"]
+[ext_resource type="AudioStream" uid="uid://cjox82o4dhvxx" path="res://Assets/Audio/SFX/collect trash.ogg" id="5_7lixa"]
 [ext_resource type="Texture2D" uid="uid://dlk78ddhui816" path="res://Assets/Sprites/Minigames/Boat minigame/Scenario/oceano1.png" id="5_a66v7"]
 [ext_resource type="PackedScene" uid="uid://dio0tl17031id" path="res://Scenes/Minigames/Generic elements/timer clock.tscn" id="5_pbxlv"]
 [ext_resource type="AudioStream" uid="uid://cnfk75xhxx1w1" path="res://Assets/Audio/OST/Question card OST.ogg" id="5_tsgpx"]
@@ -49,10 +50,11 @@ player1 = NodePath("../Boats/Green boat")
 player2 = NodePath("../Boats/Yellow boat")
 player3 = NodePath("../Boats/Red boat")
 
-[node name="Audio Manager" type="Node" parent="." node_paths=PackedStringArray("move", "rolling_dice", "boat_minigame_ost", "question_card_ost")]
+[node name="Audio Manager" type="Node" parent="." node_paths=PackedStringArray("move", "rolling_dice", "trash_collected", "boat_minigame_ost", "question_card_ost")]
 script = ExtResource("2_5366f")
 move = NodePath("SFX Move")
 rolling_dice = NodePath("SFX Rolling dice")
+trash_collected = NodePath("SFX Trash collected")
 boat_minigame_ost = NodePath("OST Boat minigame")
 question_card_ost = NodePath("OST Question card")
 
@@ -63,6 +65,9 @@ stream = ExtResource("3_pa471")
 stream = ExtResource("4_7lixa")
 
 [node name="SFX Select" type="AudioStreamPlayer" parent="Audio Manager"]
+
+[node name="SFX Trash collected" type="AudioStreamPlayer" parent="Audio Manager"]
+stream = ExtResource("5_7lixa")
 
 [node name="OST Question card" type="AudioStreamPlayer" parent="Audio Manager"]
 stream = ExtResource("5_tsgpx")

@@ -5,6 +5,7 @@ extends Node
 @export var move: AudioStreamPlayer
 @export var rolling_dice: AudioStreamPlayer
 @export var select: AudioStreamPlayer
+@export var trash_collected: AudioStreamPlayer
 
 @export_group("OST")
 @export var boat_minigame_ost: AudioStreamPlayer
@@ -22,6 +23,10 @@ func play_rolling_dice_SFX() -> void:
 	rolling_dice.play()
 	rolling_dice.pitch_scale = get_random_pitch()
 	
+func play_trash_collected_sfx() -> void:
+	trash_collected.play()
+	trash_collected.pitch_scale = get_random_pitch()
+
 func play_question_card_ost() -> void:
 	question_card_ost.play()
 	
