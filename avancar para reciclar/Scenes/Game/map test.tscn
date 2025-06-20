@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=29 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dvi78g742jdmp" path="res://Assets/Audio/SFX/rolling dice.ogg" id="4_0rwvm"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
+[ext_resource type="AudioStream" uid="uid://cnfk75xhxx1w1" path="res://Assets/Audio/OST/Question card OST.ogg" id="5_jfhbc"]
 [ext_resource type="Script" uid="uid://dnyqq1kmmdbu5" path="res://Scripts/Managers/save_&_load_manager.gd" id="5_qyprb"]
 [ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_v2k4j"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
@@ -32,7 +33,7 @@
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "game_message", "branch1_buttons", "branch2_buttons", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "game_message", "branch1_buttons", "branch2_buttons", "question_card_stack", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
 script = ExtResource("1_oqp8s")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
@@ -44,6 +45,7 @@ squares_parent_node = NodePath("../../Squares")
 game_message = NodePath("../../HUD Canvas Layer/HUD/Game message")
 branch1_buttons = NodePath("../../UI/Branch 1 buttons")
 branch2_buttons = NodePath("../../UI/Branch 2 buttons")
+question_card_stack = NodePath("../../BG and Map Elements/Stack of question cards")
 trash_card_stack = NodePath("../../BG and Map Elements/Stack of trash cards")
 luck_card_Stack = NodePath("../../BG and Map Elements/Stack of luck cards")
 players_inventories = [NodePath("../../UI/Player 1 inventory"), NodePath("../../UI/Player 2 inventory"), NodePath("../../UI/Player 3 inventory")]
@@ -52,16 +54,26 @@ player1 = NodePath("../../Players/Player 1")
 player2 = NodePath("../../Players/Player 2")
 player3 = NodePath("../../Players/Player 3")
 
-[node name="Audio Manager" type="Node" parent="Managers" node_paths=PackedStringArray("move", "rolling_dice")]
+[node name="Audio Manager" type="Node" parent="Managers" node_paths=PackedStringArray("move", "rolling_dice", "boat_minigame_ost", "question_card_ost")]
 script = ExtResource("25_5vyx2")
-move = NodePath("Move")
-rolling_dice = NodePath("Rolling dice")
+move = NodePath("SFX Move")
+rolling_dice = NodePath("SFX Rolling dice")
+boat_minigame_ost = NodePath("OST Boat minigame")
+question_card_ost = NodePath("OST Question card")
 
-[node name="Move" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
+[node name="SFX Move" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
 stream = ExtResource("3_hrimd")
 
-[node name="Rolling dice" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
+[node name="SFX Rolling dice" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
 stream = ExtResource("4_0rwvm")
+
+[node name="SFX Select" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
+
+[node name="OST Question card" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
+stream = ExtResource("5_jfhbc")
+parameters/looping = true
+
+[node name="OST Boat minigame" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
 
 [node name="Path Manager" type="Node" parent="Managers"]
 editor_description = "handles branching paths and this kind of thing

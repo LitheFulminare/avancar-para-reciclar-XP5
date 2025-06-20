@@ -208,12 +208,12 @@ func dice_roll(is_first_dice_roll: bool) -> void:
 	audio_manager.play_rolling_dice_SFX()
 	
 	if is_first_dice_roll:
-		first_dice_result = 5#GameManager.roll_dice(1, 6)
+		first_dice_result = GameManager.roll_dice(1, 6)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 		active_player.spawn_interaction_buttons(false)
 	else:
-		second_dice_result = 0#GameManager.roll_dice(1, 6)
+		second_dice_result = GameManager.roll_dice(1, 6)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
 		# this was written when this part was on action(), but i'll keep it anyways:
@@ -319,6 +319,8 @@ func player_answered(answer_result: bool) -> void:
 	return
 	
 func question_card_closed() -> void:
+	audio_manager.stop_question_card_ost()
+	
 	await get_tree().create_timer(0.5).timeout
 	
 	current_round_state = round_states.end_turn
@@ -382,7 +384,9 @@ func draw_question_card() -> void:
 	question_card.tree_exiting.connect(question_card_closed)
 	
 	await get_tree().create_timer(1.5).timeout
+	
 	question_card.reveal()
+	audio_manager.play_question_card_ost()
 
 ## Uses tween to move a card to the center of the screen and make it grow.
 ## Pass only a node with [color=yellow]postion[/color] and 
