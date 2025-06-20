@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=26 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
@@ -24,15 +24,17 @@
 [ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/red stats bar.png" id="15_v2k4j"]
 [ext_resource type="Script" uid="uid://bjd7a3ows5xbg" path="res://Scripts/HUD/game_message_manager.gd" id="20_uahh7"]
 [ext_resource type="Texture2D" uid="uid://bdu1yl1sktrgs" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/arrow.png" id="22_ixrcv"]
+[ext_resource type="Script" uid="uid://cmoudadi40tjf" path="res://Scripts/Managers/audio_manager.gd" id="25_5vyx2"]
 
 [node name="MapTest" type="Node2D"]
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "game_message", "branch1_buttons", "branch2_buttons", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "game_message", "branch1_buttons", "branch2_buttons", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
 script = ExtResource("1_oqp8s")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
+audio_manager = NodePath("../Audio Manager")
 main_camera = NodePath("../../Scrolling Camera")
 question_card_spawn = NodePath("../../BG and Map Elements/Stack of question cards/Question Marker Spawn")
 first_square = NodePath("../../Squares/Square 1")
@@ -47,6 +49,12 @@ players_parent_node = NodePath("../../Players")
 player1 = NodePath("../../Players/Player 1")
 player2 = NodePath("../../Players/Player 2")
 player3 = NodePath("../../Players/Player 3")
+
+[node name="Audio Manager" type="Node" parent="Managers" node_paths=PackedStringArray("move")]
+script = ExtResource("25_5vyx2")
+move = NodePath("Move")
+
+[node name="Move" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
 
 [node name="Path Manager" type="Node" parent="Managers"]
 editor_description = "handles branching paths and this kind of thing

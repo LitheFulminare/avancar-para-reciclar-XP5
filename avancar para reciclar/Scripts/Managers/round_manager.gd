@@ -21,6 +21,7 @@ enum round_states
 @export_group("Managers")
 @export var question_card_res_manager: QuestionCardResourceManager
 @export var path_manager: PathManager
+@export var audio_manager: AudioManager
 
 @export_group("Scene node components")
 @export var main_camera: ScrollingCamera
@@ -274,6 +275,8 @@ func player_landed_at_fork() -> void:
 # emits a signal after the tween ends, signal is connected on this class' move() func
 func player_stopped_moving() -> void:
 	print("Player stopped moving")
+	
+	audio_manager.play_move_sfx()
 	
 	if total_dice_result == 0:
 		active_player.update_movement_HUD(0)
