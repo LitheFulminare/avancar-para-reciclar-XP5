@@ -415,28 +415,24 @@ func load_player_data():
 
 # I can combine these 4 into 2 methods
 func _on_branch_1_a_button_pressed() -> void:
-	print("button 1 A pressed")
 	active_player.current_branch = path_manager.branches.branch_A
 	player_chose_branch.emit()
 	branch1_buttons.visible = false
 
 
 func _on_branch_1_b_button_pressed() -> void:
-	print("button 1 B pressed")
 	active_player.current_branch = path_manager.branches.branch_B
 	player_chose_branch.emit()
 	branch1_buttons.visible = false
 
 
 func _on_branch_2_a_button_pressed() -> void:
-	print("button 2 A pressed")
+	branch2_buttons.visible = false
 	active_player.current_branch = path_manager.branches.branch_A
 	player_chose_branch.emit()
-	branch2_buttons.visible = false
 
 
 func _on_branch_2_b_button_pressed() -> void:
-	print("button 2 B pressed")
+	branch2_buttons.visible = false
 	active_player.current_branch = path_manager.branches.branch_B
 	player_chose_branch.emit()
-	branch2_buttons.visible = false

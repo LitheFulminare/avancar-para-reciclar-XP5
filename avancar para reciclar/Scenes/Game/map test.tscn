@@ -71,7 +71,7 @@ script = ExtResource("5_qyprb")
 [node name="BG and Map Elements" type="Node" parent="."]
 
 [node name="BG sprite" type="Sprite2D" parent="BG and Map Elements"]
-z_index = -1
+z_index = -2
 texture_filter = 1
 position = Vector2(-1, 0)
 scale = Vector2(0.30026, 0.300463)
@@ -458,6 +458,7 @@ metadata/_edit_use_anchors_ = true
 [node name="UI" type="Node" parent="."]
 
 [node name="Branch 1 buttons" type="Node2D" parent="UI"]
+z_index = -1
 
 [node name="Branch 1 A button" type="TextureButton" parent="UI/Branch 1 buttons"]
 offset_left = 337.0
@@ -480,6 +481,7 @@ texture_normal = ExtResource("22_ixrcv")
 metadata/_edit_use_anchors_ = true
 
 [node name="Branch 2 buttons" type="Node2D" parent="UI"]
+z_index = -1
 
 [node name="Branch 2 A button" type="TextureButton" parent="UI/Branch 2 buttons"]
 offset_left = 555.0
