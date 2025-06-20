@@ -205,6 +205,8 @@ func player_pressed_map_button() -> void:
 	return
 
 func dice_roll(is_first_dice_roll: bool) -> void:
+	audio_manager.play_rolling_dice_SFX()
+	
 	if is_first_dice_roll:
 		first_dice_result = 5#GameManager.roll_dice(1, 6)
 		print("First dice roll: " + str(first_dice_result))
