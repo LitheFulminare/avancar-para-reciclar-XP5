@@ -1,19 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsh8ww0xyywca"]
+[gd_scene load_steps=4 format=3 uid="uid://dsh8ww0xyywca"]
 
 [ext_resource type="Script" uid="uid://b8a4w8u1mgflh" path="res://Scripts/Cards/Trash cards/trash card.gd" id="1_kd3w2"]
 [ext_resource type="Texture2D" uid="uid://qf88g6uhsdh1" path="res://Assets/Sprites/Cards/Trash cards/Glass card.png" id="2_j30j0"]
+[ext_resource type="Texture2D" uid="uid://br042byg7dm5t" path="res://Assets/Sprites/Cards/Trash cards/Trash card (face down).png" id="3_dq5ub"]
 
-[node name="TrashCard" type="Node2D" node_paths=PackedStringArray("icon", "background_card")]
+[node name="TrashCard" type="Node2D" node_paths=PackedStringArray("icon", "background_card", "face_up_elements", "face_down_elements")]
 script = ExtResource("1_kd3w2")
-icon = NodePath("Sprites/Icon")
-background_card = NodePath("Sprites/Background card")
+icon = NodePath("Face up elements/Icon")
+background_card = NodePath("Face up elements/Background card")
+face_up_elements = NodePath("Face up elements")
+face_down_elements = NodePath("Face down elements")
 
-[node name="Sprites" type="Node2D" parent="."]
+[node name="Face up elements" type="Node2D" parent="."]
 scale = Vector2(0.043, 0.043)
 
-[node name="Icon" type="Sprite2D" parent="Sprites"]
+[node name="Icon" type="Sprite2D" parent="Face up elements"]
 scale = Vector2(3.53357, 3.53357)
 texture = ExtResource("2_j30j0")
 
-[node name="Background card" type="Sprite2D" parent="Sprites"]
+[node name="Background card" type="Sprite2D" parent="Face up elements"]
 scale = Vector2(3.53357, 3.53357)
+
+[node name="Face down elements" type="Node2D" parent="."]
+visible = false
+scale = Vector2(0.043, 0.043)
+
+[node name="Face down sprite" type="Sprite2D" parent="Face down elements"]
+scale = Vector2(3.53357, 3.53357)
+texture = ExtResource("3_dq5ub")
