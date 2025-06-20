@@ -14,6 +14,7 @@ enum types
 }
 
 @export var sprites: Array[Texture2D]
+@export var background_card: Texture2D
 @export var value: int
 @export var type: types
 

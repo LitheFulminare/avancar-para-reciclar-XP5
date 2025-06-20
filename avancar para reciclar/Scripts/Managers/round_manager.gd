@@ -200,12 +200,12 @@ func player_pressed_map_button() -> void:
 
 func dice_roll(is_first_dice_roll: bool) -> void:
 	if is_first_dice_roll:
-		first_dice_result = GameManager.roll_dice(1, 6)
+		first_dice_result = 5#GameManager.roll_dice(1, 6)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 		active_player.spawn_interaction_buttons(false)
 	else:
-		second_dice_result = GameManager.roll_dice(1, 6)
+		second_dice_result = 0#GameManager.roll_dice(1, 6)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
 		# this was written when this part was on action(), but i'll keep it anyways:
@@ -329,7 +329,7 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	spawned_trash_card.update_stats(trash_type)
 	
 	## CHANGE THIS LATER
-	spawned_trash_card.visible = false
+	#spawned_trash_card.visible = false
 	
 	# gives the card to the target player
 	var player: Player = player_array[target_player_index]

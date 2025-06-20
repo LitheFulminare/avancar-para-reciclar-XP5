@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="TrashCardStats" load_steps=5 format=3 uid="uid://ccequ02qijxmo"]
+[gd_resource type="Resource" script_class="TrashCardStats" load_steps=6 format=3 uid="uid://ccequ02qijxmo"]
 
+[ext_resource type="Texture2D" uid="uid://dqd3p70b5m4ak" path="res://Assets/Sprites/Cards/Trash cards/Metal card.png" id="1_12cyl"]
 [ext_resource type="Script" uid="uid://by2iqqsceahle" path="res://Scripts/Cards/Trash cards/trash cards resource.gd" id="1_hwn0h"]
 [ext_resource type="Texture2D" uid="uid://ckdsj5y6522py" path="res://Assets/Sprites/Cards/Trash icons/Metal (can).png" id="2_fkecy"]
 [ext_resource type="Texture2D" uid="uid://dwsquny4bmcy7" path="res://Assets/Sprites/Cards/Trash icons/Metal (cog).png" id="3_12cyl"]
@@ -8,6 +9,7 @@
 [resource]
 script = ExtResource("1_hwn0h")
 sprites = Array[Texture2D]([ExtResource("2_fkecy"), ExtResource("3_12cyl"), ExtResource("4_3e1s7")])
-value = 0
+background_card = ExtResource("1_12cyl")
+value = 3
 type = 2
 metadata/_custom_type_script = "uid://by2iqqsceahle"
