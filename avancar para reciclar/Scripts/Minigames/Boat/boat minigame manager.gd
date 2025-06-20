@@ -8,6 +8,7 @@ extends Node
 @export var timer_clock: TimerClock
 @export var trash_parent: Node2D
 @export var countdown: Countdown
+@export var audio_manager: AudioManager
 @export_subgroup("Players")
 @export var player1: Boat
 @export var player2: Boat
@@ -40,10 +41,12 @@ func start_minigame() -> void:
 	pre_round_phase = false
 	
 	timer_clock.start_timer()
+	audio_manager.play_boat_minigame_ost()
 
 # called when the timer on the Timer Clock reaches 0
 func timer_ended() -> void:
 	minigame_paused = true
+	audio_manager.stop_boat_minigame_ost()
 	await get_tree().create_timer(1).timeout
 	countdown.change_text("Fim de jogo!", true)
 	await get_tree().create_timer(2).timeout

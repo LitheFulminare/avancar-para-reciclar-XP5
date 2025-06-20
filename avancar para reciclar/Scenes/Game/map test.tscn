@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=30 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
 [ext_resource type="AudioStream" uid="uid://cnfk75xhxx1w1" path="res://Assets/Audio/OST/Question card OST.ogg" id="5_jfhbc"]
 [ext_resource type="Script" uid="uid://dnyqq1kmmdbu5" path="res://Scripts/Managers/save_&_load_manager.gd" id="5_qyprb"]
+[ext_resource type="AudioStream" uid="uid://b5wui1f7ivm1c" path="res://Assets/Audio/OST/Minigame OST.ogg" id="6_5omrr"]
 [ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_v2k4j"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
 [ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="8_5w0ha"]
@@ -66,6 +67,7 @@ stream = ExtResource("3_hrimd")
 
 [node name="SFX Rolling dice" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
 stream = ExtResource("4_0rwvm")
+max_polyphony = 2
 
 [node name="SFX Select" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
 
@@ -74,6 +76,7 @@ stream = ExtResource("5_jfhbc")
 parameters/looping = true
 
 [node name="OST Boat minigame" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
+stream = ExtResource("6_5omrr")
 
 [node name="Path Manager" type="Node" parent="Managers"]
 editor_description = "handles branching paths and this kind of thing

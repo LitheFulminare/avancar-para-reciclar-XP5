@@ -8,15 +8,10 @@ TODO:
 >> Spawn buttons to choose branch
 	- did that, but still need to update the sprites
 
->> Finish trash card spawn
-	- create a card background
-	- make it appear on screen
-	- make it move to the player and shrink till it disappears (use tween)
-
 >> Finish square action stuff
-	- prob will create a resource for each of them containing a script that will be run
+	- it's all setup already, just eed to code the action themselves
 
->> Implement discard trash thing when getting an answer right
+>> Implement discard trash thing when getting an answer right and when wining minigame
 	- can reuse the "discard trash square" script since it's the same principle
 
 >> Create a preparation scene before the minigame, just like Mario Party - and show controls
@@ -27,7 +22,7 @@ TODO:
 
 >> Change quiz square icon to match new question mark font
 
->> Ajust branch 1 A (it's overlapping with the HUD
+>> Ajust branch 1 A (it's overlapping with the HUD)
 
 (Caio)
 
@@ -43,10 +38,15 @@ PARTIALLY DONE
 	- play a sound reflecting whether it's right or wrong
 	- (done) put a text above the card "Correct!", "Wrong"
 
+DONE
+
 >> Go to minigame when finishing a round
 	- (done) easy, just use game_manager.go_to_scene()
 
-DONE
+>> Finish trash card spawn
+	- (done) create a card background
+	- (done) make it appear on screen
+	- (done) make it move to the player and shrink till it disappears (use tween)
 
 >> Some sort of feedback when starting a game, changing turns, rounds, "Hora do minigame!" and game end
 	- (done) can reuse some of  the logic on the boat minigame to display this stuff
