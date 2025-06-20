@@ -350,20 +350,25 @@ func draw_question_card() -> void:
 	question_card.scale = card_stack.scale
 	
 	# moves it smoothly to the center of the screen and makes it bigger
-	var tween = create_tween()
-	tween.set_parallel()
-	var screen_mid_point: Vector2 = Vector2(get_viewport().get_visible_rect().size.x/2, 
-	get_viewport().get_visible_rect().size.y/2)
-	print(screen_mid_point)
-	tween.tween_property(question_card, "position", screen_mid_point, 0.6)
-	tween.tween_property(question_card, "scale", Vector2(1.5,1.5), 0.6)
-	await tween.finished
+	move_card_to_center(question_card)
 	
 	question_card.player_answered.connect(player_answered)
 	question_card.tree_exiting.connect(question_card_closed)
 	
 	await get_tree().create_timer(1).timeout
 	question_card.reveal()
+
+func move_card_to_center(node) -> void:
+	var tween = create_tween()
+	tween.set_parallel()
+	var screen_mid_point: Vector2 = Vector2(get_viewport().get_visible_rect().size.x/2, 
+	get_viewport().get_visible_rect().size.y/2)
+	print(screen_mid_point)
+	tween.tween_property(node, "position", screen_mid_point, 0.6)
+	tween.tween_property(node, "scale", Vector2(1.5,1.5), 0.6)
+	await tween.finished
+	
+	return
 
 # returns array of the squares
 # get_children() only returns an array of node so you have to come up with your own solution
