@@ -328,8 +328,7 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	get_tree().root.add_child(spawned_trash_card)
 	spawned_trash_card.update_stats(trash_type)
 	
-	## CHANGE THIS LATER
-	#spawned_trash_card.visible = false
+	move_card_to_center(spawned_trash_card)
 	
 	# gives the card to the target player
 	var player: Player = player_array[target_player_index]
@@ -358,6 +357,9 @@ func draw_question_card() -> void:
 	await get_tree().create_timer(1).timeout
 	question_card.reveal()
 
+## Uses tween to move a card to the center of the screen and make it grow.
+## Pass only a node with [color=yellow]postion[/color] and 
+## [color=yellow]scale[/color] properties, otherwise it won't work.
 func move_card_to_center(node) -> void:
 	var tween = create_tween()
 	tween.set_parallel()
