@@ -27,11 +27,13 @@ enum round_states
 @export var question_card_spawn: Marker2D
 @export var first_square: Square
 @export var squares_parent_node: Node
-@export var card_stack: Sprite2D
 @export var game_message: GameMessageManager
 @export var branch1_buttons: Node2D
 @export var branch2_buttons: Node2D
-
+@export_subgroup("Cards")
+@export var question_card_stack: Sprite2D
+@export var trash_card_stack: Sprite2D
+@export var luck_card_Stack: Sprite2D
 
 var current_round_state: round_states = round_states.start_round
 
@@ -328,7 +330,10 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	get_tree().root.add_child(spawned_trash_card)
 	spawned_trash_card.update_stats(trash_type)
 	
-	move_card_to_center(spawned_trash_card)
+	#spawned_trash_card.position = trash_card_stack.global_position
+	#spawned_trash_card.scale = trash_card_stack.scale
+	
+	move_card_to_center(spawned_trash_card, trash_card_stack)
 	
 	# gives the card to the target player
 	var player: Player = player_array[target_player_index]
@@ -345,11 +350,11 @@ func draw_question_card() -> void:
 	
 	# changes the text, sets position to the card stack nad changes the size
 	question_card.set_texts(question_card_res_manager.get_random_question_res())
-	question_card.position = question_card_spawn.global_position
-	question_card.scale = card_stack.scale
+	#question_card.position = question_card_spawn.global_position
+	#question_card.scale = question_card_stack.scale
 	
 	# moves it smoothly to the center of the screen and makes it bigger
-	move_card_to_center(question_card)
+	move_card_to_center(question_card, question_card_stack)
 	
 	question_card.player_answered.connect(player_answered)
 	question_card.tree_exiting.connect(question_card_closed)
@@ -360,14 +365,17 @@ func draw_question_card() -> void:
 ## Uses tween to move a card to the center of the screen and make it grow.
 ## Pass only a node with [color=yellow]postion[/color] and 
 ## [color=yellow]scale[/color] properties, otherwise it won't work.
-func move_card_to_center(node) -> void:
+func move_card_to_center(card, spawn_node) -> void:
+	card.position = spawn_node.global_position
+	card.scale = spawn_node.scale
+	
 	var tween = create_tween()
 	tween.set_parallel()
 	var screen_mid_point: Vector2 = Vector2(get_viewport().get_visible_rect().size.x/2, 
 	get_viewport().get_visible_rect().size.y/2)
 	print(screen_mid_point)
-	tween.tween_property(node, "position", screen_mid_point, 0.6)
-	tween.tween_property(node, "scale", Vector2(1.5,1.5), 0.6)
+	tween.tween_property(card, "position", screen_mid_point, 0.6)
+	tween.tween_property(card, "scale", Vector2(1.5,1.5), 0.6)
 	await tween.finished
 	
 	return

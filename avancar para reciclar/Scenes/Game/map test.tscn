@@ -29,7 +29,7 @@
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "card_stack", "game_message", "branch1_buttons", "branch2_buttons", "players_parent_node", "player1", "player2", "player3")]
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "game_message", "branch1_buttons", "branch2_buttons", "trash_card_stack", "luck_card_Stack", "players_parent_node", "player1", "player2", "player3")]
 script = ExtResource("1_oqp8s")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
@@ -37,10 +37,11 @@ main_camera = NodePath("../../Scrolling Camera")
 question_card_spawn = NodePath("../../BG and Map Elements/Stack of question cards/Question Marker Spawn")
 first_square = NodePath("../../Squares/Square 1")
 squares_parent_node = NodePath("../../Squares")
-card_stack = NodePath("../../BG and Map Elements/Stack of question cards")
 game_message = NodePath("../../HUD Canvas Layer/HUD/Game message")
 branch1_buttons = NodePath("../../UI/Branch 1 buttons")
 branch2_buttons = NodePath("../../UI/Branch 2 buttons")
+trash_card_stack = NodePath("../../BG and Map Elements/Stack of trash cards")
+luck_card_Stack = NodePath("../../BG and Map Elements/Stack of luck cards")
 players_parent_node = NodePath("../../Players")
 player1 = NodePath("../../Players/Player 1")
 player2 = NodePath("../../Players/Player 2")
@@ -89,12 +90,12 @@ texture = ExtResource("6_v2k4j")
 position = Vector2(28.9446, 28.1738)
 scale = Vector2(14.4024, 14.0189)
 
-[node name="Stack of trash cards2" type="Sprite2D" parent="BG and Map Elements"]
+[node name="Stack of trash cards" type="Sprite2D" parent="BG and Map Elements"]
 position = Vector2(93, 437)
 scale = Vector2(0.0518229, 0.0532407)
 texture = ExtResource("8_y8kdn")
 
-[node name="Trash marker" type="Marker2D" parent="BG and Map Elements/Stack of trash cards2"]
+[node name="Trash marker" type="Marker2D" parent="BG and Map Elements/Stack of trash cards"]
 position = Vector2(28.9446, 28.1738)
 scale = Vector2(14.4024, 14.0189)
 
