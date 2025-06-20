@@ -29,6 +29,11 @@ TODO:
 
 >> Ajust branch 1 A (it's overlapping with the HUD
 
+(Caio)
+
+>> Change trash card icon, the style doesn't match
+
+>> Change luck card icon, arthur updated the colors
 
 
 PARTIALLY DONE
