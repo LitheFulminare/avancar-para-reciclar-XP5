@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjox82o4dhvxx"
+path="res://.godot/imported/collect trash.ogg-d2b390bb5b8f13ecd0b0077efff40c5d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/collect trash.ogg"
+dest_files=["res://.godot/imported/collect trash.ogg-d2b390bb5b8f13ecd0b0077efff40c5d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

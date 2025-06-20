@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvi78g742jdmp"
+path="res://.godot/imported/rolling dice.ogg-9591c6f2ff390ed5f2b4fbc1b219c8ba.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/rolling dice.ogg"
+dest_files=["res://.godot/imported/rolling dice.ogg-9591c6f2ff390ed5f2b4fbc1b219c8ba.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=27 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
 [ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="2_y42xc"]
+[ext_resource type="AudioStream" uid="uid://cjox82o4dhvxx" path="res://Assets/Audio/SFX/collect trash.ogg" id="3_hrimd"]
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
@@ -55,6 +56,7 @@ script = ExtResource("25_5vyx2")
 move = NodePath("Move")
 
 [node name="Move" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
+stream = ExtResource("3_hrimd")
 
 [node name="Path Manager" type="Node" parent="Managers"]
 editor_description = "handles branching paths and this kind of thing
