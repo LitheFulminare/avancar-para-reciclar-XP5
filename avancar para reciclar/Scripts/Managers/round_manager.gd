@@ -258,6 +258,7 @@ func move(bypass_fork_check: bool = false) -> void:
 		is_player_moving = false
 
 func player_landed_at_fork() -> void:
+	active_player.update_movement_HUD(total_dice_result)
 	player_at_fork = true # prevents move() from being called again on player_stopped_moving()
 	if active_player.square.fork_number == 1:
 		branch1_buttons.visible = true
