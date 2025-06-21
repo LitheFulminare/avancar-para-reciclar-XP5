@@ -26,11 +26,10 @@ func _ready() -> void:
 	player2.trash_collected.connect(trash_collected)
 	player3.trash_collected.connect(trash_collected)
 	
-	trash_parent.child_exiting_tree.connect(trash_collected)
 	timer_clock.timer_reached_zero.connect(timer_ended)
 	countdown.countdown_ended.connect(start_minigame)
 
-func trash_collected(_node: Node) -> void:
+func trash_collected() -> void:
 	audio_manager.play_trash_collected_sfx()
 
 # called when the 'Countdown' script reaches 0 and emits the countdown_ended signal
