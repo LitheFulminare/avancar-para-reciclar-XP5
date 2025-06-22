@@ -36,18 +36,22 @@
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "game_message", "branch1_buttons", "branch2_buttons", "question_card_stack", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "game_message", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "branch1_buttons_parent", "branch1_A_button", "branch1_B_button", "branch2_buttons_parent", "branch2_A_button", "branch2_B_button", "question_card_stack", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
 script = ExtResource("1_oqp8s")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
 audio_manager = NodePath("../Audio Manager")
+game_message = NodePath("../../HUD Canvas Layer/HUD/Game message")
 main_camera = NodePath("../../Scrolling Camera")
 question_card_spawn = NodePath("../../BG and Map Elements/Stack of question cards/Question Marker Spawn")
 first_square = NodePath("../../Squares/Square 1")
 squares_parent_node = NodePath("../../Squares")
-game_message = NodePath("../../HUD Canvas Layer/HUD/Game message")
-branch1_buttons = NodePath("../../UI/Branch 1 buttons")
-branch2_buttons = NodePath("../../UI/Branch 2 buttons")
+branch1_buttons_parent = NodePath("../../UI/Branch 1 buttons")
+branch1_A_button = NodePath("../../UI/Branch 1 buttons/Branch 1 A button")
+branch1_B_button = NodePath("../../UI/Branch 1 buttons/Branch 1 B button")
+branch2_buttons_parent = NodePath("../../UI/Branch 2 buttons")
+branch2_A_button = NodePath("../../UI/Branch 2 buttons/Branch 2 A button")
+branch2_B_button = NodePath("../../UI/Branch 2 buttons/Branch 2 B button")
 question_card_stack = NodePath("../../BG and Map Elements/Stack of question cards")
 trash_card_stack = NodePath("../../BG and Map Elements/Stack of trash cards")
 luck_card_Stack = NodePath("../../BG and Map Elements/Stack of luck cards")

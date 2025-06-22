@@ -22,15 +22,20 @@ enum round_states
 @export var question_card_res_manager: QuestionCardResourceManager
 @export var path_manager: PathManager
 @export var audio_manager: AudioManager
+@export var game_message: GameMessageManager
 
 @export_group("Scene node components")
 @export var main_camera: ScrollingCamera
 @export var question_card_spawn: Marker2D
 @export var first_square: Square
 @export var squares_parent_node: Node
-@export var game_message: GameMessageManager
-@export var branch1_buttons: Node2D
-@export var branch2_buttons: Node2D
+@export_subgroup("Branch buttons")
+@export var branch1_buttons_parent: Node2D
+@export var branch1_A_button: TextureButton
+@export var branch1_B_button: TextureButton
+@export var branch2_buttons_parent: Node2D
+@export var branch2_A_button: TextureButton
+@export var branch2_B_button: TextureButton
 
 @export_subgroup("Cards")
 @export var question_card_stack: Sprite2D
@@ -93,8 +98,8 @@ var player_array: Array[Node]
 #endregion
 
 func _ready() -> void:
-	branch1_buttons.visible = false
-	branch2_buttons.visible = false
+	branch1_buttons_parent.visible = false
+	branch2_buttons_parent.visible = false
 	
 	main_camera.ignore_input = true
 	
@@ -275,10 +280,33 @@ func move(bypass_fork_check: bool = false) -> void:
 func player_landed_at_fork() -> void:
 	active_player.update_movement_HUD(total_dice_result)
 	player_at_fork = true # prevents move() from being called again on player_stopped_moving()
+	spawn_branch_buttons()
+	
+func spawn_branch_buttons() -> void:
 	if active_player.square.fork_number == 1:
-		branch1_buttons.visible = true
+		branch1_buttons_parent.visible = true
 	if active_player.square.fork_number == 2:
-		branch2_buttons.visible = true
+		branch2_buttons_parent.visible = true
+		
+	match turn:
+		1:
+			branch1_A_button.texture_normal = green_arrow
+			branch1_B_button.texture_normal = green_arrow
+			
+			branch2_A_button.texture_normal = green_arrow
+			branch2_B_button.texture_normal = green_arrow
+		2:
+			branch1_A_button.texture_normal = yellow_arrow
+			branch1_B_button.texture_normal = yellow_arrow
+			
+			branch2_A_button.texture_normal = yellow_arrow
+			branch2_B_button.texture_normal = yellow_arrow
+		3:
+			branch1_A_button.texture_normal = red_arrow
+			branch1_B_button.texture_normal = red_arrow
+			
+			branch2_A_button.texture_normal = red_arrow
+			branch2_B_button.texture_normal = red_arrow
 
 # called by move() on the player's script
 # emits a signal after the tween ends, signal is connected on this class' move() func
@@ -465,22 +493,22 @@ func load_player_data():
 func _on_branch_1_a_button_pressed() -> void:
 	active_player.current_branch = path_manager.branches.branch_A
 	player_chose_branch.emit()
-	branch1_buttons.visible = false
+	branch1_buttons_parent.visible = false
 
 
 func _on_branch_1_b_button_pressed() -> void:
 	active_player.current_branch = path_manager.branches.branch_B
 	player_chose_branch.emit()
-	branch1_buttons.visible = false
+	branch1_buttons_parent.visible = false
 
 
 func _on_branch_2_a_button_pressed() -> void:
-	branch2_buttons.visible = false
+	branch2_buttons_parent.visible = false
 	active_player.current_branch = path_manager.branches.branch_A
 	player_chose_branch.emit()
 
 
 func _on_branch_2_b_button_pressed() -> void:
-	branch2_buttons.visible = false
+	branch2_buttons_parent.visible = false
 	active_player.current_branch = path_manager.branches.branch_B
 	player_chose_branch.emit()
