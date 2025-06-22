@@ -13,7 +13,7 @@ extends Node
 
 func get_random_pitch() -> float:
 	randomize()
-	return randf_range(0.85, 1.15)
+	return randf_range(0.80, 1.2)
 
 func play_move_sfx() -> void:
 	move.play()
