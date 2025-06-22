@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6y45oiukvs40"
-path="res://.godot/imported/arrow.png-de1149a746b2d44cec20a1ce31d6d02f.ctex"
+uid="uid://bqu4dwpwpc40b"
+path="res://.godot/imported/Yellow arrow.png-afb688cb867c0f85405441f5c19562cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/HUD & UI/UI/Gameplay/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-de1149a746b2d44cec20a1ce31d6d02f.ctex"]
+source_file="res://Assets/Sprites/HUD & UI/UI/Gameplay/Yellow arrow.png"
+dest_files=["res://.godot/imported/Yellow arrow.png-afb688cb867c0f85405441f5c19562cf.ctex"]
 
 [params]
 

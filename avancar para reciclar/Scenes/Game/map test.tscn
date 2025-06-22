@@ -1,11 +1,14 @@
-[gd_scene load_steps=30 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=32 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
+[ext_resource type="Texture2D" uid="uid://cj6ubyjblo183" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Green arrow.png" id="2_7w3fj"]
 [ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
 [ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="2_y42xc"]
 [ext_resource type="AudioStream" uid="uid://lfkiy52e7xlh" path="res://Assets/Audio/SFX/pawn moving.ogg" id="3_hrimd"]
 [ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
+[ext_resource type="Texture2D" uid="uid://bqu4dwpwpc40b" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Yellow arrow.png" id="3_wux8l"]
 [ext_resource type="AudioStream" uid="uid://dvi78g742jdmp" path="res://Assets/Audio/SFX/rolling dice.ogg" id="4_0rwvm"]
+[ext_resource type="Texture2D" uid="uid://d4h37imy6ns5p" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Red arrow.png" id="4_ktn4s"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
 [ext_resource type="AudioStream" uid="uid://cnfk75xhxx1w1" path="res://Assets/Audio/OST/Question card OST.ogg" id="5_jfhbc"]
@@ -27,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="15_ujeix"]
 [ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/red stats bar.png" id="15_v2k4j"]
 [ext_resource type="Script" uid="uid://bjd7a3ows5xbg" path="res://Scripts/HUD/game_message_manager.gd" id="20_uahh7"]
-[ext_resource type="Texture2D" uid="uid://bdu1yl1sktrgs" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/arrow.png" id="22_ixrcv"]
 [ext_resource type="Script" uid="uid://cmoudadi40tjf" path="res://Scripts/Managers/audio_manager.gd" id="25_5vyx2"]
 
 [node name="MapTest" type="Node2D"]
@@ -49,6 +51,9 @@ branch2_buttons = NodePath("../../UI/Branch 2 buttons")
 question_card_stack = NodePath("../../BG and Map Elements/Stack of question cards")
 trash_card_stack = NodePath("../../BG and Map Elements/Stack of trash cards")
 luck_card_Stack = NodePath("../../BG and Map Elements/Stack of luck cards")
+green_arrow = ExtResource("2_7w3fj")
+yellow_arrow = ExtResource("3_wux8l")
+red_arrow = ExtResource("4_ktn4s")
 players_inventories = [NodePath("../../UI/Player 1 inventory"), NodePath("../../UI/Player 2 inventory"), NodePath("../../UI/Player 3 inventory")]
 players_parent_node = NodePath("../../Players")
 player1 = NodePath("../../Players/Player 1")
@@ -274,7 +279,7 @@ stats = ExtResource("11_v5epi")
 next_square = NodePath("../Square 22")
 
 [node name="Square 22" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
-position = Vector2(878, 257)
+position = Vector2(876, 261)
 scale = Vector2(0.12, 0.12)
 stats = ExtResource("8_riorq")
 next_square = NodePath("../Square 23")
@@ -513,45 +518,47 @@ metadata/_edit_use_anchors_ = true
 z_index = -1
 
 [node name="Branch 1 A button" type="TextureButton" parent="UI/Branch 1 buttons"]
-offset_left = 337.0
-offset_top = 607.0
-offset_right = 537.0
-offset_bottom = 807.0
+offset_left = 326.0
+offset_top = 596.0
+offset_right = 359.0
+offset_bottom = 619.0
 rotation = -3.27075
-scale = Vector2(0.245, 0.245)
-texture_normal = ExtResource("22_ixrcv")
-metadata/_edit_use_anchors_ = true
+texture_normal = ExtResource("4_ktn4s")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Branch 1 B button" type="TextureButton" parent="UI/Branch 1 buttons"]
-offset_left = 349.0
-offset_top = 581.0
-offset_right = 549.0
-offset_bottom = 781.0
+offset_left = 353.0
+offset_top = 570.0
+offset_right = 386.0
+offset_bottom = 593.0
 rotation = -2.1101
-scale = Vector2(0.245, 0.245)
-texture_normal = ExtResource("22_ixrcv")
-metadata/_edit_use_anchors_ = true
+texture_normal = ExtResource("4_ktn4s")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Branch 2 buttons" type="Node2D" parent="UI"]
 z_index = -1
 
 [node name="Branch 2 A button" type="TextureButton" parent="UI/Branch 2 buttons"]
-offset_left = 555.0
-offset_top = 269.0
-offset_right = 755.0
-offset_bottom = 469.0
+offset_left = 559.0
+offset_top = 276.0
+offset_right = 592.0
+offset_bottom = 299.0
 rotation = -0.178024
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("22_ixrcv")
+texture_normal = ExtResource("4_ktn4s")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Branch 2 B button" type="TextureButton" parent="UI/Branch 2 buttons"]
-offset_left = 560.0
-offset_top = 283.0
-offset_right = 760.0
-offset_bottom = 483.0
+offset_left = 555.0
+offset_top = 288.0
+offset_right = 588.0
+offset_bottom = 311.0
 rotation = -5.20457
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("22_ixrcv")
+texture_normal = ExtResource("4_ktn4s")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Player 1 inventory" type="Marker2D" parent="UI"]
 editor_description = "Used on round manager so it knows where the trash card should go when collected"

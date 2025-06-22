@@ -31,10 +31,17 @@ enum round_states
 @export var game_message: GameMessageManager
 @export var branch1_buttons: Node2D
 @export var branch2_buttons: Node2D
+
 @export_subgroup("Cards")
 @export var question_card_stack: Sprite2D
 @export var trash_card_stack: Sprite2D
 @export var luck_card_Stack: Sprite2D
+
+@export_subgroup("Branch arrows")
+@export var green_arrow: Texture2D
+@export var yellow_arrow: Texture2D
+@export var red_arrow: Texture2D
+
 @export_subgroup("Players' inventories")
 # used to know where to move the trash cards after being drawn
 @export var players_inventories: Array[Marker2D]
