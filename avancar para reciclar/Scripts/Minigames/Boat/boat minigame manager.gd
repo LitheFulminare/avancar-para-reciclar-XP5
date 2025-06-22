@@ -57,12 +57,12 @@ func timer_ended() -> void:
 		
 	elif player1.points == player2.points:
 		countdown.change_text("Jogadores 1 e 2 empataram", false)
+		if player1.points == player3.points:
+			countdown.change_text("Todos os jogadores empataram", false)
 	elif player1.points == player3.points:
 		countdown.change_text("Jogadores 1 e 3 empataram", false)
 	elif player2.points == player3.points:
 		countdown.change_text("Jogadores 2 e 3 empataram", false)
-	elif player1.points == player2.points && player2.points == player3.points:
-		countdown.change_text("Todos os jogadores empataram", false)
 		
 	await get_tree().create_timer(2).timeout
 	GameManager.go_to_scene("res://Scenes/Game/map test.tscn")
