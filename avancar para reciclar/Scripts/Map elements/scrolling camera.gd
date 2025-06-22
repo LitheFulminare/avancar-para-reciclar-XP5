@@ -3,7 +3,7 @@ extends Camera2D
 
 signal finished_zooming_out
 
-var ignore_input
+var ignore_input: bool = false
 
 var is_zoom_on_cooldown: bool = false
 var go_to_starting_pos_after_ZO: bool = false

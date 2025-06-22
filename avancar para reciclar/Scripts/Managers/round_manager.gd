@@ -129,7 +129,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	
-	if active_player != null:
+	if active_player != null && main_camera.ignore_input:
 		main_camera.global_position = active_player.global_position
 
 func _input(event: InputEvent) -> void:
@@ -214,7 +214,7 @@ func player_pressed_dice_button() -> void:
 	action()
 
 func player_pressed_map_button() -> void:
-	return
+	main_camera.ignore_input = false
 
 func dice_roll(is_first_dice_roll: bool) -> void:
 	audio_manager.play_rolling_dice_SFX()
