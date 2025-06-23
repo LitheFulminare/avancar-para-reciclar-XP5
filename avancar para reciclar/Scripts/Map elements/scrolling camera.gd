@@ -107,8 +107,12 @@ func zoom_to_location(location: Vector2, zoom_value: float = max_zoom) -> void:
 ## to the player. Simply using zoom_to_location() would make the movement choppy, this function aims to
 ## prevent that
 func reset_camera(location: Vector2) -> void:
+	zoom_target = Vector2(max_zoom, max_zoom)
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", location, 0.75)
+	await tween.finished
+	# if ignore_input is true, RoundManager pins the camera position to the player, so it has to wait the tween
 	ignore_input = true
-	zoom_to_location(location)
 
 func go_to_starting_position() -> void:
 	global_position = starting_position
