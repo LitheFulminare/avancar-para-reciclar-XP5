@@ -1,18 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://bakufkwaxuiuk"]
+[gd_scene load_steps=5 format=3 uid="uid://bakufkwaxuiuk"]
 
 [ext_resource type="Script" uid="uid://bsdwb4vv4880c" path="res://Scripts/Player/player.gd" id="1_s0eop"]
 [ext_resource type="Texture2D" uid="uid://de0ire3jwru3w" path="res://Assets/Sprites/Players/Green pawn.png" id="2_ft8w5"]
+[ext_resource type="PackedScene" uid="uid://w3sjh33rbdh4" path="res://Scenes/HUD/Dice.tscn" id="2_ude3g"]
 [ext_resource type="Theme" uid="uid://b80bt64wlmq1g" path="res://Misc/Text/Gameplay HUD text.tres" id="3_h54ih"]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("dice_button", "map_button", "movement_remaining_label")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("dice_button", "map_button", "movement_remaining_label", "dice_spawn_point")]
 script = ExtResource("1_s0eop")
 speed = 150.0
 dice_button = NodePath("Button container/Dice button")
 map_button = NodePath("Button container/Map button")
 movement_remaining_label = NodePath("Label")
+dice_spawn_point = NodePath("Dice spawn point")
+dice_scene_path = ExtResource("2_ude3g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ft8w5")
+
+[node name="Dice spawn point" type="Marker2D" parent="."]
+position = Vector2(1, -246)
 
 [node name="Button container" type="VBoxContainer" parent="."]
 offset_left = -433.0

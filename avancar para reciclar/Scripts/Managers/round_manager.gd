@@ -224,12 +224,14 @@ func dice_roll(is_first_dice_roll: bool) -> void:
 	audio_manager.play_rolling_dice_SFX()
 	
 	if is_first_dice_roll:
-		first_dice_result = 10#GameManager.roll_dice(1, 6)
+		first_dice_result = 6#GameManager.roll_dice(1, 6)
+		active_player.spawn_dice(first_dice_result)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 		active_player.spawn_interaction_buttons(false)
 	else:
-		second_dice_result = 0#GameManager.roll_dice(1, 6)
+		second_dice_result = 4#GameManager.roll_dice(1, 6)
+		active_player.spawn_dice(second_dice_result)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
 		# this was written when this part was on action(), but i'll keep it anyways:

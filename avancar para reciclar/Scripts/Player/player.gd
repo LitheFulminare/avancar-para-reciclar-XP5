@@ -13,6 +13,12 @@ signal stopped_moving # connected to player_stopped_moving() on the RoundManager
 @export var dice_button: Button
 @export var map_button: Button
 @export var movement_remaining_label: Label
+@export var dice_spawn_point: Marker2D
+
+@export_group("Scene references")
+@export var dice_scene_path: PackedScene 
+
+var dice: Dice
 
 var points: int
 var paper_trash_cards: Array[TrashCard] = []
@@ -94,6 +100,13 @@ func update_movement_HUD(remaining_distance: int) -> void:
 	movement_remaining_label.text = str(remaining_distance)
 	if remaining_distance == 0:
 		movement_remaining_label.visible = false
+
+func spawn_dice(result: int) -> void:
+	dice = dice_scene_path.instantiate()
+	add_child(dice)
+	dice.global_position = dice_spawn_point.global_position
+	
+	dice.roll_dice(result)
 
 # maybe I could even connect the signals to hide_buttons to simplify
 func _on_dice_button_pressed() -> void:
