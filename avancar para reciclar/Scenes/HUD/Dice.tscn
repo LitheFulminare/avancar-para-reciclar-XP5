@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://w3sjh33rbdh4"]
+[gd_scene load_steps=30 format=3 uid="uid://w3sjh33rbdh4"]
 
 [ext_resource type="Texture2D" uid="uid://c8yyye0dn5kuh" path="res://Assets/Sprite sheets/Dice/Dice rolling.png" id="1_h5gqh"]
 [ext_resource type="Script" uid="uid://d13braax82vhp" path="res://Scripts/HUD/dice.gd" id="1_rlwb3"]
@@ -89,38 +89,6 @@ region = Rect2(9000, 0, 500, 500)
 atlas = ExtResource("1_h5gqh")
 region = Rect2(9500, 0, 500, 500)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8xbi"]
-atlas = ExtResource("1_h5gqh")
-region = Rect2(10000, 0, 500, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q2hie"]
-atlas = ExtResource("1_h5gqh")
-region = Rect2(10500, 0, 500, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3o0o2"]
-atlas = ExtResource("1_h5gqh")
-region = Rect2(11000, 0, 500, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fdxbm"]
-atlas = ExtResource("1_h5gqh")
-region = Rect2(11500, 0, 500, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lrf74"]
-atlas = ExtResource("1_h5gqh")
-region = Rect2(12000, 0, 500, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8ixd"]
-atlas = ExtResource("1_h5gqh")
-region = Rect2(12500, 0, 500, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dfic1"]
-atlas = ExtResource("1_h5gqh")
-region = Rect2(13000, 0, 500, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ayxwb"]
-atlas = ExtResource("1_h5gqh")
-region = Rect2(13500, 0, 500, 500)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_rlwb3"]
 animations = [{
 "frames": [{
@@ -183,34 +151,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p276o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h8xbi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q2hie")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3o0o2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fdxbm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lrf74")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d8ixd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dfic1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ayxwb")
 }],
 "loop": false,
 "name": &"default",
-"speed": 12.0
+"speed": 24.0
 }]
 
 [node name="Dice" type="Node2D" node_paths=PackedStringArray("animated_sprite", "sprite")]
@@ -228,7 +172,7 @@ dice6 = ExtResource("7_86pdn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rlwb3")
-frame = 27
+frame = 19
 frame_progress = 1.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

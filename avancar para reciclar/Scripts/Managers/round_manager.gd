@@ -95,6 +95,8 @@ var trash_card: PackedScene = preload(trash_card_path)
 @onready var square_array: Array[Square] = get_squares()
 var player_array: Array[Node]
 
+var is_first_dice_roll: bool
+
 #endregion
 
 func _ready() -> void:
@@ -108,6 +110,10 @@ func _ready() -> void:
 	#region connect signals
 	main_camera.finished_zooming_out.connect(camera_finished_zooming_out)
 	main_camera.player_finished_examining_map.connect(player_finished_examining_map)
+	
+	player1.dice_landed.connect(dice_landed)
+	player2.dice_landed.connect(dice_landed)
+	player3.dice_landed.connect(dice_landed)
 	
 	player1.stopped_moving.connect(player_stopped_moving)
 	player2.stopped_moving.connect(player_stopped_moving)
@@ -214,31 +220,38 @@ func player_pressed_dice_button() -> void:
 		
 	action()
 
+func dice_landed() -> void:
+	print("Dice landed on RoundManager called")
+	if is_first_dice_roll:
+		active_player.spawn_interaction_buttons(false)
+	else:
+		current_round_state = round_states.move
+		action()
+
 func player_pressed_map_button() -> void:
 	main_camera.ignore_input = false
 	
 	branch1_buttons_parent.visible = false
 	branch2_buttons_parent.visible = false
 
-func dice_roll(is_first_dice_roll: bool) -> void:
+func dice_roll(is_first_roll: bool) -> void:
 	audio_manager.play_rolling_dice_SFX()
+	is_first_dice_roll = is_first_roll
 	
 	if is_first_dice_roll:
-		first_dice_result = 6#GameManager.roll_dice(1, 6)
+		first_dice_result = GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(first_dice_result)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
-		active_player.spawn_interaction_buttons(false)
 	else:
-		second_dice_result = 4#GameManager.roll_dice(1, 6)
+		second_dice_result = GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(second_dice_result)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
 		# this was written when this part was on action(), but i'll keep it anyways:
 			# if there is a special item that makes the player roll another dice I could 
 			# add another state here
-		current_round_state = round_states.move
-		action()
+		
 
 func end_turn() -> void:
 	if turn == GameManager.player_count:

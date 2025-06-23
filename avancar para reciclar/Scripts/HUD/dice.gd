@@ -1,6 +1,8 @@
 class_name Dice
 extends Node2D
 
+signal dice_landed
+
 @export var animated_sprite: AnimatedSprite2D
 @export var sprite: Sprite2D
 
@@ -34,3 +36,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			sprite.texture = dice5
 		6:
 			sprite.texture = dice6
+	
+	dice_landed.emit()
+	
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 0, 1.5)
+	await tween.finished
+	queue_free()
