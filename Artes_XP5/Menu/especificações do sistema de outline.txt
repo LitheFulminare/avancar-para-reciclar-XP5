@@ -1,0 +1,2 @@
+outline com 10 px de espessura
+adicionei -50 de luz
