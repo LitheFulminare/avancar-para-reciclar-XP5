@@ -71,6 +71,8 @@ var is_player_moving: bool = false
 
 var active_player: Player
 
+var player_answered_correctly: bool
+
 const glass_card_stats: TrashCardStats = preload("res://Resources/Cards/Trash cards/glass.tres")
 const metal_card_stats: TrashCardStats = preload("res://Resources/Cards/Trash cards/metal.tres")
 const organic_card_stats: TrashCardStats = preload("res://Resources/Cards/Trash cards/organic.tres")
@@ -239,12 +241,12 @@ func dice_roll(is_first_roll: bool) -> void:
 	is_first_dice_roll = is_first_roll
 	
 	if is_first_dice_roll:
-		first_dice_result = GameManager.roll_dice(1, 6)
+		first_dice_result = 2#GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(first_dice_result, is_first_dice_roll)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 	else:
-		second_dice_result = GameManager.roll_dice(1, 6)
+		second_dice_result = 1#GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(second_dice_result, is_first_dice_roll)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
@@ -373,13 +375,22 @@ func branch_chosen():
 	#add_trash(turn-1, get_random_trash_type())
 
 func player_answered(answer_result: bool) -> void:
-	# maybe I can put discard trash logic here, not sure yet
-	return
-	
-func question_card_closed() -> void:
 	audio_manager.stop_question_card_ost()
 	
-	await get_tree().create_timer(0.5).timeout
+	# maybe I can put discard trash logic here, not sure yet
+	if answer_result: 
+		player_answered_correctly = true
+	
+func question_card_closed() -> void:
+	#audio_manager.stop_question_card_ost()
+	
+	if player_answered_correctly:
+		await get_tree().create_timer(0.75).timeout
+		add_trash(turn-1, get_random_trash_type())
+		player_answered_correctly = false
+		return
+	
+	await get_tree().create_timer(1.5).timeout
 	
 	current_round_state = round_states.end_turn
 	action()

@@ -1,21 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://4wusbevputnd"]
+[gd_scene load_steps=10 format=3 uid="uid://4wusbevputnd"]
 
 [ext_resource type="Script" uid="uid://d3bknv5t61f0k" path="res://Scripts/Cards/Question cards/question card.gd" id="1_7iqeb"]
 [ext_resource type="Texture2D" uid="uid://di4gx44nhwgq7" path="res://Assets/Sprites/Cards/Question cards/Question card facing up.png" id="2_2gg23"]
 [ext_resource type="Script" uid="uid://bxvwd2sst80lt" path="res://Scripts/Misc/fit_text_in_label.gd" id="3_bryby"]
 [ext_resource type="Theme" uid="uid://bnygovcukwib" path="res://Misc/Text/Question card text theme.tres" id="3_kmoot"]
 [ext_resource type="Texture2D" uid="uid://3kunblxicgqt" path="res://Assets/Sprites/Cards/Question cards/Question card facing down.png" id="5_bryby"]
+[ext_resource type="Texture2D" uid="uid://c7fe72vtkcgtj" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (normal).png" id="6_yadp4"]
+[ext_resource type="Texture2D" uid="uid://j8iqinper7to" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (pressed).png" id="7_dlxh6"]
+[ext_resource type="Texture2D" uid="uid://dd26cx034ju7v" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (hover).png" id="8_a11kn"]
+[ext_resource type="BitMap" uid="uid://ds8kqltqbl8xs" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (click mask).png" id="9_u1ljw"]
 
-[node name="Question Card" type="Node2D" node_paths=PackedStringArray("face_up_elements", "face_down_elements", "question_text_label", "answer1_button", "answer2_button", "answer3_button", "answer4_button", "answer_result")]
+[node name="Question Card" type="Node2D" node_paths=PackedStringArray("face_up_elements", "face_down_elements", "answer_result", "continue_button", "question_text_label", "answer1_button", "answer2_button", "answer3_button", "answer4_button")]
 script = ExtResource("1_7iqeb")
 face_up_elements = NodePath("Face up elements")
 face_down_elements = NodePath("Face down elements")
+answer_result = NodePath("Answer result label")
+continue_button = NodePath("Continue button")
 question_text_label = NodePath("Face up elements/Question text")
 answer1_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 1")
 answer2_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 2")
 answer3_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 3")
 answer4_button = NodePath("Face up elements/Control/ScrollContainer/VBoxContainer/Answer 4")
-answer_result = NodePath("Answer result label")
 
 [node name="Face up elements" type="Node2D" parent="."]
 
@@ -115,8 +120,22 @@ text = "Correto!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Continue button" type="TextureButton" parent="."]
+offset_left = -145.0
+offset_top = 65.0
+offset_right = 85.0
+offset_bottom = 263.0
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("6_yadp4")
+texture_pressed = ExtResource("7_dlxh6")
+texture_hover = ExtResource("8_a11kn")
+texture_click_mask = ExtResource("9_u1ljw")
+ignore_texture_size = true
+stretch_mode = 5
+
 [connection signal="resized" from="Face up elements/Question text" to="Face up elements/Question text" method="_on_resized"]
 [connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 1" to="." method="_on_answer_1_pressed"]
 [connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 2" to="." method="_on_answer_2_pressed"]
 [connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 3" to="." method="_on_answer_3_pressed"]
 [connection signal="pressed" from="Face up elements/Control/ScrollContainer/VBoxContainer/Answer 4" to="." method="_on_answer_4_pressed"]
+[connection signal="pressed" from="Continue button" to="." method="_on_continue_button_pressed"]

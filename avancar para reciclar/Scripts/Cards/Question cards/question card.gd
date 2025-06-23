@@ -10,15 +10,16 @@ var texts: QuestionCardTexts
 @export var face_up_elements: Node2D
 @export var face_down_elements: Node2D
 
-@export_group("Texts")
+@export_group("Internal components")
+@export var answer_result: Label
+@export var continue_button: TextureButton
+
+@export_subgroup("Texts")
 @export var question_text_label: LabelManager
 @export var answer1_button: Button
 @export var answer2_button: Button
 @export var answer3_button: Button
 @export var answer4_button: Button
-
-@export_group("Answer feedback")
-@export var answer_result: Label
 
 # remains unaltered, it's used to know if the player clicked on the right button
 @onready var base_answer_buttons: Array[Button] = [answer1_button, answer2_button, answer3_button, answer4_button]
@@ -35,8 +36,8 @@ const right_color: Color = Color(0.35, 0.41, 0, 1) # green
 const wrong_color: Color = Color(0.875, 0, 0, 1) # red
 
 func _ready() -> void:
-	#answer_result.size = Vector2.ZERO
 	answer_result.visible = false
+	continue_button.visible = false
 	
 	face_up_elements.visible = false
 	face_down_elements.visible = true
@@ -96,8 +97,7 @@ func check_answer(button_index: int) -> void:
 	
 	disable_buttons()
 		
-	await get_tree().create_timer(2).timeout
-	queue_free()
+	continue_button.visible = true
 
 # spawns a text above the card telling the result
 # will also do some eye candy stuff
@@ -127,17 +127,17 @@ func disable_buttons() -> void:
 	answer4_button.disabled = true
 
 func _on_answer_1_pressed() -> void:
-	print("Button 1 pressed")
 	check_answer(0)
 
 func _on_answer_2_pressed() -> void:
-	print("Button 2 pressed")
 	check_answer(1)
 
 func _on_answer_3_pressed() -> void:
-	print("Button 3 pressed")
 	check_answer(2)
 
 func _on_answer_4_pressed() -> void:
-	print("Button 4 pressed")
 	check_answer(3)
+
+
+func _on_continue_button_pressed() -> void:
+	queue_free()
