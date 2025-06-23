@@ -29,6 +29,7 @@ enum round_states
 @export var question_card_spawn: Marker2D
 @export var first_square: Square
 @export var squares_parent_node: Node
+@export var control_tips: Node2D
 @export_subgroup("Branch buttons")
 @export var branch1_buttons_parent: Node2D
 @export var branch1_A_button: TextureButton
@@ -100,6 +101,8 @@ var is_first_dice_roll: bool
 #endregion
 
 func _ready() -> void:
+	control_tips.visible = false
+	
 	branch1_buttons_parent.visible = false
 	branch2_buttons_parent.visible = false
 	
@@ -234,6 +237,8 @@ func second_dice_landed() -> void:
 	action()
 
 func player_pressed_map_button() -> void:
+	control_tips.visible = true
+	
 	main_camera.ignore_input = false
 	
 	branch1_buttons_parent.visible = false
@@ -491,6 +496,8 @@ func camera_finished_zooming_out() -> void:
 	#add_trash(turn-1, get_random_trash_type())
 
 func player_finished_examining_map() -> void:
+	control_tips.visible = false
+	
 	if player_at_fork:
 		spawn_branch_buttons()
 	

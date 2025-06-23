@@ -40,7 +40,7 @@
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "game_message", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "branch1_buttons_parent", "branch1_A_button", "branch1_B_button", "branch2_buttons_parent", "branch2_A_button", "branch2_B_button", "question_card_stack", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "game_message", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "control_tips", "branch1_buttons_parent", "branch1_A_button", "branch1_B_button", "branch2_buttons_parent", "branch2_A_button", "branch2_B_button", "question_card_stack", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
 script = ExtResource("1_oqp8s")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
@@ -50,6 +50,7 @@ main_camera = NodePath("../../Scrolling Camera")
 question_card_spawn = NodePath("../../BG and Map Elements/Stack of question cards/Question Marker Spawn")
 first_square = NodePath("../../Squares/Square 1")
 squares_parent_node = NodePath("../../Squares")
+control_tips = NodePath("../../HUD Canvas Layer/HUD/Control tips")
 branch1_buttons_parent = NodePath("../../UI/Branch 1 buttons")
 branch1_A_button = NodePath("../../UI/Branch 1 buttons/Branch 1 A button")
 branch1_B_button = NodePath("../../UI/Branch 1 buttons/Branch 1 B button")
@@ -520,9 +521,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Keybind tips" type="Node2D" parent="HUD Canvas Layer/HUD"]
+[node name="Control tips" type="Node2D" parent="HUD Canvas Layer/HUD"]
 
-[node name="WASD Panel" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybind tips"]
+[node name="WASD Panel" type="TextureRect" parent="HUD Canvas Layer/HUD/Control tips"]
 offset_left = 956.0
 offset_top = 201.0
 offset_right = 1165.0
@@ -530,7 +531,7 @@ offset_bottom = 322.0
 texture = ExtResource("32_7w3fj")
 expand_mode = 1
 
-[node name="WASD" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybind tips/WASD Panel"]
+[node name="WASD" type="TextureRect" parent="HUD Canvas Layer/HUD/Control tips/WASD Panel"]
 layout_mode = 0
 offset_left = 55.0
 offset_top = -3.0
@@ -540,7 +541,7 @@ texture = ExtResource("33_wux8l")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Keybind tips/WASD Panel/WASD"]
+[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Control tips/WASD Panel/WASD"]
 layout_mode = 0
 offset_left = -32.0
 offset_top = 76.0
@@ -552,7 +553,7 @@ text = "Movimentar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QE Panel" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybind tips"]
+[node name="QE Panel" type="TextureRect" parent="HUD Canvas Layer/HUD/Control tips"]
 offset_left = 954.0
 offset_top = 306.0
 offset_right = 1163.0
@@ -560,7 +561,7 @@ offset_bottom = 427.0
 texture = ExtResource("32_7w3fj")
 expand_mode = 1
 
-[node name="QE" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybind tips/QE Panel"]
+[node name="QE" type="TextureRect" parent="HUD Canvas Layer/HUD/Control tips/QE Panel"]
 layout_mode = 0
 offset_left = 55.0
 offset_top = -12.0
@@ -570,7 +571,7 @@ texture = ExtResource("34_ktn4s")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Keybind tips/QE Panel/QE"]
+[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Control tips/QE Panel/QE"]
 layout_mode = 0
 offset_left = -30.0
 offset_top = 76.0
@@ -582,7 +583,7 @@ text = "Zoom"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Esc Panel" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybind tips"]
+[node name="Esc Panel" type="TextureRect" parent="HUD Canvas Layer/HUD/Control tips"]
 offset_left = 955.0
 offset_top = 412.0
 offset_right = 1164.0
@@ -590,7 +591,7 @@ offset_bottom = 533.0
 texture = ExtResource("32_7w3fj")
 expand_mode = 1
 
-[node name="Esc" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybind tips/Esc Panel"]
+[node name="Esc" type="TextureRect" parent="HUD Canvas Layer/HUD/Control tips/Esc Panel"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 21.0
@@ -600,7 +601,7 @@ texture = ExtResource("35_f6pvw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Keybind tips/Esc Panel/Esc"]
+[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Control tips/Esc Panel/Esc"]
 layout_mode = 0
 offset_left = -57.0
 offset_top = 51.0
