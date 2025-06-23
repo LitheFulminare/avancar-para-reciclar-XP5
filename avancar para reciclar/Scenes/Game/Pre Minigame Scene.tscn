@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://skb7j01p3o2q"]
 
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="1_r4in3"]
-[ext_resource type="Script" uid="uid://dqsl21eb0dqth" path="res://Scenes/Game/pre_minigame_scene.gd" id="1_vifol"]
+[ext_resource type="Script" uid="uid://dqsl21eb0dqth" path="res://Scripts/Minigames/pre_minigame_scene.gd" id="1_vifol"]
 [ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="2_vifol"]
 [ext_resource type="Texture2D" uid="uid://dxhivb4oxnqgj" path="res://Assets/Sprites/Cards/Trash cards/Trash card (stack).png" id="3_tsneq"]
 [ext_resource type="Texture2D" uid="uid://camnp8s5bm414" path="res://Assets/Sprites/Cards/Luck cards/Luck card (stack).png" id="4_bm7r6"]

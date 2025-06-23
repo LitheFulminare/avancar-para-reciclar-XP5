@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvcerb6t5w17t"
-path="res://.godot/imported/Credits - hover.png-584842ad62a41020cd2418a79b3eb48c.ctex"
+uid="uid://bpqrumt0ffsar"
+path="res://.godot/imported/Exit hover.png-1e1652e0e65c94baa4e1812f86cb6e95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/HUD & UI/UI/Menu/Credits button/Credits - hover.png"
-dest_files=["res://.godot/imported/Credits - hover.png-584842ad62a41020cd2418a79b3eb48c.ctex"]
+source_file="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Exit button/Exit hover.png"
+dest_files=["res://.godot/imported/Exit hover.png-1e1652e0e65c94baa4e1812f86cb6e95.ctex"]
 
 [params]
 

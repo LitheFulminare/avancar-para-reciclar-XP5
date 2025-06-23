@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0l5sibdt14i4"
-path="res://.godot/imported/Settings - pressed.png-d8b63accbe21c60c3f6eaba1a24b9c43.ctex"
+uid="uid://brh5bn2hw7sn5"
+path="res://.godot/imported/Play - pressed.png-a346fc42075cdfbf7e45167cb1491f49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/HUD & UI/UI/Menu/Settings button/Settings - pressed.png"
-dest_files=["res://.godot/imported/Settings - pressed.png-d8b63accbe21c60c3f6eaba1a24b9c43.ctex"]
+source_file="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Start button/Play - pressed.png"
+dest_files=["res://.godot/imported/Play - pressed.png-a346fc42075cdfbf7e45167cb1491f49.ctex"]
 
 [params]
 

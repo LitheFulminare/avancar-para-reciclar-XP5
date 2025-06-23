@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw0oxk0ecii3v"
-path="res://.godot/imported/Settings.png-d8faac1dac3d6f72d8759b5493c4f0e7.ctex"
+uid="uid://bknmbe7ecgux7"
+path="res://.godot/imported/Credits - pressed.png-cb3f827cab4f0699d44a25f8296a6542.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/HUD & UI/UI/Menu/Settings button/Settings.png"
-dest_files=["res://.godot/imported/Settings.png-d8faac1dac3d6f72d8759b5493c4f0e7.ctex"]
+source_file="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Credits button/Credits - pressed.png"
+dest_files=["res://.godot/imported/Credits - pressed.png-cb3f827cab4f0699d44a25f8296a6542.ctex"]
 
 [params]
 
