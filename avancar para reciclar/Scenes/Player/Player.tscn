@@ -31,13 +31,11 @@ mouse_filter = 2
 layout_mode = 2
 theme = ExtResource("3_h54ih")
 text = "Rolar o primeiro dado"
-flat = true
 
 [node name="Map button" type="Button" parent="Button container"]
 layout_mode = 2
 theme = ExtResource("3_h54ih")
 text = "Examinar mapa"
-flat = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = -75.0

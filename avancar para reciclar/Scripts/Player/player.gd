@@ -49,7 +49,9 @@ func _ready() -> void:
 	new_style_box.border_color = player_color
 	
 	dice_button.add_theme_stylebox_override("focus", new_style_box)
+	dice_button.add_theme_stylebox_override("hover", new_style_box)
 	map_button.add_theme_stylebox_override("focus", new_style_box)
+	map_button.add_theme_stylebox_override("hover", new_style_box)
 	
 	movement_remaining_label.visible = false
 	
@@ -64,12 +66,9 @@ func spawn_interaction_buttons(is_first_dice_roll: bool) -> void:
 		dice_button.text = "Rolar o primeiro dado"
 	else:
 		dice_button.text = "Rolar o segundo dado"
-	
-	dice_button.grab_focus()
 
 func spawn_map_button() -> void:
 	map_button.visible = true
-	map_button.grab_focus()
 
 func hide_buttons() -> void:
 	dice_button.release_focus()
