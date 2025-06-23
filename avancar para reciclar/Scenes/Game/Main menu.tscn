@@ -40,7 +40,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 0
 offset_left = -1.0
 offset_top = -66.0
-offset_right = 1151.0
+offset_right = 1190.0
 offset_bottom = 304.0
 texture = ExtResource("10_blkr1")
 expand_mode = 1
@@ -48,24 +48,23 @@ stretch_mode = 5
 
 [node name="Start" type="TextureButton" parent="Control"]
 layout_mode = 2
-offset_left = 327.0
-offset_top = 118.0
-offset_right = 827.0
-offset_bottom = 618.0
+offset_left = 333.0
+offset_top = 63.0
+offset_right = 833.0
+offset_bottom = 563.0
 size_flags_horizontal = 4
 texture_normal = ExtResource("3_faxhc")
 texture_pressed = ExtResource("4_q8jrw")
 texture_hover = ExtResource("5_cifgm")
 texture_click_mask = ExtResource("6_ka1ax")
 stretch_mode = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="Exit" type="TextureButton" parent="Control"]
 layout_mode = 2
-offset_left = 327.0
-offset_top = 219.0
-offset_right = 827.0
-offset_bottom = 719.0
+offset_left = 333.0
+offset_top = 164.0
+offset_right = 833.0
+offset_bottom = 664.0
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_h0bu2")
 texture_pressed = ExtResource("7_ka1ax")
