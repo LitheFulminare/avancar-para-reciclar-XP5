@@ -1,0 +1,554 @@
+[gd_scene load_steps=19 format=3 uid="uid://skb7j01p3o2q"]
+
+[ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="1_r4in3"]
+[ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="2_vifol"]
+[ext_resource type="Texture2D" uid="uid://dxhivb4oxnqgj" path="res://Assets/Sprites/Cards/Trash cards/Trash card (stack).png" id="3_tsneq"]
+[ext_resource type="Texture2D" uid="uid://camnp8s5bm414" path="res://Assets/Sprites/Cards/Luck cards/Luck card (stack).png" id="4_bm7r6"]
+[ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="5_3ghxq"]
+[ext_resource type="Resource" uid="uid://dvbvx8lvkwn7o" path="res://Resources/Map Elements/Squares/Quiz card.tres" id="6_og46x"]
+[ext_resource type="Resource" uid="uid://br484ai56mu1a" path="res://Resources/Map Elements/Squares/Luck card.tres" id="7_6kwjd"]
+[ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="8_qvif6"]
+[ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard trash.tres" id="9_jekwd"]
+[ext_resource type="Resource" uid="uid://d1411atrrck5y" path="res://Resources/Map Elements/Squares/Garbage truck.tres" id="10_wc62w"]
+[ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="11_tb405"]
+[ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="12_glyv7"]
+[ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="13_1nvos"]
+[ext_resource type="Texture2D" uid="uid://bcuktwrkpccpf" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Panel.png" id="15_d22vf"]
+[ext_resource type="Texture2D" uid="uid://caucjh8sig7r4" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/IJKL Panel.png" id="16_r4in3"]
+[ext_resource type="Texture2D" uid="uid://b6xvugiolbrqj" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/WASD Panel.png" id="16_xg5ks"]
+[ext_resource type="Texture2D" uid="uid://bi6qi1gn8huru" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Arrows Panel.png" id="17_vifol"]
+[ext_resource type="Texture2D" uid="uid://bkxkwv2vdobs8" path="res://Assets/Misc images/Minigame preview/Boat minigame preview.png" id="18_r4in3"]
+
+[node name="PreMinigameScene" type="Node2D"]
+
+[node name="Background elements" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Background elements"]
+color = Color(0.199219, 0.199219, 0.199219, 1)
+
+[node name="BG and Map Elements" type="Node" parent="Background elements"]
+
+[node name="BG sprite" type="Sprite2D" parent="Background elements/BG and Map Elements"]
+z_index = -2
+texture_filter = 1
+position = Vector2(-1, 0)
+scale = Vector2(0.30026, 0.300463)
+texture = ExtResource("1_r4in3")
+centered = false
+
+[node name="Stack of question cards" type="Sprite2D" parent="Background elements/BG and Map Elements"]
+position = Vector2(31, 464)
+scale = Vector2(0.0518229, 0.0532407)
+texture = ExtResource("2_vifol")
+
+[node name="Question Marker Spawn" type="Marker2D" parent="Background elements/BG and Map Elements/Stack of question cards"]
+position = Vector2(28.9446, 28.1738)
+scale = Vector2(14.4024, 14.0189)
+
+[node name="Stack of trash cards" type="Sprite2D" parent="Background elements/BG and Map Elements"]
+position = Vector2(93, 437)
+scale = Vector2(0.0518229, 0.0532407)
+texture = ExtResource("3_tsneq")
+
+[node name="Trash marker" type="Marker2D" parent="Background elements/BG and Map Elements/Stack of trash cards"]
+position = Vector2(28.9446, 28.1738)
+scale = Vector2(14.4024, 14.0189)
+
+[node name="Stack of luck cards" type="Sprite2D" parent="Background elements/BG and Map Elements"]
+position = Vector2(30, 362)
+scale = Vector2(0.0518229, 0.0532407)
+texture = ExtResource("4_bm7r6")
+
+[node name="Luck marker" type="Marker2D" parent="Background elements/BG and Map Elements/Stack of luck cards"]
+position = Vector2(28.9446, 28.1738)
+scale = Vector2(14.4024, 14.0189)
+
+[node name="Squares" type="Node" parent="Background elements"]
+
+[node name="Square 1" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(897, 542)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("6_og46x")
+next_square = NodePath("../Square 2")
+
+[node name="Square 2" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(801, 537)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("7_6kwjd")
+next_square = NodePath("../Square 3")
+
+[node name="Square 3" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(704, 568)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("6_og46x")
+next_square = NodePath("../Square 4")
+
+[node name="Square 4" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(616, 582)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("6_og46x")
+next_square = NodePath("../Square 5")
+
+[node name="Square 5" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(526, 582)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_qvif6")
+next_square = NodePath("../Square 6")
+
+[node name="Square 6" parent="Background elements/Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("5_3ghxq")]
+position = Vector2(437, 574)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_jekwd")
+is_fork = true
+fork_number = 1
+branch_A_start = NodePath("../Square 7")
+branch_B_start = NodePath("../Square 12")
+
+[node name="Square 7" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(273, 591)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("7_6kwjd")
+next_square = NodePath("../Square 8")
+
+[node name="Square 8" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(179, 583)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("6_og46x")
+next_square = NodePath("../Square 9")
+
+[node name="Square 9" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(157, 505)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_jekwd")
+next_square = NodePath("../Square 10")
+
+[node name="Square 10" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(189, 403)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_qvif6")
+next_square = NodePath("../Square 11")
+
+[node name="Square 11" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(269, 325)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("7_6kwjd")
+next_square = NodePath("../Square 16")
+
+[node name="Square 12" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(336, 517)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("6_og46x")
+next_square = NodePath("../Square 13")
+
+[node name="Square 13" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(371, 462)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_jekwd")
+next_square = NodePath("../Square 14")
+
+[node name="Square 14" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(403, 411)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("10_wc62w")
+next_square = NodePath("../Square 15")
+
+[node name="Square 15" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(371, 357)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_qvif6")
+next_square = NodePath("../Square 16")
+
+[node name="Square 16" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(382, 279)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("10_wc62w")
+next_square = NodePath("../Square 17")
+
+[node name="Square 17" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(448, 256)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("6_og46x")
+next_square = NodePath("../Square 18")
+
+[node name="Square 18" parent="Background elements/Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("5_3ghxq")]
+position = Vector2(524, 271)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_jekwd")
+is_fork = true
+fork_number = 2
+branch_A_start = NodePath("../Square 19")
+branch_B_start = NodePath("../Square 24")
+
+[node name="Square 19" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(610, 274)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("10_wc62w")
+next_square = NodePath("../Square 20")
+
+[node name="Square 20" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(683, 246)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("7_6kwjd")
+next_square = NodePath("../Square 21")
+
+[node name="Square 21" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(777, 239)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_jekwd")
+next_square = NodePath("../Square 22")
+
+[node name="Square 22" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(876, 261)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("6_og46x")
+next_square = NodePath("../Square 23")
+
+[node name="Square 23" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(905, 326)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_qvif6")
+next_square = NodePath("../Square 28")
+
+[node name="Square 24" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(563, 342)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("7_6kwjd")
+next_square = NodePath("../Square 25")
+
+[node name="Square 25" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(607, 402)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_qvif6")
+next_square = NodePath("../Square 26")
+
+[node name="Square 26" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(703, 405)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("9_jekwd")
+next_square = NodePath("../Square 27")
+
+[node name="Square 27" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(807, 389)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("10_wc62w")
+next_square = NodePath("../Square 28")
+
+[node name="Square 28" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(938, 426)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("6_og46x")
+next_square = NodePath("../Square 29")
+
+[node name="Square 29" parent="Background elements/Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("5_3ghxq")]
+position = Vector2(962, 487)
+scale = Vector2(0.12, 0.12)
+stats = ExtResource("8_qvif6")
+next_square = NodePath("../Square 1")
+
+[node name="Players" type="Node" parent="Background elements"]
+
+[node name="Player 1" parent="Background elements/Players" instance=ExtResource("11_tb405")]
+visible = false
+position = Vector2(1000, 621)
+scale = Vector2(0.2, 0.2)
+
+[node name="Player 2" parent="Background elements/Players" instance=ExtResource("11_tb405")]
+visible = false
+position = Vector2(1063, 606)
+scale = Vector2(0.2, 0.2)
+player_color = Color(1, 0.870588, 0, 1)
+
+[node name="Sprite2D" parent="Background elements/Players/Player 2" index="0"]
+texture = ExtResource("12_glyv7")
+
+[node name="Player 3" parent="Background elements/Players" instance=ExtResource("11_tb405")]
+visible = false
+position = Vector2(1108, 570)
+scale = Vector2(0.2, 0.2)
+player_color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" parent="Background elements/Players/Player 3" index="0"]
+texture = ExtResource("13_1nvos")
+
+[node name="UI" type="Node" parent="Background elements"]
+
+[node name="Minigame preview elements" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Minigame preview elements"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 649.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control tips" type="Node2D" parent="Minigame preview elements/Control"]
+
+[node name="WASD Panel" type="TextureRect" parent="Minigame preview elements/Control/Control tips"]
+offset_left = 131.0
+offset_top = 528.0
+offset_right = 340.0
+offset_bottom = 649.0
+texture = ExtResource("15_d22vf")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="WASD" type="TextureRect" parent="Minigame preview elements/Control/Control tips/WASD Panel"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = -3.0
+offset_right = 153.0
+offset_bottom = 95.0
+texture = ExtResource("16_xg5ks")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Minigame preview elements/Control/Control tips/WASD Panel/WASD"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 76.0
+offset_right = 132.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Movimentar"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="IJKL Panel" type="TextureRect" parent="Minigame preview elements/Control/Control tips"]
+offset_left = 468.0
+offset_top = 529.0
+offset_right = 677.0
+offset_bottom = 650.0
+texture = ExtResource("15_d22vf")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="IJKL" type="TextureRect" parent="Minigame preview elements/Control/Control tips/IJKL Panel"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = -3.0
+offset_right = 153.0
+offset_bottom = 95.0
+texture = ExtResource("16_r4in3")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Minigame preview elements/Control/Control tips/IJKL Panel/IJKL"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 76.0
+offset_right = 132.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Movimentar"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Arrows Panel" type="TextureRect" parent="Minigame preview elements/Control/Control tips"]
+offset_left = 820.0
+offset_top = 526.0
+offset_right = 1029.0
+offset_bottom = 647.0
+texture = ExtResource("15_d22vf")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Arrows" type="TextureRect" parent="Minigame preview elements/Control/Control tips/Arrows Panel"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = -3.0
+offset_right = 153.0
+offset_bottom = 95.0
+texture = ExtResource("17_vifol")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Minigame preview elements/Control/Control tips/Arrows Panel/Arrows"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 76.0
+offset_right = 132.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Movimentar"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Preview sprite" type="TextureRect" parent="Minigame preview elements/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = -130.5
+offset_right = 232.5
+offset_bottom = 130.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_r4in3")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Minigame preview elements/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00347222
+anchor_top = -0.05547
+anchor_right = 0.00347222
+anchor_bottom = -0.05547
+offset_left = 237.0
+offset_top = 93.0
+offset_right = 935.0
+offset_bottom = 139.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 33
+text = "Objetivo: coletar o lixo e levar até seu barco"
+metadata/_edit_use_anchors_ = true
+
+[node name="Player 1" type="Label" parent="Minigame preview elements/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.108
+anchor_top = 0.696
+anchor_right = 0.301
+anchor_bottom = 0.83
+offset_left = -0.416
+offset_top = 0.29599
+offset_right = 347.248
+offset_bottom = 136.33
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.39, 0.39)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "Jogador
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Secondary label" type="Label" parent="Minigame preview elements/Control/Player 1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -111.5
+offset_right = 285.0
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.74902, 0.164706, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "
+VERDE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player 2" type="Label" parent="Minigame preview elements/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.399
+anchor_top = 0.701
+anchor_right = 0.592
+anchor_bottom = 0.812
+offset_left = 0.35199
+offset_top = 0.0509644
+offset_right = 348.016
+offset_bottom = 151.012
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.39, 0.39)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "Jogador
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Secondary label" type="Label" parent="Minigame preview elements/Control/Player 2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.870588, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "
+AMARELO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player 3" type="Label" parent="Minigame preview elements/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.706
+anchor_top = 0.698
+anchor_right = 0.899
+anchor_bottom = 0.832
+offset_left = -0.312012
+offset_top = -0.00204468
+offset_right = 347.352
+offset_bottom = 136.032
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.39, 0.39)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "Jogador
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Secondary label" type="Label" parent="Minigame preview elements/Control/Player 3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -111.5
+offset_right = 285.0
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "
+VERMELHO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[editable path="Background elements/Players/Player 2"]
+[editable path="Background elements/Players/Player 3"]

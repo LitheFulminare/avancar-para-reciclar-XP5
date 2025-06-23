@@ -103,7 +103,7 @@ debug_color = Color(1, 0, 0, 0.501961)
 
 [node name="HUD" type="Node2D" parent="."]
 
-[node name="Score displays" type="Node" parent="HUD"]
+[node name="Score displays" type="Node2D" parent="HUD"]
 
 [node name="Green score display" parent="HUD/Score displays" instance=ExtResource("4_7s84n")]
 position = Vector2(238, 135)
