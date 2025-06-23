@@ -282,9 +282,9 @@ texture = ExtResource("13_1nvos")
 [node name="Minigame preview elements" type="CanvasLayer" parent="."]
 
 [node name="Continue button" type="TextureButton" parent="Minigame preview elements"]
-offset_left = 390.0
+offset_left = -1.0
 offset_top = 20.0
-offset_right = 722.0
+offset_right = 1152.0
 offset_bottom = 286.0
 texture_normal = ExtResource("15_3ghxq")
 texture_pressed = ExtResource("16_og46x")
