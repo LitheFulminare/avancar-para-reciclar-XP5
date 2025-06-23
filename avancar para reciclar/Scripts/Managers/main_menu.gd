@@ -65,7 +65,7 @@ func _input(event: InputEvent) -> void:
 #endregion
 
 func _on_start_pressed() -> void:
-	GameManager.go_to_scene(game_scene.resource_path)
+	GameManager.go_to_loaded_scene(game_scene)
 
 
 func _on_exit_pressed() -> void:
