@@ -52,6 +52,9 @@ enum round_states
 # used to know where to move the trash cards after being drawn
 @export var players_inventories: Array[Marker2D]
 
+@export_group("Other components")
+@export var pre_minigame_scene: PackedScene
+
 var current_round_state: round_states = round_states.start_round
 
 var turn: int = 0 # goes from 1 to 2 or 3 depending on the player count
@@ -496,7 +499,7 @@ func player_finished_examining_map() -> void:
 func go_to_minigame() -> void:
 	var players: Array[Player] = [player1, player2, player3]
 	SaveAndLoadManager.save_data(players, current_round)
-	GameManager.go_to_scene("res://Scenes/Minigames/Boat minigame/Boat minigame.tscn")
+	GameManager.go_to_scene(pre_minigame_scene.resource_path)
 
 func load_player_data():
 	if GameManager.players.size() == 0:

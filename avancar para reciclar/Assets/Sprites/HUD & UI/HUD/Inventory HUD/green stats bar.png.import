@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b12nhiqcycnau"
-path="res://.godot/imported/red stats bar.png-88669f1d333b490d9792a85997b8bf10.ctex"
+uid="uid://b8t7623golbp7"
+path="res://.godot/imported/green stats bar.png-21407ed19f8b0a047d405661a7b3e03c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/HUD & UI/HUD/red stats bar.png"
-dest_files=["res://.godot/imported/red stats bar.png-88669f1d333b490d9792a85997b8bf10.ctex"]
+source_file="res://Assets/Sprites/HUD & UI/HUD/Inventory HUD/green stats bar.png"
+dest_files=["res://.godot/imported/green stats bar.png-21407ed19f8b0a047d405661a7b3e03c.ctex"]
 
 [params]
 

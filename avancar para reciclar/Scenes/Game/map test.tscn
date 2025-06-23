@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=37 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Texture2D" uid="uid://cj6ubyjblo183" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Green arrow.png" id="2_7w3fj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d4h37imy6ns5p" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Red arrow.png" id="4_ktn4s"]
 [ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
+[ext_resource type="PackedScene" uid="uid://skb7j01p3o2q" path="res://Scenes/Game/Pre Minigame Scene.tscn" id="5_h5e2y"]
 [ext_resource type="AudioStream" uid="uid://cnfk75xhxx1w1" path="res://Assets/Audio/OST/Question card OST.ogg" id="5_jfhbc"]
 [ext_resource type="Script" uid="uid://dnyqq1kmmdbu5" path="res://Scripts/Managers/save_&_load_manager.gd" id="5_qyprb"]
 [ext_resource type="AudioStream" uid="uid://b5wui1f7ivm1c" path="res://Assets/Audio/OST/Minigame OST.ogg" id="6_5omrr"]
@@ -26,9 +27,9 @@
 [ext_resource type="Resource" uid="uid://d1411atrrck5y" path="res://Resources/Map Elements/Squares/Garbage truck.tres" id="12_ahe86"]
 [ext_resource type="PackedScene" uid="uid://bhtxvatf0dymt" path="res://Scenes/HUD/player_stats_hud.tscn" id="13_ypxuo"]
 [ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="14_5w0ha"]
-[ext_resource type="Texture2D" uid="uid://bne4yq8i4a55u" path="res://Assets/Sprites/HUD & UI/HUD/yellow stats bar.png" id="14_7acfh"]
+[ext_resource type="Texture2D" uid="uid://bne4yq8i4a55u" path="res://Assets/Sprites/HUD & UI/HUD/Inventory HUD/yellow stats bar.png" id="14_7acfh"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="15_ujeix"]
-[ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/red stats bar.png" id="15_v2k4j"]
+[ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/Inventory HUD/red stats bar.png" id="15_v2k4j"]
 [ext_resource type="Script" uid="uid://bjd7a3ows5xbg" path="res://Scripts/HUD/game_message_manager.gd" id="20_uahh7"]
 [ext_resource type="Script" uid="uid://cmoudadi40tjf" path="res://Scripts/Managers/audio_manager.gd" id="25_5vyx2"]
 [ext_resource type="Texture2D" uid="uid://bcuktwrkpccpf" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Panel.png" id="32_7w3fj"]
@@ -64,6 +65,7 @@ green_arrow = ExtResource("2_7w3fj")
 yellow_arrow = ExtResource("3_wux8l")
 red_arrow = ExtResource("4_ktn4s")
 players_inventories = [NodePath("../../UI/Player 1 inventory"), NodePath("../../UI/Player 2 inventory"), NodePath("../../UI/Player 3 inventory")]
+pre_minigame_scene = ExtResource("5_h5e2y")
 players_parent_node = NodePath("../../Players")
 player1 = NodePath("../../Players/Player 1")
 player2 = NodePath("../../Players/Player 2")

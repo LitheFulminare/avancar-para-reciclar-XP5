@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://skb7j01p3o2q"]
+[gd_scene load_steps=24 format=3 uid="uid://skb7j01p3o2q"]
 
 [ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="1_r4in3"]
+[ext_resource type="Script" uid="uid://dqsl21eb0dqth" path="res://Scenes/Game/pre_minigame_scene.gd" id="1_vifol"]
 [ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="2_vifol"]
 [ext_resource type="Texture2D" uid="uid://dxhivb4oxnqgj" path="res://Assets/Sprites/Cards/Trash cards/Trash card (stack).png" id="3_tsneq"]
 [ext_resource type="Texture2D" uid="uid://camnp8s5bm414" path="res://Assets/Sprites/Cards/Luck cards/Luck card (stack).png" id="4_bm7r6"]
@@ -13,13 +14,19 @@
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="11_tb405"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="12_glyv7"]
 [ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="13_1nvos"]
+[ext_resource type="Texture2D" uid="uid://c7fe72vtkcgtj" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (normal).png" id="15_3ghxq"]
 [ext_resource type="Texture2D" uid="uid://bcuktwrkpccpf" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Panel.png" id="15_d22vf"]
+[ext_resource type="Texture2D" uid="uid://j8iqinper7to" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (pressed).png" id="16_og46x"]
 [ext_resource type="Texture2D" uid="uid://caucjh8sig7r4" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/IJKL Panel.png" id="16_r4in3"]
 [ext_resource type="Texture2D" uid="uid://b6xvugiolbrqj" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/WASD Panel.png" id="16_xg5ks"]
+[ext_resource type="Texture2D" uid="uid://dd26cx034ju7v" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (hover).png" id="17_6kwjd"]
 [ext_resource type="Texture2D" uid="uid://bi6qi1gn8huru" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Arrows Panel.png" id="17_vifol"]
+[ext_resource type="BitMap" uid="uid://ds8kqltqbl8xs" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (click mask).png" id="18_og46x"]
 [ext_resource type="Texture2D" uid="uid://bkxkwv2vdobs8" path="res://Assets/Misc images/Minigame preview/Boat minigame preview.png" id="18_r4in3"]
 
 [node name="PreMinigameScene" type="Node2D"]
+script = ExtResource("1_vifol")
+minigames = Array[String](["res://Scenes/Minigames/Boat minigame/Boat minigame.tscn"])
 
 [node name="Background elements" type="CanvasLayer" parent="."]
 
@@ -273,6 +280,18 @@ texture = ExtResource("13_1nvos")
 [node name="UI" type="Node" parent="Background elements"]
 
 [node name="Minigame preview elements" type="CanvasLayer" parent="."]
+
+[node name="Continue button" type="TextureButton" parent="Minigame preview elements"]
+offset_left = 390.0
+offset_top = 20.0
+offset_right = 722.0
+offset_bottom = 286.0
+texture_normal = ExtResource("15_3ghxq")
+texture_pressed = ExtResource("16_og46x")
+texture_hover = ExtResource("17_6kwjd")
+texture_click_mask = ExtResource("18_og46x")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Control" type="Control" parent="Minigame preview elements"]
 layout_mode = 3
@@ -549,6 +568,8 @@ VERMELHO"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Minigame preview elements/Continue button" to="." method="_on_continue_button_pressed"]
 
 [editable path="Background elements/Players/Player 2"]
 [editable path="Background elements/Players/Player 3"]

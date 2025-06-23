@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhtxvatf0dymt"]
 
-[ext_resource type="Texture2D" uid="uid://b8t7623golbp7" path="res://Assets/Sprites/HUD & UI/HUD/green stats bar.png" id="1_1jpge"]
+[ext_resource type="Texture2D" uid="uid://b8t7623golbp7" path="res://Assets/Sprites/HUD & UI/HUD/Inventory HUD/green stats bar.png" id="1_1jpge"]
 [ext_resource type="Script" uid="uid://dy1mtwfdm3eoe" path="res://Scripts/HUD/player_stats_hud.gd" id="2_p0rjn"]
 [ext_resource type="Theme" uid="uid://b80bt64wlmq1g" path="res://Misc/Text/Gameplay HUD text.tres" id="3_f7clm"]
 
