@@ -1,7 +1,13 @@
-[gd_scene load_steps=32 format=3 uid="uid://w3sjh33rbdh4"]
+[gd_scene load_steps=38 format=3 uid="uid://w3sjh33rbdh4"]
 
 [ext_resource type="Texture2D" uid="uid://c8yyye0dn5kuh" path="res://Assets/Sprite sheets/Dice/Dice rolling.png" id="1_h5gqh"]
 [ext_resource type="Script" uid="uid://d13braax82vhp" path="res://Scripts/HUD/dice.gd" id="1_rlwb3"]
+[ext_resource type="Texture2D" uid="uid://do8m04yqndl1a" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Dice/Dice (1 facing up).png" id="2_apuox"]
+[ext_resource type="Texture2D" uid="uid://vwcueodn8k35" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Dice/Dice (2 facing up).png" id="3_q2h0g"]
+[ext_resource type="Texture2D" uid="uid://cors40bwsnjdc" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Dice/Dice (3 facing up).png" id="4_kxohj"]
+[ext_resource type="Texture2D" uid="uid://cxpb42ot5ls6u" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Dice/Dice (4 facing up).png" id="5_wi3kj"]
+[ext_resource type="Texture2D" uid="uid://dm2wqt4pil6pe" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Dice/Dice (5 facing up).png" id="6_njxju"]
+[ext_resource type="Texture2D" uid="uid://dmc5clo3vk16f" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Dice/Dice (6 facing up).png" id="7_86pdn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lii8t"]
 atlas = ExtResource("1_h5gqh")
@@ -207,9 +213,18 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Dice" type="Node2D" node_paths=PackedStringArray("animated_sprite")]
+[node name="Dice" type="Node2D" node_paths=PackedStringArray("animated_sprite", "sprite")]
 script = ExtResource("1_rlwb3")
 animated_sprite = NodePath("AnimatedSprite2D")
+sprite = NodePath("Sprite2D")
+dice1 = ExtResource("2_apuox")
+dice2 = ExtResource("3_q2h0g")
+dice3 = ExtResource("4_kxohj")
+dice4 = ExtResource("5_wi3kj")
+dice5 = ExtResource("6_njxju")
+dice6 = ExtResource("7_86pdn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rlwb3")

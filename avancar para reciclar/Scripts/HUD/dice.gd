@@ -2,6 +2,15 @@ class_name Dice
 extends Node2D
 
 @export var animated_sprite: AnimatedSprite2D
+@export var sprite: Sprite2D
+
+@export var dice1: Texture2D
+@export var dice2: Texture2D
+@export var dice3: Texture2D
+@export var dice4: Texture2D
+@export var dice5: Texture2D
+@export var dice6: Texture2D
+
 
 var dice_result: int
 
@@ -10,16 +19,18 @@ func roll_dice(result: int) -> void:
 	animated_sprite.play("default")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+	animated_sprite.visible = false
+	
 	match dice_result:
 		1:
-			return
+			sprite.texture = dice1
 		2:
-			return
+			sprite.texture = dice2
 		3:
-			return
+			sprite.texture = dice3
 		4:
-			return
+			sprite.texture = dice4
 		5: 
-			return
+			sprite.texture = dice5
 		6:
-			return
+			sprite.texture = dice6

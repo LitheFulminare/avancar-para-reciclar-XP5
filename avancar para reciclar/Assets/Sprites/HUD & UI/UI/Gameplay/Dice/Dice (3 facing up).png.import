@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4h37imy6ns5p"
-path="res://.godot/imported/Red arrow.png-12381127945af91ffd88668d1d9c1ec4.ctex"
+uid="uid://cors40bwsnjdc"
+path="res://.godot/imported/Dice (3 facing up).png-ad5460fc079a81cbd3b892ab4c43f8e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/HUD & UI/UI/Gameplay/Red arrow.png"
-dest_files=["res://.godot/imported/Red arrow.png-12381127945af91ffd88668d1d9c1ec4.ctex"]
+source_file="res://Assets/Sprites/HUD & UI/UI/Gameplay/Dice/Dice (3 facing up).png"
+dest_files=["res://.godot/imported/Dice (3 facing up).png-ad5460fc079a81cbd3b892ab4c43f8e0.ctex"]
 
 [params]
 
