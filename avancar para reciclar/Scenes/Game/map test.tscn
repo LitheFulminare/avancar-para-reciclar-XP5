@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bcuktwrkpccpf" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Panel.png" id="32_7w3fj"]
 [ext_resource type="Texture2D" uid="uid://b6xvugiolbrqj" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/WASD Panel.png" id="33_wux8l"]
 [ext_resource type="Texture2D" uid="uid://b7638mb0ar21h" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Q E Panel.png" id="34_ktn4s"]
-[ext_resource type="Texture2D" uid="uid://c8vdral0epgcs" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Esc Panel.png" id="35_f6pvw"]
+[ext_resource type="Texture2D" uid="uid://dtbshrq6g2j0b" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/R Panel.png" id="36_h5e2y"]
 
 [node name="MapTest" type="Node2D"]
 
@@ -601,7 +601,7 @@ offset_left = 80.0
 offset_top = 21.0
 offset_right = 130.0
 offset_bottom = 71.0
-texture = ExtResource("35_f6pvw")
+texture = ExtResource("36_h5e2y")
 expand_mode = 1
 stretch_mode = 5
 

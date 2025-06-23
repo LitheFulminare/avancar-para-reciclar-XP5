@@ -3,7 +3,7 @@
 class_name SaveAndLoadManager
 extends Node
 
-static func save_data(player_array: Array[Player], round: int) -> void:
+static func save_data(player_array: Array[Player], current_round: int) -> void:
 	for player in player_array:
 		var player_data: PlayerData = PlayerData.new()
 		
@@ -18,4 +18,4 @@ static func save_data(player_array: Array[Player], round: int) -> void:
 		
 		GameManager.players.append(player_data)
 		
-	GameManager.round = round
+	GameManager.round = current_round

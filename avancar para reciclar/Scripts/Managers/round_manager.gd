@@ -154,8 +154,8 @@ func _process(_delta: float) -> void:
 	if active_player != null && main_camera.ignore_input:
 		main_camera.global_position = active_player.global_position
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Reset camera"):
 		if !main_camera.ignore_input: 
 			main_camera.reset_camera(active_player.global_position)
 
@@ -513,7 +513,7 @@ func on_finished_giving_trash_card() -> void:
 	if GameManager.starting_cards_index == 3:
 		print("if statement on starting_cards_index() passed")
 		GameManager.give_starting_trash = false
-		await get_tree().create_timer(1)
+		await get_tree().create_timer(1).timeout
 		current_round_state = round_states.start_turn
 		action()
 	
