@@ -7,9 +7,3 @@ After making the moving the card and making it bigger its own function, the
 maybe I should put await tween_function() or something, I have to do some research
 
 I DISABLED MAP BUTTON BEING VISIBLE, TURN IT ON LATER
-
-
-on the _on_animated_sprite_2d_animation_finished() of the Dice class I could emit the
-second_dice_landed as soon as the animation stops, then the action that listen to this
-signal can do the countdown. I think doing a await timer and await tween on the same
-func could create problems, so I avoided this
