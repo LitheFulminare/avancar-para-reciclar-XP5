@@ -450,8 +450,9 @@ func square_action_finished() -> void:
 	current_round_state = round_states.end_turn
 	action()
 
-# gives the specified player a trash card
-func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
+## Gives the specified player a trash card. if call_square_action is true, square_action_finished will be called
+## once the card if given, otherwise it won't call any function.
+func add_trash(target_player_index: int, trash_type: TrashCardStats, call_square_action: bool = true) -> void:
 	# instantiates the trash card and assign the correct type
 	var spawned_trash_card: TrashCard = trash_card.instantiate()
 	get_tree().root.add_child(spawned_trash_card)
@@ -480,7 +481,7 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	
 	if GameManager.give_starting_trash:
 		finished_giving_trash_card.emit()
-	else:
+	elif call_square_action:
 		square_action_finished()
 
 func give_starting_trash_cards() -> void:
@@ -516,22 +517,22 @@ func on_finished_giving_trash_card() -> void:
 func give_trash_card_after_minigame() -> void:
 	if GameManager.player1_won:
 		GameManager.player1_won = false
-		add_trash(0, get_random_trash_type())
+		add_trash(0, get_random_trash_type(), false)
 		
 	elif GameManager.player2_won:
 		GameManager.player2_won = false
-		add_trash(1, get_random_trash_type())
+		add_trash(1, get_random_trash_type(), false)
 		
 	elif GameManager.player3_won:
 		GameManager.player3_won = false
-		add_trash(2, get_random_trash_type())
+		add_trash(2, get_random_trash_type(), false)
 		
 	if !GameManager.player1_won && !GameManager.player2_won && !GameManager.player3_won:
-		await get_tree().create_timer(1.5)
+		await get_tree().create_timer(2).timeout
 		GameManager.give_trash_after_minigame = false
 		print("Setting GameManager.give_trash_after_minigame to false")
-		#current_round_state = round_states.start_turn
-		#action()
+		current_round_state = round_states.start_round
+		action()
 	
 	else:
 		give_trash_card_after_minigame()
