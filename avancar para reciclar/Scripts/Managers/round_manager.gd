@@ -268,12 +268,12 @@ func dice_roll(is_first_roll: bool) -> void:
 	is_first_dice_roll = is_first_roll
 	
 	if is_first_dice_roll:
-		first_dice_result = 2#GameManager.roll_dice(1, 6)
+		first_dice_result = GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(first_dice_result, is_first_dice_roll)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 	else:
-		second_dice_result = 1#GameManager.roll_dice(1, 6)
+		second_dice_result = GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(second_dice_result, is_first_dice_roll)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
@@ -458,9 +458,9 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	
 	move_card_to_center(spawned_trash_card, trash_card_stack)
 	
-	await get_tree().create_timer(1).timeout
-	spawned_trash_card.reveal()
 	await get_tree().create_timer(1.25).timeout
+	spawned_trash_card.reveal()
+	await get_tree().create_timer(1.5).timeout
 	
 	# move card to player inventory
 	var tween = create_tween()
@@ -491,16 +491,17 @@ func give_starting_trash_cards() -> void:
 		print("3 cards given")
 		GameManager.starting_cards_index += 1
 		GameManager.trash_cards_given = 0
-		
+
+func on_finished_giving_trash_card() -> void:
 	if GameManager.starting_cards_index == 3:
 		print("starting_cards_index is greater or equal to 2")
 		GameManager.give_starting_trash = false
 		await get_tree().create_timer(1)
 		current_round_state = round_states.start_turn
 		action()
-
-func on_finished_giving_trash_card() -> void:
-	give_starting_trash_cards()
+	
+	else:
+		give_starting_trash_cards()
 
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
