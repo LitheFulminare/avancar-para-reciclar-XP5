@@ -4,6 +4,7 @@ class_name RoundManager
 extends Node
 
 signal player_chose_branch()
+signal finished_giving_trash_card
 
 enum round_states 
 { 
@@ -119,6 +120,8 @@ func _ready() -> void:
 	main_camera.finished_zooming_out.connect(camera_finished_zooming_out)
 	main_camera.player_finished_examining_map.connect(player_finished_examining_map)
 	
+	finished_giving_trash_card.connect(on_finished_giving_trash_card)
+	
 	player1.dice_landed.connect(first_dice_landed)
 	player2.dice_landed.connect(first_dice_landed)
 	player3.dice_landed.connect(first_dice_landed)
@@ -189,6 +192,10 @@ func action() -> void:
 			end_round()
 
 func start_round() -> void:
+	if GameManager.give_starting_trash:
+		give_starting_trash_cards()
+		return
+	
 	await get_tree().create_timer(2).timeout
 	game_message.display_new_round_message(current_round)
 	turn = 0
@@ -451,9 +458,9 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	
 	move_card_to_center(spawned_trash_card, trash_card_stack)
 	
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1).timeout
 	spawned_trash_card.reveal()
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.25).timeout
 	
 	# move card to player inventory
 	var tween = create_tween()
@@ -467,13 +474,38 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats) -> void:
 	var player: Player = player_array[target_player_index]
 	player.add_trash(spawned_trash_card)
 	
-	square_action_finished()
+	if GameManager.give_starting_trash:
+		finished_giving_trash_card.emit()
+	else:
+		square_action_finished()
+
+func give_starting_trash_cards() -> void:
+	await get_tree().physics_frame
+	await get_tree().create_timer(1.5)
+	
+	add_trash(GameManager.starting_cards_index, get_random_trash_type())
+	
+	GameManager.trash_cards_given += 1
+	
+	if GameManager.trash_cards_given == 3:
+		print("3 cards given")
+		GameManager.starting_cards_index += 1
+		GameManager.trash_cards_given = 0
+		
+	if GameManager.starting_cards_index == 3:
+		print("starting_cards_index is greater or equal to 2")
+		GameManager.give_starting_trash = false
+		await get_tree().create_timer(1)
+		current_round_state = round_states.start_turn
+		action()
+
+func on_finished_giving_trash_card() -> void:
+	give_starting_trash_cards()
 
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
 
 # spawns a question card and randomizes its text
-
 
 ## Uses tween to move a card to the center of the screen and make it grow.
 ## Pass only a node with [color=yellow]postion[/color] and 
@@ -493,8 +525,8 @@ func move_card_to_center(card, spawn_node) -> void:
 	
 	return
 
-# returns array of the squares
-# get_children() only returns an array of node so you have to come up with your own solution
+## Returns array of nodes of class Square. Since
+## get_children() only returns an array of nodes, so you have to come up with your own solution
 func get_squares() -> Array[Square]:
 	var nodes: Array[Node] = squares_parent_node.get_children()
 	var squares: Array[Square] = []

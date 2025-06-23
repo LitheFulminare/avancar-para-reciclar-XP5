@@ -12,6 +12,11 @@ var players: Array[PlayerData]
 
 var rng = RandomNumberGenerator.new()
 
+# used to give some trash cards to player only at the start of the match
+var give_starting_trash: bool = true
+var trash_cards_given: int = 0
+var starting_cards_index: int = 0
+
 func _ready() -> void:
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
