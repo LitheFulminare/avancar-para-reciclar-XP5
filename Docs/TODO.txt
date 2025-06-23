@@ -1,22 +1,14 @@
 TODO:
 
->> Visual feedback of dice rolling
-
->> Visual feedback of how many the player can walk
-	- done, needs some polishing
-
->> Spawn buttons to choose branch
-	- did that, but still need to update the sprites
-
 >> Finish square action stuff
-	- it's all setup already, just eed to code the action themselves
+	- it's all setup already, just need to code the action themselves
 
 >> Implement discard trash thing when getting an answer right and when wining minigame
 	- can reuse the "discard trash square" script since it's the same principle
 
 >> Create a preparation scene before the minigame, just like Mario Party - and show controls
 
->> Make player able to navigate the camera through the map and show controls
+>> Show controls when choosing to navigate through the map and on the minigame
 
 (Arthur stuff)
 
@@ -38,7 +30,19 @@ PARTIALLY DONE
 	- play a sound reflecting whether it's right or wrong
 	- (done) put a text above the card "Correct!", "Wrong"
 
+>> Visual feedback of dice rolling
+	- still not happy with the result, when on second roll it doesn't show the result of the first one. But it's a matter of taste
+
+>> Visual feedback of how many the player can walk
+	- done, needs some polishing, maybe add a background (ask the rest of the guys)
+
+
 DONE
+
+>> Make player able to navigate the camera through the map
+
+>> Spawn buttons to choose branch
+	- done, buttons change color depending on the player's color
 
 >> Go to minigame when finishing a round
 	- (done) easy, just use game_manager.go_to_scene()
