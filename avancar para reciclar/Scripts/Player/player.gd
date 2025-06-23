@@ -10,6 +10,7 @@ signal second_dice_landed
 @export var dice_roll: int = 0
 @export var total_cards: int = 0
 @export var speed: float = 50
+@export var player_color: Color = Color(0.0, 0.749, 0.165)
 
 @export_group("Internal node components")
 @export var dice_button: Button
@@ -44,6 +45,12 @@ var tween_duration: float
 var current_branch: PathManager.branches
 
 func _ready() -> void:
+	var new_style_box: StyleBoxFlat = dice_button.get_theme_stylebox("focus").duplicate()
+	new_style_box.border_color = player_color
+	
+	dice_button.add_theme_stylebox_override("focus", new_style_box)
+	map_button.add_theme_stylebox_override("focus", new_style_box)
+	
 	movement_remaining_label.visible = false
 	
 	dice_button.visible = false

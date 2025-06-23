@@ -344,6 +344,7 @@ scale = Vector2(0.2, 0.2)
 [node name="Player 2" parent="Players" instance=ExtResource("7_v5epi")]
 position = Vector2(1063, 606)
 scale = Vector2(0.2, 0.2)
+player_color = Color(1, 0.870588, 0, 1)
 
 [node name="Sprite2D" parent="Players/Player 2" index="0"]
 texture = ExtResource("15_ujeix")
@@ -351,6 +352,7 @@ texture = ExtResource("15_ujeix")
 [node name="Player 3" parent="Players" instance=ExtResource("7_v5epi")]
 position = Vector2(1108, 570)
 scale = Vector2(0.2, 0.2)
+player_color = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" parent="Players/Player 3" index="0"]
 texture = ExtResource("14_5w0ha")
