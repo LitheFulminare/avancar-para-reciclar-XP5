@@ -111,9 +111,13 @@ func _ready() -> void:
 	main_camera.finished_zooming_out.connect(camera_finished_zooming_out)
 	main_camera.player_finished_examining_map.connect(player_finished_examining_map)
 	
-	player1.dice_landed.connect(dice_landed)
-	player2.dice_landed.connect(dice_landed)
-	player3.dice_landed.connect(dice_landed)
+	player1.dice_landed.connect(first_dice_landed)
+	player2.dice_landed.connect(first_dice_landed)
+	player3.dice_landed.connect(first_dice_landed)
+	
+	player1.second_dice_landed.connect(second_dice_landed)
+	player2.second_dice_landed.connect(second_dice_landed)
+	player3.second_dice_landed.connect(second_dice_landed)
 	
 	player1.stopped_moving.connect(player_stopped_moving)
 	player2.stopped_moving.connect(player_stopped_moving)
@@ -220,13 +224,13 @@ func player_pressed_dice_button() -> void:
 		
 	action()
 
-func dice_landed() -> void:
-	print("Dice landed on RoundManager called")
+func first_dice_landed() -> void:
 	if is_first_dice_roll:
 		active_player.spawn_interaction_buttons(false)
-	else:
-		current_round_state = round_states.move
-		action()
+
+func second_dice_landed() -> void:
+	current_round_state = round_states.move
+	action()
 
 func player_pressed_map_button() -> void:
 	main_camera.ignore_input = false
@@ -240,12 +244,12 @@ func dice_roll(is_first_roll: bool) -> void:
 	
 	if is_first_dice_roll:
 		first_dice_result = GameManager.roll_dice(1, 6)
-		active_player.spawn_dice(first_dice_result)
+		active_player.spawn_dice(first_dice_result, is_first_dice_roll)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 	else:
 		second_dice_result = GameManager.roll_dice(1, 6)
-		active_player.spawn_dice(second_dice_result)
+		active_player.spawn_dice(second_dice_result, is_first_dice_roll)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
 		# this was written when this part was on action(), but i'll keep it anyways:

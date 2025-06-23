@@ -4,6 +4,7 @@ extends Node2D
 signal trash_inventory_changed(trash_type: TrashCardStats.types) # connected to player_stats_hud
 signal stopped_moving # connected to player_stopped_moving() on the RoundManager
 signal dice_landed
+signal second_dice_landed
 
 @export_group("Player parameters")
 @export var dice_roll: int = 0
@@ -102,17 +103,20 @@ func update_movement_HUD(remaining_distance: int) -> void:
 	if remaining_distance == 0:
 		movement_remaining_label.visible = false
 
-func spawn_dice(result: int) -> void:
+func spawn_dice(result: int, is_first_roll: bool) -> void:
 	dice = dice_scene_path.instantiate()
 	add_child(dice)
 	dice.global_position = dice_spawn_point.global_position
 	
-	dice.roll_dice(result)
+	dice.roll_dice(result, is_first_roll)
 	dice.dice_landed.connect(on_dice_landed)
+	dice.second_dice_landed.connect(on_second_dice_landed)
 
 func on_dice_landed() -> void:
-	print("Dice landed")
 	dice_landed.emit()
+
+func on_second_dice_landed() -> void:
+	second_dice_landed.emit()
 
 # maybe I could even connect the signals to hide_buttons to simplify
 func _on_dice_button_pressed() -> void:
