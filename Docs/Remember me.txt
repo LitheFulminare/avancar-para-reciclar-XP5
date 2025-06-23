@@ -7,3 +7,9 @@ After making the moving the card and making it bigger its own function, the
 maybe I should put await tween_function() or something, I have to do some research
 
 I DISABLED MAP BUTTON BEING VISIBLE, TURN IT ON LATER
+
+
+
+
+
+finish reset_camera() on ScrollingCamera
