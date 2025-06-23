@@ -48,21 +48,33 @@ func timer_ended() -> void:
 	countdown.change_text("Fim de jogo!", true)
 	await get_tree().create_timer(2).timeout
 	
+	GameManager.give_trash_after_minigame = true
+	
 	if player1.points > player2.points && player1.points > player3.points:
 		countdown.change_text("Jogador 1 ganhou", false)
+		GameManager.player1_won = true
 	elif player2.points > player1.points && player2.points > player3.points:
 		countdown.change_text("Jogador 2 ganhou", false)
+		GameManager.player2_won = true
 	elif player3.points > player1.points && player3.points > player2.points:
 		countdown.change_text("Jogador 3 ganhou", false)
+		GameManager.player3_won = true
 		
 	elif player1.points == player2.points:
 		countdown.change_text("Jogadores 1 e 2 empataram", false)
+		GameManager.player1_won = true
+		GameManager.player2_won = true
 		if player1.points == player3.points:
 			countdown.change_text("Todos os jogadores empataram", false)
+			GameManager.give_trash_after_minigame = false
 	elif player1.points == player3.points:
 		countdown.change_text("Jogadores 1 e 3 empataram", false)
+		GameManager.player1_won = true
+		GameManager.player3_won = true
 	elif player2.points == player3.points:
 		countdown.change_text("Jogadores 2 e 3 empataram", false)
+		GameManager.player2_won = true
+		GameManager.player3_won = true
 		
 	await get_tree().create_timer(2).timeout
 	GameManager.go_to_scene("res://Scenes/Game/map test.tscn")

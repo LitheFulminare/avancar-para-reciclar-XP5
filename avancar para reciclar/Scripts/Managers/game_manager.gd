@@ -17,6 +17,11 @@ var give_starting_trash: bool = true
 var trash_cards_given: int = 0
 var starting_cards_index: int = 0
 
+var give_trash_after_minigame: bool
+var player1_won: bool
+var player2_won: bool
+var player3_won: bool
+
 func _ready() -> void:
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)

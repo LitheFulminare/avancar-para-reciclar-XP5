@@ -195,6 +195,10 @@ func start_round() -> void:
 	if GameManager.give_starting_trash:
 		give_starting_trash_cards()
 		return
+		
+	if GameManager.give_trash_after_minigame:
+		give_trash_card_after_minigame()
+		return
 	
 	await get_tree().create_timer(2).timeout
 	game_message.display_new_round_message(current_round)
@@ -502,6 +506,14 @@ func on_finished_giving_trash_card() -> void:
 	
 	else:
 		give_starting_trash_cards()
+
+func give_trash_card_after_minigame() -> void:
+	if GameManager.player1_won:
+		add_trash(0, get_random_trash_type())
+	if GameManager.player2_won:
+		add_trash(1, get_random_trash_type())
+	if GameManager.player3_won:
+		add_trash(2, get_random_trash_type())
 
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
