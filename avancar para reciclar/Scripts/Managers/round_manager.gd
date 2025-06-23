@@ -147,19 +147,6 @@ func _process(_delta: float) -> void:
 		main_camera.global_position = active_player.global_position
 
 func _input(event: InputEvent) -> void:
-	# won't be like this forever
-	# prob a button will be spawned and call the group or something
-	# then the method called will handle this things
-	if Input.is_key_pressed(KEY_1):
-		if player_at_fork:
-			active_player.current_branch = path_manager.branches.branch_A
-			player_chose_branch.emit()
-			
-	if Input.is_key_pressed(KEY_2):
-		if player_at_fork:
-			active_player.current_branch = path_manager.branches.branch_B
-			player_chose_branch.emit()
-			
 	if Input.is_action_just_pressed("ui_cancel"):
 		if !main_camera.ignore_input: 
 			main_camera.reset_camera(active_player.global_position)
