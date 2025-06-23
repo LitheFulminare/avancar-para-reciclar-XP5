@@ -482,7 +482,7 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats, call_square
 	var player: Player = player_array[target_player_index]
 	player.add_trash(spawned_trash_card)
 	
-	if GameManager.give_starting_trash:
+	if GameManager.give_starting_trash || GameManager.give_trash_after_minigame:
 		finished_giving_trash_card.emit()
 	elif call_square_action:
 		square_action_finished()
@@ -506,6 +506,8 @@ func give_starting_trash_cards() -> void:
 func on_finished_giving_trash_card() -> void:
 	print("A Signal was emitted and Finished giving trash card was called")
 	if GameManager.give_trash_after_minigame:
+		print("give_trash_after_minigame was true")
+		give_trash_card_after_minigame()
 		return
 	
 	if GameManager.starting_cards_index == 3:
@@ -519,6 +521,8 @@ func on_finished_giving_trash_card() -> void:
 		give_starting_trash_cards()
 
 func give_trash_card_after_minigame() -> void:
+	await get_tree().create_timer(1).timeout
+	
 	if GameManager.player1_won:
 		GameManager.player1_won = false
 		add_trash(0, get_random_trash_type(), false)
@@ -532,14 +536,15 @@ func give_trash_card_after_minigame() -> void:
 		add_trash(2, get_random_trash_type(), false)
 		
 	if !GameManager.player1_won && !GameManager.player2_won && !GameManager.player3_won:
-		await get_tree().create_timer(2).timeout
 		GameManager.give_trash_after_minigame = false
-		print("Setting GameManager.give_trash_after_minigame to false")
+		print("Setting 'GameManager.give_trash_after_minigame' to false")
+		print("Waiting 2 seconds before calling 'action()'")
+		await get_tree().create_timer(2).timeout
 		current_round_state = round_states.start_round
 		action()
 	
-	else:
-		give_trash_card_after_minigame()
+	#else:
+		#give_trash_card_after_minigame()
 
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
