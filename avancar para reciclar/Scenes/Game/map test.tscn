@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=33 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
 [ext_resource type="Texture2D" uid="uid://cj6ubyjblo183" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Green arrow.png" id="2_7w3fj"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/red stats bar.png" id="15_v2k4j"]
 [ext_resource type="Script" uid="uid://bjd7a3ows5xbg" path="res://Scripts/HUD/game_message_manager.gd" id="20_uahh7"]
 [ext_resource type="Script" uid="uid://cmoudadi40tjf" path="res://Scripts/Managers/audio_manager.gd" id="25_5vyx2"]
+[ext_resource type="Texture2D" uid="uid://bcuktwrkpccpf" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Panel.png" id="32_7w3fj"]
 
 [node name="MapTest" type="Node2D"]
 
@@ -515,6 +516,101 @@ VERDE"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Keybinds tips" type="TextureRect" parent="HUD Canvas Layer/HUD"]
+layout_mode = 0
+offset_left = 914.0
+offset_top = 210.0
+offset_right = 1167.0
+offset_bottom = 538.0
+texture = ExtResource("32_7w3fj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="W" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybinds tips"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 77.0
+offset_right = 110.0
+offset_bottom = 121.0
+texture = ExtResource("32_7w3fj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Keybinds tips/W"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 49.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="A" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybinds tips"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 114.0
+offset_right = 73.0
+offset_bottom = 158.0
+texture = ExtResource("32_7w3fj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Keybinds tips/A"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 48.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="S" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybinds tips"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 114.0
+offset_right = 110.0
+offset_bottom = 158.0
+texture = ExtResource("32_7w3fj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Keybinds tips/S"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 48.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D" type="TextureRect" parent="HUD Canvas Layer/HUD/Keybinds tips"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 114.0
+offset_right = 147.0
+offset_bottom = 158.0
+texture = ExtResource("32_7w3fj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HUD Canvas Layer/HUD/Keybinds tips/D"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 48.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="UI" type="Node" parent="."]
 
