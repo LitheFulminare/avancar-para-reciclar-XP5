@@ -13,7 +13,7 @@ var players: Array[PlayerData]
 var rng = RandomNumberGenerator.new()
 
 # used to give some trash cards to player only at the start of the match
-var give_starting_trash: bool = false
+var give_starting_trash: bool = true
 var trash_cards_given: int = 0
 var starting_cards_index: int = 0
 
