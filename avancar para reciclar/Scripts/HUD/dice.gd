@@ -40,11 +40,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			sprite.texture = dice6
 	
 	dice_landed.emit()
+	if !is_first_dice_roll:
+		second_dice_landed.emit()
 	
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate:a", 0, 1.5)
-	
 	await tween.finished
-	if !is_first_dice_roll:
-		second_dice_landed.emit()
 	queue_free()

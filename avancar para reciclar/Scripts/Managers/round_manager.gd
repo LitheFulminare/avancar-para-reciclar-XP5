@@ -229,6 +229,7 @@ func first_dice_landed() -> void:
 		active_player.spawn_interaction_buttons(false)
 
 func second_dice_landed() -> void:
+	await get_tree().create_timer(1.3).timeout
 	current_round_state = round_states.move
 	action()
 

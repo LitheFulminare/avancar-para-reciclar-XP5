@@ -154,7 +154,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 24.0
+"speed": 28.0
 }]
 
 [node name="Dice" type="Node2D" node_paths=PackedStringArray("animated_sprite", "sprite")]
