@@ -2,6 +2,7 @@ class_name ScrollingCamera
 extends Camera2D
 
 signal finished_zooming_out
+signal player_finished_examining_map
 
 var ignore_input: bool = false
 
@@ -113,6 +114,8 @@ func reset_camera(location: Vector2) -> void:
 	await tween.finished
 	# if ignore_input is true, RoundManager pins the camera position to the player, so it has to wait the tween
 	ignore_input = true
+	print("Ignore input is true")
+	player_finished_examining_map.emit()
 
 func go_to_starting_position() -> void:
 	global_position = starting_position

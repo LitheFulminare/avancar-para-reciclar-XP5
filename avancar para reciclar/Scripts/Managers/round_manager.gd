@@ -106,7 +106,8 @@ func _ready() -> void:
 	player_array = players_parent_node.get_children()
 	
 	#region connect signals
-	main_camera.connect("finished_zooming_out", camera_finished_zooming_out)
+	main_camera.finished_zooming_out.connect(camera_finished_zooming_out)
+	main_camera.player_finished_examining_map.connect(player_finished_examining_map)
 	
 	player1.stopped_moving.connect(player_stopped_moving)
 	player2.stopped_moving.connect(player_stopped_moving)
@@ -215,17 +216,20 @@ func player_pressed_dice_button() -> void:
 
 func player_pressed_map_button() -> void:
 	main_camera.ignore_input = false
+	
+	branch1_buttons_parent.visible = false
+	branch2_buttons_parent.visible = false
 
 func dice_roll(is_first_dice_roll: bool) -> void:
 	audio_manager.play_rolling_dice_SFX()
 	
 	if is_first_dice_roll:
-		first_dice_result = GameManager.roll_dice(1, 6)
+		first_dice_result = 10#GameManager.roll_dice(1, 6)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 		active_player.spawn_interaction_buttons(false)
 	else:
-		second_dice_result = GameManager.roll_dice(1, 6)
+		second_dice_result = 0#GameManager.roll_dice(1, 6)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
 		# this was written when this part was on action(), but i'll keep it anyways:
@@ -283,6 +287,8 @@ func player_landed_at_fork() -> void:
 	spawn_branch_buttons()
 	
 func spawn_branch_buttons() -> void:
+	active_player.spawn_map_button()
+	
 	if active_player.square.fork_number == 1:
 		branch1_buttons_parent.visible = true
 	if active_player.square.fork_number == 2:
@@ -336,7 +342,9 @@ func branch_chosen():
 		active_player.square.next_square = active_player.square.branch_B_start
 		
 	player_at_fork = false
-		
+	active_player.hide_buttons() # hide "Examine map" button
+	main_camera.zoom_to_location(active_player.global_position)
+	
 	move(true)
 
 # this is NOT how actions are gonna be handled anymore, 
@@ -462,6 +470,15 @@ func camera_finished_zooming_out() -> void:
 	#draw_question_card()
 	#add_trash(turn-1, get_random_trash_type())
 
+func player_finished_examining_map() -> void:
+	if player_at_fork:
+		spawn_branch_buttons()
+	
+	if current_round_state == round_states.start_turn:
+		active_player.spawn_interaction_buttons(true)
+	elif current_round_state == round_states.first_dice_roll:
+		active_player.spawn_interaction_buttons(false)
+	
 func go_to_minigame() -> void:
 	var players: Array[Player] = [player1, player2, player3]
 	SaveAndLoadManager.save_data(players, current_round)

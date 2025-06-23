@@ -15,10 +15,10 @@ movement_remaining_label = NodePath("Label")
 texture = ExtResource("2_ft8w5")
 
 [node name="Button container" type="VBoxContainer" parent="."]
-offset_left = -464.425
-offset_top = -71.0
-offset_right = -87.425
-offset_bottom = 74.0
+offset_left = -433.0
+offset_top = -33.0
+offset_right = -56.0
+offset_bottom = 112.0
 mouse_filter = 2
 
 [node name="Dice button" type="Button" parent="Button container"]

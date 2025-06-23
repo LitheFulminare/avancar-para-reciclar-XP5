@@ -52,6 +52,10 @@ func spawn_interaction_buttons(is_first_dice_roll: bool) -> void:
 	
 	dice_button.grab_focus()
 
+func spawn_map_button() -> void:
+	map_button.visible = true
+	map_button.grab_focus()
+
 func hide_buttons() -> void:
 	dice_button.release_focus()
 	map_button.release_focus()
