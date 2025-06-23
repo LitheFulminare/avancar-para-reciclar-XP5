@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://disbcp6ujcu0q"]
+[gd_scene load_steps=36 format=3 uid="uid://disbcp6ujcu0q"]
 
 [ext_resource type="Script" uid="uid://dokerxycq6cla" path="res://Scripts/Minigames/Boat/boat minigame manager.gd" id="1_ric7v"]
 [ext_resource type="Script" uid="uid://cq3h6rlsu8kjr" path="res://Scripts/Managers/time_tracker.gd" id="2_7s84n"]
 [ext_resource type="Script" uid="uid://cmoudadi40tjf" path="res://Scripts/Managers/audio_manager.gd" id="2_5366f"]
+[ext_resource type="PackedScene" uid="uid://wvcevyu5vojc" path="res://Scenes/Game/Main game scene.tscn" id="2_tsgpx"]
 [ext_resource type="AudioStream" uid="uid://lfkiy52e7xlh" path="res://Assets/Audio/SFX/pawn moving.ogg" id="3_pa471"]
 [ext_resource type="Script" uid="uid://dlojdj4g8u2ex" path="res://Scripts/Minigames/Boat/split_input_manager.gd" id="3_pbxlv"]
 [ext_resource type="AudioStream" uid="uid://dvi78g742jdmp" path="res://Assets/Audio/SFX/rolling dice.ogg" id="4_7lixa"]
@@ -49,6 +50,7 @@ audio_manager = NodePath("../Audio Manager")
 player1 = NodePath("../Boats/Green boat")
 player2 = NodePath("../Boats/Yellow boat")
 player3 = NodePath("../Boats/Red boat")
+game_scene = ExtResource("2_tsgpx")
 
 [node name="Audio Manager" type="Node" parent="." node_paths=PackedStringArray("move", "rolling_dice", "trash_collected", "boat_minigame_ost", "question_card_ost")]
 script = ExtResource("2_5366f")

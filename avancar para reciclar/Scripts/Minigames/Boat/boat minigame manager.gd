@@ -4,7 +4,7 @@ extends Node
 @export_category("Parameters")
 @export var stage_duration: int
 
-@export_category("Nodes")
+@export_group("Nodes")
 @export var timer_clock: TimerClock
 @export var trash_parent: Node2D
 @export var countdown: Countdown
@@ -14,6 +14,8 @@ extends Node
 @export var player2: Boat
 @export var player3: Boat
 
+@export_group("Other elements")
+@export var game_scene: PackedScene
 
 static var pre_round_phase = true
 static var minigame_paused  = true
@@ -77,4 +79,4 @@ func timer_ended() -> void:
 		GameManager.player3_won = true
 		
 	await get_tree().create_timer(2).timeout
-	GameManager.go_to_scene("res://Scenes/Game/map test.tscn")
+	GameManager.go_to_scene(game_scene.resource_path)

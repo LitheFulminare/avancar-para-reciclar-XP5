@@ -1,48 +1,48 @@
 [gd_scene load_steps=37 format=3 uid="uid://wvcevyu5vojc"]
 
-[ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_oqp8s"]
-[ext_resource type="Texture2D" uid="uid://cj6ubyjblo183" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Green arrow.png" id="2_7w3fj"]
-[ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="2_81x0c"]
-[ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="2_y42xc"]
-[ext_resource type="AudioStream" uid="uid://lfkiy52e7xlh" path="res://Assets/Audio/SFX/pawn moving.ogg" id="3_hrimd"]
-[ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="3_q0u56"]
-[ext_resource type="Texture2D" uid="uid://bqu4dwpwpc40b" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Yellow arrow.png" id="3_wux8l"]
-[ext_resource type="AudioStream" uid="uid://dvi78g742jdmp" path="res://Assets/Audio/SFX/rolling dice.ogg" id="4_0rwvm"]
-[ext_resource type="Texture2D" uid="uid://d4h37imy6ns5p" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Red arrow.png" id="4_ktn4s"]
-[ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="4_riorq"]
-[ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="5_5w0ha"]
-[ext_resource type="PackedScene" uid="uid://skb7j01p3o2q" path="res://Scenes/Game/Pre Minigame Scene.tscn" id="5_h5e2y"]
-[ext_resource type="AudioStream" uid="uid://cnfk75xhxx1w1" path="res://Assets/Audio/OST/Question card OST.ogg" id="5_jfhbc"]
-[ext_resource type="Script" uid="uid://dnyqq1kmmdbu5" path="res://Scripts/Managers/save_&_load_manager.gd" id="5_qyprb"]
-[ext_resource type="AudioStream" uid="uid://b5wui1f7ivm1c" path="res://Assets/Audio/OST/Minigame OST.ogg" id="6_5omrr"]
-[ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="6_v2k4j"]
-[ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="7_v5epi"]
-[ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="8_5w0ha"]
-[ext_resource type="Resource" uid="uid://dvbvx8lvkwn7o" path="res://Resources/Map Elements/Squares/Quiz card.tres" id="8_riorq"]
-[ext_resource type="Texture2D" uid="uid://dxhivb4oxnqgj" path="res://Assets/Sprites/Cards/Trash cards/Trash card (stack).png" id="8_y8kdn"]
-[ext_resource type="Texture2D" uid="uid://camnp8s5bm414" path="res://Assets/Sprites/Cards/Luck cards/Luck card (stack).png" id="9_5vyx2"]
-[ext_resource type="Resource" uid="uid://br484ai56mu1a" path="res://Resources/Map Elements/Squares/Luck card.tres" id="9_ahe86"]
-[ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="9_ujeix"]
-[ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard trash.tres" id="11_v5epi"]
-[ext_resource type="Resource" uid="uid://d1411atrrck5y" path="res://Resources/Map Elements/Squares/Garbage truck.tres" id="12_ahe86"]
-[ext_resource type="PackedScene" uid="uid://bhtxvatf0dymt" path="res://Scenes/HUD/player_stats_hud.tscn" id="13_ypxuo"]
-[ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="14_5w0ha"]
-[ext_resource type="Texture2D" uid="uid://bne4yq8i4a55u" path="res://Assets/Sprites/HUD & UI/HUD/Inventory HUD/yellow stats bar.png" id="14_7acfh"]
-[ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="15_ujeix"]
-[ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/Inventory HUD/red stats bar.png" id="15_v2k4j"]
-[ext_resource type="Script" uid="uid://bjd7a3ows5xbg" path="res://Scripts/HUD/game_message_manager.gd" id="20_uahh7"]
-[ext_resource type="Script" uid="uid://cmoudadi40tjf" path="res://Scripts/Managers/audio_manager.gd" id="25_5vyx2"]
-[ext_resource type="Texture2D" uid="uid://bcuktwrkpccpf" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Panel.png" id="32_7w3fj"]
-[ext_resource type="Texture2D" uid="uid://b6xvugiolbrqj" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/WASD Panel.png" id="33_wux8l"]
-[ext_resource type="Texture2D" uid="uid://b7638mb0ar21h" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Q E Panel.png" id="34_ktn4s"]
-[ext_resource type="Texture2D" uid="uid://dtbshrq6g2j0b" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/R Panel.png" id="36_h5e2y"]
+[ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_j4puw"]
+[ext_resource type="Texture2D" uid="uid://cj6ubyjblo183" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Green arrow.png" id="2_070h7"]
+[ext_resource type="Texture2D" uid="uid://bqu4dwpwpc40b" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Yellow arrow.png" id="3_qo617"]
+[ext_resource type="Texture2D" uid="uid://d4h37imy6ns5p" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Red arrow.png" id="4_w0u4i"]
+[ext_resource type="PackedScene" uid="uid://skb7j01p3o2q" path="res://Scenes/Game/Pre Minigame Scene.tscn" id="5_8ibct"]
+[ext_resource type="Script" uid="uid://cmoudadi40tjf" path="res://Scripts/Managers/audio_manager.gd" id="6_xejj2"]
+[ext_resource type="AudioStream" uid="uid://lfkiy52e7xlh" path="res://Assets/Audio/SFX/pawn moving.ogg" id="7_5i7t7"]
+[ext_resource type="AudioStream" uid="uid://dvi78g742jdmp" path="res://Assets/Audio/SFX/rolling dice.ogg" id="8_42vk5"]
+[ext_resource type="AudioStream" uid="uid://cnfk75xhxx1w1" path="res://Assets/Audio/OST/Question card OST.ogg" id="9_bens0"]
+[ext_resource type="AudioStream" uid="uid://b5wui1f7ivm1c" path="res://Assets/Audio/OST/Minigame OST.ogg" id="10_njctx"]
+[ext_resource type="Script" uid="uid://d4gbcggnn7frc" path="res://Scripts/Managers/path_manager.gd" id="11_dnlh2"]
+[ext_resource type="Script" uid="uid://cgcqsdu20e0sf" path="res://Scripts/Managers/square_manager.gd" id="12_dwsv5"]
+[ext_resource type="Script" uid="uid://ciduw2o807kd3" path="res://Scripts/Managers/question resource manager.gd" id="13_1gxky"]
+[ext_resource type="Script" uid="uid://dnyqq1kmmdbu5" path="res://Scripts/Managers/save_&_load_manager.gd" id="14_cwaq3"]
+[ext_resource type="Texture2D" uid="uid://df8tekp0k3pgc" path="res://Assets/Sprites/Maps/map with details.png" id="15_u5yw0"]
+[ext_resource type="Texture2D" uid="uid://cwijtqiomb8er" path="res://Assets/Sprites/Cards/Question cards/Stack of question cards.png" id="16_m0i3o"]
+[ext_resource type="Texture2D" uid="uid://dxhivb4oxnqgj" path="res://Assets/Sprites/Cards/Trash cards/Trash card (stack).png" id="17_jxwce"]
+[ext_resource type="Texture2D" uid="uid://camnp8s5bm414" path="res://Assets/Sprites/Cards/Luck cards/Luck card (stack).png" id="18_t3u2h"]
+[ext_resource type="PackedScene" uid="uid://3er41vmhjoi4" path="res://Scenes/Map Elements/Square.tscn" id="19_s65le"]
+[ext_resource type="Resource" uid="uid://dvbvx8lvkwn7o" path="res://Resources/Map Elements/Squares/Quiz card.tres" id="20_hx1x7"]
+[ext_resource type="Resource" uid="uid://br484ai56mu1a" path="res://Resources/Map Elements/Squares/Luck card.tres" id="21_h08x0"]
+[ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="22_d6hic"]
+[ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard trash.tres" id="23_dyd6t"]
+[ext_resource type="Resource" uid="uid://d1411atrrck5y" path="res://Resources/Map Elements/Squares/Garbage truck.tres" id="24_te8pr"]
+[ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="25_wb3hq"]
+[ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="26_k3lf2"]
+[ext_resource type="Texture2D" uid="uid://cisy8a2035w84" path="res://Assets/Sprites/Players/Red pawn.png" id="27_m40d2"]
+[ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="28_opy36"]
+[ext_resource type="PackedScene" uid="uid://bhtxvatf0dymt" path="res://Scenes/HUD/player_stats_hud.tscn" id="29_wjpn5"]
+[ext_resource type="Texture2D" uid="uid://bne4yq8i4a55u" path="res://Assets/Sprites/HUD & UI/HUD/Inventory HUD/yellow stats bar.png" id="30_v24sb"]
+[ext_resource type="Texture2D" uid="uid://b12nhiqcycnau" path="res://Assets/Sprites/HUD & UI/HUD/Inventory HUD/red stats bar.png" id="31_y5n3l"]
+[ext_resource type="Script" uid="uid://bjd7a3ows5xbg" path="res://Scripts/HUD/game_message_manager.gd" id="32_wx4tq"]
+[ext_resource type="Texture2D" uid="uid://bcuktwrkpccpf" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Panel.png" id="33_6x632"]
+[ext_resource type="Texture2D" uid="uid://b6xvugiolbrqj" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/WASD Panel.png" id="34_qah05"]
+[ext_resource type="Texture2D" uid="uid://b7638mb0ar21h" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Q E Panel.png" id="35_68kqx"]
+[ext_resource type="Texture2D" uid="uid://dtbshrq6g2j0b" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/R Panel.png" id="36_rd2ry"]
 
 [node name="MapTest" type="Node2D"]
 
 [node name="Managers" type="Node" parent="."]
 
 [node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "game_message", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "control_tips", "branch1_buttons_parent", "branch1_A_button", "branch1_B_button", "branch2_buttons_parent", "branch2_A_button", "branch2_B_button", "question_card_stack", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
-script = ExtResource("1_oqp8s")
+script = ExtResource("1_j4puw")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
 audio_manager = NodePath("../Audio Manager")
@@ -61,43 +61,43 @@ branch2_B_button = NodePath("../../UI/Branch 2 buttons/Branch 2 B button")
 question_card_stack = NodePath("../../BG and Map Elements/Stack of question cards")
 trash_card_stack = NodePath("../../BG and Map Elements/Stack of trash cards")
 luck_card_Stack = NodePath("../../BG and Map Elements/Stack of luck cards")
-green_arrow = ExtResource("2_7w3fj")
-yellow_arrow = ExtResource("3_wux8l")
-red_arrow = ExtResource("4_ktn4s")
+green_arrow = ExtResource("2_070h7")
+yellow_arrow = ExtResource("3_qo617")
+red_arrow = ExtResource("4_w0u4i")
 players_inventories = [NodePath("../../UI/Player 1 inventory"), NodePath("../../UI/Player 2 inventory"), NodePath("../../UI/Player 3 inventory")]
-pre_minigame_scene = ExtResource("5_h5e2y")
+pre_minigame_scene = ExtResource("5_8ibct")
 players_parent_node = NodePath("../../Players")
 player1 = NodePath("../../Players/Player 1")
 player2 = NodePath("../../Players/Player 2")
 player3 = NodePath("../../Players/Player 3")
 
 [node name="Audio Manager" type="Node" parent="Managers" node_paths=PackedStringArray("move", "rolling_dice", "boat_minigame_ost", "question_card_ost")]
-script = ExtResource("25_5vyx2")
+script = ExtResource("6_xejj2")
 move = NodePath("SFX Move")
 rolling_dice = NodePath("SFX Rolling dice")
 boat_minigame_ost = NodePath("OST Boat minigame")
 question_card_ost = NodePath("OST Question card")
 
 [node name="SFX Move" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
-stream = ExtResource("3_hrimd")
+stream = ExtResource("7_5i7t7")
 
 [node name="SFX Rolling dice" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
-stream = ExtResource("4_0rwvm")
+stream = ExtResource("8_42vk5")
 max_polyphony = 2
 
 [node name="SFX Select" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
 
 [node name="OST Question card" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
-stream = ExtResource("5_jfhbc")
+stream = ExtResource("9_bens0")
 parameters/looping = true
 
 [node name="OST Boat minigame" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
-stream = ExtResource("6_5omrr")
+stream = ExtResource("10_njctx")
 
 [node name="Path Manager" type="Node" parent="Managers"]
 editor_description = "handles branching paths and this kind of thing
 "
-script = ExtResource("2_81x0c")
+script = ExtResource("11_dnlh2")
 branch1_A_start = 7
 branch1_A_end = 11
 branch1_B_start = 12
@@ -108,15 +108,15 @@ branch2_B_start = 24
 branch2_B_end = 27
 
 [node name="Square Manager" type="Node" parent="Managers" node_paths=PackedStringArray("round_manager") groups=["Square Manager"]]
-script = ExtResource("3_q0u56")
+script = ExtResource("12_dwsv5")
 round_manager = NodePath("../Round Manager")
 square_size = 0.12
 
 [node name="Question Card Res Manager" type="Node" parent="Managers"]
-script = ExtResource("4_riorq")
+script = ExtResource("13_1gxky")
 
 [node name="Save & Load Manager" type="Node" parent="Managers"]
-script = ExtResource("5_qyprb")
+script = ExtResource("14_cwaq3")
 
 [node name="BG and Map Elements" type="Node" parent="."]
 
@@ -125,13 +125,13 @@ z_index = -2
 texture_filter = 1
 position = Vector2(-1, 0)
 scale = Vector2(0.30026, 0.300463)
-texture = ExtResource("5_5w0ha")
+texture = ExtResource("15_u5yw0")
 centered = false
 
 [node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]
 position = Vector2(31, 464)
 scale = Vector2(0.0518229, 0.0532407)
-texture = ExtResource("6_v2k4j")
+texture = ExtResource("16_m0i3o")
 
 [node name="Question Marker Spawn" type="Marker2D" parent="BG and Map Elements/Stack of question cards"]
 position = Vector2(28.9446, 28.1738)
@@ -140,7 +140,7 @@ scale = Vector2(14.4024, 14.0189)
 [node name="Stack of trash cards" type="Sprite2D" parent="BG and Map Elements"]
 position = Vector2(93, 437)
 scale = Vector2(0.0518229, 0.0532407)
-texture = ExtResource("8_y8kdn")
+texture = ExtResource("17_jxwce")
 
 [node name="Trash marker" type="Marker2D" parent="BG and Map Elements/Stack of trash cards"]
 position = Vector2(28.9446, 28.1738)
@@ -149,7 +149,7 @@ scale = Vector2(14.4024, 14.0189)
 [node name="Stack of luck cards" type="Sprite2D" parent="BG and Map Elements"]
 position = Vector2(30, 362)
 scale = Vector2(0.0518229, 0.0532407)
-texture = ExtResource("9_5vyx2")
+texture = ExtResource("18_t3u2h")
 
 [node name="Luck marker" type="Marker2D" parent="BG and Map Elements/Stack of luck cards"]
 position = Vector2(28.9446, 28.1738)
@@ -157,209 +157,209 @@ scale = Vector2(14.4024, 14.0189)
 
 [node name="Squares" type="Node" parent="."]
 
-[node name="Square 1" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 1" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(897, 542)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("8_riorq")
+stats = ExtResource("20_hx1x7")
 next_square = NodePath("../Square 2")
 
-[node name="Square 2" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 2" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(801, 537)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ahe86")
+stats = ExtResource("21_h08x0")
 next_square = NodePath("../Square 3")
 
-[node name="Square 3" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 3" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(704, 568)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("8_riorq")
+stats = ExtResource("20_hx1x7")
 next_square = NodePath("../Square 4")
 
-[node name="Square 4" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 4" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(616, 582)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("8_riorq")
+stats = ExtResource("20_hx1x7")
 next_square = NodePath("../Square 5")
 
-[node name="Square 5" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 5" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(526, 582)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ujeix")
+stats = ExtResource("22_d6hic")
 next_square = NodePath("../Square 6")
 
-[node name="Square 6" parent="Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("8_5w0ha")]
+[node name="Square 6" parent="Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("19_s65le")]
 position = Vector2(437, 574)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("11_v5epi")
+stats = ExtResource("23_dyd6t")
 is_fork = true
 fork_number = 1
 branch_A_start = NodePath("../Square 7")
 branch_B_start = NodePath("../Square 12")
 
-[node name="Square 7" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 7" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(273, 591)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ahe86")
+stats = ExtResource("21_h08x0")
 next_square = NodePath("../Square 8")
 
-[node name="Square 8" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 8" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(179, 583)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("8_riorq")
+stats = ExtResource("20_hx1x7")
 next_square = NodePath("../Square 9")
 
-[node name="Square 9" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 9" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(157, 505)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("11_v5epi")
+stats = ExtResource("23_dyd6t")
 next_square = NodePath("../Square 10")
 
-[node name="Square 10" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 10" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(189, 403)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ujeix")
+stats = ExtResource("22_d6hic")
 next_square = NodePath("../Square 11")
 
-[node name="Square 11" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 11" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(269, 325)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ahe86")
+stats = ExtResource("21_h08x0")
 next_square = NodePath("../Square 16")
 
-[node name="Square 12" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 12" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(336, 517)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("8_riorq")
+stats = ExtResource("20_hx1x7")
 next_square = NodePath("../Square 13")
 
-[node name="Square 13" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 13" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(371, 462)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("11_v5epi")
+stats = ExtResource("23_dyd6t")
 next_square = NodePath("../Square 14")
 
-[node name="Square 14" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 14" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(403, 411)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("12_ahe86")
+stats = ExtResource("24_te8pr")
 next_square = NodePath("../Square 15")
 
-[node name="Square 15" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 15" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(371, 357)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ujeix")
+stats = ExtResource("22_d6hic")
 next_square = NodePath("../Square 16")
 
-[node name="Square 16" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 16" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(382, 279)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("12_ahe86")
+stats = ExtResource("24_te8pr")
 next_square = NodePath("../Square 17")
 
-[node name="Square 17" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 17" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(448, 256)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("8_riorq")
+stats = ExtResource("20_hx1x7")
 next_square = NodePath("../Square 18")
 
-[node name="Square 18" parent="Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("8_5w0ha")]
+[node name="Square 18" parent="Squares" node_paths=PackedStringArray("branch_A_start", "branch_B_start") instance=ExtResource("19_s65le")]
 position = Vector2(524, 271)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("11_v5epi")
+stats = ExtResource("23_dyd6t")
 is_fork = true
 fork_number = 2
 branch_A_start = NodePath("../Square 19")
 branch_B_start = NodePath("../Square 24")
 
-[node name="Square 19" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 19" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(610, 274)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("12_ahe86")
+stats = ExtResource("24_te8pr")
 next_square = NodePath("../Square 20")
 
-[node name="Square 20" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 20" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(683, 246)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ahe86")
+stats = ExtResource("21_h08x0")
 next_square = NodePath("../Square 21")
 
-[node name="Square 21" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 21" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(777, 239)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("11_v5epi")
+stats = ExtResource("23_dyd6t")
 next_square = NodePath("../Square 22")
 
-[node name="Square 22" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 22" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(876, 261)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("8_riorq")
+stats = ExtResource("20_hx1x7")
 next_square = NodePath("../Square 23")
 
-[node name="Square 23" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 23" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(905, 326)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ujeix")
+stats = ExtResource("22_d6hic")
 next_square = NodePath("../Square 28")
 
-[node name="Square 24" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 24" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(563, 342)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ahe86")
+stats = ExtResource("21_h08x0")
 next_square = NodePath("../Square 25")
 
-[node name="Square 25" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 25" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(607, 402)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ujeix")
+stats = ExtResource("22_d6hic")
 next_square = NodePath("../Square 26")
 
-[node name="Square 26" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 26" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(703, 405)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("11_v5epi")
+stats = ExtResource("23_dyd6t")
 next_square = NodePath("../Square 27")
 
-[node name="Square 27" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 27" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(807, 389)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("12_ahe86")
+stats = ExtResource("24_te8pr")
 next_square = NodePath("../Square 28")
 
-[node name="Square 28" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 28" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(938, 426)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("8_riorq")
+stats = ExtResource("20_hx1x7")
 next_square = NodePath("../Square 29")
 
-[node name="Square 29" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("8_5w0ha")]
+[node name="Square 29" parent="Squares" node_paths=PackedStringArray("next_square") instance=ExtResource("19_s65le")]
 position = Vector2(962, 487)
 scale = Vector2(0.12, 0.12)
-stats = ExtResource("9_ujeix")
+stats = ExtResource("22_d6hic")
 next_square = NodePath("../Square 1")
 
 [node name="Players" type="Node" parent="."]
 
-[node name="Player 1" parent="Players" instance=ExtResource("7_v5epi")]
+[node name="Player 1" parent="Players" instance=ExtResource("25_wb3hq")]
 position = Vector2(1000, 621)
 scale = Vector2(0.2, 0.2)
 
-[node name="Player 2" parent="Players" instance=ExtResource("7_v5epi")]
+[node name="Player 2" parent="Players" instance=ExtResource("25_wb3hq")]
 position = Vector2(1063, 606)
 scale = Vector2(0.2, 0.2)
 player_color = Color(1, 0.870588, 0, 1)
 
 [node name="Sprite2D" parent="Players/Player 2" index="0"]
-texture = ExtResource("15_ujeix")
+texture = ExtResource("26_k3lf2")
 
-[node name="Player 3" parent="Players" instance=ExtResource("7_v5epi")]
+[node name="Player 3" parent="Players" instance=ExtResource("25_wb3hq")]
 position = Vector2(1108, 570)
 scale = Vector2(0.2, 0.2)
 player_color = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" parent="Players/Player 3" index="0"]
-texture = ExtResource("14_5w0ha")
+texture = ExtResource("27_m40d2")
 
-[node name="Scrolling Camera" parent="." instance=ExtResource("2_y42xc")]
+[node name="Scrolling Camera" parent="." instance=ExtResource("28_opy36")]
 position = Vector2(576, 324)
 limit_left = 0
 limit_top = 0
@@ -376,16 +376,16 @@ offset_bottom = 649.0
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Green HUD" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+[node name="Green HUD" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("29_wjpn5")]
 layout_mode = 1
 player = NodePath("../../../Players/Player 1")
 metadata/_edit_use_anchors_ = true
 
-[node name="Yellow HUD" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+[node name="Yellow HUD" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("29_wjpn5")]
 layout_mode = 1
 offset_left = -1153.0
 offset_right = 193.0
-texture = ExtResource("14_7acfh")
+texture = ExtResource("30_v24sb")
 player = NodePath("../../../Players/Player 2")
 metadata/_edit_use_anchors_ = true
 
@@ -423,13 +423,13 @@ offset_right = 993.0
 offset_bottom = 67.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Red HUD" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("13_ypxuo")]
+[node name="Red HUD" parent="HUD Canvas Layer/HUD" node_paths=PackedStringArray("player") instance=ExtResource("29_wjpn5")]
 layout_mode = 1
 offset_left = -1153.0
 offset_top = 592.0
 offset_right = 193.0
 offset_bottom = 816.0
-texture = ExtResource("15_v2k4j")
+texture = ExtResource("31_y5n3l")
 player = NodePath("../../../Players/Player 3")
 metadata/_edit_use_anchors_ = true
 
@@ -495,7 +495,7 @@ text = "Vez do jogador
 "
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("20_uahh7")
+script = ExtResource("32_wx4tq")
 seconday_label = NodePath("Secondary label")
 green_color = Color(0, 0.74902, 0.164706, 1)
 yellow_color = Color(1, 0.870588, 0, 1)
@@ -532,7 +532,7 @@ offset_left = 956.0
 offset_top = 201.0
 offset_right = 1165.0
 offset_bottom = 322.0
-texture = ExtResource("32_7w3fj")
+texture = ExtResource("33_6x632")
 expand_mode = 1
 
 [node name="WASD" type="TextureRect" parent="HUD Canvas Layer/HUD/Control tips/WASD Panel"]
@@ -541,7 +541,7 @@ offset_left = 55.0
 offset_top = -3.0
 offset_right = 153.0
 offset_bottom = 95.0
-texture = ExtResource("33_wux8l")
+texture = ExtResource("34_qah05")
 expand_mode = 1
 stretch_mode = 5
 
@@ -562,7 +562,7 @@ offset_left = 954.0
 offset_top = 306.0
 offset_right = 1163.0
 offset_bottom = 427.0
-texture = ExtResource("32_7w3fj")
+texture = ExtResource("33_6x632")
 expand_mode = 1
 
 [node name="QE" type="TextureRect" parent="HUD Canvas Layer/HUD/Control tips/QE Panel"]
@@ -571,7 +571,7 @@ offset_left = 55.0
 offset_top = -12.0
 offset_right = 157.0
 offset_bottom = 90.0
-texture = ExtResource("34_ktn4s")
+texture = ExtResource("35_68kqx")
 expand_mode = 1
 stretch_mode = 5
 
@@ -592,7 +592,7 @@ offset_left = 955.0
 offset_top = 412.0
 offset_right = 1164.0
 offset_bottom = 533.0
-texture = ExtResource("32_7w3fj")
+texture = ExtResource("33_6x632")
 expand_mode = 1
 
 [node name="Esc" type="TextureRect" parent="HUD Canvas Layer/HUD/Control tips/Esc Panel"]
@@ -601,7 +601,7 @@ offset_left = 80.0
 offset_top = 21.0
 offset_right = 130.0
 offset_bottom = 71.0
-texture = ExtResource("36_h5e2y")
+texture = ExtResource("36_rd2ry")
 expand_mode = 1
 stretch_mode = 5
 
@@ -628,7 +628,7 @@ offset_top = 596.0
 offset_right = 359.0
 offset_bottom = 619.0
 rotation = -3.27075
-texture_normal = ExtResource("2_7w3fj")
+texture_normal = ExtResource("2_070h7")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -638,7 +638,7 @@ offset_top = 570.0
 offset_right = 386.0
 offset_bottom = 593.0
 rotation = -2.1101
-texture_normal = ExtResource("2_7w3fj")
+texture_normal = ExtResource("2_070h7")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -651,7 +651,7 @@ offset_top = 276.0
 offset_right = 592.0
 offset_bottom = 299.0
 rotation = -0.178024
-texture_normal = ExtResource("2_7w3fj")
+texture_normal = ExtResource("2_070h7")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -661,7 +661,7 @@ offset_top = 288.0
 offset_right = 588.0
 offset_bottom = 311.0
 rotation = -5.20457
-texture_normal = ExtResource("2_7w3fj")
+texture_normal = ExtResource("2_070h7")
 ignore_texture_size = true
 stretch_mode = 5
 
