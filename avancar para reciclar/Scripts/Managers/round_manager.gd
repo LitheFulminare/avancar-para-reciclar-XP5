@@ -133,10 +133,6 @@ func _process(_delta: float) -> void:
 		main_camera.global_position = active_player.global_position
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Confirm"):
-		return 
-		#next_turn();
-		
 	# won't be like this forever
 	# prob a button will be spawned and call the group or something
 	# then the method called will handle this things
@@ -149,6 +145,10 @@ func _input(event: InputEvent) -> void:
 		if player_at_fork:
 			active_player.current_branch = path_manager.branches.branch_B
 			player_chose_branch.emit()
+			
+	if Input.is_action_just_pressed("ui_cancel"):
+		if !main_camera.ignore_input: 
+			main_camera.reset_camera(active_player.global_position)
 
 # called at the start of the game
 func start_game() -> void:

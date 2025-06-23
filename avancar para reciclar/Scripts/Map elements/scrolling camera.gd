@@ -36,7 +36,7 @@ func zoom_in_and_out(delta: float) -> void:
 			is_zoom_on_cooldown = true
 			zoom_target *= 1.1
 		
-	if Input.is_action_pressed("Camera zoom out") || Input.is_action_pressed("Camera zoom out"):
+	if Input.is_action_pressed("Camera zoom out") || Input.is_action_just_pressed("Camera zoom out"):
 		if !is_zoom_on_cooldown && !ignore_input:
 			zoom_cooldown_timer.start()
 			is_zoom_on_cooldown = true
@@ -102,6 +102,13 @@ func remove_zoom(go_to_starting_location: bool = false) -> void:
 func zoom_to_location(location: Vector2, zoom_value: float = max_zoom) -> void:
 	zoom_target = Vector2(zoom_value, zoom_value)
 	global_position = location
+	
+## Now it's only used when the player presses 'Esc' when  examining the map, making the camera go back
+## to the player. Simply using zoom_to_location() would make the movement choppy, this function aims to
+## prevent that
+func reset_camera(location: Vector2) -> void:
+	ignore_input = true
+	zoom_to_location(location)
 
 func go_to_starting_position() -> void:
 	global_position = starting_position
