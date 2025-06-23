@@ -211,50 +211,6 @@ func start_turn() -> void:
 	
 	active_player.spawn_interaction_buttons(true)
 
-func player_pressed_dice_button() -> void:
-	if current_round_state == round_states.start_turn:
-		current_round_state = round_states.first_dice_roll
-	elif current_round_state == round_states.first_dice_roll:
-		current_round_state = round_states.second_dice_roll
-		
-	action()
-
-func first_dice_landed() -> void:
-	if is_first_dice_roll:
-		active_player.spawn_interaction_buttons(false)
-
-func second_dice_landed() -> void:
-	await get_tree().create_timer(1.3).timeout
-	current_round_state = round_states.move
-	action()
-
-func player_pressed_map_button() -> void:
-	control_tips.visible = true
-	
-	main_camera.ignore_input = false
-	
-	branch1_buttons_parent.visible = false
-	branch2_buttons_parent.visible = false
-
-func dice_roll(is_first_roll: bool) -> void:
-	audio_manager.play_rolling_dice_SFX()
-	is_first_dice_roll = is_first_roll
-	
-	if is_first_dice_roll:
-		first_dice_result = 2#GameManager.roll_dice(1, 6)
-		active_player.spawn_dice(first_dice_result, is_first_dice_roll)
-		print("First dice roll: " + str(first_dice_result))
-		#current_round_state = round_states.second_dice_roll
-	else:
-		second_dice_result = 1#GameManager.roll_dice(1, 6)
-		active_player.spawn_dice(second_dice_result, is_first_dice_roll)
-		total_dice_result = first_dice_result + second_dice_result
-		print("Second dice roll: " + str(second_dice_result))
-		# this was written when this part was on action(), but i'll keep it anyways:
-			# if there is a special item that makes the player roll another dice I could 
-			# add another state here
-		
-
 func end_turn() -> void:
 	if turn == GameManager.player_count:
 		current_round_state = round_states.end_round
@@ -272,6 +228,8 @@ func end_round():
 	await get_tree().create_timer(1.5).timeout
 	
 	go_to_minigame()
+
+#region Movement
 
 func move(bypass_fork_check: bool = false) -> void:
 	if total_dice_result > 0:
@@ -297,6 +255,33 @@ func move(bypass_fork_check: bool = false) -> void:
 	else:
 		# makes the camera zoom out
 		is_player_moving = false
+
+func dice_roll(is_first_roll: bool) -> void:
+	audio_manager.play_rolling_dice_SFX()
+	is_first_dice_roll = is_first_roll
+	
+	if is_first_dice_roll:
+		first_dice_result = 2#GameManager.roll_dice(1, 6)
+		active_player.spawn_dice(first_dice_result, is_first_dice_roll)
+		print("First dice roll: " + str(first_dice_result))
+		#current_round_state = round_states.second_dice_roll
+	else:
+		second_dice_result = 1#GameManager.roll_dice(1, 6)
+		active_player.spawn_dice(second_dice_result, is_first_dice_roll)
+		total_dice_result = first_dice_result + second_dice_result
+		print("Second dice roll: " + str(second_dice_result))
+		# this was written when this part was on action(), but i'll keep it anyways:
+			# if there is a special item that makes the player roll another dice I could 
+			# add another state here
+
+func first_dice_landed() -> void:
+	if is_first_dice_roll:
+		active_player.spawn_interaction_buttons(false)
+
+func second_dice_landed() -> void:
+	await get_tree().create_timer(1.3).timeout
+	current_round_state = round_states.move
+	action()
 
 func player_landed_at_fork() -> void:
 	active_player.update_movement_HUD(total_dice_result)
@@ -364,28 +349,57 @@ func branch_chosen():
 	
 	move(true)
 
-# this is NOT how actions are gonna be handled anymore, 
-# this is only still here in case I need to remember something
-#func square_action() -> void:
-	#var card_scene = preload("res://Scenes/Cards/Question card.tscn")
-	#var card: QuestionCard = card_scene.instantiate()
-	#get_tree().root.add_child(card)
-	#
-	## gives the active_player a random trash card
-	#add_trash(turn-1, get_random_trash_type())
+#endregion
+
+#region Player interactions and other functions
+
+func player_pressed_dice_button() -> void:
+	if current_round_state == round_states.start_turn:
+		current_round_state = round_states.first_dice_roll
+	elif current_round_state == round_states.first_dice_roll:
+		current_round_state = round_states.second_dice_roll
+		
+	action()
+
+func player_pressed_map_button() -> void:
+	control_tips.visible = true
+	
+	main_camera.ignore_input = false
+	
+	branch1_buttons_parent.visible = false
+	branch2_buttons_parent.visible = false
+
+func player_finished_examining_map() -> void:
+	control_tips.visible = false
+	
+	if player_at_fork:
+		spawn_branch_buttons()
+	
+	if current_round_state == round_states.start_turn:
+		active_player.spawn_interaction_buttons(true)
+	elif current_round_state == round_states.first_dice_roll:
+		active_player.spawn_interaction_buttons(false)
+	
+func go_to_minigame() -> void:
+	var players: Array[Player] = [player1, player2, player3]
+	SaveAndLoadManager.save_data(players, current_round)
+	GameManager.go_to_scene(pre_minigame_scene.resource_path)
+
+#endregion
+
+#region Question card
 
 func player_answered(answer_result: bool) -> void:
 	audio_manager.stop_question_card_ost()
 	
-	# maybe I can put discard trash logic here, not sure yet
 	if answer_result: 
 		player_answered_correctly = true
+		# then it will give the player a trash card once the card is closed
 	
 func question_card_closed() -> void:
-	#audio_manager.stop_question_card_ost()
-	
 	if player_answered_correctly:
-		await get_tree().create_timer(0.75).timeout
+		# gives a trash card to the player
+		await get_tree().create_timer(0.35).timeout
 		add_trash(turn-1, get_random_trash_type())
 		player_answered_correctly = false
 		return
@@ -394,6 +408,29 @@ func question_card_closed() -> void:
 	
 	current_round_state = round_states.end_turn
 	action()
+	
+func draw_question_card() -> void:
+	#instantiates the card
+	var question_card: QuestionCard = question_card_scene.instantiate()
+	$"../../HUD Canvas Layer".add_child(question_card)
+	
+	# changes the text, sets position to the card stack nad changes the size
+	question_card.set_texts(question_card_res_manager.get_random_question_res())
+	#question_card.position = question_card_spawn.global_position
+	#question_card.scale = question_card_stack.scale
+	
+	# moves it smoothly to the center of the screen and makes it bigger
+	move_card_to_center(question_card, question_card_stack)
+	
+	question_card.player_answered.connect(player_answered)
+	question_card.tree_exiting.connect(question_card_closed)
+	
+	await get_tree().create_timer(1.5).timeout
+	
+	question_card.reveal()
+	audio_manager.play_question_card_ost()
+	
+#endregion
 
 # maybe this could replace question_card_closed() entirely
 func square_action_finished() -> void:
@@ -436,26 +473,7 @@ func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
 
 # spawns a question card and randomizes its text
-func draw_question_card() -> void:
-	#instantiates the card
-	var question_card: QuestionCard = question_card_scene.instantiate()
-	$"../../HUD Canvas Layer".add_child(question_card)
-	
-	# changes the text, sets position to the card stack nad changes the size
-	question_card.set_texts(question_card_res_manager.get_random_question_res())
-	#question_card.position = question_card_spawn.global_position
-	#question_card.scale = question_card_stack.scale
-	
-	# moves it smoothly to the center of the screen and makes it bigger
-	move_card_to_center(question_card, question_card_stack)
-	
-	question_card.player_answered.connect(player_answered)
-	question_card.tree_exiting.connect(question_card_closed)
-	
-	await get_tree().create_timer(1.5).timeout
-	
-	question_card.reveal()
-	audio_manager.play_question_card_ost()
+
 
 ## Uses tween to move a card to the center of the screen and make it grow.
 ## Pass only a node with [color=yellow]postion[/color] and 
@@ -496,22 +514,6 @@ func camera_finished_zooming_out() -> void:
 	#draw_question_card()
 	#add_trash(turn-1, get_random_trash_type())
 
-func player_finished_examining_map() -> void:
-	control_tips.visible = false
-	
-	if player_at_fork:
-		spawn_branch_buttons()
-	
-	if current_round_state == round_states.start_turn:
-		active_player.spawn_interaction_buttons(true)
-	elif current_round_state == round_states.first_dice_roll:
-		active_player.spawn_interaction_buttons(false)
-	
-func go_to_minigame() -> void:
-	var players: Array[Player] = [player1, player2, player3]
-	SaveAndLoadManager.save_data(players, current_round)
-	GameManager.go_to_scene(pre_minigame_scene.resource_path)
-
 func load_player_data():
 	if GameManager.players.size() == 0:
 		return
@@ -533,6 +535,8 @@ func load_player_data():
 		
 	current_round = GameManager.round
 	GameManager.players.clear()
+
+#region Branch buttons
 
 # I can combine these 4 into 2 methods
 func _on_branch_1_a_button_pressed() -> void:
@@ -557,3 +561,5 @@ func _on_branch_2_b_button_pressed() -> void:
 	branch2_buttons_parent.visible = false
 	active_player.current_branch = path_manager.branches.branch_B
 	player_chose_branch.emit()
+
+#endregion
