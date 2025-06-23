@@ -86,7 +86,7 @@ var trash_card_types: Array[TrashCardStats] = [
 	glass_card_stats,
 	organic_card_stats,
 	paper_card_stats,
-	paper_card_stats,
+	metal_card_stats,
 	plastic_card_stats
 ]
 
@@ -193,6 +193,7 @@ func action() -> void:
 
 func start_round() -> void:
 	if GameManager.give_starting_trash:
+		await get_tree().create_timer(1.5).timeout
 		give_starting_trash_cards()
 		return
 		
@@ -450,6 +451,8 @@ func square_action_finished() -> void:
 	current_round_state = round_states.end_turn
 	action()
 
+#region Trash card
+
 ## Gives the specified player a trash card. if call_square_action is true, square_action_finished will be called
 ## once the card if given, otherwise it won't call any function.
 func add_trash(target_player_index: int, trash_type: TrashCardStats, call_square_action: bool = true) -> void:
@@ -489,7 +492,7 @@ func give_starting_trash_cards() -> void:
 		return
 	
 	await get_tree().physics_frame
-	await get_tree().create_timer(1.5)
+	#await get_tree().create_timer(1.5).timeout
 	
 	add_trash(GameManager.starting_cards_index, get_random_trash_type())
 	
@@ -501,6 +504,7 @@ func give_starting_trash_cards() -> void:
 		GameManager.trash_cards_given = 0
 
 func on_finished_giving_trash_card() -> void:
+	print("A Signal was emitted and Finished giving trash card was called")
 	if GameManager.give_trash_after_minigame:
 		return
 	
@@ -540,7 +544,7 @@ func give_trash_card_after_minigame() -> void:
 func get_random_trash_type() -> TrashCardStats:
 	return trash_card_types.pick_random()
 
-# spawns a question card and randomizes its text
+#endregion
 
 ## Uses tween to move a card to the center of the screen and make it grow.
 ## Pass only a node with [color=yellow]postion[/color] and 
