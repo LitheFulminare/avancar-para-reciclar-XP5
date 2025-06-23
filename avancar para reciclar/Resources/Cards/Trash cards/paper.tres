@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="TrashCardStats" load_steps=5 format=3 uid="uid://d3xfykvqi73k3"]
+[gd_resource type="Resource" script_class="TrashCardStats" load_steps=6 format=3 uid="uid://d3xfykvqi73k3"]
 
 [ext_resource type="Texture2D" uid="uid://d4futhkc6w340" path="res://Assets/Sprites/Cards/Trash cards/Paper card.png" id="1_21ueo"]
 [ext_resource type="Script" uid="uid://by2iqqsceahle" path="res://Scripts/Cards/Trash cards/trash cards resource.gd" id="1_h1st2"]
+[ext_resource type="Texture2D" uid="uid://cl7h2kiuicdc6" path="res://Assets/Sprites/Cards/Trash cards/Paper card 2.png" id="2_3axvh"]
 [ext_resource type="Texture2D" uid="uid://c1m577rlwudgg" path="res://Assets/Sprites/Cards/Trash icons/Paper (paper ball).png" id="2_r1lms"]
 [ext_resource type="Texture2D" uid="uid://bnabsj130h7fm" path="res://Assets/Sprites/Cards/Trash icons/Paper (toilet paper roll).png" id="3_21ueo"]
 
 [resource]
 script = ExtResource("1_h1st2")
 sprites = Array[Texture2D]([ExtResource("2_r1lms"), ExtResource("3_21ueo")])
-background_card = ExtResource("1_21ueo")
+background_card = Array[Texture2D]([ExtResource("1_21ueo"), ExtResource("2_3axvh")])
 value = 2
 type = 0
 metadata/_custom_type_script = "uid://by2iqqsceahle"

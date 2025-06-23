@@ -9,7 +9,7 @@ extends Node2D
 #@onready var player3 = $Players/Player3
 #@onready var player_array: Array = [player1, player2, player3]
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	# dedicate a function to this
 	if Input.is_action_just_pressed("Confirm"):
 		return

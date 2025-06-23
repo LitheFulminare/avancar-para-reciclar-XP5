@@ -18,7 +18,7 @@ func update_stats(new_stats: TrashCardStats) -> void:
 	# this should ne uncommented once the BG Card sprite is completely blank
 	#icon.texture = stats.get_random_sprite()
 	
-	background_card.texture = stats.background_card
+	background_card.texture = stats.background_card.pick_random()
 
 func reveal() -> void:
 	face_up_elements.visible = true

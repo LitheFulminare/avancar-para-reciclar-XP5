@@ -58,6 +58,7 @@ texture_pressed = ExtResource("4_q8jrw")
 texture_hover = ExtResource("5_cifgm")
 texture_click_mask = ExtResource("6_ka1ax")
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Exit" type="TextureButton" parent="Control"]
 layout_mode = 2
@@ -70,6 +71,7 @@ texture_normal = ExtResource("6_h0bu2")
 texture_pressed = ExtResource("7_ka1ax")
 texture_hover = ExtResource("8_blkr1")
 texture_click_mask = ExtResource("6_ka1ax")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
