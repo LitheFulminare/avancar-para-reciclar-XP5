@@ -51,6 +51,7 @@ func action_finished() -> void:
 	await tween.finished
 	discarded_card.queue_free()
 	
+	round_manager.active_player.points_changed.emit()
 	
 	if trash_value == 1:
 		point_text.text = "+ 1 ponto"
@@ -125,7 +126,6 @@ func _on_glass_pressed() -> void:
 	discarded_card = round_manager.active_player.glass_trash_cards[0]
 	round_manager.active_player.glass_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.glass)
-	round_manager.active_player.points_changed.emit()
 	
 	action_finished()
 
@@ -141,7 +141,6 @@ func _on_metal_pressed() -> void:
 	discarded_card = round_manager.active_player.metal_trash_cards[0]
 	round_manager.active_player.metal_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.metal)
-	round_manager.active_player.points_changed.emit()
 	
 	action_finished()
 	
@@ -157,7 +156,6 @@ func _on_organic_pressed() -> void:
 	discarded_card = round_manager.active_player.organic_trash_cards[0]
 	round_manager.active_player.organic_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.organic)
-	round_manager.active_player.points_changed.emit()
 	
 	action_finished()
 	
@@ -173,7 +171,6 @@ func _on_paper_pressed() -> void:
 	discarded_card = round_manager.active_player.paper_trash_cards[0]
 	round_manager.active_player.paper_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.paper)
-	round_manager.active_player.points_changed.emit()
 	
 	action_finished()
 	
@@ -189,7 +186,6 @@ func _on_plastic_pressed() -> void:
 	discarded_card = round_manager.active_player.plastic_trash_cards[0]
 	round_manager.active_player.plastic_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.plastic)
-	round_manager.active_player.points_changed.emit()
 	
 	action_finished()
 	
