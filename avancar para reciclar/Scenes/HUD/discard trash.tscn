@@ -84,11 +84,11 @@ grow_vertical = 2
 scale = Vector2(0.25, 0.25)
 alignment = 1
 
-[node name="Glass" type="TextureButton" parent="Control/HBoxContainer"]
+[node name="Paper" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_tycqh")
-texture_pressed = ExtResource("3_on0fl")
-texture_hover = ExtResource("4_e638h")
+texture_normal = ExtResource("11_fxmc1")
+texture_pressed = ExtResource("12_km8tc")
+texture_hover = ExtResource("13_km8tc")
 
 [node name="Metal" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
@@ -96,17 +96,11 @@ texture_normal = ExtResource("5_ht6jf")
 texture_pressed = ExtResource("6_e7nqy")
 texture_hover = ExtResource("7_kk0rn")
 
-[node name="Organic" type="TextureButton" parent="Control/HBoxContainer"]
+[node name="Glass" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("8_kk0rn")
-texture_pressed = ExtResource("9_w71m7")
-texture_hover = ExtResource("10_w71m7")
-
-[node name="Paper" type="TextureButton" parent="Control/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("11_fxmc1")
-texture_pressed = ExtResource("12_km8tc")
-texture_hover = ExtResource("13_km8tc")
+texture_normal = ExtResource("2_tycqh")
+texture_pressed = ExtResource("3_on0fl")
+texture_hover = ExtResource("4_e638h")
 
 [node name="Plastic" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
@@ -114,8 +108,14 @@ texture_normal = ExtResource("14_7o3r1")
 texture_pressed = ExtResource("15_8vs6n")
 texture_hover = ExtResource("16_mr1rb")
 
-[connection signal="pressed" from="Control/HBoxContainer/Glass" to="." method="_on_glass_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/Metal" to="." method="_on_metal_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/Organic" to="." method="_on_organic_pressed"]
+[node name="Organic" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk0rn")
+texture_pressed = ExtResource("9_w71m7")
+texture_hover = ExtResource("10_w71m7")
+
 [connection signal="pressed" from="Control/HBoxContainer/Paper" to="." method="_on_paper_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Metal" to="." method="_on_metal_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Glass" to="." method="_on_glass_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/Plastic" to="." method="_on_plastic_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Organic" to="." method="_on_organic_pressed"]
