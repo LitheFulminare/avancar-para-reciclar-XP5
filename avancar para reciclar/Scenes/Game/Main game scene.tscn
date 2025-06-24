@@ -76,10 +76,39 @@ player1 = NodePath("../../Players/Player 1")
 player2 = NodePath("../../Players/Player 2")
 player3 = NodePath("../../Players/Player 3")
 
-[node name="Discard Trash Manager" type="Node" parent="Managers" node_paths=PackedStringArray("round_manager") groups=["Discard Trash Manager"]]
+[node name="Discard Trash Manager" type="Node" parent="Managers" node_paths=PackedStringArray("round_manager", "point_text") groups=["Discard Trash Manager"]]
 script = ExtResource("6_8ibct")
 round_manager = NodePath("../Round Manager")
+point_text = NodePath("Control/Point text")
 discard_trash_scene = ExtResource("7_xejj2")
+
+[node name="Control" type="Control" parent="Managers/Discard Trash Manager"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Point text" type="Label" parent="Managers/Discard Trash Manager/Control"]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.496962
+anchor_top = 0.22608
+anchor_right = 0.496962
+anchor_bottom = 0.22608
+offset_left = -232.5
+offset_top = -55.5
+offset_right = 232.5
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "+ 1 Ponto"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Audio Manager" type="Node" parent="Managers" node_paths=PackedStringArray("move", "rolling_dice", "boat_minigame_ost", "question_card_ost")]
 script = ExtResource("6_xejj2")

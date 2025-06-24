@@ -2,16 +2,21 @@ class_name DiscardTrashManager
 extends Node
 
 @export var round_manager: RoundManager
+@export var point_text: Label
 @export var discard_trash_scene: PackedScene
 
 var discard_trash: DiscardTrash
 
 var discarded_card: TrashCard
 
+var trash_value: int
+
 func _ready() -> void:
 	discard_trash = discard_trash_scene.instantiate()
 	add_child(discard_trash)
 	discard_trash.visible = false
+	
+	point_text.visible = false
 	
 	connect_signals()
 
@@ -41,7 +46,24 @@ func action_finished() -> void:
 	
 	await tween.finished
 	discarded_card.queue_free()
-	#round_manager.square_action_finished()
+	
+	
+	if trash_value == 1:
+		point_text.text = "+ 1 ponto"
+	else:
+		point_text.text = "+ " + str(trash_value) + " pontos"
+	point_text.visible = true
+	
+	tween = get_tree().create_tween()
+	tween.tween_property(point_text, "modulate:a", 0, 2.5)
+	
+	await tween.finished
+	
+	point_text.visible = false
+	point_text.modulate.a = 1
+	trash_value = 0
+	
+	round_manager.square_action_finished()
 
 #region Garbage truck and buttons logic
 
@@ -52,6 +74,8 @@ func _on_glass_pressed() -> void:
 	if round_manager.active_player.glass_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
 		return
+	
+	trash_value = round_manager.active_player.glass_trash_cards[0].stats.value
 	
 	round_manager.active_player.points += round_manager.active_player.glass_trash_cards[0].stats.value
 	discarded_card = round_manager.active_player.glass_trash_cards[0]
@@ -66,6 +90,8 @@ func _on_metal_pressed() -> void:
 		discard_trash.spawn_no_trash_warning()
 		return
 	
+	trash_value = round_manager.active_player.metal_trash_cards[0].stats.value
+	
 	round_manager.active_player.points += round_manager.active_player.metal_trash_cards[0].stats.value
 	discarded_card = round_manager.active_player.metal_trash_cards[0]
 	round_manager.active_player.metal_trash_cards.remove_at(0)
@@ -78,6 +104,8 @@ func _on_organic_pressed() -> void:
 	if round_manager.active_player.organic_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
 		return
+	
+	trash_value = round_manager.active_player.organic_trash_cards[0].stats.value
 	
 	round_manager.active_player.points += round_manager.active_player.organic_trash_cards[0].stats.value
 	discarded_card = round_manager.active_player.organic_trash_cards[0]
@@ -92,6 +120,8 @@ func _on_paper_pressed() -> void:
 		discard_trash.spawn_no_trash_warning()
 		return
 	
+	trash_value = round_manager.active_player.paper_trash_cards[0].stats.value
+	
 	round_manager.active_player.points += round_manager.active_player.paper_trash_cards[0].stats.value
 	discarded_card = round_manager.active_player.paper_trash_cards[0]
 	round_manager.active_player.paper_trash_cards.remove_at(0)
@@ -104,6 +134,8 @@ func _on_plastic_pressed() -> void:
 	if round_manager.active_player.plastic_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
 		return
+	
+	trash_value = round_manager.active_player.plastic_trash_cards[0].stats.value
 	
 	round_manager.active_player.points += round_manager.active_player.plastic_trash_cards[0].stats.value
 	discarded_card = round_manager.active_player.plastic_trash_cards[0]
