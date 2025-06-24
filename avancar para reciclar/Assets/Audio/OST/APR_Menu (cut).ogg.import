@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cngd8byugecli"
+path="res://.godot/imported/APR_Menu (cut).ogg-8a62301837ded484cdd891c5d97227d6.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/OST/APR_Menu (cut).ogg"
+dest_files=["res://.godot/imported/APR_Menu (cut).ogg-8a62301837ded484cdd891c5d97227d6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

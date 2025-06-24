@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=49 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_j4puw"]
 [ext_resource type="Texture2D" uid="uid://cj6ubyjblo183" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Green arrow.png" id="2_070h7"]
@@ -44,12 +44,16 @@
 [ext_resource type="Texture2D" uid="uid://b7638mb0ar21h" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Q E Panel.png" id="35_68kqx"]
 [ext_resource type="Texture2D" uid="uid://dtbshrq6g2j0b" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/R Panel.png" id="36_rd2ry"]
 [ext_resource type="PackedScene" uid="uid://dqtysgir4xr4p" path="res://Scenes/HUD/Guide.tscn" id="42_5i7t7"]
+[ext_resource type="Texture2D" uid="uid://c7fe72vtkcgtj" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue/Continue (normal).png" id="45_1gxky"]
+[ext_resource type="Texture2D" uid="uid://j8iqinper7to" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue/Continue (pressed).png" id="46_cwaq3"]
+[ext_resource type="Texture2D" uid="uid://dd26cx034ju7v" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue/Continue (hover).png" id="47_u5yw0"]
+[ext_resource type="BitMap" uid="uid://ds8kqltqbl8xs" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue/Continue (click mask).png" id="48_m0i3o"]
 
 [node name="MapTest" type="Node2D"]
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "game_message", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "control_tips", "branch1_buttons_parent", "branch1_A_button", "branch1_B_button", "branch2_buttons_parent", "branch2_A_button", "branch2_B_button", "question_card_stack", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
+[node name="Round Manager" type="Node" parent="Managers" node_paths=PackedStringArray("question_card_res_manager", "path_manager", "audio_manager", "game_message", "main_camera", "question_card_spawn", "first_square", "squares_parent_node", "control_tips", "continue_to_menu_button", "guide", "branch1_buttons_parent", "branch1_A_button", "branch1_B_button", "branch2_buttons_parent", "branch2_A_button", "branch2_B_button", "question_card_stack", "trash_card_stack", "luck_card_Stack", "players_inventories", "players_parent_node", "player1", "player2", "player3")]
 script = ExtResource("1_j4puw")
 question_card_res_manager = NodePath("../Question Card Res Manager")
 path_manager = NodePath("../Path Manager")
@@ -60,6 +64,8 @@ question_card_spawn = NodePath("../../BG and Map Elements/Stack of question card
 first_square = NodePath("../../Squares/Square 1")
 squares_parent_node = NodePath("../../Squares")
 control_tips = NodePath("../../HUD Canvas Layer/HUD/Control tips")
+continue_to_menu_button = NodePath("../../HUD Canvas Layer/Continue (post-game)")
+guide = NodePath("../../HUD Canvas Layer/Guide")
 branch1_buttons_parent = NodePath("../../UI/Branch 1 buttons")
 branch1_A_button = NodePath("../../UI/Branch 1 buttons/Branch 1 A button")
 branch1_B_button = NodePath("../../UI/Branch 1 buttons/Branch 1 B button")
@@ -139,12 +145,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Audio Manager" type="Node" parent="Managers" node_paths=PackedStringArray("move", "rolling_dice", "boat_minigame_ost", "question_card_ost")]
+[node name="Audio Manager" type="Node" parent="Managers" node_paths=PackedStringArray("move", "rolling_dice", "boat_minigame_ost", "question_card_ost", "gameplay_ost", "victory_ost")]
 script = ExtResource("6_xejj2")
 move = NodePath("SFX Move")
 rolling_dice = NodePath("SFX Rolling dice")
 boat_minigame_ost = NodePath("OST Boat minigame")
 question_card_ost = NodePath("OST Question card")
+gameplay_ost = NodePath("OST Gameplay")
+victory_ost = NodePath("OST Victory")
 
 [node name="SFX Move" type="AudioStreamPlayer" parent="Managers/Audio Manager"]
 stream = ExtResource("7_5i7t7")
@@ -702,6 +710,19 @@ vertical_alignment = 1
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
+[node name="Continue (post-game)" type="TextureButton" parent="HUD Canvas Layer"]
+visible = false
+offset_left = 412.0
+offset_top = 434.0
+offset_right = 736.0
+offset_bottom = 775.0
+texture_normal = ExtResource("45_1gxky")
+texture_pressed = ExtResource("46_cwaq3")
+texture_hover = ExtResource("47_u5yw0")
+texture_click_mask = ExtResource("48_m0i3o")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="UI" type="Node" parent="."]
 
 [node name="Branch 1 buttons" type="Node2D" parent="UI"]
@@ -763,6 +784,7 @@ editor_description = "Used on round manager so it knows where the trash card sho
 position = Vector2(140, 627)
 
 [connection signal="finished" from="Managers/Audio Manager/OST Victory" to="Managers/Round Manager" method="_on_ost_victory_finished"]
+[connection signal="pressed" from="HUD Canvas Layer/Continue (post-game)" to="Managers/Round Manager" method="_on_continue_postgame_pressed"]
 [connection signal="pressed" from="UI/Branch 1 buttons/Branch 1 A button" to="Managers/Round Manager" method="_on_branch_1_a_button_pressed"]
 [connection signal="pressed" from="UI/Branch 1 buttons/Branch 1 B button" to="Managers/Round Manager" method="_on_branch_1_b_button_pressed"]
 [connection signal="pressed" from="UI/Branch 2 buttons/Branch 2 A button" to="Managers/Round Manager" method="_on_branch_2_a_button_pressed"]

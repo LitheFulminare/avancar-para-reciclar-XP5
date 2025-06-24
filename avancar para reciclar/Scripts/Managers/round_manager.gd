@@ -31,6 +31,8 @@ enum round_states
 @export var first_square: Square
 @export var squares_parent_node: Node
 @export var control_tips: Node2D
+@export var continue_to_menu_button: TextureButton
+@export var guide: Guide
 @export_subgroup("Branch buttons")
 @export var branch1_buttons_parent: Node2D
 @export var branch1_A_button: TextureButton
@@ -107,6 +109,7 @@ var is_first_dice_roll: bool
 #endregion
 
 func _ready() -> void:
+	continue_to_menu_button.visible = false
 	control_tips.visible = false
 	
 	branch1_buttons_parent.visible = false
@@ -246,8 +249,11 @@ func end_round():
 	
 	go_to_minigame()
 
+# victory and endgame stuff
 func end_game_message() -> void:
 	game_message.display_message("Fim de jogo!")
+	audio_manager.play_victory_ost()
+	guide.visible = false
 	
 	await get_tree().create_timer(2).timeout
 	
@@ -267,9 +273,9 @@ func end_game_message() -> void:
 	elif player2.points == player3.points:
 		game_message.display_message("Jogadores 2 e 3 ganharam")
 		
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(1.5).timeout
 	
-	GameManager.go_to_scene("res://Scenes/Game/Main menu.tscn")
+	continue_to_menu_button.visible = true
 
 #region Movement
 
@@ -674,4 +680,8 @@ func _on_branch_2_b_button_pressed() -> void:
 
 
 func _on_ost_victory_finished() -> void:
+	GameManager.go_to_scene("res://Scenes/Game/Main menu.tscn")
+
+
+func _on_continue_postgame_pressed() -> void:
 	GameManager.go_to_scene("res://Scenes/Game/Main menu.tscn")
