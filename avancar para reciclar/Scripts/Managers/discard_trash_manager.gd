@@ -22,6 +22,7 @@ func connect_signals() -> void:
 
 func action_finished() -> void:
 	discard_trash.visible = false
+	round_manager.square_action_finished()
 
 #region Garbage truck and buttons logic
 

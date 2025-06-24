@@ -4,6 +4,8 @@ extends Node
 
 var current_scene = null
 
+var round: int
+
 var player_count: int = 3 
 var max_round: int = 20; # maybe give the player the option to ajust this?
 
