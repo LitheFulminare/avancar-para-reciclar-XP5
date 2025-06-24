@@ -699,7 +699,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Guide" parent="HUD Canvas Layer" instance=ExtResource("42_5i7t7")]
-position = Vector2(0, -35)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="UI" type="Node" parent="."]
 
