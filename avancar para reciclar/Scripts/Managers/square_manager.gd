@@ -56,13 +56,10 @@ func collect_trash() -> void:
 	round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
 	
 func discard_trash(trash_type: TrashCardStats.types) -> void:
-	print("Player landed on a Discard trash square")
-	print("Parameter passed: " + str(trash_type))
-	round_manager.square_action_finished()
+	get_tree().call_group("Discard Trash Manager", "call_discard_function", trash_type)
 	
 func garbage_truck() -> void:
 	get_tree().call_group("Discard Trash Manager", "discard_any_trash")
-	#round_manager.square_action_finished()
 
 func quiz_card():
 	round_manager.draw_question_card()

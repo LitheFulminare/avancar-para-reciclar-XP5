@@ -273,12 +273,12 @@ func dice_roll(is_first_roll: bool) -> void:
 	is_first_dice_roll = is_first_roll
 	
 	if is_first_dice_roll:
-		first_dice_result = 5#GameManager.roll_dice(1, 6)
+		first_dice_result = 1#GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(first_dice_result, is_first_dice_roll)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 	else:
-		second_dice_result = 5#GameManager.roll_dice(1, 6)
+		second_dice_result = 1#GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(second_dice_result, is_first_dice_roll)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))

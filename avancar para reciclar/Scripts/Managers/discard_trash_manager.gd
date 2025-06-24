@@ -3,6 +3,7 @@ extends Node
 
 @export var round_manager: RoundManager
 @export var point_text: Label
+@export var no_trash_warning_label: Label
 @export var discard_trash_scene: PackedScene
 
 var discard_trash: DiscardTrash
@@ -11,12 +12,15 @@ var discarded_card: TrashCard
 
 var trash_value: int
 
+var is_garbage_truck_square: bool
+
 func _ready() -> void:
 	discard_trash = discard_trash_scene.instantiate()
 	add_child(discard_trash)
 	discard_trash.visible = false
 	
 	point_text.visible = false
+	no_trash_warning_label.visible = false
 	
 	connect_signals()
 
@@ -54,25 +58,65 @@ func action_finished() -> void:
 		point_text.text = "+ " + str(trash_value) + " pontos"
 	point_text.visible = true
 	
+	await get_tree().create_timer(1).timeout
+	
 	tween = get_tree().create_tween()
-	tween.tween_property(point_text, "modulate:a", 0, 2.5)
+	tween.tween_property(point_text, "scale", Vector2.ZERO, 0.25)
 	
 	await tween.finished
 	
 	point_text.visible = false
-	point_text.modulate.a = 1
+	point_text.scale = Vector2(1, 1)
 	trash_value = 0
 	
+	is_garbage_truck_square = false
 	round_manager.square_action_finished()
+
+#region Discard square logic
+
+func call_discard_function(trash_type: TrashCardStats.types) -> void:
+	match trash_type:
+		TrashCardStats.types.glass:
+			_on_glass_pressed()
+		TrashCardStats.types.metal:
+			_on_metal_pressed()
+		TrashCardStats.types.organic:
+			_on_organic_pressed()
+		TrashCardStats.types.paper:
+			_on_paper_pressed()
+		TrashCardStats.types.plastic:
+			_on_plastic_pressed()
+
+func spawn_no_trash_warning(): 
+	if is_garbage_truck_square:
+		return
+		
+	no_trash_warning_label.visible = true
+	
+	await get_tree().create_timer(1.25).timeout
+	
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(no_trash_warning_label, "scale", Vector2.ZERO, 0.25)
+	
+	await tween.finished
+	
+	no_trash_warning_label.visible = false
+	no_trash_warning_label.scale = Vector2(1, 1)
+	
+	round_manager.square_action_finished()
+
+#endregion
 
 #region Garbage truck and buttons logic
 
 func discard_any_trash() -> void:
+	is_garbage_truck_square = true
 	discard_trash.visible = true
 
 func _on_glass_pressed() -> void:
 	if round_manager.active_player.glass_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
+		spawn_no_trash_warning()
 		return
 	
 	trash_value = round_manager.active_player.glass_trash_cards[0].stats.value
@@ -88,6 +132,7 @@ func _on_glass_pressed() -> void:
 func _on_metal_pressed() -> void:
 	if round_manager.active_player.metal_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
+		spawn_no_trash_warning()
 		return
 	
 	trash_value = round_manager.active_player.metal_trash_cards[0].stats.value
@@ -103,6 +148,7 @@ func _on_metal_pressed() -> void:
 func _on_organic_pressed() -> void:
 	if round_manager.active_player.organic_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
+		spawn_no_trash_warning()
 		return
 	
 	trash_value = round_manager.active_player.organic_trash_cards[0].stats.value
@@ -118,6 +164,7 @@ func _on_organic_pressed() -> void:
 func _on_paper_pressed() -> void:
 	if round_manager.active_player.paper_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
+		spawn_no_trash_warning()
 		return
 	
 	trash_value = round_manager.active_player.paper_trash_cards[0].stats.value
@@ -133,6 +180,7 @@ func _on_paper_pressed() -> void:
 func _on_plastic_pressed() -> void:
 	if round_manager.active_player.plastic_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
+		spawn_no_trash_warning()
 		return
 	
 	trash_value = round_manager.active_player.plastic_trash_cards[0].stats.value
