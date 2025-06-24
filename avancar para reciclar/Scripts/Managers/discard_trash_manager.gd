@@ -28,42 +28,43 @@ func _on_glass_pressed() -> void:
 		discard_trash.spawn_no_trash_warning()
 		return
 	
-	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.glass)
 	round_manager.active_player.points += round_manager.active_player.glass_trash_cards[0].stats.value
 	round_manager.active_player.glass_trash_cards.remove_at(0)
+	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.glass)
 
 func _on_metal_pressed() -> void:
 	if round_manager.active_player.metal_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
 		return
 	
-	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.metal)
 	round_manager.active_player.points += round_manager.active_player.metal_trash_cards[0].stats.value
 	round_manager.active_player.metal_trash_cards.remove_at(0)
+	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.metal)
 	
 func _on_organic_pressed() -> void:
 	if round_manager.active_player.organic_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
 		return
 	
-	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.organic)
 	round_manager.active_player.points += round_manager.active_player.organic_trash_cards[0].stats.value
 	round_manager.active_player.organic_trash_cards.remove_at(0)
+	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.organic)
 	
 func _on_paper_pressed() -> void:
 	if round_manager.active_player.paper_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
 		return
 	
-	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.paper)
 	round_manager.active_player.points += round_manager.active_player.paper_trash_cards[0].stats.value
 	round_manager.active_player.paper_trash_cards.remove_at(0)
+	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.paper)
 	
 func _on_plastic_pressed() -> void:
 	if round_manager.active_player.plastic_trash_cards.size() == 0:
 		discard_trash.spawn_no_trash_warning()
 		return
 	
-	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.plastic)
 	round_manager.active_player.points += round_manager.active_player.plastic_trash_cards[0].stats.value
 	round_manager.active_player.plastic_trash_cards.remove_at(0)
+	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.plastic)
+	
