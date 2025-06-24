@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=42 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_j4puw"]
 [ext_resource type="Texture2D" uid="uid://cj6ubyjblo183" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Green arrow.png" id="2_070h7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://20eb67wgmcey" path="res://Scripts/Managers/discard_trash_manager.gd" id="6_8ibct"]
 [ext_resource type="Script" uid="uid://cmoudadi40tjf" path="res://Scripts/Managers/audio_manager.gd" id="6_xejj2"]
 [ext_resource type="AudioStream" uid="uid://lfkiy52e7xlh" path="res://Assets/Audio/SFX/pawn moving.ogg" id="7_5i7t7"]
+[ext_resource type="PackedScene" uid="uid://1xhhrwmy0bxy" path="res://Scenes/HUD/discard trash.tscn" id="7_xejj2"]
 [ext_resource type="AudioStream" uid="uid://dvi78g742jdmp" path="res://Assets/Audio/SFX/rolling dice.ogg" id="8_42vk5"]
 [ext_resource type="AudioStream" uid="uid://cnfk75xhxx1w1" path="res://Assets/Audio/OST/Question card OST.ogg" id="9_bens0"]
 [ext_resource type="AudioStream" uid="uid://b5wui1f7ivm1c" path="res://Assets/Audio/OST/Minigame OST.ogg" id="10_njctx"]
@@ -78,6 +79,7 @@ player3 = NodePath("../../Players/Player 3")
 [node name="Discard Trash Manager" type="Node" parent="Managers" node_paths=PackedStringArray("round_manager") groups=["Discard Trash Manager"]]
 script = ExtResource("6_8ibct")
 round_manager = NodePath("../Round Manager")
+discard_trash_scene = ExtResource("7_xejj2")
 
 [node name="Audio Manager" type="Node" parent="Managers" node_paths=PackedStringArray("move", "rolling_dice", "boat_minigame_ost", "question_card_ost")]
 script = ExtResource("6_xejj2")
