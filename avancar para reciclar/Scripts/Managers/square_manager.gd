@@ -9,7 +9,11 @@ enum square_type
 {
 	luck_card, # draws a luck card with a random action
 	collect_trash, # player collects a random trash
-	discard_trash, # player can discard a specific trash card
+	discard_glass, # player can discard glass
+	discard_metal, # player can discard metal
+	discard_organic, # player can discard organic
+	discard_paper, # player can discard paper
+	discard_plastic, # player can discard plastic
 	garbage_truck, # player can discard any trash card
 	quiz_card # draws a quiz card
 }
@@ -29,8 +33,16 @@ func action(type: square_type):
 			luck_card()
 		square_type.collect_trash:
 			collect_trash()
-		square_type.discard_trash:
-			discard_trash()
+		square_type.discard_glass:
+			discard_trash(TrashCardStats.types.glass)
+		square_type.discard_metal:
+			discard_trash(TrashCardStats.types.metal)
+		square_type.discard_organic:
+			discard_trash(TrashCardStats.types.organic)
+		square_type.discard_paper:
+			discard_trash(TrashCardStats.types.paper)
+		square_type.discard_plastic:
+			discard_trash(TrashCardStats.types.plastic)
 		square_type.garbage_truck:
 			garbage_truck()
 		square_type.quiz_card:
@@ -43,8 +55,9 @@ func luck_card() -> void:
 func collect_trash() -> void:
 	round_manager.add_trash(round_manager.turn - 1, round_manager.get_random_trash_type())
 	
-func discard_trash() -> void:
+func discard_trash(trash_type: TrashCardStats.types) -> void:
 	print("Player landed on a Discard trash square")
+	print("Parameter passed: " + str(trash_type))
 	round_manager.square_action_finished()
 	
 func garbage_truck() -> void:
