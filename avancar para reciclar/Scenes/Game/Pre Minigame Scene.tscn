@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://dvbvx8lvkwn7o" path="res://Resources/Map Elements/Squares/Quiz card.tres" id="6_og46x"]
 [ext_resource type="Resource" uid="uid://br484ai56mu1a" path="res://Resources/Map Elements/Squares/Luck card.tres" id="7_6kwjd"]
 [ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="8_qvif6"]
-[ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard trash.tres" id="9_jekwd"]
+[ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard glass.tres" id="9_jekwd"]
 [ext_resource type="Resource" uid="uid://d1411atrrck5y" path="res://Resources/Map Elements/Squares/Garbage truck.tres" id="10_wc62w"]
 [ext_resource type="PackedScene" uid="uid://bakufkwaxuiuk" path="res://Scenes/Player/Player.tscn" id="11_tb405"]
 [ext_resource type="Texture2D" uid="uid://ce60jpwum60vy" path="res://Assets/Sprites/Players/Yellow pawn.png" id="12_glyv7"]

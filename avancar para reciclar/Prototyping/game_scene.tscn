@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dnlh52pyr57r1" path="res://Assets/Sprites/Maps/Mapa_Avacar_para_reciclar_1.png" id="5_jxx51"]
 [ext_resource type="Resource" uid="uid://deauvaioy08lj" path="res://Resources/Map Elements/Squares/Collect trash.tres" id="6_m6pt0"]
 [ext_resource type="PackedScene" uid="uid://b2bk0jwfl75h8" path="res://Scenes/Game/scrolling_camera.tscn" id="8_wsift"]
-[ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard trash.tres" id="10_fqdje"]
+[ext_resource type="Resource" uid="uid://cblfivyvyby7g" path="res://Resources/Map Elements/Squares/Discard glass.tres" id="10_fqdje"]
 
 [node name="Game scene" type="Node2D"]
 

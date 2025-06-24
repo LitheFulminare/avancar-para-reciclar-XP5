@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SquareStats" load_steps=3 format=3 uid="uid://ci8c35mlxv50p"]
+
+[ext_resource type="Script" uid="uid://djo0ibe5y6lo3" path="res://Scripts/Map elements/square resource.gd" id="1_hxhw6"]
+[ext_resource type="Texture2D" uid="uid://bn25kaptmkdoo" path="res://Assets/Sprites/Squares/Discard metal.png" id="2_hxhw6"]
+
+[resource]
+script = ExtResource("1_hxhw6")
+sprite = ExtResource("2_hxhw6")
+type = 3
+metadata/_custom_type_script = "uid://djo0ibe5y6lo3"
