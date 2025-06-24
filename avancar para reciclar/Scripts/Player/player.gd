@@ -1,6 +1,7 @@
 class_name Player
 extends Node2D
 
+signal points_changed # connected to player_stats_hud
 signal trash_inventory_changed(trash_type: TrashCardStats.types) # connected to player_stats_hud
 signal stopped_moving # connected to player_stopped_moving() on the RoundManager
 signal dice_landed

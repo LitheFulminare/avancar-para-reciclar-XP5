@@ -20,6 +20,11 @@ func connect_signals() -> void:
 	discard_trash.paper_button_pressed.connect(_on_paper_pressed)
 	discard_trash.plastic_button_pressed.connect(_on_plastic_pressed)
 
+func action_finished() -> void:
+	discard_trash.visible = false
+
+#region Garbage truck and buttons logic
+
 func discard_any_trash() -> void:
 	discard_trash.visible = true
 
@@ -31,6 +36,9 @@ func _on_glass_pressed() -> void:
 	round_manager.active_player.points += round_manager.active_player.glass_trash_cards[0].stats.value
 	round_manager.active_player.glass_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.glass)
+	round_manager.active_player.points_changed.emit()
+	
+	action_finished()
 
 func _on_metal_pressed() -> void:
 	if round_manager.active_player.metal_trash_cards.size() == 0:
@@ -40,6 +48,9 @@ func _on_metal_pressed() -> void:
 	round_manager.active_player.points += round_manager.active_player.metal_trash_cards[0].stats.value
 	round_manager.active_player.metal_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.metal)
+	round_manager.active_player.points_changed.emit()
+	
+	action_finished()
 	
 func _on_organic_pressed() -> void:
 	if round_manager.active_player.organic_trash_cards.size() == 0:
@@ -49,6 +60,9 @@ func _on_organic_pressed() -> void:
 	round_manager.active_player.points += round_manager.active_player.organic_trash_cards[0].stats.value
 	round_manager.active_player.organic_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.organic)
+	round_manager.active_player.points_changed.emit()
+	
+	action_finished()
 	
 func _on_paper_pressed() -> void:
 	if round_manager.active_player.paper_trash_cards.size() == 0:
@@ -58,6 +72,9 @@ func _on_paper_pressed() -> void:
 	round_manager.active_player.points += round_manager.active_player.paper_trash_cards[0].stats.value
 	round_manager.active_player.paper_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.paper)
+	round_manager.active_player.points_changed.emit()
+	
+	action_finished()
 	
 func _on_plastic_pressed() -> void:
 	if round_manager.active_player.plastic_trash_cards.size() == 0:
@@ -67,4 +84,8 @@ func _on_plastic_pressed() -> void:
 	round_manager.active_player.points += round_manager.active_player.plastic_trash_cards[0].stats.value
 	round_manager.active_player.plastic_trash_cards.remove_at(0)
 	round_manager.active_player.trash_inventory_changed.emit(TrashCardStats.types.plastic)
+	round_manager.active_player.points_changed.emit()
 	
+	action_finished()
+	
+#endregion
