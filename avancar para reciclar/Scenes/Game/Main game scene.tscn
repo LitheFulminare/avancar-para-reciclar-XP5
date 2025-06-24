@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://wvcevyu5vojc"]
+[gd_scene load_steps=43 format=3 uid="uid://wvcevyu5vojc"]
 
 [ext_resource type="Script" uid="uid://bhr6ih856bx5t" path="res://Scripts/Managers/round_manager.gd" id="1_j4puw"]
 [ext_resource type="Texture2D" uid="uid://cj6ubyjblo183" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Arrows/Green arrow.png" id="2_070h7"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://b6xvugiolbrqj" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/WASD Panel.png" id="34_qah05"]
 [ext_resource type="Texture2D" uid="uid://b7638mb0ar21h" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/Q E Panel.png" id="35_68kqx"]
 [ext_resource type="Texture2D" uid="uid://dtbshrq6g2j0b" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Misc/R Panel.png" id="36_rd2ry"]
+[ext_resource type="PackedScene" uid="uid://dqtysgir4xr4p" path="res://Scenes/HUD/Guide.tscn" id="42_5i7t7"]
 
 [node name="MapTest" type="Node2D"]
 
@@ -684,10 +685,7 @@ text = "Voltar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tutorial button" type="TextureButton" parent="HUD Canvas Layer/HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Guide" parent="HUD Canvas Layer" instance=ExtResource("42_5i7t7")]
 
 [node name="UI" type="Node" parent="."]
 
