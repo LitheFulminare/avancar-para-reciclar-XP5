@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://br042byg7dm5t" path="res://Assets/Sprites/Cards/Trash cards/Trash card (face down).png" id="3_dq5ub"]
 
 [node name="TrashCard" type="Node2D" node_paths=PackedStringArray("icon", "background_card", "face_up_elements", "face_down_elements")]
+z_index = 2
 script = ExtResource("1_kd3w2")
 icon = NodePath("Face up elements/Icon")
 background_card = NodePath("Face up elements/Background card")

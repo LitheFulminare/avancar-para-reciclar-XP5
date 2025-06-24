@@ -232,6 +232,11 @@ func end_turn() -> void:
 	action()
 
 func end_round():
+	if current_round == 5:
+		end_game_message()
+		
+		return
+	
 	current_round += 1
 	current_round_state = round_states.start_round
 	
@@ -240,6 +245,31 @@ func end_round():
 	await get_tree().create_timer(1.5).timeout
 	
 	go_to_minigame()
+
+func end_game_message() -> void:
+	game_message.display_message("Fim de jogo!")
+	
+	await get_tree().create_timer(2).timeout
+	
+	if player1.points > player2.points && player1.points > player3.points:
+		game_message.display_message("Jogador 1 ganhou")
+	elif player2.points > player1.points && player2.points > player3.points:
+		game_message.display_message("Jogador 2 ganhou")
+	elif player3.points > player1.points && player3.points > player2.points:
+		game_message.display_message("Jogador 3 ganhou")
+		
+	elif player1.points == player2.points:
+		game_message.display_message("Jogadores 1 e 2 ganharam")
+		if player1.points == player3.points:
+			game_message.display_message("Todos os jogadores empataram")
+	elif player1.points == player3.points:
+		game_message.display_message("Jogadores 1 e 3 ganharam")
+	elif player2.points == player3.points:
+		game_message.display_message("Jogadores 2 e 3 ganharam")
+		
+	await get_tree().create_timer(5).timeout
+	
+	GameManager.go_to_scene("res://Scenes/Game/Main menu.tscn")
 
 #region Movement
 
@@ -273,12 +303,12 @@ func dice_roll(is_first_roll: bool) -> void:
 	is_first_dice_roll = is_first_roll
 	
 	if is_first_dice_roll:
-		first_dice_result = 1#GameManager.roll_dice(1, 6)
+		first_dice_result = GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(first_dice_result, is_first_dice_roll)
 		print("First dice roll: " + str(first_dice_result))
 		#current_round_state = round_states.second_dice_roll
 	else:
-		second_dice_result = 1#GameManager.roll_dice(1, 6)
+		second_dice_result = GameManager.roll_dice(1, 6)
 		active_player.spawn_dice(second_dice_result, is_first_dice_roll)
 		total_dice_result = first_dice_result + second_dice_result
 		print("Second dice roll: " + str(second_dice_result))
@@ -460,6 +490,8 @@ func add_trash(target_player_index: int, trash_type: TrashCardStats, call_square
 	var spawned_trash_card: TrashCard = trash_card.instantiate()
 	get_tree().root.add_child(spawned_trash_card)
 	spawned_trash_card.update_stats(trash_type)
+	
+	spawned_trash_card.z_index = 2
 	
 	#spawned_trash_card.position = trash_card_stack.global_position
 	#spawned_trash_card.scale = trash_card_stack.scale
