@@ -24,16 +24,26 @@ func discard_any_trash() -> void:
 	discard_trash.visible = true
 
 func _on_glass_pressed() -> void:
-	print("Glass pressed")
+	if round_manager.active_player.glass_trash_cards.size() == 0:
+		discard_trash.spawn_no_trash_warning()
+		return
 
 func _on_metal_pressed() -> void:
-	print("Metal pressed")
+	if round_manager.active_player.metal_trash_cards.size() == 0:
+		discard_trash.spawn_no_trash_warning()
+		return
 	
 func _on_organic_pressed() -> void:
-	print("Organic pressed")
+	if round_manager.active_player.organic_trash_cards.size() == 0:
+		discard_trash.spawn_no_trash_warning()
+		return
 	
 func _on_paper_pressed() -> void:
-	print("Paper pressed")
+	if round_manager.active_player.paper_trash_cards.size() == 0:
+		discard_trash.spawn_no_trash_warning()
+		return
 	
 func _on_plastic_pressed() -> void:
-	print("Plastic pressed")
+	if round_manager.active_player.plastic_trash_cards.size() == 0:
+		discard_trash.spawn_no_trash_warning()
+		return

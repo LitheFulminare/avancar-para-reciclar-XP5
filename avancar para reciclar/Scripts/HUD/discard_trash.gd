@@ -21,7 +21,7 @@ func spawn_no_trash_warning() -> void:
 	if warning_label.modulate.a == 0:
 		warning_label.modulate.a = 1
 		var tween: Tween = get_tree().create_tween()
-		tween.tween_property(warning_label, "modulate:a", 0, 5)
+		tween.tween_property(warning_label, "modulate:a", 0, 3)
 
 
 func _on_glass_pressed() -> void:
