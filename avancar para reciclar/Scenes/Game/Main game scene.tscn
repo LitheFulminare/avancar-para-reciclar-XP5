@@ -195,7 +195,8 @@ texture = ExtResource("15_u5yw0")
 centered = false
 
 [node name="Stack of question cards" type="Sprite2D" parent="BG and Map Elements"]
-position = Vector2(31, 464)
+z_index = 1
+position = Vector2(60, 468)
 scale = Vector2(0.0518229, 0.0532407)
 texture = ExtResource("16_m0i3o")
 
@@ -204,7 +205,7 @@ position = Vector2(28.9446, 28.1738)
 scale = Vector2(14.4024, 14.0189)
 
 [node name="Stack of trash cards" type="Sprite2D" parent="BG and Map Elements"]
-position = Vector2(93, 437)
+position = Vector2(59, 366)
 scale = Vector2(0.0518229, 0.0532407)
 texture = ExtResource("17_jxwce")
 
@@ -213,6 +214,7 @@ position = Vector2(28.9446, 28.1738)
 scale = Vector2(14.4024, 14.0189)
 
 [node name="Stack of luck cards" type="Sprite2D" parent="BG and Map Elements"]
+visible = false
 position = Vector2(30, 362)
 scale = Vector2(0.0518229, 0.0532407)
 texture = ExtResource("18_t3u2h")
@@ -686,6 +688,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Guide" parent="HUD Canvas Layer" instance=ExtResource("42_5i7t7")]
+position = Vector2(0, -35)
 
 [node name="UI" type="Node" parent="."]
 
