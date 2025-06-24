@@ -671,3 +671,7 @@ func _on_branch_2_b_button_pressed() -> void:
 	player_chose_branch.emit()
 
 #endregion
+
+
+func _on_ost_victory_finished() -> void:
+	GameManager.go_to_scene("res://Scenes/Game/Main menu.tscn")

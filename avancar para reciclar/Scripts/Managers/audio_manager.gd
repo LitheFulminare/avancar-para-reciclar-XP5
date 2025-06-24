@@ -10,6 +10,8 @@ extends Node
 @export_group("OST")
 @export var boat_minigame_ost: AudioStreamPlayer
 @export var question_card_ost: AudioStreamPlayer
+@export var gameplay_ost: AudioStreamPlayer
+@export var victory_ost: AudioStreamPlayer
 
 func get_random_pitch() -> float:
 	randomize()
@@ -38,3 +40,7 @@ func play_boat_minigame_ost() -> void:
 	
 func stop_boat_minigame_ost() -> void:
 	boat_minigame_ost.stop()
+	
+func play_victory_ost() -> void:
+	victory_ost.play()
+	gameplay_ost.stop()
