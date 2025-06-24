@@ -684,6 +684,11 @@ text = "Voltar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Tutorial button" type="TextureButton" parent="HUD Canvas Layer/HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="UI" type="Node" parent="."]
 
 [node name="Branch 1 buttons" type="Node2D" parent="UI"]

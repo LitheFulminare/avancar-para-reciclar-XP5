@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://bxvwd2sst80lt" path="res://Scripts/Misc/fit_text_in_label.gd" id="3_bryby"]
 [ext_resource type="Theme" uid="uid://bnygovcukwib" path="res://Misc/Text/Question card text theme.tres" id="3_kmoot"]
 [ext_resource type="Texture2D" uid="uid://3kunblxicgqt" path="res://Assets/Sprites/Cards/Question cards/Question card facing down.png" id="5_bryby"]
-[ext_resource type="Texture2D" uid="uid://c7fe72vtkcgtj" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (normal).png" id="6_yadp4"]
-[ext_resource type="Texture2D" uid="uid://j8iqinper7to" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (pressed).png" id="7_dlxh6"]
-[ext_resource type="Texture2D" uid="uid://dd26cx034ju7v" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (hover).png" id="8_a11kn"]
-[ext_resource type="BitMap" uid="uid://ds8kqltqbl8xs" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (click mask).png" id="9_u1ljw"]
+[ext_resource type="Texture2D" uid="uid://c7fe72vtkcgtj" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue/Continue (normal).png" id="6_yadp4"]
+[ext_resource type="Texture2D" uid="uid://j8iqinper7to" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue/Continue (pressed).png" id="7_dlxh6"]
+[ext_resource type="Texture2D" uid="uid://dd26cx034ju7v" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue/Continue (hover).png" id="8_a11kn"]
+[ext_resource type="BitMap" uid="uid://ds8kqltqbl8xs" path="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue/Continue (click mask).png" id="9_u1ljw"]
 
 [node name="Question Card" type="Node2D" node_paths=PackedStringArray("face_up_elements", "face_down_elements", "answer_result", "continue_button", "question_text_label", "answer1_button", "answer2_button", "answer3_button", "answer4_button")]
 script = ExtResource("1_7iqeb")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7fe72vtkcgtj"
-path="res://.godot/imported/Continue (normal).png-c5b71ff3ef509bf473da272336450f0f.ctex"
+uid="uid://dcalqtofojdix"
+path="res://.godot/imported/Owl (hover).png-e03a85f84d71bca5e92e1032eb6be374.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Continue (normal).png"
-dest_files=["res://.godot/imported/Continue (normal).png-c5b71ff3ef509bf473da272336450f0f.ctex"]
+source_file="res://Assets/Sprites/HUD & UI/UI/Misc buttons/Tutorial Owl/Owl (hover).png"
+dest_files=["res://.godot/imported/Owl (hover).png-e03a85f84d71bca5e92e1032eb6be374.ctex"]
 
 [params]
 
