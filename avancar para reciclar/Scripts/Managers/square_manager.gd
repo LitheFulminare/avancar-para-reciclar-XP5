@@ -61,8 +61,8 @@ func discard_trash(trash_type: TrashCardStats.types) -> void:
 	round_manager.square_action_finished()
 	
 func garbage_truck() -> void:
-	print("Player landed on a Garbade Truck square")
-	round_manager.square_action_finished()
+	get_tree().call_group("Discard Trash Manager", "discard_any_trash")
+	#round_manager.square_action_finished()
 
 func quiz_card():
 	round_manager.draw_question_card()

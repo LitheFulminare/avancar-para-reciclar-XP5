@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://4fgsoio5etjv" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Plastic (hover).png" id="16_mr1rb"]
 
 [node name="DiscardTrash" type="Node2D" node_paths=PackedStringArray("warning_label")]
+z_index = 2
 script = ExtResource("1_2quav")
 warning_label = NodePath("Control/Warning label")
 

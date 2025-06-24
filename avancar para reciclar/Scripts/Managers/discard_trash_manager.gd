@@ -6,6 +6,10 @@ extends Node
 
 var discard_trash: DiscardTrash
 
-func discard_any_trash() -> void:
+func _ready() -> void:
 	discard_trash = discard_trash_scene.instantiate()
 	add_child(discard_trash)
+	discard_trash.visible = false
+
+func discard_any_trash() -> void:
+	discard_trash.visible = true
