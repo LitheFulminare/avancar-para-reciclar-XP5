@@ -113,3 +113,9 @@ layout_mode = 2
 texture_normal = ExtResource("14_7o3r1")
 texture_pressed = ExtResource("15_8vs6n")
 texture_hover = ExtResource("16_mr1rb")
+
+[connection signal="pressed" from="Control/HBoxContainer/Glass" to="." method="_on_glass_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Metal" to="." method="_on_metal_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Organic" to="." method="_on_organic_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Paper" to="." method="_on_paper_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Plastic" to="." method="_on_plastic_pressed"]
