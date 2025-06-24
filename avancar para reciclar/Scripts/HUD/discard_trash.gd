@@ -1,0 +1,2 @@
+class_name DiscardTrash
+extends Node2D

@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://1xhhrwmy0bxy"]
+
+[ext_resource type="Script" uid="uid://bp6i7hqx86vd4" path="res://Scripts/HUD/discard_trash.gd" id="1_2quav"]
+[ext_resource type="Texture2D" uid="uid://bgotbymgog0ra" path="res://Assets/Sprites/Squares/Discard glass.png" id="2_tycqh"]
+
+[node name="DiscardTrash" type="Node2D"]
+script = ExtResource("1_2quav")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -160.075
+offset_right = 332.0
+offset_bottom = -110.075
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 36
+text = "Escolha um tipo de lixo para descartar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -63.0
+offset_right = 2201.0
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+alignment = 1
+
+[node name="Glass" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_tycqh")
+
+[node name="Metal" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_tycqh")
+
+[node name="Organic" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_tycqh")
+
+[node name="Paper" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_tycqh")
+
+[node name="Plastic" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_tycqh")
