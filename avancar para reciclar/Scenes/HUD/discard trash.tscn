@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://1xhhrwmy0bxy"]
+[gd_scene load_steps=17 format=3 uid="uid://1xhhrwmy0bxy"]
 
 [ext_resource type="Script" uid="uid://bp6i7hqx86vd4" path="res://Scripts/HUD/discard_trash.gd" id="1_2quav"]
 [ext_resource type="Texture2D" uid="uid://bgotbymgog0ra" path="res://Assets/Sprites/Squares/Discard glass.png" id="2_tycqh"]
+[ext_resource type="Texture2D" uid="uid://bvk1l77p3hv34" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Glass (pressed).png" id="3_on0fl"]
+[ext_resource type="Texture2D" uid="uid://bxwdjoxl8scfv" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Glass (hover).png" id="4_e638h"]
+[ext_resource type="Texture2D" uid="uid://rkg084rxhrbu" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Metal (normal).png" id="5_ht6jf"]
+[ext_resource type="Texture2D" uid="uid://bjj30rbcbhmmf" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Metal (pressed).png" id="6_e7nqy"]
+[ext_resource type="Texture2D" uid="uid://b5l3w2n6rk8b" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Metal (hover).png" id="7_kk0rn"]
+[ext_resource type="Texture2D" uid="uid://c47x36pve05nj" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Organic (normal).png" id="8_kk0rn"]
+[ext_resource type="Texture2D" uid="uid://ho6wliadf2yw" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Organic (pressed).png" id="9_w71m7"]
+[ext_resource type="Texture2D" uid="uid://bnmd0u1obqnki" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Organic (hover).png" id="10_w71m7"]
+[ext_resource type="Texture2D" uid="uid://b5g5dbirva0cw" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Paper (normal).png" id="11_fxmc1"]
+[ext_resource type="Texture2D" uid="uid://b8f3lavurlv45" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Paper (pressed).png" id="12_km8tc"]
+[ext_resource type="Texture2D" uid="uid://dso5g31dm2swu" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Paper (hover).png" id="13_km8tc"]
+[ext_resource type="Texture2D" uid="uid://dfm3uqxtbft2v" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Plastic (normal).png" id="14_7o3r1"]
+[ext_resource type="Texture2D" uid="uid://bbwcpj07axyk1" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Plastic (pressed).png" id="15_8vs6n"]
+[ext_resource type="Texture2D" uid="uid://4fgsoio5etjv" path="res://Assets/Sprites/HUD & UI/UI/Gameplay/Trash/Plastic (hover).png" id="16_mr1rb"]
 
 [node name="DiscardTrash" type="Node2D"]
 script = ExtResource("1_2quav")
@@ -50,19 +64,29 @@ alignment = 1
 [node name="Glass" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_tycqh")
+texture_pressed = ExtResource("3_on0fl")
+texture_hover = ExtResource("4_e638h")
 
 [node name="Metal" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_tycqh")
+texture_normal = ExtResource("5_ht6jf")
+texture_pressed = ExtResource("6_e7nqy")
+texture_hover = ExtResource("7_kk0rn")
 
 [node name="Organic" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_tycqh")
+texture_normal = ExtResource("8_kk0rn")
+texture_pressed = ExtResource("9_w71m7")
+texture_hover = ExtResource("10_w71m7")
 
 [node name="Paper" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_tycqh")
+texture_normal = ExtResource("11_fxmc1")
+texture_pressed = ExtResource("12_km8tc")
+texture_hover = ExtResource("13_km8tc")
 
 [node name="Plastic" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_tycqh")
+texture_normal = ExtResource("14_7o3r1")
+texture_pressed = ExtResource("15_8vs6n")
+texture_hover = ExtResource("16_mr1rb")
