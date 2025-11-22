@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dx83ti7x1amjm"]
+[gd_scene load_steps=23 format=3 uid="uid://dx83ti7x1amjm"]
 
 [ext_resource type="Script" uid="uid://i6r7kh8u6rqr" path="res://Scripts/Managers/main_menu.gd" id="1_kb386"]
 [ext_resource type="Texture2D" uid="uid://cjd7cj6fch37w" path="res://Assets/Sprites/HUD & UI/UI/Menu/Images/BG Menu.png" id="2_kr18p"]
@@ -12,7 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://cc6jacw0ubcl3" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Exit button/Exit - pressed.png" id="7_ka1ax"]
 [ext_resource type="Texture2D" uid="uid://bpqrumt0ffsar" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Exit button/Exit hover.png" id="8_blkr1"]
 [ext_resource type="Texture2D" uid="uid://cha44nvdwtaur" path="res://Assets/Sprites/HUD & UI/UI/Menu/Images/Logo.png" id="10_blkr1"]
+[ext_resource type="Texture2D" uid="uid://cw0oxk0ecii3v" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Settings button/Settings.png" id="11_8i3re"]
+[ext_resource type="Texture2D" uid="uid://0l5sibdt14i4" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Settings button/Settings - pressed.png" id="12_0o5cu"]
 [ext_resource type="PackedScene" uid="uid://dqtysgir4xr4p" path="res://Scenes/HUD/Guide.tscn" id="12_yr3rr"]
+[ext_resource type="Texture2D" uid="uid://cixsbmhkdk5fv" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Settings button/Settings - hover.png" id="13_c1d5l"]
+[ext_resource type="Texture2D" uid="uid://c71q0204ia32x" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Credits button/Credits.png" id="14_fybbh"]
+[ext_resource type="Texture2D" uid="uid://bknmbe7ecgux7" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Credits button/Credits - pressed.png" id="15_h8td2"]
+[ext_resource type="Texture2D" uid="uid://cvcerb6t5w17t" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/Credits button/Credits - hover.png" id="16_plfml"]
+[ext_resource type="Texture2D" uid="uid://c44n67b6fu47t" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/How to play/How to play (normal).png" id="17_qj63g"]
+[ext_resource type="Texture2D" uid="uid://sfvsccg8fh1b" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/How to play/How to play (pressed).png" id="18_twgmr"]
+[ext_resource type="Texture2D" uid="uid://cwd41cfi3cdow" path="res://Assets/Sprites/HUD & UI/UI/Menu/Buttons/How to play/How to play (hover).png" id="19_csk5b"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_kb386")
@@ -53,12 +62,25 @@ texture = ExtResource("10_blkr1")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Start" type="TextureButton" parent="Control"]
+[node name="Guide" parent="Control" instance=ExtResource("12_yr3rr")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -314.915
+offset_right = 250.0
+offset_bottom = 488.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -405
+
+[node name="Start" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
-offset_left = 333.0
-offset_top = 63.0
-offset_right = 833.0
-offset_bottom = 563.0
 size_flags_horizontal = 4
 texture_normal = ExtResource("3_faxhc")
 texture_pressed = ExtResource("4_q8jrw")
@@ -67,12 +89,39 @@ texture_click_mask = ExtResource("6_ka1ax")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Exit" type="TextureButton" parent="Control"]
+[node name="Settings" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
-offset_left = 333.0
-offset_top = 164.0
-offset_right = 833.0
-offset_bottom = 664.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("11_8i3re")
+texture_pressed = ExtResource("12_0o5cu")
+texture_hover = ExtResource("13_c1d5l")
+texture_click_mask = ExtResource("6_ka1ax")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits" type="TextureButton" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("14_fybbh")
+texture_pressed = ExtResource("15_h8td2")
+texture_hover = ExtResource("16_plfml")
+texture_click_mask = ExtResource("6_ka1ax")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="How to play" type="TextureButton" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("17_qj63g")
+texture_pressed = ExtResource("18_twgmr")
+texture_hover = ExtResource("19_csk5b")
+texture_click_mask = ExtResource("6_ka1ax")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="TextureButton" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_h0bu2")
 texture_pressed = ExtResource("7_ka1ax")
@@ -80,7 +129,5 @@ texture_hover = ExtResource("8_blkr1")
 texture_click_mask = ExtResource("6_ka1ax")
 metadata/_edit_use_anchors_ = true
 
-[node name="Guide" parent="Control" instance=ExtResource("12_yr3rr")]
-
-[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
